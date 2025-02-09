@@ -9,7 +9,6 @@ import {
 } from '@/components/ui/card'
 import MainNav from './components/MainNav.vue'
 
-import Search from './components/Search.vue'
 import CamSwitcher from "@/components/CamSwitcher.vue";
 
 import { ref, onMounted, watch } from 'vue'
