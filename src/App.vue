@@ -39,6 +39,7 @@ import { ExternalLinkIcon } from '@radix-icons/vue'
 const filePath = '../austria-cams.json';
 
 import webcams from '@/assets/austria-cams.json';
+import EmptyCard from '@/components/ui/card/EmptyCard.vue'
 
 
 const selectedWebcams = ref([]);
@@ -53,6 +54,8 @@ onMounted(() => {
 watch(selectedWebcams, (newSelection) => {
   localStorage.setItem('selectedWebcams', JSON.stringify(newSelection))
 })
+
+const webcamSelectorRef = ref(null);
 </script>
 
 <template>
@@ -60,12 +63,12 @@ watch(selectedWebcams, (newSelection) => {
     <div class="border-b">
       <div class="flex h-16 items-center px-4">
         <CamSwitcher
+          ref="webcamSelectorRef"
           :webcams="webcams"
           :selectedWebcams="selectedWebcams"
           @update:selectedWebcams="selectedWebcams = $event"/>
         <MainNav class="mx-6"/>
         <div class="ml-auto flex items-center space-x-4">
-          <Search/>
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
               <Button variant="outline">
@@ -91,7 +94,7 @@ watch(selectedWebcams, (newSelection) => {
     </div>
     <div class="flex flex-1 flex-grow space-y-4 p-4">
       <div class="w-full grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:grid-rows-3">
-        <Card v-for="cam in selectedWebcams" class="h-[500px] lg:h-full col-span-1 flex flex-col group relative">
+        <Card v-for="cam in selectedWebcams" v-bind:key="cam.name" class="h-[500px] lg:h-full col-span-1 flex flex-col group relative">
           <CardHeader class="flex-row justify-between items-center absolute w-full hidden bg-background group-hover:flex">
             <CardTitle>{{cam.name}}</CardTitle>
             <a :href="cam.url" class="bg-secondary hover:bg-secondary/90 rounded p-0.5" target="_blank"><ExternalLinkIcon></ExternalLinkIcon></a>
@@ -100,6 +103,10 @@ watch(selectedWebcams, (newSelection) => {
             <iframe :src="cam.url" class="w-full  aspect-1" sandbox="allow-scripts" ></iframe>
           </CardContent>
         </Card>
+        <template v-if="selectedWebcams.length < 9">
+          <EmptyCard v-for="i in 9 - selectedWebcams.length" v-bind:key="i" @click="webcamSelectorRef.open = true">
+          </EmptyCard>
+        </template>
       </div>
     </div>
   </div>

@@ -32,7 +32,7 @@ import { cn } from '@/lib/utils'
 import { CaretSortIcon, CheckIcon,  PlusCircledIcon} from '@radix-icons/vue'
 import { ref, computed, watch } from 'vue'
 
-const emit = defineEmits()
+const emit = defineEmits(['update:selectedWebcams']);
 
 const { webcams, selectedWebcams } = defineProps(['webcams', 'selectedWebcams'])
 
@@ -57,8 +57,10 @@ const filteredWebcams = computed(() => {
 })
 import { debounce } from '@/lib/utils'
 // Debounced function to fetch API results
-const fetchApiResults = debounce(async (query: string) => {
-  if (!query) return
+const fetchApiResults = debounce(async (query) => {
+  if (!query) {
+    return
+  }
 
   try {
     const response = await fetch(`https://www.bergfex.com/presentation/api/search/webcams/?q=${query}`, {
@@ -80,6 +82,10 @@ const fetchApiResults = debounce(async (query: string) => {
 // Watch for changes in the search query and trigger the API call
 watch(searchQuery, (newQuery) => {
   fetchApiResults(newQuery)
+})
+
+defineExpose({
+  open
 })
 
 const toggleSelection = (webcam) => {

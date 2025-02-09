@@ -18,4 +18,21 @@ export default [
   ...pluginVue.configs['flat/essential'],
   oxlint.configs['flat/recommended'],
   skipFormatting,
+  {
+    name: 'app/disable-multi-word',
+    rules: {
+      'vue/multi-word-component-names': 'off',
+    },
+  },
+  {
+    name: 'app/node-files',
+    files: ['**/sync-cams.js', '**/tailwind.config.js'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        require: 'readonly',
+        module: 'readonly',
+      },
+    },
+  },
 ]
