@@ -58,7 +58,7 @@ const webcamSelectorRef = ref(null);
 </script>
 
 <template>
-  <div class="hidden h-full flex-col md:flex ">
+  <div class="lg:h-full flex-col md:flex">
     <div class="border-b">
       <div class="flex h-16 items-center px-4">
         <CamSwitcher
