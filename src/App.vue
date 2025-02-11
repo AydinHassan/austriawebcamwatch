@@ -1,17 +1,7 @@
 <script setup>
 import {Button} from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import MainNav from './components/MainNav.vue'
-
 import CamSwitcher from "@/components/CamSwitcher.vue";
-import { Badge } from '@/components/ui/badge'
-import { GlobeIcon, HomeIcon, GithubLogoIcon } from '@radix-icons/vue'
+import { GlobeIcon, HomeIcon, GithubLogoIcon, CameraIcon, TwitterLogoIcon } from '@radix-icons/vue'
 import { useRoute } from 'vue-router';
 
 
@@ -94,6 +84,13 @@ const route = useRoute();
 const toggleTo = computed(() => (route.path === '/map' ? '/' : '/map'));
 const path = computed(() => (route.path));
 
+
+const footerNavigation = [
+  { name: 'GitHub', href: 'https://www.github.com/AydinHassan', icon: GithubLogoIcon},
+  { name: 'Website', href: 'https://www.aydinhassan.co.uk', icon: GlobeIcon},
+  { name: 'Photography', href: 'https://www.aydinhassanphotography.com', icon: CameraIcon},
+  { name: 'X', href: 'https://x.com/aydinh', icon: TwitterLogoIcon},
+]
 </script>
 
 <template>
@@ -104,7 +101,9 @@ const path = computed(() => (route.path));
           ref="webcamSelectorRef"
           :selectedWebcams="selectedWebcams"
         />
-        <MainNav class="mx-6"/>
+        <span class="mx-6 text-sm font-medium transition-colors hover:text-primary">
+          Austria Webcam Watch
+       </span>
         <div class="ml-auto flex items-center space-x-4">
             <RouterLink :to="toggleTo">
               <Button variant="outline">
@@ -143,5 +142,16 @@ const path = computed(() => (route.path));
     <div class="flex flex-1 flex-grow space-y-4 p-4">
       <RouterView />
     </div>
+    <footer class="background border-t">
+      <div class="mx-auto px-6 py-3 md:flex md:items-center md:justify-between">
+        <div class="flex justify-center gap-x-6 md:order-2">
+          <a v-for="item in footerNavigation" :key="item.name" :href="item.href" target="_blank" class="hover:text-primary">
+            <span class="sr-only">{{ item.name }}</span>
+            <component :is="item.icon" class="size-5" aria-hidden="true" />
+          </a>
+        </div>
+        <p class="mt-8 text-center text-xs md:order-1 md:mt-0">Made by Aydin Hassan</p>
+      </div>
+    </footer>
   </div>
 </template>
