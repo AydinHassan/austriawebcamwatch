@@ -1,1066 +1,1864 @@
 [
   {
     "name": "Kaiser Franz Josefs Höhe",
-    "url": "https://grossglockner.panomax.com"
+    "url": "https://grossglockner.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.075826,
+    "longitude": 12.750602
   },
   {
     "name": "Hotel Goldener Berg",
-    "url": "https://goldenerberg.panomax.com"
+    "url": "https://goldenerberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.218512,
+    "longitude": 10.136408
   },
   {
     "name": "Fuschertoerl",
-    "url": "https://fuschertoerl.panomax.com"
+    "url": "https://fuschertoerl.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.116588,
+    "longitude": 12.824511
   },
   {
     "name": "Edelweißspitze",
-    "url": "https://edelweissspitze.panomax.com"
+    "url": "https://edelweissspitze.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.123542,
+    "longitude": 12.830682
   },
   {
     "name": "Aberg - Maria Alm",
-    "url": "https://aberg.panomax.com"
+    "url": "https://aberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.356764,
+    "longitude": 12.919756
   },
   {
     "name": "Bad Hofgastein",
-    "url": "https://hofgastein.panomax.com"
+    "url": "https://hofgastein.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.16902,
+    "longitude": 13.108792
   },
   {
     "name": "Bad Gastein",
-    "url": "https://badgastein.panomax.com"
+    "url": "https://badgastein.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.116104,
+    "longitude": 13.138822
   },
   {
     "name": "Hotel Talblick Hinterglemm",
-    "url": "https://talblick.panomax.com"
+    "url": "https://talblick.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.377542,
+    "longitude": 12.599276
   },
   {
     "name": "Rittisberg",
-    "url": "https://rittisberg.panomax.com"
+    "url": "https://rittisberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.419466,
+    "longitude": 13.613405
   },
   {
     "name": "Hotel Binggl",
-    "url": "https://binggl.panomax.com"
+    "url": "https://binggl.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.13339,
+    "longitude": 13.680311
   },
   {
     "name": "Ellmau",
-    "url": "https://ellmau.panomax.com"
+    "url": "https://ellmau.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.51107,
+    "longitude": 12.304299
   },
   {
     "name": "Glattjoch",
-    "url": "https://glattjoch.panomax.com"
+    "url": "https://glattjoch.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.1087,
+    "longitude": 9.7022
   },
   {
     "name": "Palinkopf",
-    "url": "https://palinkopf.panomax.com"
+    "url": "https://palinkopf.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.950315,
+    "longitude": 10.3093
   },
   {
     "name": "Tauplitz Lawinenstein",
-    "url": "https://tauplitz.panomax.com/lawinenstein"
+    "url": "https://tauplitz.panomax.com/lawinenstein",
+    "provider": "panomax",
+    "latitude": 47.598493,
+    "longitude": 13.968869
   },
   {
     "name": "Wien Arsenal Turm",
-    "url": "https://a1-arsenal.panomax.com"
+    "url": "https://a1-arsenal.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.181959,
+    "longitude": 16.390816
   },
   {
     "name": "Gerlos Platte Berg",
-    "url": "https://panocam.zillertalarena.com/gerlosplatte-berg"
+    "url": "https://panocam.zillertalarena.com/gerlosplatte-berg",
+    "provider": "panomax",
+    "latitude": 47.224688,
+    "longitude": 12.13415
   },
   {
     "name": "Gerlospass Talstation",
-    "url": "https://panocam.zillertalarena.com/gerlospass-tal"
+    "url": "https://panocam.zillertalarena.com/gerlospass-tal",
+    "provider": "panomax",
+    "latitude": 47.241366,
+    "longitude": 12.11453
   },
   {
     "name": "Gerlos Isskogel Teich",
-    "url": "https://panocam.zillertalarena.com/gerlos"
+    "url": "https://panocam.zillertalarena.com/gerlos",
+    "provider": "panomax",
+    "latitude": 47.24414,
+    "longitude": 12.02883
   },
   {
     "name": "Rosenalm",
-    "url": "https://panocam.zillertalarena.com/rosenalm"
+    "url": "https://panocam.zillertalarena.com/rosenalm",
+    "provider": "panomax",
+    "latitude": 47.247948,
+    "longitude": 11.941665
   },
   {
     "name": "Going",
-    "url": "https://going.panomax.com"
+    "url": "https://going.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.511458,
+    "longitude": 12.323621
   },
   {
     "name": "Schafbergspitze",
-    "url": "https://schafberg.panomax.com"
+    "url": "https://schafberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.777003,
+    "longitude": 13.431767
   },
   {
     "name": "Hauser Kaibling - Bergstation",
-    "url": "https://hauserkaibling.panomax.com"
+    "url": "https://hauserkaibling.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.377525,
+    "longitude": 13.77061
   },
   {
     "name": "Sölden - Tiefenbachferner Tal",
-    "url": "https://soelden.panomax.com/tiefenbach"
+    "url": "https://soelden.panomax.com/tiefenbach",
+    "provider": "panomax",
+    "latitude": 46.923405,
+    "longitude": 10.945859
   },
   {
     "name": "Sölden - Rettenbachferner",
-    "url": "https://soelden.panomax.com/rettenbach"
+    "url": "https://soelden.panomax.com/rettenbach",
+    "provider": "panomax",
+    "latitude": 46.941197,
+    "longitude": 10.9316
   },
   {
     "name": "Sölden - Schwarze Schneid MST",
-    "url": "https://soelden.panomax.com/schwarzeschneid"
+    "url": "https://soelden.panomax.com/schwarzeschneid",
+    "provider": "panomax",
+    "latitude": 46.934524,
+    "longitude": 10.924812
   },
   {
     "name": "Pyramidenkogel - Aussichtsturm",
-    "url": "https://pyramidenkogel.panomax.com"
+    "url": "https://pyramidenkogel.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.609016,
+    "longitude": 14.144984
   },
   {
     "name": "Mayrhofen coolnest Ramsau",
-    "url": "https://mayrhofen.panomax.com"
+    "url": "https://mayrhofen.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.205211,
+    "longitude": 11.876828
   },
   {
     "name": "Idalp",
-    "url": "https://ischgl.panomax.com/idalp"
+    "url": "https://ischgl.panomax.com/idalp",
+    "provider": "panomax",
+    "latitude": 46.982482,
+    "longitude": 10.317581
   },
   {
     "name": "Innsbruck Hotel Adlers",
-    "url": "https://www.innsbruck.info/webcam/"
+    "url": "https://www.innsbruck.info/webcam/",
+    "provider": "panomax",
+    "latitude": 47.265987,
+    "longitude": 11.401354
   },
   {
     "name": "Seefelder Joch",
-    "url": "https://seefeld.panomax.com/joch"
+    "url": "https://seefeld.panomax.com/joch",
+    "provider": "panomax",
+    "latitude": 47.340802,
+    "longitude": 11.239262
   },
   {
     "name": "Härmelekopf",
-    "url": "https://seefeld.panomax.com/haermelekopf"
+    "url": "https://seefeld.panomax.com/haermelekopf",
+    "provider": "panomax",
+    "latitude": 47.329049,
+    "longitude": 11.227391
   },
   {
     "name": "Söll Ort - TVB",
-    "url": "https://soell.panomax.com"
+    "url": "https://soell.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.507328,
+    "longitude": 12.198067
   },
   {
     "name": "Seefeld Rosshütte",
-    "url": "https://seefeld.panomax.com/rosshuette"
+    "url": "https://seefeld.panomax.com/rosshuette",
+    "provider": "panomax",
+    "latitude": 47.341306,
+    "longitude": 11.227728
   },
   {
     "name": "Kirche Seefeld Ort",
-    "url": "https://seefeld-dorfplatz.panomax.com"
+    "url": "https://seefeld-dorfplatz.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.32882,
+    "longitude": 11.18675
   },
   {
     "name": "Seefeld - Seekirchl Panorama",
-    "url": "https://seefeld.panomax.com/seekirchl"
+    "url": "https://seefeld.panomax.com/seekirchl",
+    "provider": "panomax",
+    "latitude": 47.327845,
+    "longitude": 11.179408
   },
   {
     "name": "Krimml",
-    "url": "https://krimml.panomax.com"
+    "url": "https://krimml.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.214152,
+    "longitude": 12.168658
   },
   {
     "name": "Hotel Bergheimat",
-    "url": "https://bergheimat.panomax.com"
+    "url": "https://bergheimat.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.39073,
+    "longitude": 13.11565
   },
   {
     "name": "Hochsölden",
-    "url": "https://soelden.panomax.com/hochsoelden"
+    "url": "https://soelden.panomax.com/hochsoelden",
+    "provider": "panomax",
+    "latitude": 46.975907,
+    "longitude": 10.983221
   },
   {
     "name": "Dachstein",
-    "url": "https://dachstein.panomax.com"
+    "url": "https://dachstein.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.467794,
+    "longitude": 13.626355
   },
   {
     "name": "Telfs",
-    "url": "https://www.innsbruck.info/sonnenplateau/webcam/"
+    "url": "https://www.innsbruck.info/sonnenplateau/webcam/",
+    "provider": "panomax",
+    "latitude": 47.304918,
+    "longitude": 11.070057
   },
   {
     "name": "Kreuzwiese",
-    "url": "https://panocam.zillertalarena.com/kreuzwiese"
+    "url": "https://panocam.zillertalarena.com/kreuzwiese",
+    "provider": "panomax",
+    "latitude": 47.234663,
+    "longitude": 11.957321
   },
   {
     "name": "Zwölferhorn",
-    "url": "https://zwoelferhorn.panomax.com"
+    "url": "https://zwoelferhorn.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.742688,
+    "longitude": 13.35419
   },
   {
     "name": "Großarl Ort",
-    "url": "https://grossarl.panomax.com"
+    "url": "https://grossarl.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.242853,
+    "longitude": 13.201781
   },
   {
     "name": "Hotel Edelweiss und Gurgl",
-    "url": "https://webcam.edelweiss-gurgl.com"
+    "url": "https://webcam.edelweiss-gurgl.com",
+    "provider": "panomax",
+    "latitude": 46.869357,
+    "longitude": 11.026899
   },
   {
     "name": "Filzstein",
-    "url": "https://panocam.zillertalarena.com/filzstein"
+    "url": "https://panocam.zillertalarena.com/filzstein",
+    "provider": "panomax",
+    "latitude": 47.232351,
+    "longitude": 12.15722
   },
   {
     "name": "Leutschach an der Weinstraße - Eorykogel",
-    "url": "https://weinstrasse.panomax.com"
+    "url": "https://weinstrasse.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.65207,
+    "longitude": 15.511219
   },
   {
     "name": "Quellenhof",
-    "url": "https://leutasch.panomax.com"
+    "url": "https://leutasch.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.370224,
+    "longitude": 11.158455
   },
   {
     "name": "Frankenburg Aussichtsturm",
-    "url": "https://frankenburg.panomax.com"
+    "url": "https://frankenburg.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.093171,
+    "longitude": 13.526425
   },
   {
     "name": "Lichtenberg",
-    "url": "https://lichtenberg.panomax.com"
+    "url": "https://lichtenberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.932797,
+    "longitude": 13.425645
   },
   {
     "name": "Ramsau Stadion",
-    "url": "https://ramsaudachstein.panomax.com"
+    "url": "https://ramsaudachstein.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.419022,
+    "longitude": 13.653625
   },
   {
     "name": "Skilifte Schröcken Talstation",
-    "url": "https://warth-schroecken.panomax.com/tal"
+    "url": "https://warth-schroecken.panomax.com/tal",
+    "provider": "panomax",
+    "latitude": 47.265823,
+    "longitude": 10.128346
   },
   {
     "name": "Galsterberg",
-    "url": "https://galsterberg.panomax.com"
+    "url": "https://galsterberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.384512,
+    "longitude": 13.866551
   },
   {
     "name": "Zauchensee.com",
-    "url": "https://zauchensee.panomax.com"
+    "url": "https://zauchensee.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.293571,
+    "longitude": 13.457961
   },
   {
     "name": "Skilifte Schröcken Bergstation",
-    "url": "https://warth-schroecken.panomax.com/berg"
+    "url": "https://warth-schroecken.panomax.com/berg",
+    "provider": "panomax",
+    "latitude": 47.255174,
+    "longitude": 10.133637
   },
   {
     "name": "Brandnertal Panoramabahn",
-    "url": "https://panoramabahn-brand.panomax.com"
+    "url": "https://panoramabahn-brand.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.128304,
+    "longitude": 9.742342
   },
   {
     "name": "Henndorf",
-    "url": "https://gut-aiderbichl.panomax.com/henndorf"
+    "url": "https://gut-aiderbichl.panomax.com/henndorf",
+    "provider": "panomax",
+    "latitude": 47.893318,
+    "longitude": 13.220009
   },
   {
     "name": "Mösern",
-    "url": "https://moesern.panomax.com"
+    "url": "https://moesern.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.311264,
+    "longitude": 11.144133
   },
   {
     "name": "Goldbergen",
-    "url": "https://goldbergen.panomax.com"
+    "url": "https://goldbergen.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.7359,
+    "longitude": 16.2616
   },
   {
     "name": "Kufstein - Brentenjoch",
-    "url": "https://webcam.kaiserlift.at"
+    "url": "https://webcam.kaiserlift.at",
+    "provider": "panomax",
+    "latitude": 47.577759,
+    "longitude": 12.209578
   },
   {
     "name": "Hochwurzen",
-    "url": "https://hochwurzen.panomax.com"
+    "url": "https://hochwurzen.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.360176,
+    "longitude": 13.639609
   },
   {
     "name": "Walchsee",
-    "url": "https://walchsee.panomax.com"
+    "url": "https://walchsee.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.648544,
+    "longitude": 12.316914
   },
   {
     "name": "Festungsbahn",
-    "url": "https://festungsbahn.panomax.com"
+    "url": "https://festungsbahn.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.795686,
+    "longitude": 13.046239
   },
   {
     "name": "Gargellen",
-    "url": "https://gargellen.panomax.com"
+    "url": "https://gargellen.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.961359,
+    "longitude": 9.891442
   },
   {
     "name": "Golfplatz Ehrwald",
-    "url": "https://golfplatz-ehrwald.panomax.com"
+    "url": "https://golfplatz-ehrwald.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.40276,
+    "longitude": 10.9033
   },
   {
     "name": "Nova Stoba",
-    "url": "https://silvretta-montafon.panomax.com/nova-stoba"
+    "url": "https://silvretta-montafon.panomax.com/nova-stoba",
+    "provider": "panomax",
+    "latitude": 46.980118,
+    "longitude": 9.992064
   },
   {
     "name": "Silvretta Montafon  - Panorama Bahn",
-    "url": "https://silvretta-montafon.panomax.com/panoramabahn"
+    "url": "https://silvretta-montafon.panomax.com/panoramabahn",
+    "provider": "panomax",
+    "latitude": 47.060572,
+    "longitude": 9.97622
   },
   {
     "name": "Hüttenkopfbahn",
-    "url": "https://golm.panomax.com/huettenkopf"
+    "url": "https://golm.panomax.com/huettenkopf",
+    "provider": "panomax",
+    "latitude": 47.064789,
+    "longitude": 9.838508
   },
   {
     "name": "Hotel Post Lermoos",
-    "url": "https://post-lermoos.panomax.com"
+    "url": "https://post-lermoos.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.397991,
+    "longitude": 10.887996
   },
   {
     "name": "Grimming Therme",
-    "url": "https://grimming-therme.panomax.com"
+    "url": "https://grimming-therme.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.54522,
+    "longitude": 13.928474
   },
   {
     "name": "Salzburg Airport",
-    "url": "https://livecam.salzburg-airport.com"
+    "url": "https://livecam.salzburg-airport.com",
+    "provider": "panomax",
+    "latitude": 47.793803,
+    "longitude": 12.997799
   },
   {
     "name": "Ehrwalder Almbahn",
-    "url": "https://ehrwald.panomax.com/almbahn"
+    "url": "https://ehrwald.panomax.com/almbahn",
+    "provider": "panomax",
+    "latitude": 47.384036,
+    "longitude": 10.968708
   },
   {
     "name": "Nockalmstrasse",
-    "url": "https://nockalmstrasse.panomax.com"
+    "url": "https://nockalmstrasse.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.929996,
+    "longitude": 13.757426
   },
   {
     "name": "Panoramabahn Gipfel",
-    "url": "https://turracherhoehe.panomax.com/panoramabahn"
+    "url": "https://turracherhoehe.panomax.com/panoramabahn",
+    "provider": "panomax",
+    "latitude": 46.916831,
+    "longitude": 13.864841
   },
   {
     "name": "Lech Bergbahnen Kriegerhorn",
-    "url": "https://kriegerhorn.skiarlberg.at"
+    "url": "https://kriegerhorn.skiarlberg.at",
+    "provider": "panomax",
+    "latitude": 47.215274,
+    "longitude": 10.118829
   },
   {
     "name": "Hotel Herrschaftstaverne",
-    "url": "https://herrschaftstaverne.panomax.com"
+    "url": "https://herrschaftstaverne.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.410784,
+    "longitude": 13.768266
   },
   {
     "name": "Hintertux Gefrorene Wand",
-    "url": "https://hintertux.panomax.com/gefrorenewand"
+    "url": "https://hintertux.panomax.com/gefrorenewand",
+    "provider": "panomax",
+    "latitude": 47.063668,
+    "longitude": 11.679405
   },
   {
     "name": "Rosnerköpfl",
-    "url": "https://werfenweng.panomax.com/rosnerkoepfl"
+    "url": "https://werfenweng.panomax.com/rosnerkoepfl",
+    "provider": "panomax",
+    "latitude": 47.454201,
+    "longitude": 13.259393
   },
   {
     "name": "Habersatt",
-    "url": "https://altenmarkt-zauchensee.panomax.com/habersatt"
+    "url": "https://altenmarkt-zauchensee.panomax.com/habersatt",
+    "provider": "panomax",
+    "latitude": 47.391351,
+    "longitude": 13.429981
   },
   {
     "name": "Strolz Lech",
-    "url": "https://strolz.panomax.com"
+    "url": "https://strolz.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.208459,
+    "longitude": 10.142066
   },
   {
     "name": "Lärchkogel",
-    "url": "https://planai.panomax.com/laerchkogel"
+    "url": "https://planai.panomax.com/laerchkogel",
+    "provider": "panomax",
+    "latitude": 47.371546,
+    "longitude": 13.713298
   },
   {
     "name": "Tauplitz Schneiderkogel",
-    "url": "https://tauplitz.panomax.com/schneiderkogel"
+    "url": "https://tauplitz.panomax.com/schneiderkogel",
+    "provider": "panomax",
+    "latitude": 47.599657,
+    "longitude": 13.988807
   },
   {
     "name": "Gmundner Berg",
-    "url": "https://traunsee.panomax.com/gmundnerberg"
+    "url": "https://traunsee.panomax.com/gmundnerberg",
+    "provider": "panomax",
+    "latitude": 47.910475,
+    "longitude": 13.748333
   },
   {
     "name": "Scharnitz",
-    "url": "https://seefeld.panomax.com/scharnitz"
+    "url": "https://seefeld.panomax.com/scharnitz",
+    "provider": "panomax",
+    "latitude": 47.380388,
+    "longitude": 11.254804
   },
   {
     "name": "Airport Innsbruck",
-    "url": "https://innsbruck-airport.panomax.com"
+    "url": "https://innsbruck-airport.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.25769,
+    "longitude": 11.349632
   },
   {
     "name": "Silvretta",
-    "url": "https://silvretta.panomax.com"
+    "url": "https://silvretta.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.917949,
+    "longitude": 10.09316
   },
   {
     "name": "Schafbergbahn Anlegesteg",
-    "url": "https://wolfgangseeschifffahrt.panomax.com"
+    "url": "https://wolfgangseeschifffahrt.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.738929,
+    "longitude": 13.440162
   },
   {
     "name": "Lünersee",
-    "url": "https://luenersee.panomax.com"
+    "url": "https://luenersee.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.059581,
+    "longitude": 9.754319
   },
   {
     "name": "Oberissalm",
-    "url": "https://oberissalm.panomax.com"
+    "url": "https://oberissalm.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.095107,
+    "longitude": 11.194268
   },
   {
     "name": "Postalm",
-    "url": "https://postalm.panomax.com"
+    "url": "https://postalm.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.661953,
+    "longitude": 13.433407
   },
   {
     "name": "Schanze",
-    "url": "https://seefeld.panomax.com/schanze"
+    "url": "https://seefeld.panomax.com/schanze",
+    "provider": "panomax",
+    "latitude": 47.322685,
+    "longitude": 11.175439
   },
   {
     "name": "Fieberbrunn - Lärchfilzkogel",
-    "url": "https://saalbach.panomax.com/laerchfilzkogel"
+    "url": "https://saalbach.panomax.com/laerchfilzkogel",
+    "provider": "panomax",
+    "latitude": 47.443985,
+    "longitude": 12.548503
   },
   {
     "name": "Saalbach - Zwölferkogel",
-    "url": "https://saalbach.panomax.com/zwoelferkogel"
+    "url": "https://saalbach.panomax.com/zwoelferkogel",
+    "provider": "panomax",
+    "latitude": 47.360578,
+    "longitude": 12.569346
   },
   {
     "name": "Saalbach - Wildenkarkogel",
-    "url": "https://saalbach.panomax.com/wildenkarkogel"
+    "url": "https://saalbach.panomax.com/wildenkarkogel",
+    "provider": "panomax",
+    "latitude": 47.401087,
+    "longitude": 12.68586
   },
   {
     "name": "Saalbach - Schattberg X-Press",
-    "url": "https://saalbach.panomax.com/schattberg"
+    "url": "https://saalbach.panomax.com/schattberg",
+    "provider": "panomax",
+    "latitude": 47.367918,
+    "longitude": 12.638353
   },
   {
     "name": "Rätikonbahn Bergstation",
-    "url": "https://golm.panomax.com/raetikon"
+    "url": "https://golm.panomax.com/raetikon",
+    "provider": "panomax",
+    "latitude": 47.060834,
+    "longitude": 9.834562
   },
   {
     "name": "Reith bei Seefeld",
-    "url": "https://seefeld.panomax.com/reith"
+    "url": "https://seefeld.panomax.com/reith",
+    "provider": "panomax",
+    "latitude": 47.299208,
+    "longitude": 11.203056
   },
   {
     "name": "Penzenstein",
-    "url": "https://engelhartszell.panomax.com/penzenstein"
+    "url": "https://engelhartszell.panomax.com/penzenstein",
+    "provider": "panomax",
+    "latitude": 48.505747,
+    "longitude": 13.742525
   },
   {
     "name": "Hotel Wiesenhof",
-    "url": "https://wiesenhof.panomax.com"
+    "url": "https://wiesenhof.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.438272,
+    "longitude": 11.700091
   },
   {
     "name": "Hotel Alpinresort",
-    "url": "https://alpinresort.panomax.com"
+    "url": "https://alpinresort.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.390195,
+    "longitude": 12.63747
   },
   {
     "name": "Widdersteinhütte",
-    "url": "https://warth-schroecken.panomax.com/widdersteinhuette"
+    "url": "https://warth-schroecken.panomax.com/widdersteinhuette",
+    "provider": "panomax",
+    "latitude": 47.27817,
+    "longitude": 10.137137
   },
   {
     "name": "Berghotel Lämmerhof",
-    "url": "https://laemmerhof.panomax.com"
+    "url": "https://laemmerhof.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.497267,
+    "longitude": 13.374015
   },
   {
     "name": "Flugplatz Wiener Neustadt",
-    "url": "https://aviationacademy.panomax.com"
+    "url": "https://aviationacademy.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.842314,
+    "longitude": 16.257328
   },
   {
     "name": "Strobl",
-    "url": "https://strobl.panomax.com"
+    "url": "https://strobl.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.718673,
+    "longitude": 13.481934
   },
   {
     "name": "Wintersportarena Liebenau",
-    "url": "https://liebenau.panomax.com"
+    "url": "https://liebenau.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.532416,
+    "longitude": 14.803395
   },
   {
     "name": "Salvenberg",
-    "url": "https://westendorf.panomax.com"
+    "url": "https://westendorf.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.441543,
+    "longitude": 12.209432
   },
   {
     "name": "Going Astberg",
-    "url": "https://going.panomax.com/astberg"
+    "url": "https://going.panomax.com/astberg",
+    "provider": "panomax",
+    "latitude": 47.5009,
+    "longitude": 12.322364
   },
   {
     "name": "Stuben Mast",
-    "url": "https://stuben.panomax.com"
+    "url": "https://stuben.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.137738,
+    "longitude": 10.155081
   },
   {
     "name": "Rosskopf",
-    "url": "https://zauchensee2.panomax.com"
+    "url": "https://zauchensee2.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.294523,
+    "longitude": 13.453264
   },
   {
     "name": "Wildkogel Arena - Wildkogel Bergstation",
-    "url": "https://wildkogel-arena.panomax.com/wildkogelbahn-berg"
+    "url": "https://wildkogel-arena.panomax.com/wildkogelbahn-berg",
+    "provider": "panomax",
+    "latitude": 47.280534,
+    "longitude": 12.280884
   },
   {
     "name": "Bad Goisern",
-    "url": "https://goisern.panomax.com"
+    "url": "https://goisern.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.63967,
+    "longitude": 13.619704
   },
   {
     "name": "Faistenau",
-    "url": "https://fuschlseeregion.panomax.com/faistenau"
+    "url": "https://fuschlseeregion.panomax.com/faistenau",
+    "provider": "panomax",
+    "latitude": 47.777996,
+    "longitude": 13.233101
   },
   {
     "name": "Wasserwerk",
-    "url": "https://radstadt.panomax.com"
+    "url": "https://radstadt.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.389864,
+    "longitude": 13.462331
   },
   {
     "name": "Radstädter Hütte am Rossbrand",
-    "url": "https://radstadt.panomax.com/rossbrand"
+    "url": "https://radstadt.panomax.com/rossbrand",
+    "provider": "panomax",
+    "latitude": 47.415348,
+    "longitude": 13.479073
   },
   {
     "name": "Katrin Sendemast",
-    "url": "https://katrin.panomax.com"
+    "url": "https://katrin.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.689782,
+    "longitude": 13.580091
   },
   {
     "name": "Wildkogel Arena - Gensbichl Berg",
-    "url": "https://wildkogel-arena.panomax.com/gensbichl-berg"
+    "url": "https://wildkogel-arena.panomax.com/gensbichl-berg",
+    "provider": "panomax",
+    "latitude": 47.286272,
+    "longitude": 12.266029
   },
   {
     "name": "Airport Wien - neue Position",
-    "url": "https://viennaairport.panomax.com"
+    "url": "https://viennaairport.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.122314,
+    "longitude": 16.559998
   },
   {
     "name": "Mayrhofen Zillertal - Gasthof Zimmereben",
-    "url": "https://mayrhofen.panomax.com/zimmereben"
+    "url": "https://mayrhofen.panomax.com/zimmereben",
+    "provider": "panomax",
+    "latitude": 47.173527,
+    "longitude": 11.85915
   },
   {
     "name": "Mayrhofen Kumbichl",
-    "url": "https://mayrhofen.panomax.com/talblick"
+    "url": "https://mayrhofen.panomax.com/talblick",
+    "provider": "panomax",
+    "latitude": 47.15606,
+    "longitude": 11.862222
   },
   {
     "name": "Längenfeld Mast",
-    "url": "https://laengenfeld.panomax.com"
+    "url": "https://laengenfeld.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.068617,
+    "longitude": 10.960494
   },
   {
     "name": "Untergriesbach",
-    "url": "https://untergriesbach.panomax.com"
+    "url": "https://untergriesbach.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.529349,
+    "longitude": 13.648778
   },
   {
     "name": "Kühtai - Kaiserbahn",
-    "url": "https://kuehtai.panomax.com/kaiserbahn-winter"
+    "url": "https://kuehtai.panomax.com/kaiserbahn-winter",
+    "provider": "panomax",
+    "latitude": 47.226181,
+    "longitude": 11.010953
   },
   {
     "name": "Kühtai - Wiesbergbahn",
-    "url": "https://kuehtai.panomax.com/wiesbergbahn-winter"
+    "url": "https://kuehtai.panomax.com/wiesbergbahn-winter",
+    "provider": "panomax",
+    "latitude": 47.209638,
+    "longitude": 11.029519
   },
   {
     "name": "Hochanger - Loser Fenster",
-    "url": "https://loser.panomax.com"
+    "url": "https://loser.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.66417,
+    "longitude": 13.781492
   },
   {
     "name": "Loser Alm",
-    "url": "https://loser.panomax.com/loser-alm"
+    "url": "https://loser.panomax.com/loser-alm",
+    "provider": "panomax",
+    "latitude": 47.660579,
+    "longitude": 13.786368
   },
   {
     "name": "Lavamünd Gemeindeamt",
-    "url": "https://lavamuend.panomax.com"
+    "url": "https://lavamuend.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.641211,
+    "longitude": 14.94224
   },
   {
     "name": "Fuschl Wesenauer",
-    "url": "https://fuschlseeregion.panomax.com/fuschl"
+    "url": "https://fuschlseeregion.panomax.com/fuschl",
+    "provider": "panomax",
+    "latitude": 47.794522,
+    "longitude": 13.290866
   },
   {
     "name": "Hintersee Sonnberg",
-    "url": "https://fuschlseeregion.panomax.com/hintersee"
+    "url": "https://fuschlseeregion.panomax.com/hintersee",
+    "provider": "panomax",
+    "latitude": 47.719629,
+    "longitude": 13.291075
   },
   {
     "name": "Loser Sandling Jet",
-    "url": "https://loser.panomax.com/sandling"
+    "url": "https://loser.panomax.com/sandling",
+    "provider": "panomax",
+    "latitude": 47.661017,
+    "longitude": 13.732698
   },
   {
     "name": "Stubenberg am See - Windhaber Gussmagg",
-    "url": "https://stubenberg.panomax.com"
+    "url": "https://stubenberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.230995,
+    "longitude": 15.789336
   },
   {
     "name": "Tannberg",
-    "url": "https://tannberg.panomax.com"
+    "url": "https://tannberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.97366,
+    "longitude": 13.18791
   },
   {
     "name": "Ramsau Beach",
-    "url": "https://rittisberg.panomax.com/beach"
+    "url": "https://rittisberg.panomax.com/beach",
+    "provider": "panomax",
+    "latitude": 47.424092,
+    "longitude": 13.62356
   },
   {
     "name": "Leutasch Rotmoos",
-    "url": "https://leutasch.panomax.com/rotmoos"
+    "url": "https://leutasch.panomax.com/rotmoos",
+    "provider": "panomax",
+    "latitude": 47.383124,
+    "longitude": 11.077203
   },
   {
     "name": "Schafkopf",
-    "url": "https://pano.mayrhofner-bergbahnen.com/schafkopf-sommer"
+    "url": "https://pano.mayrhofner-bergbahnen.com/schafkopf-sommer",
+    "provider": "panomax",
+    "latitude": 47.19137,
+    "longitude": 11.790784
   },
   {
     "name": "St. Gilgen",
-    "url": "https://st-gilgen.panomax.com"
+    "url": "https://st-gilgen.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.774068,
+    "longitude": 13.352815
   },
   {
     "name": "Bad Tatzmannsdorf - Wasserspeicher",
-    "url": "https://tatzmannsdorf.panomax.com"
+    "url": "https://tatzmannsdorf.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.342124,
+    "longitude": 16.23923
   },
   {
     "name": "Markthalle",
-    "url": "https://www.innsbruck.info/markthalle/webcam/"
+    "url": "https://www.innsbruck.info/markthalle/webcam/",
+    "provider": "panomax",
+    "latitude": 47.267462,
+    "longitude": 11.38993
   },
   {
     "name": "Saalbach - Kohlmais",
-    "url": "https://saalbach.panomax.com/kohlmais"
+    "url": "https://saalbach.panomax.com/kohlmais",
+    "provider": "panomax",
+    "latitude": 47.410013,
+    "longitude": 12.653306
   },
   {
     "name": "Patscherkofel",
-    "url": "https://www.innsbruck.info/patscherkofel/webcam/"
+    "url": "https://www.innsbruck.info/patscherkofel/webcam/",
+    "provider": "panomax",
+    "latitude": 47.210057,
+    "longitude": 11.451477
   },
   {
     "name": "Mieminger Plateau - Innsbruck",
-    "url": "https://www.innsbruck.info/miemingerplateau/webcam/"
+    "url": "https://www.innsbruck.info/miemingerplateau/webcam/",
+    "provider": "panomax",
+    "latitude": 47.308272,
+    "longitude": 10.987212
   },
   {
     "name": "Siriuskogl",
-    "url": "https://badischl.panomax.com/siriuskogl"
+    "url": "https://badischl.panomax.com/siriuskogl",
+    "provider": "panomax",
+    "latitude": 47.704918,
+    "longitude": 13.617591
   },
   {
     "name": "Gosau COOEE",
-    "url": "https://gosau.panomax.com"
+    "url": "https://gosau.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.581194,
+    "longitude": 13.534284
   },
   {
     "name": "Donauschlinge Schlögen",
-    "url": "https://donauschlinge.panomax.com"
+    "url": "https://donauschlinge.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.422693,
+    "longitude": 13.876926
   },
   {
     "name": "Imst-Nassereith",
-    "url": "https://imst-nassereith.panomax.com"
+    "url": "https://imst-nassereith.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.302732,
+    "longitude": 10.856975
   },
   {
     "name": "Sender Gaisberg",
-    "url": "https://gaisberg.panomax.com"
+    "url": "https://gaisberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.805187,
+    "longitude": 13.11201
   },
   {
     "name": "Sporthotel Fontana",
-    "url": "https://sporthotel-fontana.panomax.com"
+    "url": "https://sporthotel-fontana.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.468361,
+    "longitude": 12.550259
   },
   {
     "name": "Schönleiten",
-    "url": "https://webcam.aflenzer-buergeralm.at/winter"
+    "url": "https://webcam.aflenzer-buergeralm.at/winter",
+    "provider": "panomax",
+    "latitude": 47.58085,
+    "longitude": 15.225893
   },
   {
     "name": "Riesneralm Sendemast",
-    "url": "https://riesneralm.panomax.com"
+    "url": "https://riesneralm.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.366765,
+    "longitude": 14.090706
   },
   {
     "name": "Loischkopf",
-    "url": "https://loischkopf-brand.panomax.com"
+    "url": "https://loischkopf-brand.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.134742,
+    "longitude": 9.74243
   },
   {
     "name": "Tarrenz - Kappakreuz",
-    "url": "https://imst-tarrenz.panomax.com"
+    "url": "https://imst-tarrenz.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.285998,
+    "longitude": 10.789816
   },
   {
     "name": "Planneralm",
-    "url": "https://planneralm.panomax.com"
+    "url": "https://planneralm.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.404447,
+    "longitude": 14.214654
   },
   {
     "name": "Feldkirchen Badeseen",
-    "url": "https://feldkirchen.panomax.com"
+    "url": "https://feldkirchen.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.326059,
+    "longitude": 14.070394
   },
   {
     "name": "Umhausen Vivea",
-    "url": "https://umhausen.panomax.com"
+    "url": "https://umhausen.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.144112,
+    "longitude": 10.929808
   },
   {
     "name": "Leutasch Moos",
-    "url": "https://leutasch.panomax.com/rotmoos-moos"
+    "url": "https://leutasch.panomax.com/rotmoos-moos",
+    "provider": "panomax",
+    "latitude": 47.346575,
+    "longitude": 11.128474
   },
   {
     "name": "Thonnerhof Aigen im Ennstal",
-    "url": "https://grimming.panomax.com"
+    "url": "https://grimming.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.503019,
+    "longitude": 14.165471
   },
   {
     "name": "Planneralm Seekaralm",
-    "url": "https://planneralm.panomax.com/seekaralm"
+    "url": "https://planneralm.panomax.com/seekaralm",
+    "provider": "panomax",
+    "latitude": 47.406238,
+    "longitude": 14.201029
   },
   {
     "name": "Aschach Faustschlössl",
-    "url": "https://aschach.panomax.com"
+    "url": "https://aschach.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.369128,
+    "longitude": 14.033075
   },
   {
     "name": "St. Agatha Pyramide Etzinger Hügel",
-    "url": "https://st-agatha.panomax.com"
+    "url": "https://st-agatha.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.399489,
+    "longitude": 13.873058
   },
   {
     "name": "Ried im Oberinntal",
-    "url": "https://tiroler-oberland.panomax.com/ried"
+    "url": "https://tiroler-oberland.panomax.com/ried",
+    "provider": "panomax",
+    "latitude": 47.055095,
+    "longitude": 10.660231
   },
   {
     "name": "Donnersbachwald",
-    "url": "https://donnersbachwald.panomax.com"
+    "url": "https://donnersbachwald.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.383601,
+    "longitude": 14.121647
   },
   {
     "name": "Palüd",
-    "url": "https://palued.panomax.com"
+    "url": "https://palued.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.10434,
+    "longitude": 9.717151
   },
   {
     "name": "Bike Park - Bürserberg",
-    "url": "https://brand.panomax.com/bike-park"
+    "url": "https://brand.panomax.com/bike-park",
+    "provider": "panomax",
+    "latitude": 47.139817,
+    "longitude": 9.750365
   },
   {
     "name": "Galsterberg Bergstation Vorderkar",
-    "url": "https://galsterberg.panomax.com/vorderkar"
+    "url": "https://galsterberg.panomax.com/vorderkar",
+    "provider": "panomax",
+    "latitude": 47.376307,
+    "longitude": 13.865693
   },
   {
     "name": "Fichtensee",
-    "url": "https://panocam.zillertalarena.com/fichtensee"
+    "url": "https://panocam.zillertalarena.com/fichtensee",
+    "provider": "panomax",
+    "latitude": 47.252853,
+    "longitude": 11.944035
   },
   {
     "name": "Glockenhütte Nockalm",
-    "url": "https://glockenhuette.panomax.com"
+    "url": "https://glockenhuette.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.890164,
+    "longitude": 13.794146
   },
   {
     "name": "KFV - Wien",
-    "url": "https://kfv.panomax.com"
+    "url": "https://kfv.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.16534,
+    "longitude": 16.377759
   },
   {
     "name": "Gaberl West Zeltweg 35mm",
-    "url": "https://gaberlhaus.panomax.com/westblick"
+    "url": "https://gaberlhaus.panomax.com/westblick",
+    "provider": "panomax",
+    "latitude": 47.107714,
+    "longitude": 14.916627
   },
   {
     "name": "Gaberl Ost Köflach",
-    "url": "https://gaberlhaus.panomax.com/ostblick"
+    "url": "https://gaberlhaus.panomax.com/ostblick",
+    "provider": "panomax",
+    "latitude": 47.107719,
+    "longitude": 14.916623
   },
   {
     "name": "Hotel Viktor",
-    "url": "https://hotel-viktor.panomax.com"
+    "url": "https://hotel-viktor.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.302839,
+    "longitude": 9.678519
   },
   {
     "name": "Sölkpass Nord",
-    "url": "https://kaltenbachalm.panomax.com/nord"
+    "url": "https://kaltenbachalm.panomax.com/nord",
+    "provider": "panomax",
+    "latitude": 47.273978,
+    "longitude": 14.078473
   },
   {
     "name": "Sölkpass Süd",
-    "url": "https://kaltenbachalm.panomax.com/sued"
+    "url": "https://kaltenbachalm.panomax.com/sued",
+    "provider": "panomax",
+    "latitude": 47.27393,
+    "longitude": 14.078757
   },
   {
     "name": "Inneralpbach Hotel Galtenberg",
-    "url": "https://alpbach.panomax.com/galtenberg"
+    "url": "https://alpbach.panomax.com/galtenberg",
+    "provider": "panomax",
+    "latitude": 47.374767,
+    "longitude": 11.960705
   },
   {
     "name": "Tiroler Zugspitzbahn Talstation",
-    "url": "https://zugspitz-resort.panomax.com"
+    "url": "https://zugspitz-resort.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.426061,
+    "longitude": 10.941625
   },
   {
     "name": "Westendorf Fleiding",
-    "url": "https://westendorf.panomax.com/fleiding"
+    "url": "https://westendorf.panomax.com/fleiding",
+    "provider": "panomax",
+    "latitude": 47.40254,
+    "longitude": 12.250166
   },
   {
     "name": "Gamlitz Wasserturm",
-    "url": "https://gamlitz.panomax.com"
+    "url": "https://gamlitz.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.724334,
+    "longitude": 15.569641
   },
   {
     "name": "Villacher Alpenstraße - Rosstratte",
-    "url": "https://villacher-alpenstrasse.panomax.com"
+    "url": "https://villacher-alpenstrasse.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.59305,
+    "longitude": 13.712191
   },
   {
     "name": "St. Florian bei Linz",
-    "url": "https://www.florianerpanorama.at"
+    "url": "https://www.florianerpanorama.at",
+    "provider": "panomax",
+    "latitude": 48.195851,
+    "longitude": 14.387666
   },
   {
     "name": "Liezen Langlaufzentrum Pyhrn",
-    "url": "https://liezen.panomax.com/pyhrn"
+    "url": "https://liezen.panomax.com/pyhrn",
+    "provider": "panomax",
+    "latitude": 47.601225,
+    "longitude": 14.284154
   },
   {
     "name": "Hagan Lodge Altaussee",
-    "url": "https://haganlodge.panomax.com/altaussee"
+    "url": "https://haganlodge.panomax.com/altaussee",
+    "provider": "panomax",
+    "latitude": 47.661194,
+    "longitude": 13.745145
   },
   {
     "name": "Stoderzinken",
-    "url": "https://stoderzinken.panomax.com"
+    "url": "https://stoderzinken.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.45959,
+    "longitude": 13.814087
   },
   {
     "name": "Hotel Loy",
-    "url": "https://groebming.panomax.com"
+    "url": "https://groebming.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.439683,
+    "longitude": 13.900732
   },
   {
     "name": "Mitterberg - Pürcherhof",
-    "url": "https://mitterberg-st-martin.panomax.com"
+    "url": "https://mitterberg-st-martin.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.461418,
+    "longitude": 13.96131
   },
   {
     "name": "Hauereck",
-    "url": "https://hauereck.panomax.com"
+    "url": "https://hauereck.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.517379,
+    "longitude": 15.691162
   },
   {
     "name": "Wolfsegg",
-    "url": "https://wolfsegg.panomax.com"
+    "url": "https://wolfsegg.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.104316,
+    "longitude": 13.669876
   },
   {
     "name": "Bahnhof Attersee",
-    "url": "https://bahnhofattersee.panomax.com"
+    "url": "https://bahnhofattersee.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.914646,
+    "longitude": 13.533039
   },
   {
     "name": "Saalbach Maisalm",
-    "url": "https://maisalm.panomax.com"
+    "url": "https://maisalm.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.399174,
+    "longitude": 12.6381
   },
   {
     "name": "Haibach - Eferdinger Land",
-    "url": "https://haibach.panomax.com"
+    "url": "https://haibach.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.400779,
+    "longitude": 13.921753
   },
   {
     "name": "Raxalpe Ottohaus",
-    "url": "https://raxalpe.panomax.com/ottohaus"
+    "url": "https://raxalpe.panomax.com/ottohaus",
+    "provider": "panomax",
+    "latitude": 47.71328,
+    "longitude": 15.762093
   },
   {
     "name": "Spielberg Schönberghof",
-    "url": "https://redbullring.panomax.com/spielberg"
+    "url": "https://redbullring.panomax.com/spielberg",
+    "provider": "panomax",
+    "latitude": 47.227721,
+    "longitude": 14.759116
   },
   {
     "name": "Maierhofstr. am Wallersee",
-    "url": "https://neumarkt.panomax.com/wallersee"
+    "url": "https://neumarkt.panomax.com/wallersee",
+    "provider": "panomax",
+    "latitude": 47.930161,
+    "longitude": 13.200304
   },
   {
     "name": "Leogang Asitz",
-    "url": "https://saalbach.panomax.com/grosserasitz"
+    "url": "https://saalbach.panomax.com/grosserasitz",
+    "provider": "panomax",
+    "latitude": 47.404447,
+    "longitude": 12.705692
   },
   {
     "name": "Axamer Lizum Birgitzköpfl",
-    "url": "https://axamer-lizum.panomax.com/birgitzkoepfl"
+    "url": "https://axamer-lizum.panomax.com/birgitzkoepfl",
+    "provider": "panomax",
+    "latitude": 47.194709,
+    "longitude": 11.316421
   },
   {
     "name": "Axamer Lizum Hoadl",
-    "url": "https://axamer-lizum.panomax.com/hoadl"
+    "url": "https://axamer-lizum.panomax.com/hoadl",
+    "provider": "panomax",
+    "latitude": 47.183165,
+    "longitude": 11.282421
   },
   {
     "name": "Haus Alpin Tauplitz",
-    "url": "https://hausalpin.panomax.com"
+    "url": "https://hausalpin.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.596089,
+    "longitude": 13.981351
   },
   {
     "name": "Köflach Hotel Nova",
-    "url": "https://koeflach.panomax.com"
+    "url": "https://koeflach.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.069828,
+    "longitude": 15.089433
   },
   {
     "name": "Fieberbrunn Streuböden Talstation",
-    "url": "https://fieberbrunn.panomax.com/streuboeden-talstation"
+    "url": "https://fieberbrunn.panomax.com/streuboeden-talstation",
+    "provider": "panomax",
+    "latitude": 47.467133,
+    "longitude": 12.551055
   },
   {
     "name": "Hochfügen Speichersee",
-    "url": "https://hochfuegen.panomax.com"
+    "url": "https://hochfuegen.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.247553,
+    "longitude": 11.757596
   },
   {
     "name": "Tressensteinwarte",
-    "url": "https://tressensteinwarte.panomax.com/ausseerland"
+    "url": "https://tressensteinwarte.panomax.com/ausseerland",
+    "provider": "panomax",
+    "latitude": 47.626401,
+    "longitude": 13.789108
   },
   {
     "name": "Wagrain Flying Mozart - Bergstation",
-    "url": "https://snow-space.panomax.com/flying-mozart"
+    "url": "https://snow-space.panomax.com/flying-mozart",
+    "provider": "panomax",
+    "latitude": 47.3258,
+    "longitude": 13.346884
   },
   {
     "name": "Hauser Kaibling - Talstation",
-    "url": "https://hauserkaibling.panomax.com/talstation"
+    "url": "https://hauserkaibling.panomax.com/talstation",
+    "provider": "panomax",
+    "latitude": 47.409642,
+    "longitude": 13.777844
   },
   {
     "name": "Tux Wanglspitze",
-    "url": "https://hintertux.panomax.com/wanglspitze"
+    "url": "https://hintertux.panomax.com/wanglspitze",
+    "provider": "panomax",
+    "latitude": 47.184076,
+    "longitude": 11.774536
   },
   {
     "name": "Patscherkofel BB Talstation",
-    "url": "https://patscherkofel.panomax.com/talstation"
+    "url": "https://patscherkofel.panomax.com/talstation",
+    "provider": "panomax",
+    "latitude": 47.221991,
+    "longitude": 11.426629
   },
   {
     "name": "Straden Saziani",
-    "url": "https://straden.panomax.com/saziani"
+    "url": "https://straden.panomax.com/saziani",
+    "provider": "panomax",
+    "latitude": 46.811497,
+    "longitude": 15.867279
   },
   {
     "name": "Kronen Zeitung - Zentrale Wien",
-    "url": "https://kronen-zeitung.panomax.com/wien"
+    "url": "https://kronen-zeitung.panomax.com/wien",
+    "provider": "panomax",
+    "latitude": 48.245441,
+    "longitude": 16.367113
   },
   {
     "name": "Tux Eggalm",
-    "url": "https://hintertux.panomax.com/eggalm"
+    "url": "https://hintertux.panomax.com/eggalm",
+    "provider": "panomax",
+    "latitude": 47.164008,
+    "longitude": 11.702902
   },
   {
     "name": "Innsbruck - Austria Trend Hotel Congress Innsbruck",
-    "url": "https://austria-trend.panomax.com/hotel-congress-innsbruck"
+    "url": "https://austria-trend.panomax.com/hotel-congress-innsbruck",
+    "provider": "panomax",
+    "latitude": 47.27456,
+    "longitude": 11.397662
   },
   {
     "name": "Burgruine Griffen",
-    "url": "https://griffen.panomax.com/burgruine"
+    "url": "https://griffen.panomax.com/burgruine",
+    "provider": "panomax",
+    "latitude": 46.704805,
+    "longitude": 14.727598
   },
   {
     "name": "Traunkirchen",
-    "url": "https://traunkirchen.panomax.com"
+    "url": "https://traunkirchen.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.845034,
+    "longitude": 13.78957
   },
   {
     "name": "Sölden Ort",
-    "url": "https://soelden.panomax.com/ort"
+    "url": "https://soelden.panomax.com/ort",
+    "provider": "panomax",
+    "latitude": 46.96867,
+    "longitude": 11.011749
   },
   {
     "name": "Fieberbrunn Streuböden Mittelstation",
-    "url": "https://fieberbrunn.panomax.com/mittelstation"
+    "url": "https://fieberbrunn.panomax.com/mittelstation",
+    "provider": "panomax",
+    "latitude": 47.456649,
+    "longitude": 12.540953
   },
   {
     "name": "Obertauern - Gamsleiten 1",
-    "url": "https://obertauern.panomax.com/gamsleiten"
+    "url": "https://obertauern.panomax.com/gamsleiten",
+    "provider": "panomax",
+    "latitude": 47.24228,
+    "longitude": 13.556766
   },
   {
     "name": "Obertauern - Hundskogel",
-    "url": "https://obertauern.panomax.com/hundskogel"
+    "url": "https://obertauern.panomax.com/hundskogel",
+    "provider": "panomax",
+    "latitude": 47.267414,
+    "longitude": 13.57657
   },
   {
     "name": "COPADATA Salzburg",
-    "url": "https://copadata.panomax.com"
+    "url": "https://copadata.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.794233,
+    "longitude": 13.010391
   },
   {
     "name": "Mondsee - Ferienhof Gassner",
-    "url": "https://mondseeblick.panomax.com"
+    "url": "https://mondseeblick.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.855838,
+    "longitude": 13.363684
   },
   {
     "name": "Fieberbrunn Reckmoos Bergstation",
-    "url": "https://fieberbrunn.panomax.com/reckmoos"
+    "url": "https://fieberbrunn.panomax.com/reckmoos",
+    "provider": "panomax",
+    "latitude": 47.427631,
+    "longitude": 12.552135
   },
   {
     "name": "Burgruine Eppenstein",
-    "url": "https://murtal.panomax.com/burgruine-eppenstein"
+    "url": "https://murtal.panomax.com/burgruine-eppenstein",
+    "provider": "panomax",
+    "latitude": 47.130906,
+    "longitude": 14.735798
   },
   {
     "name": "Weinstraße Sulztal - Ratsch",
-    "url": "https://weinstrasse.panomax.com/sulztal"
+    "url": "https://weinstrasse.panomax.com/sulztal",
+    "provider": "panomax",
+    "latitude": 46.683262,
+    "longitude": 15.564696
   },
   {
     "name": "Rofan in Kramsach - Rosskogel",
-    "url": "https://alpbachtal.panomax.com/rofan"
+    "url": "https://alpbachtal.panomax.com/rofan",
+    "provider": "panomax",
+    "latitude": 47.466462,
+    "longitude": 11.826618
   },
   {
     "name": "Matzing",
-    "url": "https://neumarkt.panomax.com/matzing"
+    "url": "https://neumarkt.panomax.com/matzing",
+    "provider": "panomax",
+    "latitude": 47.928587,
+    "longitude": 13.216068
   },
   {
     "name": "Skilift Oberaschau Oberwang",
-    "url": "https://oberaschau.panomax.com"
+    "url": "https://oberaschau.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.838473,
+    "longitude": 13.473715
   },
   {
     "name": "Aussichtspunkt Rahmen",
-    "url": "https://burghausen.panomax.com"
+    "url": "https://burghausen.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.1576,
+    "longitude": 12.836618
   },
   {
     "name": "Sölden - Gaislachkoglbahn Mittelstation",
-    "url": "https://soelden.panomax.com/gaislachkogl-mittelstation"
+    "url": "https://soelden.panomax.com/gaislachkogl-mittelstation",
+    "provider": "panomax",
+    "latitude": 46.950143,
+    "longitude": 10.988551
   },
   {
     "name": "Sölden - Tiefenbachkogl Felssteg",
-    "url": "https://soelden.panomax.com/tiefenbachkogl-felssteg"
+    "url": "https://soelden.panomax.com/tiefenbachkogl-felssteg",
+    "provider": "panomax",
+    "latitude": 46.921282,
+    "longitude": 10.918521
   },
   {
     "name": "Sölden - Schwarzkogl Talstation",
-    "url": "https://soelden.panomax.com/schwarzkogl-talstation"
+    "url": "https://soelden.panomax.com/schwarzkogl-talstation",
+    "provider": "panomax",
+    "latitude": 46.957529,
+    "longitude": 10.950497
   },
   {
     "name": "Grosseck",
-    "url": "https://grosseck-speiereck.panomax.com"
+    "url": "https://grosseck-speiereck.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.129035,
+    "longitude": 13.64628
   },
   {
     "name": "Gmünd in Kärnten",
-    "url": "https://stadtgmuend.panomax.com"
+    "url": "https://stadtgmuend.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.911505,
+    "longitude": 13.535469
   },
   {
     "name": "Rupp - Hörbranz",
-    "url": "https://rupp.panomax.com"
+    "url": "https://rupp.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.544556,
+    "longitude": 9.746667
   },
   {
     "name": "Schafbergalm",
-    "url": "https://schafbergalm.panomax.com"
+    "url": "https://schafbergalm.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.769879,
+    "longitude": 13.421995
   },
   {
     "name": "Schneeberg",
-    "url": "https://schneeberg.panomax.com"
+    "url": "https://schneeberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.759865,
+    "longitude": 15.834747
   },
   {
     "name": "Hohentauern Gemeindeamt",
-    "url": "https://murtal.panomax.com/hohentauern"
+    "url": "https://murtal.panomax.com/hohentauern",
+    "provider": "panomax",
+    "latitude": 47.433376,
+    "longitude": 14.483433
   },
   {
     "name": "Tremmelberg Aussichtsturm",
-    "url": "https://murtal.panomax.com/tremmelberg"
+    "url": "https://murtal.panomax.com/tremmelberg",
+    "provider": "panomax",
+    "latitude": 47.246335,
+    "longitude": 14.788083
   },
   {
     "name": "Leutasch - Katzenkopf Bergstation",
-    "url": "https://seefeld.panomax.com/katzenkopf"
+    "url": "https://seefeld.panomax.com/katzenkopf",
+    "provider": "panomax",
+    "latitude": 47.358147,
+    "longitude": 11.161391
   },
   {
     "name": "Gries im Sellrain",
-    "url": "https://www.innsbruck.info/gries/webcam/"
+    "url": "https://www.innsbruck.info/gries/webcam/",
+    "provider": "panomax",
+    "latitude": 47.197245,
+    "longitude": 11.159947
   },
   {
     "name": "Lüsens – Sellraintal",
-    "url": "https://www.innsbruck.info/luesens/webcam/"
+    "url": "https://www.innsbruck.info/luesens/webcam/",
+    "provider": "panomax",
+    "latitude": 47.130881,
+    "longitude": 11.138032
   },
   {
     "name": "Ottensheim - Dürnberg",
-    "url": "https://ottensheim.panomax.com"
+    "url": "https://ottensheim.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.336369,
+    "longitude": 14.204948
   },
   {
     "name": "Schwaz Zentrum Bahnhof",
-    "url": "https://silberregion-karwendel.panomax.com"
+    "url": "https://silberregion-karwendel.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.347431,
+    "longitude": 11.699673
   },
   {
     "name": "Großarl - Kieserlbahn Bergstation",
-    "url": "https://grossarl.panomax.com/kieserlbahn"
+    "url": "https://grossarl.panomax.com/kieserlbahn",
+    "provider": "panomax",
+    "latitude": 47.242873,
+    "longitude": 13.153378
   },
   {
     "name": "Hotel Gasthof Schützenhof",
-    "url": "https://grossarl.panomax.com/hotel-schuetzenhof"
+    "url": "https://grossarl.panomax.com/hotel-schuetzenhof",
+    "provider": "panomax",
+    "latitude": 47.238514,
+    "longitude": 13.19343
   },
   {
     "name": "Hotel Kristall - Übungslift",
-    "url": "https://webcam.kristall.eu/fischbacher"
+    "url": "https://webcam.kristall.eu/fischbacher",
+    "provider": "panomax",
+    "latitude": 47.250063,
+    "longitude": 13.198723
   },
   {
     "name": "Loosbühelalm",
-    "url": "https://grossarl.panomax.com/loosbuehelalm"
+    "url": "https://grossarl.panomax.com/loosbuehelalm",
+    "provider": "panomax",
+    "latitude": 47.228904,
+    "longitude": 13.288661
   },
   {
     "name": "Valisera-Berg",
-    "url": "https://silvretta-montafon.panomax.com/valisera"
+    "url": "https://silvretta-montafon.panomax.com/valisera",
+    "provider": "panomax",
+    "latitude": 46.98719,
+    "longitude": 9.965761
   },
   {
     "name": "Hangar-7 / The Flying Bulls - ÖFFENTLICH",
-    "url": "https://flyingbulls.panomax.com"
+    "url": "https://flyingbulls.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.794604,
+    "longitude": 13.007313
   },
   {
     "name": "Erlebnispark Vider Truja",
-    "url": "https://ischgl.panomax.com/vider-truja"
+    "url": "https://ischgl.panomax.com/vider-truja",
+    "provider": "panomax",
+    "latitude": 46.983845,
+    "longitude": 10.316308
   },
   {
     "name": "Wildkogel Arena - Skihütte Rettenstein",
-    "url": "https://wildkogel-arena.panomax.com/rettenstein"
+    "url": "https://wildkogel-arena.panomax.com/rettenstein",
+    "provider": "panomax",
+    "latitude": 47.288943,
+    "longitude": 12.279792
   },
   {
     "name": "Baudoku Basilika Mondsee",
-    "url": "https://basilikamondsee.panomax.com"
+    "url": "https://basilikamondsee.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.855857,
+    "longitude": 13.351999
   },
   {
     "name": "Hauser Kaibling - Gipfelbahn-Pumpstation",
-    "url": "https://hauserkaibling.panomax.com/gipfelbahn"
+    "url": "https://hauserkaibling.panomax.com/gipfelbahn",
+    "provider": "panomax",
+    "latitude": 47.375641,
+    "longitude": 13.773829
   },
   {
     "name": "Hauser Kaibling - Alm 6er Bergstation",
-    "url": "https://hauserkaibling.panomax.com/alm6erberg"
+    "url": "https://hauserkaibling.panomax.com/alm6erberg",
+    "provider": "panomax",
+    "latitude": 47.359323,
+    "longitude": 13.780861
   },
   {
     "name": "Hauser Kaibling - Höfi 1 Talstation/Dach Knapplhütte",
-    "url": "https://hauserkaibling.panomax.com/hoefiexpress1berg"
+    "url": "https://hauserkaibling.panomax.com/hoefiexpress1berg",
+    "provider": "panomax",
+    "latitude": 47.38893,
+    "longitude": 13.787206
   },
   {
     "name": "Hauser Kaibling - Höfi 2 Bergstation",
-    "url": "https://hauserkaibling.panomax.com/hoefiexpress2berg"
+    "url": "https://hauserkaibling.panomax.com/hoefiexpress2berg",
+    "provider": "panomax",
+    "latitude": 47.378395,
+    "longitude": 13.782737
   },
   {
     "name": "Hauser Kaibling - Kaibling6er Talstation",
-    "url": "https://hauserkaibling.panomax.com/test-kaibling6er"
+    "url": "https://hauserkaibling.panomax.com/test-kaibling6er",
+    "provider": "panomax",
+    "latitude": 47.395988,
+    "longitude": 13.775155
   },
   {
     "name": "Hall in Tirol  - Raika Zollstr.",
-    "url": "https://hall-in-tirol.panomax.com"
+    "url": "https://hall-in-tirol.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.282168,
+    "longitude": 11.512759
   },
   {
     "name": "Kitzbühel - Hahnenkamm",
-    "url": "https://kitzski.panomax.com/hahnenkamm"
+    "url": "https://kitzski.panomax.com/hahnenkamm",
+    "provider": "panomax",
+    "latitude": 47.423733,
+    "longitude": 12.369347
   },
   {
     "name": "Kleinwalsertal - Ifenbahn",
-    "url": "https://ok-bergbahnen.panomax.com/ifen"
+    "url": "https://ok-bergbahnen.panomax.com/ifen",
+    "provider": "panomax",
+    "latitude": 47.348607,
+    "longitude": 10.127223
   },
   {
     "name": "Kleinswalsertal - Kanzelwandbahn",
-    "url": "https://ok-bergbahnen.panomax.com/kanzelwand"
+    "url": "https://ok-bergbahnen.panomax.com/kanzelwand",
+    "provider": "panomax",
+    "latitude": 47.33608,
+    "longitude": 10.205723
   },
   {
     "name": "Hinterglemm Reiterkogelbahn Mittelstation",
-    "url": "https://saalbach.panomax.com/reiterkogel"
+    "url": "https://saalbach.panomax.com/reiterkogel",
+    "provider": "panomax",
+    "latitude": 47.388941,
+    "longitude": 12.590837
   },
   {
     "name": "Mautern - Wilder Berg",
-    "url": "https://derwildeberg.panomax.com"
+    "url": "https://derwildeberg.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.382985,
+    "longitude": 14.814932
   },
   {
     "name": "Mittelstation Flying Mozart - SOMMER",
-    "url": "https://snow-space.panomax.com/flyingmozartmitte"
+    "url": "https://snow-space.panomax.com/flyingmozartmitte",
+    "provider": "panomax",
+    "latitude": 47.329759,
+    "longitude": 13.320368
   },
   {
     "name": "Snowpark Alpendorf - WINTER",
-    "url": "https://snow-space.panomax.com/snowpark"
+    "url": "https://snow-space.panomax.com/snowpark",
+    "provider": "panomax",
+    "latitude": 47.302219,
+    "longitude": 13.244226
   },
   {
     "name": "Goldeck 8er EUB Bergstation",
-    "url": "https://goldeck.panomax.com/talbahn"
+    "url": "https://goldeck.panomax.com/talbahn",
+    "provider": "panomax",
+    "latitude": 46.770072,
+    "longitude": 13.454606
   },
   {
     "name": "Goldeck Sendemast Telekom",
-    "url": "https://goldeck.panomax.com"
+    "url": "https://goldeck.panomax.com",
+    "provider": "panomax",
+    "latitude": 46.758636,
+    "longitude": 13.45789
   },
   {
     "name": "Salzstiegl - Moasterhaus",
-    "url": "https://salzstiegl.panomax.com/moasterhaus"
+    "url": "https://salzstiegl.panomax.com/moasterhaus",
+    "provider": "panomax",
+    "latitude": 47.063315,
+    "longitude": 14.878574
   },
   {
     "name": "Salzstiegl - Bergstation",
-    "url": "https://salzstiegl.panomax.com/bergstation"
+    "url": "https://salzstiegl.panomax.com/bergstation",
+    "provider": "panomax",
+    "latitude": 47.056364,
+    "longitude": 14.865679
   },
   {
     "name": "Schöckl Bergstation",
-    "url": "https://schoeckl.panomax.com"
+    "url": "https://schoeckl.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.198811,
+    "longitude": 15.467753
   },
   {
     "name": "Leibnitz Kreuzkogel Warte",
-    "url": "https://leibnitz.panomax.com/kreuzkogel"
+    "url": "https://leibnitz.panomax.com/kreuzkogel",
+    "provider": "panomax",
+    "latitude": 46.789101,
+    "longitude": 15.513625
   },
   {
     "name": "Hauser Kaibling - Übungslift",
-    "url": "https://hauserkaibling.panomax.com/uebungslift"
+    "url": "https://hauserkaibling.panomax.com/uebungslift",
+    "provider": "panomax",
+    "latitude": 47.391689,
+    "longitude": 13.773093
   },
   {
     "name": "Panorama Alm - Pass Thurn - Kitzbühel",
-    "url": "https://panoramaalm.panomax.com"
+    "url": "https://panoramaalm.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.317888,
+    "longitude": 12.359298
   },
   {
     "name": "Hüttschlag",
-    "url": "https://huettschlag.panomax.com"
+    "url": "https://huettschlag.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.178315,
+    "longitude": 13.227706
   }
 ]

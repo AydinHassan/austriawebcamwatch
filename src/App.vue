@@ -10,8 +10,12 @@ import {
 import MainNav from './components/MainNav.vue'
 
 import CamSwitcher from "@/components/CamSwitcher.vue";
+import { Badge } from '@/components/ui/badge'
+import { GlobeIcon, HomeIcon, GithubLogoIcon } from '@radix-icons/vue'
+import { useRoute } from 'vue-router';
 
-import { ref, onMounted, watch } from 'vue'
+
+import { ref, onMounted, watch, provide, computed } from 'vue'
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Icon } from '@iconify/vue'
@@ -19,9 +23,6 @@ import { useColorMode } from '@vueuse/core'
 
 const mode = useColorMode()
 mode.value = 'dark'
-
-import { ExternalLinkIcon } from '@radix-icons/vue'
-
 
 // const webcams = [
 //   { name: 'Weissenkirchen', url: 'https://content.bergfex.at/webcam/?id=12484&initTagManager=1&showCopyright=0' },
@@ -35,13 +36,48 @@ import { ExternalLinkIcon } from '@radix-icons/vue'
 //   { name: 'Weissenkirchen 3', url: 'https://content.bergfex.at/webcam/?id=12484&initTagManager=1&showCopyright=0' }
 // ];
 
-const filePath = '../austria-cams.json';
-
-import webcams from '@/assets/austria-cams.json';
-import EmptyCard from '@/components/ui/card/EmptyCard.vue'
-
 
 const selectedWebcams = ref([]);
+const webcamSelectorRef = ref(null);
+
+const addSelectedWebcam = (webcam) => {
+  const index = selectedWebcams.value.findIndex(
+    (selected) => selected.name === webcam.name
+  )
+
+  if (index !== -1) {
+    return; //it's already in there
+  }
+
+  if (selectedWebcams.value.length >= 9) {
+    selectedWebcams.value.shift()
+  }
+  // Add the webcam to the selected list
+  selectedWebcams.value.push(webcam)
+}
+
+const toggleWebcam = (webcam) => {
+  const index = selectedWebcams.value.findIndex(
+    (selected) => selected.name === webcam.name
+  )
+
+  if (index !== -1) {
+    // Remove the webcam if it's already selected
+    selectedWebcams.value.splice(index, 1)
+  } else {
+    // If more than 9 webcams are selected, remove the first one
+    if (selectedWebcams.value.length >= 9) {
+      selectedWebcams.value.shift()
+    }
+    // Add the webcam to the selected list
+    selectedWebcams.value.push(webcam)
+  }
+}
+
+provide('selectedWebcams', selectedWebcams);
+provide('webcamSelectorRef', webcamSelectorRef);
+provide('addSelectedWebcam', addSelectedWebcam);
+provide('toggleWebcam', toggleWebcam);
 
 onMounted(() => {
   const storedSelection = localStorage.getItem('selectedWebcams')
@@ -52,9 +88,12 @@ onMounted(() => {
 
 watch(selectedWebcams, (newSelection) => {
   localStorage.setItem('selectedWebcams', JSON.stringify(newSelection))
-})
+}, { deep: true })
 
-const webcamSelectorRef = ref(null);
+const route = useRoute();
+const toggleTo = computed(() => (route.path === '/map' ? '/' : '/map'));
+const path = computed(() => (route.path));
+
 </script>
 
 <template>
@@ -63,11 +102,21 @@ const webcamSelectorRef = ref(null);
       <div class="flex h-16 items-center px-4">
         <CamSwitcher
           ref="webcamSelectorRef"
-          :webcams="webcams"
           :selectedWebcams="selectedWebcams"
-          @update:selectedWebcams="selectedWebcams = $event"/>
+        />
         <MainNav class="mx-6"/>
         <div class="ml-auto flex items-center space-x-4">
+            <RouterLink :to="toggleTo">
+              <Button variant="outline">
+                <GlobeIcon v-if="path === '/'"></GlobeIcon>
+                <HomeIcon v-else></HomeIcon>
+              </Button>
+            </RouterLink>
+          <a href="https://github.com/AydinHassan/austriawebcamwatch" target="_blank">
+            <Button variant="outline">
+              <GithubLogoIcon></GithubLogoIcon>
+            </Button>
+          </a>
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
               <Button variant="outline">
@@ -92,21 +141,7 @@ const webcamSelectorRef = ref(null);
       </div>
     </div>
     <div class="flex flex-1 flex-grow space-y-4 p-4">
-      <div class="w-full grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:grid-rows-3">
-        <Card v-for="cam in selectedWebcams" v-bind:key="cam.name" class="h-[500px] lg:h-full col-span-1 flex flex-col group relative">
-          <CardHeader class="flex-row justify-between items-center absolute w-full hidden bg-background group-hover:flex">
-            <CardTitle>{{cam.name}}</CardTitle>
-            <a :href="cam.url" class="bg-secondary hover:bg-secondary/90 rounded p-0.5" target="_blank"><ExternalLinkIcon></ExternalLinkIcon></a>
-          </CardHeader>
-          <CardContent class="flex flex-1">
-            <iframe :src="cam.url" class="w-full  aspect-1" sandbox="allow-scripts" ></iframe>
-          </CardContent>
-        </Card>
-        <template v-if="selectedWebcams.length < 9">
-          <EmptyCard v-for="i in 9 - selectedWebcams.length" v-bind:key="i" @click="webcamSelectorRef.open = true">
-          </EmptyCard>
-        </template>
-      </div>
+      <RouterView />
     </div>
   </div>
 </template>
