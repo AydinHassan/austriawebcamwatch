@@ -22,14 +22,21 @@ cd bergfex
 node fetch-cams.js
 ```
 
-Then deduplicate the names, a bunch of cams have the same name, so we append 1,2, etc
-
-```shell
-node dedupe.js bergfex/cams.json
-```
-
 Then merge it with the panomax ones
 
 ```shell
 node merge.js ../src/assets/austria-cams.json bergfex/webcams.json
 ```
+
+Then remove duplicate links
+
+```shell
+node dedupe-links.js ../src/assets/austria-cams.json
+```
+
+Then deduplicate the names, a bunch of cams have the same name, so we append 1,2, etc
+
+```shell
+node dedupe-names.js ../src/assets/austria-cams.json
+```
+

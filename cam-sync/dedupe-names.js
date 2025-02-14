@@ -24,4 +24,4 @@ data.forEach(webcam => {
   }
 });
 
-fs.writeFileSync(file, JSON.stringify(data, null, 2));
+fs.writeFileSync(file, JSON.stringify(data.sort((a, b) => a.name.localeCompare(b.name)), null, 2));

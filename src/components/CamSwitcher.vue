@@ -37,62 +37,30 @@ const emit = defineEmits(['update:selectedWebcams']);
 
 import webcams from '@/assets/austria-cams.json';
 
-
 const { selectedWebcams } = defineProps(['selectedWebcams'])
 
 const open = ref(false)
 const searchQuery = ref('')
-const apiResults = ref([])
-const filteredWebcams = computed(() => {
-  const searchLower = searchQuery.value.toLowerCase()
-
-  // Filter the predefined webcams list based on the search query
-  const filteredPanomax = webcams.filter(webcam =>
-    webcam.name.toLowerCase().includes(searchLower)
-  )
-
-  // Return merged list: filtered predefined webcams + API results
-  return [
-    ...filteredPanomax,
-    ...apiResults.value.filter(apiWebcam =>
-      apiWebcam.name.toLowerCase().includes(searchLower)
-    ),
-  ]
-})
-import { debounce } from '@/lib/utils'
-// Debounced function to fetch API results
-const fetchApiResults = debounce(async (query) => {
-  if (!query) {
-    return
-  }
-
-  try {
-    const response = await fetch(`https://www.bergfex.com/presentation/api/search/webcams/?q=${query}`, {
-      mode: 'no-cors'
-    })
-    const data = await response.json()
-
-    console.log(data);
-    apiResults.value = data.result.map((webcam) => ({
-      name: webcam.name,
-      id: webcam.id,
-      link: webcam.link,
-    }))
-  } catch (error) {
-    console.error('Error fetching API results:', error)
-  }
-}, 500)
-
-// Watch for changes in the search query and trigger the API call
-watch(searchQuery, (newQuery) => {
-  fetchApiResults(newQuery)
-})
 
 defineExpose({
   open
 })
 
 const toggleWebcam = inject('toggleWebcam');
+
+const webcamsToDisplay = computed(() => {
+  if (searchQuery.value && searchQuery.value.length > 3) {
+    return webcams.filter(i => i.name?.toLowerCase()?.includes(searchQuery.value))
+  }
+
+  return filteredCams.value
+})
+
+const filteredCams = computed(() => {
+    return webcams.filter(item => !/\d$/.test(item.name)).slice(0, 500)
+});
+
+
 </script>
 
 <template>
@@ -114,14 +82,14 @@ const toggleWebcam = inject('toggleWebcam');
         </Button>
       </PopoverTrigger>
       <PopoverContent class="w-[300px] p-0">
-        <Command @update:searchTerm="searchQuery = $event" :filter-function="(list, term) => list.filter(i => i?.toLowerCase()?.includes(term)) ">
+        <Command @update:searchTerm="searchQuery = $event">
           <CommandList>
             <CommandInput placeholder="Search webcam..." />
             <CommandEmpty>No webcam found.</CommandEmpty>
             <CommandGroup>
               <CommandItem
-                v-for="webcam in filteredWebcams"
-                :key="webcam.name"
+                v-for="webcam in webcamsToDisplay"
+                :key="webcam.url"
                 :value="webcam.name"
                 class="text-sm"
                 @select="toggleWebcam(webcam)"
