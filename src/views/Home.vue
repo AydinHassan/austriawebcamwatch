@@ -62,7 +62,7 @@ const openCam = (cam) => {
 </script>
 
 <template>
-  <div class="w-full grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:grid-rows-3">
+  <div class="w-full grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:grid-rows-3 h-fit lg:h-auto">
     <Card v-for="cam in selectedWebcams" v-bind:key="cam.name" class="h-[500px] lg:h-full col-span-1 flex flex-col group relative">
       <CardHeader class="flex-row justify-between items-center absolute w-full hidden bg-background group-hover:flex z-1">
         <div class="flex gap-x-2">

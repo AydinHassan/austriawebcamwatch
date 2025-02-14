@@ -94,7 +94,7 @@ const footerNavigation = [
 </script>
 
 <template>
-  <div class="lg:h-full flex-col md:flex">
+  <div class="h-full flex-col flex">
     <div class="border-b">
       <div class="flex h-16 items-center px-4">
         <CamSwitcher
@@ -139,18 +139,18 @@ const footerNavigation = [
         </div>
       </div>
     </div>
-    <div class="flex flex-1 flex-grow space-y-4 p-4">
+    <div class="flex flex-1 flex-grow overflow-scroll space-y-4 p-4">
       <RouterView />
     </div>
     <footer class="background border-t">
-      <div class="mx-auto px-6 py-3 md:flex md:items-center md:justify-between">
+      <div class="mx-auto px-6 py-4 md:flex md:items-center md:justify-between">
         <div class="flex justify-center gap-x-6 md:order-2">
           <a v-for="item in footerNavigation" :key="item.name" :href="item.href" target="_blank" class="hover:text-primary">
             <span class="sr-only">{{ item.name }}</span>
-            <component :is="item.icon" class="size-5" aria-hidden="true" />
+            <component :is="item.icon" class="size-4" aria-hidden="true" />
           </a>
         </div>
-        <p class="mt-8 text-center text-xs md:order-1 md:mt-0">Made by Aydin Hassan</p>
+        <p class="mt-3 text-center text-xs md:order-1 md:mt-0">Made by Aydin Hassan</p>
       </div>
     </footer>
   </div>
