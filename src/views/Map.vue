@@ -48,6 +48,11 @@ const addMarkers = (map) => {
   });
 
   webcams.forEach((webcam) => {
+    if (webcam.latitude === null || webcam.longitude === null) {
+      return;
+    }
+
+
     const marker = L.marker([webcam.latitude, webcam.longitude], { icon: icon });
 
     marker.on('click', () => {
