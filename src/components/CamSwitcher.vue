@@ -42,10 +42,6 @@ const { selectedWebcams } = defineProps(['selectedWebcams'])
 const open = ref(false)
 const searchQuery = ref('')
 
-defineExpose({
-  open
-})
-
 const toggleWebcam = inject('toggleWebcam');
 
 const webcamsToDisplay = computed(() => {
@@ -60,7 +56,17 @@ const filteredCams = computed(() => {
     return webcams.filter(item => !/\d$/.test(item.name)).slice(0, 500)
 });
 
+const selectCam = (camName) => {
+  const webcam = webcams.find(w => w.name === camName);
+  if (webcam) {
+    toggleWebcam(webcam);
+  }
+}
 
+defineExpose({
+  open,
+  selectCam
+})
 </script>
 
 <template>

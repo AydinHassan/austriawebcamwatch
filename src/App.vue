@@ -2,7 +2,7 @@
 import {Button} from "@/components/ui/button";
 import CamSwitcher from "@/components/CamSwitcher.vue";
 import PresetSwitcher from "@/components/PresetSwitcher.vue";
-import { GlobeIcon, HomeIcon, GithubLogoIcon, CameraIcon, TwitterLogoIcon, PlusIcon } from '@radix-icons/vue'
+import { GlobeIcon, HomeIcon, GithubLogoIcon, CameraIcon, TwitterLogoIcon, PlusIcon, InfoCircledIcon, LayersIcon, UpdateIcon } from '@radix-icons/vue'
 import { useRoute } from 'vue-router';
 
 
@@ -14,17 +14,18 @@ import { useColorMode } from '@vueuse/core'
 import { DialogOverlay, DialogPortal, DialogRoot } from 'radix-vue'
 import {
   Dialog,
-  DialogContent, DialogDescription,
+  DialogContent, DialogDescription, DialogTrigger, DialogClose,
   DialogFooter,
   DialogHeader,
   DialogTitle
 } from '@/components/ui/dialog/index.js'
-import Provider from '@/components/Provider.vue'
 import { Input } from '@/components/ui/input/index.js'
 
 const mode = useColorMode()
 mode.value = 'dark'
 
+const firstVisit = ref(false);
+const infoOpen = ref(false);
 const webcamSelectorRef = ref(null);
 const addPresetOpen = ref(false);
 const newPresetName = ref('');
@@ -133,6 +134,28 @@ onMounted(() => {
     presets.value[0].cams = JSON.parse(storedSelection);
     localStorage.removeItem('selectedWebcams');
   }
+
+  const visited = localStorage.getItem('visited');
+
+  if (visited === null) {
+    infoOpen.value = true;
+    firstVisit.value = true;
+    localStorage.setItem('visited', 1);
+
+    //set some default cams
+    const cams = [
+      'Waidhofen an der Ybbs',
+      'Achensee',
+      'Großglockner Hochalpenstraße - Edelweißspitze',
+      'Weißenkirchen in der Wachau',
+      'Pyramidenkogel - Aussichtsturm',
+      'Eng'
+    ];
+
+    cams.forEach(cam => {
+      webcamSelectorRef.value.selectCam(cam);
+    });
+  }
 })
 
 watch(selectedPreset, (newSelection) => {
@@ -172,12 +195,60 @@ const footerNavigation = [
           Austria Webcam Watch
        </span>
         <div class="ml-auto flex items-center space-x-4">
-            <RouterLink :to="toggleTo">
+          <Dialog v-model:open="infoOpen">
+            <DialogTrigger as-child>
               <Button variant="outline">
-                <GlobeIcon v-if="path === '/'"></GlobeIcon>
-                <HomeIcon v-else></HomeIcon>
+                <InfoCircledIcon></InfoCircledIcon>
               </Button>
-            </RouterLink>
+            </DialogTrigger>
+            <DialogContent class="sm:max-w-2xl">
+              <DialogHeader>
+                <DialogTitle>Info and Help</DialogTitle>
+              </DialogHeader>
+              <div class="flex space-x-2 flex-col pt-6">
+                <p v-show="firstVisit" class="text-sm text-gray-300 mb-6">Welcome to Austria Webcam Watcher - we've added a few default webcams for you to monitor. Read on below to understand why and how to use.</p>
+                <div class="grid grid-cols-8 mb-8">
+                  <CameraIcon class="h-8 w-8 col-span-1"/>
+                  <p class="text-sm text-gray-300 col-span-7">This website allows you to monitor multiple webcams in Austria from <a class="underline text-primary" href="https://www.bergfex.at" target="_blank" rel="noopener">Bergfex</a> and <a class="underline text-primary" href="https://www.panomax.com/" target="_blank" rel="noopener">Panomax</a>. You can search and select up to 9 webcams per preset.</p>
+                </div>
+
+                <div class="grid grid-cols-8 mb-8">
+                  <LayersIcon class="h-8 w-8 col-span-1"/>
+                  <p class="text-sm text-gray-300 col-span-7">You can create multiple presets and add up to 9 webcams on each. For example you could have presets for the Wachau, Hohe Tauern & Südsteiermark. You can easily switch presets using the drop down in the menu bar.</p>
+                </div>
+
+                <div class="grid grid-cols-8 mb-8">
+                  <UpdateIcon class="h-8 w-8 col-span-1"/>
+                  <p class="text-sm text-gray-300 col-span-7">Each selected webcam can be refreshed, deleted and enlarged using the controls when hovering on a webcam. You can also visit the provider website.</p>
+                </div>
+
+                <div class="grid grid-cols-8 mb-8">
+                  <GlobeIcon class="h-8 w-8 col-span-1"/>
+                  <p class="text-sm text-gray-300  col-span-7">You can also view all the webcams on a map of Austria by clicking the globe icon in the top right. From there you can add webcams to your selected preset.</p>
+                </div>
+
+                <div class="grid grid-cols-8 mb-12">
+                  <GithubLogoIcon class="h-8 w-8 col-span-1"/>
+                  <p class="text-sm text-gray-300 col-span-7">I created this site as an easy way to monitor weather conditions for photography projects. The code is <a class="underline text-primary" href="https://github.com/AydinHassan/austriawebcamwatch" target="_blank" rel="noopener">fully open source on GitHub</a>.</p>
+                </div>
+
+                <p class="inline-flex items-center text-xs text-gray-300">To view this help again, click the <InfoCircledIcon class="mx-1"/> icon in the top right corner.</p>
+              </div>
+              <DialogFooter class="sm:justify-end">
+                <DialogClose as-child>
+                  <Button type="button" variant="secondary">
+                    Close
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
+          <RouterLink :to="toggleTo">
+            <Button variant="outline">
+              <GlobeIcon v-if="path === '/'"></GlobeIcon>
+              <HomeIcon v-else></HomeIcon>
+            </Button>
+          </RouterLink>
           <a href="https://github.com/AydinHassan/austriawebcamwatch" target="_blank">
             <Button variant="outline">
               <GithubLogoIcon></GithubLogoIcon>
