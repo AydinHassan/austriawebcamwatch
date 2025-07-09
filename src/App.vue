@@ -1,7 +1,8 @@
 <script setup>
 import {Button} from "@/components/ui/button";
 import CamSwitcher from "@/components/CamSwitcher.vue";
-import { GlobeIcon, HomeIcon, GithubLogoIcon, CameraIcon, TwitterLogoIcon } from '@radix-icons/vue'
+import PresetSwitcher from "@/components/PresetSwitcher.vue";
+import { GlobeIcon, HomeIcon, GithubLogoIcon, CameraIcon, TwitterLogoIcon, PlusIcon } from '@radix-icons/vue'
 import { useRoute } from 'vue-router';
 
 
@@ -10,28 +11,26 @@ import { ref, onMounted, watch, provide, computed } from 'vue'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Icon } from '@iconify/vue'
 import { useColorMode } from '@vueuse/core'
+import { DialogOverlay, DialogPortal, DialogRoot } from 'radix-vue'
+import {
+  Dialog,
+  DialogContent, DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle
+} from '@/components/ui/dialog/index.js'
+import Provider from '@/components/Provider.vue'
+import { Input } from '@/components/ui/input/index.js'
 
 const mode = useColorMode()
 mode.value = 'dark'
 
-// const webcams = [
-//   { name: 'Weissenkirchen', url: 'https://content.bergfex.at/webcam/?id=12484&initTagManager=1&showCopyright=0' },
-//   { name: 'Magdalensberg', url: 'https://content.bergfex.at/webcam/?id=15083&initTagManager=1&showCopyright=0' },
-//   { name: 'Schafbergspitze', url: 'https://schafberg.panomax.com' },
-//   { name: 'Schneeberg', url: 'https://schneeberg.panomax.com' },
-//   { name: 'Goldeck', url: 'https://goldeck.panomax.com?embedded=true&controls=false&branding=false' },
-//   { name: 'Dachstein', url: 'https://dachstein.panomax.com' },
-//   { name: 'Vienna', url: 'https://a1-arsenal.panomax.com' },
-//   { name: 'Weissenkirchen 2', url: 'https://content.bergfex.at/webcam/?id=12484&initTagManager=1&showCopyright=0' },
-//   { name: 'Weissenkirchen 3', url: 'https://content.bergfex.at/webcam/?id=12484&initTagManager=1&showCopyright=0' }
-// ];
-
-
-const selectedWebcams = ref([]);
 const webcamSelectorRef = ref(null);
-
+const addPresetOpen = ref(false);
+const newPresetName = ref('');
+const showPresetValidationError = ref(false);
 const addSelectedWebcam = (webcam) => {
-  const index = selectedWebcams.value.findIndex(
+  const index = selectedPreset.value.cams.findIndex(
     (selected) => selected.name === webcam.name
   )
 
@@ -39,45 +38,109 @@ const addSelectedWebcam = (webcam) => {
     return; //it's already in there
   }
 
-  if (selectedWebcams.value.length >= 9) {
-    selectedWebcams.value.shift()
+  if (selectedPreset.value.cams.length >= 9) {
+    selectedPreset.value.cams.shift()
   }
   // Add the webcam to the selected list
-  selectedWebcams.value.push(webcam)
+  selectedPreset.value.cams.push(webcam)
 }
 
 const toggleWebcam = (webcam) => {
-  const index = selectedWebcams.value.findIndex(
+  const index = selectedPreset.value.cams.findIndex(
     (selected) => selected.name === webcam.name
   )
 
   if (index !== -1) {
     // Remove the webcam if it's already selected
-    selectedWebcams.value.splice(index, 1)
+    selectedPreset.value.cams.splice(index, 1)
   } else {
     // If more than 9 webcams are selected, remove the first one
-    if (selectedWebcams.value.length >= 9) {
-      selectedWebcams.value.shift()
+    if (selectedPreset.value.cams.length >= 9) {
+      selectedPreset.value.cams.shift()
     }
     // Add the webcam to the selected list
-    selectedWebcams.value.push(webcam)
+    selectedPreset.value.cams.push(webcam)
   }
 }
 
-provide('selectedWebcams', selectedWebcams);
+const switchPreset = (name) => {
+  const preset = presets.value.find(p => p.name === name);
+  if (preset) {
+    selectedPreset.value = preset;
+  }
+}
+
+const addPreset = () => {
+  if (newPresetName.value.length < 3) {
+    showPresetValidationError.value = true
+    return;
+  }
+
+  const name = newPresetName.value.trim();
+
+  presets.value.push({ name: name, cams: [] });
+
+  newPresetName.value = ''
+  showPresetValidationError.value = false;
+  addPresetOpen.value = false;
+
+  switchPreset(name);
+}
+
+const deletePreset = (name) => {
+  if (presets.value.length === 1) {
+    return; // Prevent deletion of the last preset
+  }
+
+  presets.value = presets.value.filter(p => p.name !== name);
+
+  if (name === selectedPreset.value.name) {
+    selectedPreset.value = presets.value[0];
+  }
+}
+
+const presets = ref([
+  { name: 'Default preset', cams: []},
+]);
+
+const selectedPreset = ref(presets.value[0]);
+
+provide('selectedPreset', selectedPreset);
 provide('webcamSelectorRef', webcamSelectorRef);
 provide('addSelectedWebcam', addSelectedWebcam);
 provide('toggleWebcam', toggleWebcam);
+provide('switchPreset', switchPreset);
+provide('deletePreset', deletePreset);
 
 onMounted(() => {
+  const savedPresets = localStorage.getItem('presets');
+
+  if (savedPresets) {
+    presets.value = JSON.parse(savedPresets)
+  }
+
+  const selectedPresetName = localStorage.getItem('selectedPreset');
+
+  if (selectedPresetName) {
+    switchPreset(selectedPresetName);
+  } else {
+    selectedPreset.value = presets.value[0];
+  }
+
+  // backwards compatibility for before presets
   const storedSelection = localStorage.getItem('selectedWebcams')
   if (storedSelection) {
-    selectedWebcams.value = JSON.parse(storedSelection)
+    presets.value[0].cams = JSON.parse(storedSelection);
+    localStorage.removeItem('selectedWebcams');
   }
 })
 
-watch(selectedWebcams, (newSelection) => {
-  localStorage.setItem('selectedWebcams', JSON.stringify(newSelection))
+watch(selectedPreset, (newSelection) => {
+  localStorage.setItem('selectedPreset', newSelection.name)
+}, { deep: true })
+
+watch(presets, (newSelection) => {
+  localStorage.setItem('presets', JSON.stringify(newSelection))
 }, { deep: true })
 
 const route = useRoute();
@@ -99,8 +162,12 @@ const footerNavigation = [
       <div class="flex h-16 items-center px-4">
         <CamSwitcher
           ref="webcamSelectorRef"
-          :selectedWebcams="selectedWebcams"
+          :selectedWebcams="selectedPreset.cams"
         />
+        <PresetSwitcher :presets="presets" :selectedPreset="selectedPreset" class="ml-6" />
+        <Button variant="outline" class="ml-1" @click="addPresetOpen = true">
+          <PlusIcon></PlusIcon>
+        </Button>
         <span class="mx-6 text-sm font-medium transition-colors hover:text-primary">
           Austria Webcam Watch
        </span>
@@ -136,6 +203,7 @@ const footerNavigation = [
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+
         </div>
       </div>
     </div>
@@ -154,4 +222,27 @@ const footerNavigation = [
       </div>
     </footer>
   </div>
+
+  <Dialog v-model:open="addPresetOpen">
+    <DialogContent class="flex flex-col max-w-l">
+      <DialogHeader>
+        <DialogTitle class="flex items-center">Add preset</DialogTitle>
+        <DialogDescription> Give your preset a name.</DialogDescription>
+      </DialogHeader>
+      <div class="grid gap-4 py-4">
+        <div class=" items-center gap-4">
+          <Input id="name" minlength="3"  v-model="newPresetName" @keyup="showPresetValidationError = false"/>
+          <p class="mt-2 text-xs text-red-600" v-show="showPresetValidationError">Preset name must be longer than 3 characters</p>
+        </div>
+      </div>
+      <DialogFooter>
+        <Button type="submit" @click="addPreset">
+          Create
+        </Button>
+        <Button variant="secondary" @click="addPresetOpen = false">
+          Close
+        </Button>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
 </template>

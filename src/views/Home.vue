@@ -11,19 +11,6 @@ import { Badge } from '@/components/ui/badge'
 import { ref, inject } from 'vue'
 import { ExternalLinkIcon, Cross2Icon, ReloadIcon, SizeIcon } from '@radix-icons/vue'
 
-
-// const webcams = [
-//   { name: 'Weissenkirchen', url: 'https://content.bergfex.at/webcam/?id=12484&initTagManager=1&showCopyright=0' },
-//   { name: 'Magdalensberg', url: 'https://content.bergfex.at/webcam/?id=15083&initTagManager=1&showCopyright=0' },
-//   { name: 'Schafbergspitze', url: 'https://schafberg.panomax.com' },
-//   { name: 'Schneeberg', url: 'https://schneeberg.panomax.com' },
-//   { name: 'Goldeck', url: 'https://goldeck.panomax.com?embedded=true&controls=false&branding=false' },
-//   { name: 'Dachstein', url: 'https://dachstein.panomax.com' },
-//   { name: 'Vienna', url: 'https://a1-arsenal.panomax.com' },
-//   { name: 'Weissenkirchen 2', url: 'https://content.bergfex.at/webcam/?id=12484&initTagManager=1&showCopyright=0' },
-//   { name: 'Weissenkirchen 3', url: 'https://content.bergfex.at/webcam/?id=12484&initTagManager=1&showCopyright=0' }
-// ];
-
 import EmptyCard from '@/components/ui/card/EmptyCard.vue'
 import {
   Dialog,
@@ -33,7 +20,7 @@ import {
 } from '@/components/ui/dialog/index.js'
 import { Button } from '@/components/ui/button/index.js'
 import Provider from '@/components/Provider.vue'
-const selectedWebcams = inject('selectedWebcams')
+const selectedPreset = inject('selectedPreset')
 const webcamSelectorRef = inject('webcamSelectorRef')
 
 const openSelector = async () => {
@@ -42,7 +29,7 @@ const openSelector = async () => {
 }
 
 const closeCam = (cam) => {
-  selectedWebcams.value = selectedWebcams.value.filter((selectedCam) => selectedCam.name !== cam.name);
+  selectedPreset.value.cams = selectedPreset.value.cams.filter((selectedCam) => selectedCam.name !== cam.name);
 }
 
 const refreshCam = (cam) => {
@@ -63,7 +50,7 @@ const openCam = (cam) => {
 
 <template>
   <div class="w-full grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 lg:grid-rows-3 h-fit lg:h-auto">
-    <Card v-for="cam in selectedWebcams" v-bind:key="cam.name" class="h-[500px] lg:h-full col-span-1 flex flex-col group relative">
+    <Card v-for="cam in selectedPreset.cams" v-bind:key="cam.name" class="h-[500px] lg:h-full col-span-1 flex flex-col group relative">
       <CardHeader class="flex-row justify-between items-center absolute w-full hidden bg-background group-hover:flex z-1">
         <div class="flex gap-x-2">
           <CardTitle>{{cam.name}}</CardTitle>
@@ -82,8 +69,8 @@ const openCam = (cam) => {
       </CardContent>
     </Card>
     <EmptyCard class="flex lg:hidden" @click="openSelector" />
-    <EmptyCard class="hidden lg:flex xl:hidden" v-for="i in 10 - (selectedWebcams.length)" :key="i" @click="openSelector" />
-    <EmptyCard class="hidden xl:flex" v-for="i in 9 - (selectedWebcams.length)" :key="i" @click="openSelector" />
+    <EmptyCard class="hidden lg:flex xl:hidden" v-for="i in 10 - (selectedPreset.cams.length)" :key="i" @click="openSelector" />
+    <EmptyCard class="hidden xl:flex" v-for="i in 9 - (selectedPreset.cams.length)" :key="i" @click="openSelector" />
   </div>
 
   <Dialog v-model:open="open">
