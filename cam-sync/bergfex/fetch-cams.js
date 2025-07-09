@@ -3,6 +3,7 @@ import path from 'path';
 import * as cheerio from 'cheerio';
 import { fetchWithRetries } from '../utils.js'
 
+const __dirname = import.meta.dirname;
 
 const stateFilePath = path.resolve(__dirname, 'sync-state.json');
 const webcamDataPath = path.resolve(__dirname, 'cams.json');

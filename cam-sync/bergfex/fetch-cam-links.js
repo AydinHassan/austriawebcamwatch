@@ -1,8 +1,9 @@
 import fs from 'fs';
-import https from 'https';
 import path from 'path';
 import * as cheerio from 'cheerio';
 import { fetchWithRetries } from '../utils.js'
+
+const __dirname = import.meta.dirname;
 
 function extractAllAreas(htmlContent) {
   try {
@@ -39,10 +40,6 @@ function extractCams(htmlContent) {
     console.error('Error parsing HTML content:', error);
     return [];
   }
-}
-
-function loadFile(filePath) {
-  return fs.readFileSync(filePath, 'utf8');
 }
 
 const htmlContent = await fetchWithRetries('https://www.bergfex.at/sommer/oesterreich/webcams/');

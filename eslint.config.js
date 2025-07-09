@@ -25,11 +25,23 @@ export default [
     },
   },
   {
-    name: 'app/node-files',
-    files: ['**/sync-cams.js', '**/tailwind.config.js'],
+    name: 'app/tailwind',
+    files: ['**/tailwind.config.js'],
     languageOptions: {
       globals: {
         process: 'readonly',
+        require: 'readonly',
+        module: 'readonly',
+      },
+    },
+  },
+  {
+    name: 'app/node-files',
+    files: ['cam-sync/**/*.{js,ts}'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        __dirname: 'readonly',
         require: 'readonly',
         module: 'readonly',
       },
