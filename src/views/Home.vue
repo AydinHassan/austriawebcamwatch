@@ -20,6 +20,9 @@ import {
 } from '@/components/ui/dialog/index.js'
 import { Button } from '@/components/ui/button/index.js'
 import Provider from '@/components/Provider.vue'
+
+import Iframe from '@/components/Iframe.vue'
+
 const selectedPreset = inject('selectedPreset')
 const webcamSelectorRef = inject('webcamSelectorRef')
 
@@ -33,7 +36,7 @@ const closeCam = (cam) => {
 }
 
 const refreshCam = (cam) => {
-  iframes.value[cam.url].src = cam.url;
+  iframes.value[cam.url].reinitIframe();
 }
 
 const iframes = ref({});
@@ -45,7 +48,6 @@ const openCam = (cam) => {
   selectedWebcam.value = cam;
   open.value = true;
 }
-
 </script>
 
 <template>
@@ -65,7 +67,7 @@ const openCam = (cam) => {
         </div>
       </CardHeader>
       <CardContent class="flex flex-1 group-hover:opacity-50">
-        <iframe :src="cam.url" class="w-full" :ref="(el) => { iframes[cam.url] = el }"></iframe>
+        <Iframe :src="cam.url" class="w-full" :ref="(el) => { iframes[cam.url] = el }"></Iframe>
       </CardContent>
     </Card>
     <EmptyCard class="flex lg:hidden" @click="openSelector" />
@@ -80,7 +82,7 @@ const openCam = (cam) => {
         <DialogDescription />
       </DialogHeader>
       <div class="flex-1">
-        <iframe  :src="selectedWebcam.url" class="h-full w-full"/>
+        <Iframe  :src="selectedWebcam.url" class="h-full w-full"/>
       </div>
       <DialogFooter>
         <Button variant="secondary" @click="selectedWebcam = null">
