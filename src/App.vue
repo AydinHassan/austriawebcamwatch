@@ -208,27 +208,27 @@ const footerNavigation = [
               <div class="flex space-x-2 flex-col pt-6">
                 <p v-show="firstVisit" class="text-sm text-gray-300 mb-6">Welcome to Austria Webcam Watcher - we've added a few default webcams for you to monitor. Read on below to understand why and how to use.</p>
                 <div class="grid grid-cols-8 mb-8">
-                  <CameraIcon class="h-8 w-8 col-span-1"/>
+                  <CameraIcon class="h-8 w-8 col-span-1 text-primary"/>
                   <p class="text-sm text-gray-300 col-span-7">This website allows you to monitor multiple webcams in Austria from <a class="underline text-primary" href="https://www.bergfex.at" target="_blank" rel="noopener">Bergfex</a> and <a class="underline text-primary" href="https://www.panomax.com/" target="_blank" rel="noopener">Panomax</a>. You can search and select up to 9 webcams per preset.</p>
                 </div>
 
                 <div class="grid grid-cols-8 mb-8">
-                  <LayersIcon class="h-8 w-8 col-span-1"/>
+                  <LayersIcon class="h-8 w-8 col-span-1 text-primary"/>
                   <p class="text-sm text-gray-300 col-span-7">You can create multiple presets and add up to 9 webcams on each. For example you could have presets for the Wachau, Hohe Tauern & Südsteiermark. You can easily switch presets using the drop down in the menu bar.</p>
                 </div>
 
                 <div class="grid grid-cols-8 mb-8">
-                  <UpdateIcon class="h-8 w-8 col-span-1"/>
+                  <UpdateIcon class="h-8 w-8 col-span-1 text-primary"/>
                   <p class="text-sm text-gray-300 col-span-7">Each selected webcam can be refreshed, deleted and enlarged using the controls when hovering on a webcam. You can also visit the provider website.</p>
                 </div>
 
                 <div class="grid grid-cols-8 mb-8">
-                  <GlobeIcon class="h-8 w-8 col-span-1"/>
+                  <GlobeIcon class="h-8 w-8 col-span-1 text-primary"/>
                   <p class="text-sm text-gray-300  col-span-7">You can also view all the webcams on a map of Austria by clicking the globe icon in the top right. From there you can add webcams to your selected preset.</p>
                 </div>
 
                 <div class="grid grid-cols-8 mb-12">
-                  <GithubLogoIcon class="h-8 w-8 col-span-1"/>
+                  <GithubLogoIcon class="h-8 w-8 col-span-1 text-primary"/>
                   <p class="text-sm text-gray-300 col-span-7">I created this site as an easy way to monitor weather conditions for photography projects. The code is <a class="underline text-primary" href="https://github.com/AydinHassan/austriawebcamwatch" target="_blank" rel="noopener">fully open source on GitHub</a>.</p>
                 </div>
 
