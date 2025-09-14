@@ -182,21 +182,21 @@ const footerNavigation = [
 <template>
   <div class="h-full flex-col flex">
     <div class="border-b">
-      <div class="grid lg:flex py-2 lg:py-3 grid-cols-6 gap-2 lg:gap-6 items-center px-4">
-        <CamSwitcher class="col-span-6 order-3 lg:order-1 lg:w-[300px]"
+      <div class="grid xl:flex py-2 xl:py-3 grid-cols-6 gap-2 xl:gap-6 items-center px-4">
+        <CamSwitcher class="col-span-6 md:col-span-2 order-3 xl:order-1 xl:w-[300px]"
           ref="webcamSelectorRef"
           :selectedWebcams="selectedPreset.cams"
         />
-        <div class="col-span-6 order-4 lg:order-2 grid grid-cols-6 lg:flex">
+        <div class="col-span-6 md:col-span-2 order-4 xl:order-2 grid grid-cols-6 lg:flex">
           <PresetSwitcher :presets="presets" :selectedPreset="selectedPreset" class="col-span-5 lg:w-[200px] " />
           <Button variant="outline" class="ml-2 lg:ml-1 col-span-1" @click="addPresetOpen = true">
             <PlusIcon></PlusIcon>
           </Button>
         </div>
-        <span class="order-1 lg:order-3 col-span-3 text-sm font-medium transition-colors hover:text-primary">
+        <span class="order-1 xl:order-3 col-span-3 text-sm font-medium transition-colors hover:text-primary">
           Austria Webcam Watch
         </span>
-        <div class="lg:ml-auto flex justify-end space-x-2 lg:space-x-4 order-2 lg:order-4 col-span-3">
+        <div class="lg:ml-auto flex justify-end space-x-2 lg:space-x-4 order-2 xl:order-4 col-span-3">
           <Dialog v-model:open="infoOpen">
             <DialogTrigger as-child>
               <Button variant="outline" class="px-3 lg:px-4">

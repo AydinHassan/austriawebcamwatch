@@ -87,7 +87,7 @@ defineExpose({
           <CaretSortIcon class="ml-auto h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent class="w-[300px] p-0 ">
+      <PopoverContent class="w-[300px] p-0 mx-4">
         <Command @update:searchTerm="searchQuery = $event">
           <CommandList>
             <CommandInput placeholder="Search webcam..." />
