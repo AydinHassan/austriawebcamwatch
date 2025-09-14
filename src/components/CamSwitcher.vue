@@ -77,7 +77,7 @@ defineExpose({
           role="combobox"
           aria-expanded="open"
           aria-label="Select a team"
-          :class="cn('w-[300px] justify-between', $attrs.class ?? '')"
+          :class="cn('justify-between', $attrs.class ?? '')"
         >
           {{ selectedWebcams.length === 0
           ? 'No webcams selected'
@@ -87,7 +87,7 @@ defineExpose({
           <CaretSortIcon class="ml-auto h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent class="w-[300px] p-0">
+      <PopoverContent class="w-[300px] p-0 ">
         <Command @update:searchTerm="searchQuery = $event">
           <CommandList>
             <CommandInput placeholder="Search webcam..." />

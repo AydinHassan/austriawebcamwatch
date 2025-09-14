@@ -17,7 +17,7 @@ import {
   DialogContent, DialogDescription, DialogTrigger, DialogClose,
   DialogFooter,
   DialogHeader,
-  DialogTitle
+  DialogTitle, DialogScrollContent
 } from '@/components/ui/dialog/index.js'
 import { Input } from '@/components/ui/input/index.js'
 
@@ -182,33 +182,35 @@ const footerNavigation = [
 <template>
   <div class="h-full flex-col flex">
     <div class="border-b">
-      <div class="flex h-16 items-center px-4">
-        <CamSwitcher
+      <div class="grid lg:flex py-2 lg:py-3 grid-cols-6 gap-2 lg:gap-6 items-center px-4">
+        <CamSwitcher class="col-span-6 order-3 lg:order-1 lg:w-[300px]"
           ref="webcamSelectorRef"
           :selectedWebcams="selectedPreset.cams"
         />
-        <PresetSwitcher :presets="presets" :selectedPreset="selectedPreset" class="ml-6" />
-        <Button variant="outline" class="ml-1" @click="addPresetOpen = true">
-          <PlusIcon></PlusIcon>
-        </Button>
-        <span class="mx-6 text-sm font-medium transition-colors hover:text-primary">
+        <div class="col-span-6 order-4 lg:order-2 grid grid-cols-6 lg:flex">
+          <PresetSwitcher :presets="presets" :selectedPreset="selectedPreset" class="col-span-5 lg:w-[200px] " />
+          <Button variant="outline" class="ml-2 lg:ml-1 col-span-1" @click="addPresetOpen = true">
+            <PlusIcon></PlusIcon>
+          </Button>
+        </div>
+        <span class="order-1 lg:order-3 col-span-3 text-sm font-medium transition-colors hover:text-primary">
           Austria Webcam Watch
-       </span>
-        <div class="ml-auto flex items-center space-x-4">
+        </span>
+        <div class="lg:ml-auto flex justify-end space-x-2 lg:space-x-4 order-2 lg:order-4 col-span-3">
           <Dialog v-model:open="infoOpen">
             <DialogTrigger as-child>
-              <Button variant="outline">
+              <Button variant="outline" class="px-3 lg:px-4">
                 <InfoCircledIcon></InfoCircledIcon>
               </Button>
             </DialogTrigger>
-            <DialogContent class="sm:max-w-2xl">
+            <DialogScrollContent class="w-[90vw] sm:max-w-2xl">
               <DialogHeader>
                 <DialogTitle>Info and Help</DialogTitle>
               </DialogHeader>
               <div class="flex space-x-2 flex-col pt-6">
                 <p v-show="firstVisit" class="text-sm text-gray-300 mb-6">Welcome to Austria Webcam Watcher - we've added a few default webcams for you to monitor. Read on below to understand why and how to use.</p>
                 <div class="grid grid-cols-8 mb-8">
-                  <CameraIcon class="h-8 w-8 col-span-1 text-primary"/>
+                  <CameraIcon class="h-8 w-6 col-span-1 text-primary"/>
                   <p class="text-sm text-gray-300 col-span-7">This website allows you to monitor multiple webcams in Austria from <a class="underline text-primary" href="https://www.bergfex.at" target="_blank" rel="noopener">Bergfex</a> and <a class="underline text-primary" href="https://www.panomax.com/" target="_blank" rel="noopener">Panomax</a>. You can search and select up to 9 webcams per preset.</p>
                 </div>
 
@@ -241,22 +243,22 @@ const footerNavigation = [
                   </Button>
                 </DialogClose>
               </DialogFooter>
-            </DialogContent>
+            </DialogScrollContent>
           </Dialog>
           <RouterLink :to="toggleTo">
-            <Button variant="outline">
+            <Button variant="outline" class="px-3 lg:px-4">
               <GlobeIcon v-if="path === '/'"></GlobeIcon>
               <HomeIcon v-else></HomeIcon>
             </Button>
           </RouterLink>
           <a href="https://github.com/AydinHassan/austriawebcamwatch" target="_blank">
-            <Button variant="outline">
+            <Button variant="outline" class="px-3 lg:px-4">
               <GithubLogoIcon></GithubLogoIcon>
             </Button>
           </a>
           <DropdownMenu>
             <DropdownMenuTrigger as-child>
-              <Button variant="outline">
+              <Button variant="outline" class="px-3 lg:px-4">
                 <Icon icon="radix-icons:moon" class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <Icon icon="radix-icons:sun" class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 <span class="sr-only">Toggle theme</span>
@@ -298,7 +300,7 @@ const footerNavigation = [
     <DialogContent class="flex flex-col max-w-l">
       <DialogHeader>
         <DialogTitle class="flex items-center">Add preset</DialogTitle>
-        <DialogDescription> Give your preset a name.</DialogDescription>
+        <DialogDescription>Give your preset a name.</DialogDescription>
       </DialogHeader>
       <div class="grid gap-4 py-4">
         <div class=" items-center gap-4">
