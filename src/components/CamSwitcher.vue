@@ -63,9 +63,17 @@ const selectCam = (camName) => {
   }
 }
 
+const selectRandomCams = () => {
+  for (let i = 0; i <= 9; i++) {
+    const index = Math.floor(Math.random() * webcams.length)
+    toggleWebcam(webcams[index])
+  }
+}
+
 defineExpose({
   open,
-  selectCam
+  selectCam,
+  selectRandomCams
 })
 </script>
 

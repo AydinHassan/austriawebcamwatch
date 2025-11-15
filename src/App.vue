@@ -68,6 +68,11 @@ const switchPreset = (name) => {
   const preset = presets.value.find(p => p.name === name);
   if (preset) {
     selectedPreset.value = preset;
+
+
+    if (preset.name === 'Random') {
+      webcamSelectorRef.value.selectRandomCams()
+    }
   }
 }
 
@@ -102,6 +107,7 @@ const deletePreset = (name) => {
 
 const presets = ref([
   { name: 'Default preset', cams: []},
+  { name: 'Random', cams: []},
 ]);
 
 const selectedPreset = ref(presets.value[0]);
@@ -144,7 +150,7 @@ onMounted(() => {
 
     //set some default cams
     const cams = [
-      'Waidhofen an der Ybbs',
+      'Wanglspitze',
       'Achensee',
       'Großglockner Hochalpenstraße - Edelweißspitze',
       'Weißenkirchen in der Wachau',
