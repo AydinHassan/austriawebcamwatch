@@ -280,9 +280,7 @@ const footerNavigation = [
         </div>
       </div>
     </div>
-    <div class="flex flex-1 flex-grow overflow-scroll space-y-4 p-4">
-      <RouterView />
-    </div>
+    <RouterView />
     <footer class="background border-t">
       <div class="mx-auto px-6 py-4 md:flex md:items-center md:justify-between">
         <div class="flex justify-center gap-x-6 md:order-2">

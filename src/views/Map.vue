@@ -81,29 +81,31 @@ const selectedWebcam = ref(null);
 
 </script>
 <template>
-  <div class="flex w-full">
-    <VMap ref="mapRef" class="h-full z-1" :center="[47.7000, 13.7000]" zoom="8" min-zoom="8" :theme="'dark'">
-      <VMapOsmTileLayer  />
-      <VMapZoomControl />
-    </VMap>
-    <Dialog v-model:open="open">
-      <DialogContent v-if="selectedWebcam" class="flex flex-col max-w-5xl h-[800px]">
-        <DialogHeader>
-          <DialogTitle class="flex items-center">{{ selectedWebcam.name }} <Provider :cam="selectedWebcam"></Provider></DialogTitle>
-          <DialogDescription />
-        </DialogHeader>
-        <div class="flex-1">
-          <iframe  :src="selectedWebcam.url" class="h-full w-full"/>
-        </div>
-        <DialogFooter>
-          <Button variant="outline" @click="addSelectedWebcam(selectedWebcam); selectedWebcam = null">
-            Add to watches
-          </Button>
-          <Button variant="secondary" @click="selectedWebcam = null">
-            Close
-          </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+  <div class="flex flex-1 flex-grow overflow-scroll space-y-4 p-4">
+    <div class="flex w-full">
+      <VMap ref="mapRef" class="h-full z-1" :center="[47.7000, 13.7000]" zoom="8" min-zoom="8" :theme="'dark'">
+        <VMapOsmTileLayer  />
+        <VMapZoomControl />
+      </VMap>
+      <Dialog v-model:open="open">
+        <DialogContent v-if="selectedWebcam" class="flex flex-col max-w-5xl h-[800px]">
+          <DialogHeader>
+            <DialogTitle class="flex items-center">{{ selectedWebcam.name }} <Provider :cam="selectedWebcam"></Provider></DialogTitle>
+            <DialogDescription />
+          </DialogHeader>
+          <div class="flex-1">
+            <iframe  :src="selectedWebcam.url" class="h-full w-full"/>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" @click="addSelectedWebcam(selectedWebcam); selectedWebcam = null">
+              Add to watches
+            </Button>
+            <Button variant="secondary" @click="selectedWebcam = null">
+              Close
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
   </div>
 </template>
