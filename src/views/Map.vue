@@ -97,7 +97,7 @@ const selectedWebcam = ref(null);
             <iframe  :src="selectedWebcam.url" class="h-full w-full"/>
           </div>
           <DialogFooter>
-            <Button variant="outline" @click="addSelectedWebcam(selectedWebcam); selectedWebcam = null">
+            <Button variant="outline" @click="addSelectedWebcam(selectedWebcam.name); selectedWebcam = null">
               Add to watches
             </Button>
             <Button variant="secondary" @click="selectedWebcam = null">

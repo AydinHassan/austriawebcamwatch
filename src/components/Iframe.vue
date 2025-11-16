@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, defineEmits, defineProps } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import {debounce} from '@/lib/utils.js'
 

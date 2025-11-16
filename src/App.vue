@@ -1,25 +1,47 @@
 <script setup>
-import {Button} from "@/components/ui/button";
-import CamSwitcher from "@/components/CamSwitcher.vue";
-import PresetSwitcher from "@/components/PresetSwitcher.vue";
-import { GlobeIcon, HomeIcon, GithubLogoIcon, CameraIcon, TwitterLogoIcon, PlusIcon, InfoCircledIcon, LayersIcon, UpdateIcon } from '@radix-icons/vue'
-import { useRoute } from 'vue-router';
+import { Button } from '@/components/ui/button'
+import CamSwitcher from '@/components/CamSwitcher.vue'
+import PresetSwitcher from '@/components/PresetSwitcher.vue'
+import {
+  CameraIcon,
+  GithubLogoIcon,
+  GlobeIcon,
+  HomeIcon,
+  InfoCircledIcon,
+  LayersIcon,
+  PersonIcon,
+  PlusIcon,
+  TwitterLogoIcon,
+  UpdateIcon
+} from '@radix-icons/vue'
+import { useRoute } from 'vue-router'
 
+import { computed, onMounted, provide, ref, watch } from 'vue'
+import { useRepository } from '@/composables/useRepository'
+import { getRandomWebcams, getWebcamByName } from '@/services/webcams'
 
-import { ref, onMounted, watch, provide, computed } from 'vue'
-
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
 import { Icon } from '@iconify/vue'
 import { useColorMode } from '@vueuse/core'
-import { DialogOverlay, DialogPortal, DialogRoot } from 'radix-vue'
 import {
   Dialog,
-  DialogContent, DialogDescription, DialogTrigger, DialogClose,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogTitle, DialogScrollContent
+  DialogScrollContent,
+  DialogTitle,
+  DialogTrigger
 } from '@/components/ui/dialog/index.js'
 import { Input } from '@/components/ui/input/index.js'
+import useSupabase from '@/composables/UseSupabase'
+
 
 const mode = useColorMode()
 mode.value = 'dark'
@@ -30,49 +52,85 @@ const webcamSelectorRef = ref(null);
 const addPresetOpen = ref(false);
 const newPresetName = ref('');
 const showPresetValidationError = ref(false);
-const addSelectedWebcam = (webcam) => {
+const repository = useRepository();
+const userPresets = ref(repository.loadPresets());
+const selectedPresetName = ref(repository.selectedPreset());
+
+if (userPresets.value === null) {
+  userPresets.value = [
+    { name: 'Default preset', camIds: [] },
+    { name: 'Random', camIds: [] },
+  ]
+}
+
+if (selectedPresetName.value === null) {
+  selectedPresetName.value = userPresets.value[0].name
+}
+
+const presets = computed(() => {
+  return userPresets.value.map(preset => ({
+    name: preset.name,
+    cams: preset.camIds.map(camId => getWebcamByName(camId))
+  }))
+})
+
+const selectedPreset = computed(() => {
+  if (selectedPresetName.value !== null) {
+    return presets.value.find((preset) => preset.name === selectedPresetName.value);
+  }
+})
+
+const addSelectedWebcam = (webcamName) => {
+
   const index = selectedPreset.value.cams.findIndex(
-    (selected) => selected.name === webcam.name
+    (selected) => selected.name === webcamName
   )
 
   if (index !== -1) {
     return; //it's already in there
   }
 
+  const preset = userPresets.value.find((preset) => preset.name === selectedPresetName.value);
+
   if (selectedPreset.value.cams.length >= 9) {
-    selectedPreset.value.cams.shift()
+    preset.camIds.shift();
   }
   // Add the webcam to the selected list
-  selectedPreset.value.cams.push(webcam)
+  preset.camIds.push(webcamName);
 }
 
-const toggleWebcam = (webcam) => {
-  const index = selectedPreset.value.cams.findIndex(
-    (selected) => selected.name === webcam.name
+const toggleWebcam = (webcamName) => {
+  const preset = userPresets.value.find((preset) => preset.name === selectedPresetName.value);
+
+  const index = preset.camIds.findIndex(
+    (selected) => selected === webcamName
   )
 
   if (index !== -1) {
     // Remove the webcam if it's already selected
-    selectedPreset.value.cams.splice(index, 1)
+    preset.camIds.splice(index, 1)
   } else {
     // If more than 9 webcams are selected, remove the first one
-    if (selectedPreset.value.cams.length >= 9) {
-      selectedPreset.value.cams.shift()
+    if (preset.camIds.length >= 9) {
+      preset.camIds.shift()
     }
     // Add the webcam to the selected list
-    selectedPreset.value.cams.push(webcam)
+    preset.camIds.push(webcamName)
   }
 }
 
 const switchPreset = (name) => {
-  const preset = presets.value.find(p => p.name === name);
+  const preset = userPresets.value.find(p => p.name === name);
   if (preset) {
-    selectedPreset.value = preset;
+    selectedPresetName.value = preset.name;
 
+    randomiseCams()
+  }
+}
 
-    if (preset.name === 'Random') {
-      webcamSelectorRef.value.selectRandomCams()
-    }
+const randomiseCams = () => {
+  if (selectedPresetName.value === 'Random') {
+    getRandomWebcams(9).map((webcam) => toggleWebcam(webcam.name))
   }
 }
 
@@ -84,7 +142,7 @@ const addPreset = () => {
 
   const name = newPresetName.value.trim();
 
-  presets.value.push({ name: name, cams: [] });
+  userPresets.value.push({ name: name, camIds: [] });
 
   newPresetName.value = ''
   showPresetValidationError.value = false;
@@ -94,23 +152,16 @@ const addPreset = () => {
 }
 
 const deletePreset = (name) => {
-  if (presets.value.length === 1) {
+  if (userPresets.value.length === 1) {
     return; // Prevent deletion of the last preset
   }
 
-  presets.value = presets.value.filter(p => p.name !== name);
+  userPresets.value = userPresets.value.filter(p => p.name !== name)
 
-  if (name === selectedPreset.value.name) {
-    selectedPreset.value = presets.value[0];
+  if (name === selectedPresetName.value) {
+    selectedPresetName.value = userPresets.value[0].name;
   }
 }
-
-const presets = ref([
-  { name: 'Default preset', cams: []},
-  { name: 'Random', cams: []},
-]);
-
-const selectedPreset = ref(presets.value[0]);
 
 provide('selectedPreset', selectedPreset);
 provide('webcamSelectorRef', webcamSelectorRef);
@@ -120,33 +171,12 @@ provide('switchPreset', switchPreset);
 provide('deletePreset', deletePreset);
 
 onMounted(() => {
-  const savedPresets = localStorage.getItem('presets');
+  const visited = repository.hasVisited();
 
-  if (savedPresets) {
-    presets.value = JSON.parse(savedPresets)
-  }
-
-  const selectedPresetName = localStorage.getItem('selectedPreset');
-
-  if (selectedPresetName) {
-    switchPreset(selectedPresetName);
-  } else {
-    selectedPreset.value = presets.value[0];
-  }
-
-  // backwards compatibility for before presets
-  const storedSelection = localStorage.getItem('selectedWebcams')
-  if (storedSelection) {
-    presets.value[0].cams = JSON.parse(storedSelection);
-    localStorage.removeItem('selectedWebcams');
-  }
-
-  const visited = localStorage.getItem('visited');
-
-  if (visited === null) {
+  if (visited === false) {
     infoOpen.value = true;
     firstVisit.value = true;
-    localStorage.setItem('visited', 1);
+    repository.setVisited();
 
     //set some default cams
     const cams = [
@@ -158,18 +188,18 @@ onMounted(() => {
       'Eng'
     ];
 
-    cams.forEach(cam => {
-      webcamSelectorRef.value.selectCam(cam);
-    });
+    cams.forEach(cam => addSelectedWebcam(cam));
   }
+
+  randomiseCams()
 })
 
-watch(selectedPreset, (newSelection) => {
-  localStorage.setItem('selectedPreset', newSelection.name)
+watch(selectedPresetName, (presetName) => {
+  repository.setSelectedPreset(presetName)
 }, { deep: true })
 
-watch(presets, (newSelection) => {
-  localStorage.setItem('presets', JSON.stringify(newSelection))
+watch(userPresets, (presets) => {
+  repository.savePresets(presets)
 }, { deep: true })
 
 const route = useRoute();
@@ -183,6 +213,22 @@ const footerNavigation = [
   { name: 'Photography', href: 'https://www.aydinhassanphotography.com', icon: CameraIcon},
   { name: 'X', href: 'https://x.com/aydinh', icon: TwitterLogoIcon},
 ]
+
+const loginOpen = ref(false);
+
+const handleLogin = async (provider) => {
+  try {
+    const { supabase } = useSupabase();
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: provider,
+    })
+
+    console.log('Logged in')
+  } catch (error) {
+    alert(error.message);
+  }
+};
 </script>
 
 <template>
@@ -282,6 +328,36 @@ const footerNavigation = [
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          <Dialog v-model:open="loginOpen">
+            <DialogTrigger as-child>
+              <Button variant="outline" class="px-3 lg:px-4">
+                <PersonIcon></PersonIcon>
+              </Button>
+            </DialogTrigger>
+            <DialogScrollContent class="w-[90vw] sm:max-w-sm">
+              <DialogHeader>
+                <DialogTitle>Login</DialogTitle>
+              </DialogHeader>
+              <div class="flex space-x-2 flex-col pt-6">
+                <Button variant="outline" type="button" @click="handleLogin('github')">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  Login with GitHub
+                </Button>
+              </div>
+              <DialogFooter class="sm:justify-end">
+                <DialogClose as-child>
+                  <Button type="button" variant="secondary">
+                    Close
+                  </Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogScrollContent>
+          </Dialog>
 
         </div>
       </div>

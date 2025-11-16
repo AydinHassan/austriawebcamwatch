@@ -1,18 +1,6 @@
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
-
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command'
 import { Badge } from '@/components/ui/badge'
 
 import {
@@ -21,21 +9,12 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { cn } from '@/lib/utils'
-
-import { CaretSortIcon, CheckIcon,  PlusCircledIcon} from '@radix-icons/vue'
-import { ref, computed, watch, provide, inject } from 'vue'
+import { CaretSortIcon, CheckIcon} from '@radix-icons/vue'
+import { ref, computed, inject } from 'vue'
+import { getAllWebcams, searchWebcams, getWebcamByName } from '@/services/webcams'
 
 const emit = defineEmits(['update:selectedWebcams']);
-
-import webcams from '@/assets/austria-cams.json';
 
 const { selectedWebcams } = defineProps(['selectedWebcams'])
 
@@ -44,36 +23,30 @@ const searchQuery = ref('')
 
 const toggleWebcam = inject('toggleWebcam');
 
+const allWebcams = getAllWebcams()
+
 const webcamsToDisplay = computed(() => {
   if (searchQuery.value && searchQuery.value.length > 3) {
-    return webcams.filter(i => i.name?.toLowerCase()?.includes(searchQuery.value))
+    return searchWebcams(searchQuery.value)
   }
 
   return filteredCams.value
 })
 
 const filteredCams = computed(() => {
-    return webcams.filter(item => !/\d$/.test(item.name)).slice(0, 500)
-});
+  return allWebcams.filter(item => !/\d$/.test(item.name)).slice(0, 500)
+})
 
-const selectCam = (camName) => {
-  const webcam = webcams.find(w => w.name === camName);
+const selectCam = (camName: string) => {
+  const webcam = getWebcamByName(camName)
   if (webcam) {
-    toggleWebcam(webcam);
-  }
-}
-
-const selectRandomCams = () => {
-  for (let i = 0; i <= 9; i++) {
-    const index = Math.floor(Math.random() * webcams.length)
-    toggleWebcam(webcams[index])
+    toggleWebcam(webcam)
   }
 }
 
 defineExpose({
   open,
-  selectCam,
-  selectRandomCams
+  selectCam
 })
 </script>
 
@@ -106,7 +79,7 @@ defineExpose({
                 :key="webcam.url"
                 :value="webcam.name"
                 class="text-sm"
-                @select="toggleWebcam(webcam)"
+                @select="toggleWebcam(webcam.name)"
               >
                 <span class="whitespace-nowrap text-ellipsis overflow-hidden max-w-[160px]">{{ webcam.name }}</span>
                 <Badge v-if="webcam.provider === 'panomax'" variant="outline" class="ml-3 text-[9px] border-green-400/20 text-green-500">Panomax</Badge>

@@ -25,6 +25,7 @@ import Iframe from '@/components/Iframe.vue'
 import SelectedCamsSwitcher from '@/components/SelectedCamsSwitcher.vue'
 import Swiper from '@/components/Swiper.vue'
 
+const toggleWebcam = inject('toggleWebcam')
 const selectedPreset = inject('selectedPreset')
 const webcamSelectorRef = inject('webcamSelectorRef')
 
@@ -58,29 +59,6 @@ onMounted(() => {
     selectedWebcam.value =  selectedPreset.value.cams[0];
   }
 })
-
-let startX = 0
-let deltaX = 0
-
-function startSwipe(e) {
-  startX = e.touches[0].clientX
-}
-
-function moveSwipe(e) {
-  deltaX = e.touches[0].clientX - startX
-}
-
-function endSwipe() {
-  const threshold = 50 // px before we trigger
-
-  if (deltaX > threshold) {
-    swipeLeft()
-  } else if (deltaX < -threshold) {
-    swipeRight()
-  }
-
-  deltaX = 0
-}
 
 function prevCam() {
   const i = selectedPreset.value.cams.findIndex(c => c.name === selectedWebcam.value.name)
@@ -121,7 +99,7 @@ function nextCam() {
               <div class="flex gap-x-2">
                 <span v-if="cam.provider === 'bergfex'" class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="refreshCam(cam)"><ReloadIcon></ReloadIcon></span>
                 <span class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="openCam(cam)"><SizeIcon></SizeIcon></span>
-                <span class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="closeCam(cam)"><Cross2Icon></Cross2Icon></span>
+                <span class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="toggleWebcam(cam.name)"><Cross2Icon></Cross2Icon></span>
                 <a :href="cam.url" class="bg-secondary hover:bg-secondary/90 rounded p-0.5" target="_blank"><ExternalLinkIcon></ExternalLinkIcon></a>
               </div>
             </CardHeader>
