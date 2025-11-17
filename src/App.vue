@@ -42,7 +42,7 @@ import {
   DialogTrigger
 } from '@/components/ui/dialog/index.js'
 import { Input } from '@/components/ui/input/index.js'
-import useSupabase from '@/composables/UseSupabase'
+import useSupabase from '@/composables/useSupabase'
 import { Badge } from '@/components/ui/badge/index.js'
 const { supabase } = useSupabase();
 
