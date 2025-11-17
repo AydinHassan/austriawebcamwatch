@@ -1,5 +1,5 @@
 import type { Repository, Preset, UserSettings } from './webcamRepository'
-import useSupabase from '@/composables/UseSupabase'
+import useSupabase from '@/composables/useSupabase'
 
 const { supabase } = useSupabase();
 
