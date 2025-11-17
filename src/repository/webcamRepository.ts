@@ -3,13 +3,15 @@ export type Preset = {
   camIds: string[]
 }
 
+export type UserSettings = {
+  visited: boolean,
+  selectedPreset: string|null,
+}
+
 export interface Repository {
-  loadPresets(): Preset[]|null
-  savePresets(presets: Preset[]): void
+  loadPresets(): Promise<Preset[] | null>
+  savePresets(presets: Preset[]): Promise<void>
 
-  selectedPreset(): string | null
-  setSelectedPreset(presetName: string | null): void
-
-  hasVisited(): boolean
-  setVisited(): void
+  getSettings(): Promise<UserSettings>
+  setSettings(settings: UserSettings): Promise<void>
 }

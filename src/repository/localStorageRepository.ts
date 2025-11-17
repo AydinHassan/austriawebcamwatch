@@ -1,7 +1,7 @@
-import type { Repository, Preset } from './repository'
+import type { Repository, Preset, UserSettings } from './webcamRepository'
 
 export const localRepository: Repository = {
-  loadPresets(): Preset[]|null {
+  async loadPresets(): Promise<Preset[]|null> {
 
     const presets = localStorage.getItem('presets')
     if (!presets) {
@@ -34,27 +34,30 @@ export const localRepository: Repository = {
     return migrated
   },
 
-  savePresets(presets: Preset[]): void {
+  async savePresets(presets: Preset[] | null): Promise<void> {
+    if (presets === null) {
+      localStorage.removeItem('presets');
+    }
+
     localStorage.setItem('presets', JSON.stringify(presets))
   },
 
-  selectedPreset(): string | null {
-    return localStorage.getItem('selectedPreset')
-  },
-
-  setSelectedPreset(presetName: string | null): void {
-    if (presetName === null) {
-      localStorage.removeItem('selectedPreset')
-    } else {
-      localStorage.setItem('selectedPreset', presetName)
+  async getSettings(): Promise<UserSettings> {
+    return {
+      selectedPreset: localStorage.getItem('selectedPreset') ?? null,
+      visited: localStorage.getItem('visited') === '1',
     }
   },
 
-  hasVisited(): boolean {
-    return localStorage.getItem('visited') === '1'
-  },
+  async setSettings(settings: UserSettings): Promise<void> {
+    if (settings.selectedPreset === null) {
+      localStorage.removeItem('selectedPreset')
+    } else {
+      localStorage.setItem('selectedPreset', settings.selectedPreset)
+    }
 
-  setVisited(): void {
-    localStorage.setItem('visited', '1')
-  }
+    if (settings.visited) {
+      localStorage.setItem('visited', '1')
+    }
+  },
 }

@@ -1,4 +1,5 @@
-<script setup>
+<script setup lang="ts">
+import type {UserSettings} from '@/repository/webcamRepository';
 import { Button } from '@/components/ui/button'
 import CamSwitcher from '@/components/CamSwitcher.vue'
 import PresetSwitcher from '@/components/PresetSwitcher.vue'
@@ -17,8 +18,9 @@ import {
 import { useRoute } from 'vue-router'
 
 import { computed, onMounted, provide, ref, watch } from 'vue'
-import { useRepository } from '@/composables/useRepository'
 import { getRandomWebcams, getWebcamByName } from '@/services/webcams'
+import { localRepository } from '@/repository/localStorageRepository'
+import { supabaseRepository } from '@/repository/supabaseRepository'
 
 import {
   DropdownMenu,
@@ -53,22 +55,35 @@ const webcamSelectorRef = ref(null);
 const addPresetOpen = ref(false);
 const newPresetName = ref('');
 const showPresetValidationError = ref(false);
-const repository = useRepository();
-const userPresets = ref(repository.loadPresets());
-const selectedPresetName = ref(repository.selectedPreset());
+const user = ref(null);
 
-if (userPresets.value === null) {
+const repository = computed(() => {
+  return user.value ? supabaseRepository : localRepository;
+})
+
+supabase.auth.onAuthStateChange((_, session) => {
+  user.value = session?.user ?? null
+})
+
+const userPresets = ref(null);
+const userSettings = ref<UserSettings>({visited: false, selectedPreset: null});
+
+const addDefaultPresets = () => {
   userPresets.value = [
     { name: 'Default preset', camIds: [] },
     { name: 'Random', camIds: [] },
   ]
-}
 
-if (selectedPresetName.value === null) {
-  selectedPresetName.value = userPresets.value[0].name
-}
+  userSettings.value.selectedPreset = userPresets.value[0].name;
+};
 
 const presets = computed(() => {
+  if (userPresets.value === null) {
+    return [
+      { name: 'Loading...', cams: []}
+    ]
+  }
+
   return userPresets.value.map(preset => ({
     name: preset.name,
     cams: preset.camIds.map(camId => getWebcamByName(camId))
@@ -76,9 +91,11 @@ const presets = computed(() => {
 })
 
 const selectedPreset = computed(() => {
-  if (selectedPresetName.value !== null) {
-    return presets.value.find((preset) => preset.name === selectedPresetName.value);
+  if (userSettings.value.selectedPreset !== null) {
+    return presets.value.find((preset) => preset.name === userSettings.value.selectedPreset);
   }
+
+  return presets.value[0];
 })
 
 const addSelectedWebcam = (webcamName) => {
@@ -91,7 +108,7 @@ const addSelectedWebcam = (webcamName) => {
     return; //it's already in there
   }
 
-  const preset = userPresets.value.find((preset) => preset.name === selectedPresetName.value);
+  const preset = userPresets.value.find((preset) => preset.name === userSettings.value.selectedPreset);
 
   if (selectedPreset.value.cams.length >= 9) {
     preset.camIds.shift();
@@ -101,7 +118,7 @@ const addSelectedWebcam = (webcamName) => {
 }
 
 const toggleWebcam = (webcamName) => {
-  const preset = userPresets.value.find((preset) => preset.name === selectedPresetName.value);
+  const preset = userPresets.value.find((preset) => preset.name === userSettings.value.selectedPreset);
 
   const index = preset.camIds.findIndex(
     (selected) => selected === webcamName
@@ -123,14 +140,14 @@ const toggleWebcam = (webcamName) => {
 const switchPreset = (name) => {
   const preset = userPresets.value.find(p => p.name === name);
   if (preset) {
-    selectedPresetName.value = preset.name;
+    userSettings.value.selectedPreset = preset.name;
 
     randomiseCams()
   }
 }
 
 const randomiseCams = () => {
-  if (selectedPresetName.value === 'Random') {
+  if (userSettings.value.selectedPreset === 'Random') {
     getRandomWebcams(9).map((webcam) => toggleWebcam(webcam.name))
   }
 }
@@ -159,8 +176,8 @@ const deletePreset = (name) => {
 
   userPresets.value = userPresets.value.filter(p => p.name !== name)
 
-  if (name === selectedPresetName.value) {
-    selectedPresetName.value = userPresets.value[0].name;
+  if (name === userSettings.value.selectedPreset) {
+    userSettings.value.selectedPreset = userPresets.value[0].name;
   }
 }
 
@@ -171,15 +188,38 @@ provide('toggleWebcam', toggleWebcam);
 provide('switchPreset', switchPreset);
 provide('deletePreset', deletePreset);
 
-const user = ref(null);
-
 onMounted(async () => {
-  const visited = repository.hasVisited();
+  //load from local storage first
+  userPresets.value = await repository.value.loadPresets();
+  userSettings.value = await repository.value.getSettings();
 
-  if (visited === false) {
+  const { data } = await supabase.auth.getUser();
+  user.value = data.user ?? null;
+
+  if (data.user) {
+    const settingsFromDb = await repository.value.getSettings();
+
+    if (settingsFromDb.visited === false) {
+      //first time logging in. let's migrate
+      repository.value.savePresets(userPresets.value);
+      repository.value.setSettings(userSettings.value);
+
+      localRepository.value.savePresets([]);
+      localRepository.value.setSettings({selectedPreset: null, visited: true});
+    } else {
+      const presetsFromDb = await repository.value.loadPresets();
+      userSettings.value = settingsFromDb;
+      userPresets.value = presetsFromDb;
+    }
+  }
+
+  if (userSettings.value.visited === false) {
     infoOpen.value = true;
     firstVisit.value = true;
-    repository.setVisited();
+
+    userSettings.value.visited = true;
+
+    addDefaultPresets();
 
     //set some default cams
     const cams = [
@@ -195,22 +235,18 @@ onMounted(async () => {
   }
 
   randomiseCams()
-
-  const { data } = await supabase.auth.getUser()
-  user.value = data.user ?? null;
-
-  supabase.auth.onAuthStateChange((_, session) => {
-    user.value = session?.user ?? null
-    console.log(user.value);
-  })
 })
 
-watch(selectedPresetName, (presetName) => {
-  repository.setSelectedPreset(presetName)
+watch(userSettings, async (settings) => {
+  await repository.value.setSettings(settings)
 }, { deep: true })
 
-watch(userPresets, (presets) => {
-  repository.savePresets(presets)
+watch(userPresets, async (presets) => {
+  if (presets === null) {
+    return;
+  }
+
+  await repository.value.savePresets(presets)
 }, { deep: true })
 
 const route = useRoute();
@@ -231,8 +267,6 @@ const handleLogin = async (provider) => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: provider,
     })
-
-    console.log(data)
   } catch (error) {
     alert(error.message);
   }
@@ -242,13 +276,15 @@ const handleLogout = async () => {
   const { error } = await supabase.auth.signOut()
 
   user.value = null;
+
+  addDefaultPresets()
 }
 </script>
 
 <template>
   <div class="h-full flex-col flex">
     <div class="border-b">
-      <div class="grid xl:flex py-2 xl:py-3 grid-cols-6 gap-2 xl:gap-6 items-center px-4">
+      <div  class="grid xl:flex py-2 xl:py-3 grid-cols-6 gap-2 xl:gap-6 items-center px-4">
         <CamSwitcher class="col-span-6 md:col-span-2 order-3 xl:order-1 xl:w-[300px]"
           ref="webcamSelectorRef"
           :selectedWebcams="selectedPreset.cams"

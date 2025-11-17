@@ -1,6 +1,9 @@
+import { inject } from 'vue'
 import { localRepository } from '@/repository/localStorageRepository'
-import { Repository} from '@/repository/webcamRepository'
+import { supabaseRepository } from '@/repository/supabaseRepository'
+import type { Repository } from '@/repository/webcamRepository'
 
 export function useRepository(): Repository {
-  return localRepository
+  const user = inject('user')
+  return user && user.value ? supabaseRepository : localRepository
 }
