@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
-import { ref, inject, computed, onMounted, watch } from 'vue'
+import { ref, inject, computed, onMounted, watch, watchEffect } from 'vue'
 import { ExternalLinkIcon, Cross2Icon, ReloadIcon, SizeIcon } from '@radix-icons/vue'
 
 import EmptyCard from '@/components/ui/card/EmptyCard.vue'
@@ -54,9 +54,9 @@ const openCam = (cam) => {
 
 const isMobile = computed(() => window.innerWidth < 768);
 
-onMounted(() => {
+watchEffect(() => {
   if (isMobile.value && selectedPreset.value.cams.length > 1) {
-    selectedWebcam.value =  selectedPreset.value.cams[0];
+    selectedWebcam.value = selectedPreset.value.cams[0];
   }
 })
 
