@@ -47,7 +47,7 @@ const { user, login, logout } = useAuth()
   <div class="hidden md:flex space-x-2 lg:space-x-4">
     <Button @click="infoOpen = true" variant="outline" class="px-3 lg:px-4"> <InfoCircledIcon></InfoCircledIcon></Button>
     <Button @click="$router.push(toggleTo)" variant="outline" class="px-3 lg:px-4">
-      <GlobeIcon v-if="path === '/'"></GlobeIcon>
+      <GlobeIcon v-if="route.path === '/'"></GlobeIcon>
       <HomeIcon v-else></HomeIcon>
     </Button>
     <a href="https://github.com/AydinHassan/austriawebcamwatch" target="_blank">
