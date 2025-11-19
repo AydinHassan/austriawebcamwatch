@@ -19,7 +19,9 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import useAuth from '@/composables/useAuth'
 import { useRoute } from 'vue-router'
+import { useColorMode } from '@vueuse/core'
 const route = useRoute();
+const mode = useColorMode()
 
 const infoOpen = ref(false);
 const loginOpen = ref(false);
