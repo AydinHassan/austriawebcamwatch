@@ -9,9 +9,11 @@ import {
   GlobeIcon,
   PlusIcon,
   TwitterLogoIcon,
+  Share1Icon,
 } from '@radix-icons/vue'
+import { createShareLink } from '@/utils/share'
 
-import { computed, onMounted, provide, ref, watch } from 'vue'
+import { computed, onMounted, provide, ref, watch, toRaw } from 'vue'
 import { getRandomWebcams, getWebcamByName } from '@/services/webcams'
 import { localRepository } from '@/repository/localStorageRepository'
 import { supabaseRepository } from '@/repository/supabaseRepository'
@@ -32,10 +34,15 @@ import { Input } from '@/components/ui/input/index.js'
 import useSupabase from '@/composables/useSupabase'
 import useAuth from '@/composables/useAuth'
 import Menu from '@/components/Menu.vue'
+import { useRoute } from 'vue-router'
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 const { supabase } = useSupabase();
 
 const mode = useColorMode()
 mode.value = 'dark'
+
+const route = useRoute()
+const showSwitchers = computed(() => route.path === '/' || route.path === '/map')
 
 const firstVisit = ref(false);
 const webcamSelectorRef = ref(null);
@@ -90,12 +97,13 @@ const repository = computed(() => {
 const userPresets = ref(null);
 const userSettings = ref<UserSettings>({visited: false, selectedPreset: null});
 
-const addDefaultPresets = () => {
-  userPresets.value = [
-    { name: 'Default preset', camIds: [] },
-    { name: 'Random', camIds: [] },
-  ]
+const defaultPresets = [
+  { name: 'Default preset', camIds: [] },
+  { name: 'Random', camIds: [] },
+]
 
+const addDefaultPresets = () => {
+  userPresets.value = defaultPresets
   userSettings.value.selectedPreset = userPresets.value[0].name;
 };
 
@@ -222,7 +230,7 @@ watch(userSettings, async (settings) => {
   await repository.value.setSettings(settings)
 }, { deep: true })
 
-watch(userPresets, async (presets) => {
+watch(userPresets, async (presets ) => {
   if (presets === null) {
     return;
   }
@@ -237,6 +245,10 @@ watch(user, () => {
   }
 })
 
+const shareLink = () => {
+  createShareLink(selectedPreset.value.cams)
+}
+
 const footerNavigation = [
   { name: 'GitHub', href: 'https://www.github.com/AydinHassan', icon: GithubLogoIcon},
   { name: 'Website', href: 'https://www.aydinhassan.co.uk', icon: GlobeIcon},
@@ -250,20 +262,33 @@ const footerNavigation = [
   <div class="h-full flex-col flex">
     <div class="border-b">
       <div  class="grid xl:flex py-2 xl:py-3 grid-cols-6 gap-2 xl:gap-6 items-center px-4">
-        <CamSwitcher class="col-span-6 md:col-span-2 order-3 xl:order-1 xl:w-[300px]"
+        <CamSwitcher v-if="showSwitchers" class="col-span-6 md:col-span-2 order-3 xl:order-1 xl:w-[300px]"
           ref="webcamSelectorRef"
           :selectedWebcams="selectedPreset.cams"
         />
-        <div class="col-span-6 md:col-span-2 order-4 xl:order-2 grid grid-cols-6 lg:flex">
-          <PresetSwitcher :presets="presets" :selectedPreset="selectedPreset" class="col-span-5 lg:w-[200px] " />
+        <div v-if="showSwitchers" class="col-span-6 md:col-span-2 order-4 xl:order-2 grid grid-cols-6 lg:flex">
+          <PresetSwitcher :presets="presets" :selectedPreset="selectedPreset" :class="selectedPreset.cams.length > 0 ? 'col-span-4' : 'col-span-5'" class="lg:w-[200px] " />
           <Button variant="outline" class="ml-2 lg:ml-1 col-span-1" @click="addPresetOpen = true">
             <PlusIcon></PlusIcon>
           </Button>
+          <Popover v-if="selectedPreset.cams.length > 0" @update:open="val => val && shareLink()">
+            <PopoverTrigger as-child>
+              <Button class="ml-2 lg:ml-1 col-span-1" variant="outline">
+                <Share1Icon />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent class="w-auto">
+              <div class="grid gap-4">
+                <p class="text-sm">Link copied to clipboard!</p>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
-        <span class="order-1 xl:order-3 col-span-3 text-sm font-medium transition-colors hover:text-primary">
+        <RouterLink to="/" class="order-1 xl:order-3 col-span-3 text-sm font-medium transition-colors hover:text-primary">
           Austria Webcam Watch
-        </span>
+        </RouterLink>
         <div class="lg:ml-auto flex justify-end space-x-2 lg:space-x-4 order-2 xl:order-4 col-span-3">
+
           <Menu :firstVisit="firstVisit"></Menu>
         </div>
       </div>
