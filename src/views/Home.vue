@@ -7,5 +7,5 @@ const selectedPreset = inject('selectedPreset')
 </script>
 
 <template>
-  <WebcamGrid :webcams="selectedPreset.cams" show-placeholders allow-share allow-toggle></WebcamGrid>
+  <WebcamGrid :webcams="selectedPreset?.cams ?? []" show-placeholders allow-share allow-toggle></WebcamGrid>
 </template>

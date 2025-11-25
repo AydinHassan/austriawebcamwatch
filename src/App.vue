@@ -13,9 +13,10 @@ import {
 } from '@radix-icons/vue'
 import { createShareLink } from '@/utils/share'
 
-import { computed, onMounted, provide, ref, watch, toRaw } from 'vue'
+import { computed, onMounted, provide, ref, watch } from 'vue'
 import { getRandomWebcams, getWebcamByName } from '@/services/webcams'
 import { localRepository } from '@/repository/localStorageRepository'
+import type {Webcam} from '@/services/webcams'
 import { supabaseRepository } from '@/repository/supabaseRepository'
 
 import { useColorMode } from '@vueuse/core'
@@ -32,11 +33,13 @@ import {
 } from '@/components/ui/dialog/index.js'
 import { Input } from '@/components/ui/input/index.js'
 import useSupabase from '@/composables/useSupabase'
-import useAuth from '@/composables/useAuth'
 import Menu from '@/components/Menu.vue'
 import { useRoute } from 'vue-router'
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
+
 const { supabase } = useSupabase();
+import { useAuthStore } from '@/stores/auth'
+const auth = useAuthStore()
 
 const mode = useColorMode()
 mode.value = 'dark'
@@ -49,24 +52,174 @@ const webcamSelectorRef = ref(null);
 const addPresetOpen = ref(false);
 const newPresetName = ref('');
 const showPresetValidationError = ref(false);
-const { user, onAuthenticated } = useAuth()
 
-onAuthenticated(async (user) => {
-  if (user !== null) {
-    const settingsFromDb = await repository.value.getSettings();
+const loadPresets = async (repository): Preset  => {
+  const presets = await repository.loadPresets();
 
-    if (settingsFromDb.visited === false) {
-      //first time logging in. let's migrate
-      repository.value.savePresets(userPresets.value);
-      repository.value.setSettings(userSettings.value);
+  if (presets === null) {
+    return defaultPresets;
+  }
 
-      localRepository.value.savePresets([]);
-      localRepository.value.setSettings({selectedPreset: null, visited: true});
-    } else {
-      const presetsFromDb = await repository.value.loadPresets();
-      userSettings.value = settingsFromDb;
-      userPresets.value = presetsFromDb;
+  return presets.map(preset => ({
+    name: preset.name,
+    cams: preset.camIds.map(camId => getWebcamByName(camId))
+  }))
+}
+
+const saveSettings = async () => {
+  await repository.value.saveSettings(userSettings.value)
+}
+
+const savePresets = async () => {
+  if (!userPresets.value) {
+    return
+  }
+
+  const toSave = userPresets.value.map(preset => {
+    if (preset.name === 'Random') {
+      return {
+        name: preset.name,
+        camIds: [],
+      }
     }
+
+    return {
+      name: preset.name,
+      camIds: preset.cams.map((cam: Webcam) => cam.name),
+    }
+  })
+
+  await repository.value.savePresets(toSave)
+}
+
+const repository = computed(() => {
+  return auth.user ? supabaseRepository : localRepository;
+})
+
+const defaultPresets = [
+  { name: 'Default preset', cams: [] },
+  { name: 'Random', cams: [] },
+]
+
+const userPresets = ref(defaultPresets);
+const userSettings = ref<UserSettings>({visited: false, selectedPreset: 'Default preset'});
+
+const addDefaultPresets = () => {
+  userPresets.value = defaultPresets
+  userSettings.value.selectedPreset = userPresets.value[0].name;
+};
+
+const selectedPreset = computed(() => {
+  const presetName = userSettings.value.selectedPreset;
+  if (!presetName) {
+    return userPresets.value[0] ?? null
+  }
+  return userPresets.value.find(p => p.name === presetName) ?? userPresets.value[0];
+})
+
+watch(() => userSettings.value.selectedPreset, (newPreset) => {
+  if (newPreset === 'Random') {
+    randomiseCams();
+  }
+})
+
+const getSelectedPreset = (): Preset => {
+  const presetName = userSettings.value.selectedPreset;
+  if (!presetName) {
+    return;
+  }
+
+  return userPresets.value.find(p => p.name === presetName)
+}
+
+const toggleWebcam = async (webcam: Webcam) => {
+  const preset = getSelectedPreset();
+
+  const index = preset.cams.findIndex(
+    (selected) => selected === webcam
+  )
+
+  if (index !== -1) {
+    // Remove the webcam if it's already selected
+    preset.cams.splice(index, 1)
+  } else {
+    // If more than 9 webcams are selected, remove the first one
+    if (preset.cams.length >= 9) {
+      preset.cams.shift()
+    }
+
+    // Add the webcam to the selected list
+    preset.cams.push(webcam)
+  }
+
+  if (selectedPreset.value.name !== 'Random') {
+    await savePresets()
+  }
+}
+
+const switchPreset = async (name) => {
+  if (name === userSettings.value.selectedPreset) {
+    return;
+  }
+
+  const preset = userPresets.value.find(p => p.name === name);
+  if (preset) {
+    userSettings.value.selectedPreset = preset.name;
+    await saveSettings();
+  }
+}
+
+const randomiseCams = () => {
+  getRandomWebcams(9).map((webcam) => toggleWebcam(webcam))
+}
+
+const addPreset = async () => {
+  if (newPresetName.value.length < 3) {
+    showPresetValidationError.value = true
+    return;
+  }
+
+  const name = newPresetName.value.trim();
+
+  userPresets.value.push({ name: name, cams: [] });
+
+  newPresetName.value = ''
+  showPresetValidationError.value = false;
+  addPresetOpen.value = false;
+
+  await savePresets();
+  await switchPreset(name);
+}
+
+const deletePreset = async (name) => {
+  if (userPresets.value.length === 1) {
+    return; // Prevent deletion of the last preset
+  }
+
+  userPresets.value.splice(userPresets.value.findIndex(p => p.name === name), 1)
+
+  if (name === userSettings.value.selectedPreset) {
+    userSettings.value.selectedPreset = userPresets.value[0].name;
+  }
+
+  await saveSettings();
+  await savePresets();
+}
+
+provide('selectedPreset', selectedPreset);
+provide('webcamSelectorRef', webcamSelectorRef);
+provide('toggleWebcam', toggleWebcam);
+provide('switchPreset', switchPreset);
+provide('deletePreset', deletePreset);
+
+onMounted(async () => {
+  userPresets.value = await loadPresets(localRepository)
+  userSettings.value = await localRepository.loadSettings();
+
+  await auth.init();
+
+  if (auth.user) {
+    await loadRemoteData(auth.user)
   }
 
   if (userSettings.value.visited === false) {
@@ -86,164 +239,41 @@ onAuthenticated(async (user) => {
       'Eng'
     ];
 
-    cams.forEach(cam => addSelectedWebcam(cam));
+    cams.forEach(cam => toggleWebcam(getWebcamByName(cam)));
+    await saveSettings();
   }
 })
 
-const repository = computed(() => {
-  return user.value ? supabaseRepository : localRepository;
-})
+const loadRemoteData = async () => {
+  const settingsFromDb = await supabaseRepository.loadSettings();
 
-const userPresets = ref(null);
-const userSettings = ref<UserSettings>({visited: false, selectedPreset: null});
+  if (settingsFromDb.visited === false) {
+    //first time logging in. let's migrate
+    await savePresets();
+    await saveSettings();
 
-const defaultPresets = [
-  { name: 'Default preset', camIds: [] },
-  { name: 'Random', camIds: [] },
-]
-
-const addDefaultPresets = () => {
-  userPresets.value = defaultPresets
-  userSettings.value.selectedPreset = userPresets.value[0].name;
-};
-
-const presets = computed(() => {
-  if (userPresets.value === null) {
-    return [
-      { name: 'Loading...', cams: []}
-    ]
-  }
-
-  return userPresets.value.map(preset => ({
-    name: preset.name,
-    cams: preset.camIds.map(camId => getWebcamByName(camId))
-  }))
-})
-
-const selectedPreset = computed(() => {
-  if (userSettings.value.selectedPreset !== null) {
-    return presets.value.find((preset) => preset.name === userSettings.value.selectedPreset);
-  }
-
-  return presets.value[0];
-})
-
-const addSelectedWebcam = (webcamName) => {
-
-  const index = selectedPreset.value.cams.findIndex(
-    (selected) => selected.name === webcamName
-  )
-
-  if (index !== -1) {
-    return; //it's already in there
-  }
-
-  const preset = userPresets.value.find((preset) => preset.name === userSettings.value.selectedPreset);
-
-  if (selectedPreset.value.cams.length >= 9) {
-    preset.camIds.shift();
-  }
-  // Add the webcam to the selected list
-  preset.camIds.push(webcamName);
-}
-
-const toggleWebcam = (webcamName) => {
-  const preset = userPresets.value.find((preset) => preset.name === userSettings.value.selectedPreset);
-
-  const index = preset.camIds.findIndex(
-    (selected) => selected === webcamName
-  )
-
-  if (index !== -1) {
-    // Remove the webcam if it's already selected
-    preset.camIds.splice(index, 1)
+    //delete local data
+    localRepository.savePresets([]);
+    localRepository.saveSettings({selectedPreset: null, visited: true});
   } else {
-    // If more than 9 webcams are selected, remove the first one
-    if (preset.camIds.length >= 9) {
-      preset.camIds.shift()
+    const presetsFromDb = await loadPresets(repository.value);
+    userSettings.value = settingsFromDb;
+    userPresets.value = presetsFromDb;
+  }
+}
+
+watch(() => auth.user, (newUser) => {
+    if (newUser === null) {
+      console.log('Adding default presets')
+      addDefaultPresets()
     }
-    // Add the webcam to the selected list
-    preset.camIds.push(webcamName)
   }
+)
+
+type Preset = {
+  name: string
+  cams: Webcam[]
 }
-
-const switchPreset = (name) => {
-  const preset = userPresets.value.find(p => p.name === name);
-  if (preset) {
-    userSettings.value.selectedPreset = preset.name;
-
-    randomiseCams()
-  }
-}
-
-const randomiseCams = () => {
-  if (userSettings.value.selectedPreset === 'Random') {
-    getRandomWebcams(9).map((webcam) => toggleWebcam(webcam.name))
-  }
-}
-
-const addPreset = () => {
-  if (newPresetName.value.length < 3) {
-    showPresetValidationError.value = true
-    return;
-  }
-
-  const name = newPresetName.value.trim();
-
-  userPresets.value.push({ name: name, camIds: [] });
-
-  newPresetName.value = ''
-  showPresetValidationError.value = false;
-  addPresetOpen.value = false;
-
-  switchPreset(name);
-}
-
-const deletePreset = (name) => {
-  if (userPresets.value.length === 1) {
-    return; // Prevent deletion of the last preset
-  }
-
-  userPresets.value = userPresets.value.filter(p => p.name !== name)
-
-  if (name === userSettings.value.selectedPreset) {
-    userSettings.value.selectedPreset = userPresets.value[0].name;
-  }
-}
-
-provide('selectedPreset', selectedPreset);
-provide('webcamSelectorRef', webcamSelectorRef);
-provide('addSelectedWebcam', addSelectedWebcam);
-provide('toggleWebcam', toggleWebcam);
-provide('switchPreset', switchPreset);
-provide('deletePreset', deletePreset);
-
-onMounted(async () => {
-  //load from local storage first
-  userPresets.value = await repository.value.loadPresets();
-  userSettings.value = await repository.value.getSettings();
-
-  randomiseCams()
-})
-
-watch(userSettings, async (settings) => {
-  await repository.value.setSettings(settings)
-}, { deep: true })
-
-watch(userPresets, async (presets ) => {
-  if (presets === null) {
-    return;
-  }
-
-  await repository.value.savePresets(presets)
-}, { deep: true })
-
-
-watch(user, () => {
-  if (user.value === null) {
-    addDefaultPresets()
-  }
-})
 
 const shareLink = () => {
   createShareLink(selectedPreset.value.cams)
@@ -264,14 +294,19 @@ const footerNavigation = [
       <div  class="grid xl:flex py-2 xl:py-3 grid-cols-6 gap-2 xl:gap-6 items-center px-4">
         <CamSwitcher v-if="showSwitchers" class="col-span-6 md:col-span-2 order-3 xl:order-1 xl:w-[300px]"
           ref="webcamSelectorRef"
-          :selectedWebcams="selectedPreset.cams"
+          :selectedWebcams="selectedPreset?.cams ?? []"
         />
         <div v-if="showSwitchers" class="col-span-6 md:col-span-2 order-4 xl:order-2 grid grid-cols-6 lg:flex">
-          <PresetSwitcher :presets="presets" :selectedPreset="selectedPreset" :class="selectedPreset.cams.length > 0 ? 'col-span-4' : 'col-span-5'" class="lg:w-[200px] " />
+          <PresetSwitcher
+            :presets="userPresets"
+            :selectedPreset="selectedPreset ?? null"
+            :class="selectedPreset?.cams?.length > 0 ? 'col-span-4' : 'col-span-5'"
+            class="lg:w-[200px] "
+          />
           <Button variant="outline" class="ml-2 lg:ml-1 col-span-1" @click="addPresetOpen = true">
             <PlusIcon></PlusIcon>
           </Button>
-          <Popover v-if="selectedPreset.cams.length > 0" @update:open="val => val && shareLink()">
+          <Popover v-if="selectedPreset?.cams?.length > 0" @update:open="val => val && shareLink()">
             <PopoverTrigger as-child>
               <Button class="ml-2 lg:ml-1 col-span-1" variant="outline">
                 <Share1Icon />

@@ -62,7 +62,7 @@ const deleteOpen = ref(false)
                 <span class="whitespace-nowrap text-ellipsis overflow-hidden max-w-[160px]">{{ preset.name }}</span>
                 <Badge variant="outline" class="ml-3 text-[9px] border-green-400/20 text-green-500"> {{preset.cams.length }} webcams</Badge>
                 <DialogTrigger asChild>
-                  <Cross2Icon @click="presetToDelete = preset.name" :class="cn('ml-2 h-4 w-4 cursor-pointer hover:text-red-400')" />
+                  <Cross2Icon @click.stop="presetToDelete = preset.name" :class="cn('ml-2 h-4 w-4 cursor-pointer hover:text-red-400')" />
                 </DialogTrigger>
                 <CheckIcon
                   :class="cn('ml-auto h-4 w-4',

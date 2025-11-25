@@ -12,6 +12,6 @@ export interface Repository {
   loadPresets(): Promise<Preset[] | null>
   savePresets(presets: Preset[]): Promise<void>
 
-  getSettings(): Promise<UserSettings>
-  setSettings(settings: UserSettings): Promise<void>
+  loadSettings(): Promise<UserSettings>
+  saveSettings(settings: UserSettings): Promise<void>
 }

@@ -42,14 +42,14 @@ export const localRepository: Repository = {
     localStorage.setItem('presets', JSON.stringify(presets))
   },
 
-  async getSettings(): Promise<UserSettings> {
+  async loadSettings(): Promise<UserSettings> {
     return {
       selectedPreset: localStorage.getItem('selectedPreset') ?? null,
       visited: localStorage.getItem('visited') === '1',
     }
   },
 
-  async setSettings(settings: UserSettings): Promise<void> {
+  async saveSettings(settings: UserSettings): Promise<void> {
     if (settings.selectedPreset === null) {
       localStorage.removeItem('selectedPreset')
     } else {

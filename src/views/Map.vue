@@ -25,7 +25,7 @@ const mapRef = ref(null);
 
 import webcams from '@/assets/austria-cams.json';
 import Provider from '@/components/Provider.vue'
-const addSelectedWebcam = inject('addSelectedWebcam');
+const toggleWebcam = inject('toggleWebcam');
 
 const svgIcon = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-9">
@@ -97,7 +97,7 @@ const selectedWebcam = ref(null);
             <iframe  :src="selectedWebcam.url" class="h-full w-full"/>
           </div>
           <DialogFooter>
-            <Button variant="outline" @click="addSelectedWebcam(selectedWebcam.name); selectedWebcam = null">
+            <Button variant="outline" @click="toggleWebcam(selectedWebcam); selectedWebcam = null">
               Add to watches
             </Button>
             <Button variant="secondary" @click="selectedWebcam = null">

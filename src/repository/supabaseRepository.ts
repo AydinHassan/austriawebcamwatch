@@ -37,7 +37,6 @@ export const supabaseRepository: Repository = {
       .delete()
       .eq('user_id', user.id)
 
-
     if (presets.length === 0) {
       return
     }
@@ -51,7 +50,7 @@ export const supabaseRepository: Repository = {
     )
   },
 
-  async getSettings(): Promise<UserSettings> {
+  async loadSettings(): Promise<UserSettings> {
     const { data: { user } } = await supabase.auth.getUser()
 
     const { data } = await supabase
@@ -70,7 +69,7 @@ export const supabaseRepository: Repository = {
     }
   },
 
-  async setSettings(settings: UserSettings): Promise<void> {
+  async saveSettings(settings: UserSettings): Promise<void> {
     const { data: { user } } = await supabase.auth.getUser()
 
     await supabase

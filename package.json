@@ -23,6 +23,7 @@
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
     "lucide-vue-next": "^0.475.0",
+    "pinia": "^3.0.4",
     "radix-vue": "^1.9.13",
     "reka-ui": "^2.6.0",
     "tailwind-merge": "^3.0.1",
