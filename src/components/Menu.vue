@@ -20,12 +20,15 @@ import { Badge } from '@/components/ui/badge'
 import { useAuthStore } from '@/stores/auth'
 import { useRoute } from 'vue-router'
 import { useColorMode } from '@vueuse/core'
+import { useRepository } from '@/composables/useRepository'
 const route = useRoute();
 const mode = useColorMode()
 const auth = useAuthStore()
 
 const infoOpen = ref(false);
 const loginOpen = ref(false);
+
+const { getPresetsForExport, importPresets } = useRepository();
 
 const props = defineProps<{
   firstVisit: boolean
@@ -39,7 +42,43 @@ watch(
   { immediate: true }
 )
 
+const emit = defineEmits(['presets-imported'])
+
+
 const toggleTo = computed(() => (route.path === '/map' ? '/' : '/map'));
+
+const exportProfiles = async () => {
+  const profiles = await getPresetsForExport();
+
+  const json = JSON.stringify(profiles)
+  const blob = new Blob([json], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'profiles.json'
+  a.click()
+
+  URL.revokeObjectURL(url)
+}
+const importInput = ref(null)
+const importProfiles = () => importInput.value.click();
+
+const handleImport = (event) => {
+  const file = event.target.files?.[0]
+  if (!file) {
+    return
+  }
+
+  const reader = new FileReader()
+  reader.onload = async () =>{
+     await importPresets(reader.result)
+    emit('presets-imported')
+  }
+  reader.readAsText(file)
+
+  event.target.value = ''
+}
 
 </script>
 
@@ -67,10 +106,25 @@ const toggleTo = computed(() => (route.path === '/map' ? '/' : '/map'));
         <DropdownMenuItem @click="mode = 'light'"> Light </DropdownMenuItem>
         <DropdownMenuItem @click="mode = 'dark'"> Dark </DropdownMenuItem>
         <DropdownMenuItem @click="mode = 'auto'"> System </DropdownMenuItem>
-      </DropdownMenuContent> </DropdownMenu>
-      <Button @click="loginOpen = true" variant="outline" class="px-3 lg:px-4">
-        <PersonIcon :class="auth.user ? 'text-green-500' : 'text-red-400'" />
-      </Button>
+      </DropdownMenuContent>
+    </DropdownMenu>
+
+    <DropdownMenu>
+      <DropdownMenuTrigger as-child>
+        <Button variant="outline" class="px-3 lg:px-4">
+          <Icon icon="radix-icons:gear" class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />
+          <span class="sr-only">Config</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem @click="exportProfiles"> Export profiles</DropdownMenuItem>
+        <DropdownMenuItem @click="importProfiles"> Import profiles</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+
+    <Button @click="loginOpen = true" variant="outline" class="px-3 lg:px-4">
+      <PersonIcon :class="auth.user ? 'text-green-500' : 'text-red-400'" />
+    </Button>
   </div>
 
   <div class="inline-flex md:hidden">
@@ -202,4 +256,12 @@ const toggleTo = computed(() => (route.path === '/map' ? '/' : '/map'));
       </DialogFooter>
     </DialogScrollContent>
   </Dialog>
+
+  <input
+    ref="importInput"
+    type="file"
+    accept="application/json"
+    class="hidden"
+    @change="handleImport"
+  >
 </template>

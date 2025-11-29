@@ -15,9 +15,8 @@ import { createShareLink } from '@/utils/share'
 
 import { computed, onMounted, provide, ref, watch } from 'vue'
 import { getRandomWebcams, getWebcamByName } from '@/services/webcams'
-import { localRepository } from '@/repository/localStorageRepository'
 import type {Webcam} from '@/services/webcams'
-import { supabaseRepository } from '@/repository/supabaseRepository'
+import { useRepository } from '@/composables/useRepository'
 
 import { useColorMode } from '@vueuse/core'
 import {
@@ -32,12 +31,10 @@ import {
   DialogTrigger
 } from '@/components/ui/dialog/index.js'
 import { Input } from '@/components/ui/input/index.js'
-import useSupabase from '@/composables/useSupabase'
 import Menu from '@/components/Menu.vue'
 import { useRoute } from 'vue-router'
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 
-const { supabase } = useSupabase();
 import { useAuthStore } from '@/stores/auth'
 const auth = useAuthStore()
 
@@ -47,59 +44,20 @@ mode.value = 'dark'
 const route = useRoute()
 const showSwitchers = computed(() => route.path === '/' || route.path === '/map')
 
+const {
+  loadPresets,
+  loadSettings,
+  saveSettings,
+  savePresets,
+  removeLocalData,
+  defaultPresets
+} = useRepository()
+
 const firstVisit = ref(false);
 const webcamSelectorRef = ref(null);
 const addPresetOpen = ref(false);
 const newPresetName = ref('');
 const showPresetValidationError = ref(false);
-
-const loadPresets = async (repository): Preset  => {
-  const presets = await repository.loadPresets();
-
-  if (presets === null) {
-    return defaultPresets;
-  }
-
-  return presets.map(preset => ({
-    name: preset.name,
-    cams: preset.camIds.map(camId => getWebcamByName(camId))
-  }))
-}
-
-const saveSettings = async () => {
-  await repository.value.saveSettings(userSettings.value)
-}
-
-const savePresets = async () => {
-  if (!userPresets.value) {
-    return
-  }
-
-  const toSave = userPresets.value.map(preset => {
-    if (preset.name === 'Random') {
-      return {
-        name: preset.name,
-        camIds: [],
-      }
-    }
-
-    return {
-      name: preset.name,
-      camIds: preset.cams.map((cam: Webcam) => cam.name),
-    }
-  })
-
-  await repository.value.savePresets(toSave)
-}
-
-const repository = computed(() => {
-  return auth.user ? supabaseRepository : localRepository;
-})
-
-const defaultPresets = [
-  { name: 'Default preset', cams: [] },
-  { name: 'Random', cams: [] },
-]
 
 const userPresets = ref(defaultPresets);
 const userSettings = ref<UserSettings>({visited: false, selectedPreset: 'Default preset'});
@@ -153,7 +111,7 @@ const toggleWebcam = async (webcam: Webcam) => {
   }
 
   if (selectedPreset.value.name !== 'Random') {
-    await savePresets()
+    await savePresets(userPresets.value)
   }
 }
 
@@ -165,7 +123,7 @@ const switchPreset = async (name) => {
   const preset = userPresets.value.find(p => p.name === name);
   if (preset) {
     userSettings.value.selectedPreset = preset.name;
-    await saveSettings();
+    await saveSettings(userSettings.value);
   }
 }
 
@@ -187,7 +145,7 @@ const addPreset = async () => {
   showPresetValidationError.value = false;
   addPresetOpen.value = false;
 
-  await savePresets();
+  await savePresets(userPresets.value);
   await switchPreset(name);
 }
 
@@ -202,8 +160,8 @@ const deletePreset = async (name) => {
     userSettings.value.selectedPreset = userPresets.value[0].name;
   }
 
-  await saveSettings();
-  await savePresets();
+  await saveSettings(userSettings.value);
+  await savePresets(userPresets.value);
 }
 
 provide('selectedPreset', selectedPreset);
@@ -213,8 +171,8 @@ provide('switchPreset', switchPreset);
 provide('deletePreset', deletePreset);
 
 onMounted(async () => {
-  userPresets.value = await loadPresets(localRepository)
-  userSettings.value = await localRepository.loadSettings();
+  userPresets.value = await loadPresets('local')
+  userSettings.value = await loadSettings('local');
 
   await auth.init();
 
@@ -240,23 +198,21 @@ onMounted(async () => {
     ];
 
     cams.forEach(cam => toggleWebcam(getWebcamByName(cam)));
-    await saveSettings();
+    await saveSettings(userSettings.value);
   }
 })
 
 const loadRemoteData = async () => {
-  const settingsFromDb = await supabaseRepository.loadSettings();
+  const settingsFromDb = await loadSettings('remote');
 
   if (settingsFromDb.visited === false) {
     //first time logging in. let's migrate
-    await savePresets();
-    await saveSettings();
+    await savePresets(userPresets.value, 'remote');
+    await saveSettings(userSettings.value, 'remote');
 
-    //delete local data
-    localRepository.savePresets([]);
-    localRepository.saveSettings({selectedPreset: null, visited: true});
+    await removeLocalData();
   } else {
-    const presetsFromDb = await loadPresets(repository.value);
+    const presetsFromDb = await loadPresets('remote');
     userSettings.value = settingsFromDb;
     userPresets.value = presetsFromDb;
   }
@@ -264,11 +220,15 @@ const loadRemoteData = async () => {
 
 watch(() => auth.user, (newUser) => {
     if (newUser === null) {
-      console.log('Adding default presets')
       addDefaultPresets()
     }
   }
 )
+
+async function reloadPresets() {
+  userPresets.value = await loadPresets()
+  userSettings.value = await loadSettings()
+}
 
 type Preset = {
   name: string
@@ -324,7 +284,7 @@ const footerNavigation = [
         </RouterLink>
         <div class="lg:ml-auto flex justify-end space-x-2 lg:space-x-4 order-2 xl:order-4 col-span-3">
 
-          <Menu :firstVisit="firstVisit"></Menu>
+          <Menu @presets-imported="reloadPresets" :firstVisit="firstVisit"></Menu>
         </div>
       </div>
     </div>
