@@ -27,7 +27,8 @@ export const DEFAULT_PRESET_IDS = {
 
 export interface Repository {
   loadPresets(): Promise<PresetEntity[] | null>
-  addPreset(preset: string): Promise<void>
+  savePresets(presets: PresetEntity[]): Promise<void>
+  addPreset(preset: PresetEntity): Promise<void>
   deletePreset(id: string): Promise<void>
   addCamToPreset(id: string, camId: string): Promise<void>
   removeCamFromPreset(id: string, camId: string): Promise<void>

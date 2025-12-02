@@ -1,5 +1,5 @@
-import { useRepository } from '@/composables/useRepository';
-import { RepositoryType, PresetEntity } from '@/repository/webcamRepository'
+import { useRepository } from '@/composables/useRepository'
+import { RepositoryType, PresetEntity, SPECIAL_PRESETS, DEFAULT_PRESET_IDS } from '@/repository/webcamRepository'
 import { usePresetsStore } from '@/stores/presets'
 
 function isValidPresetData(json: string): boolean {
@@ -16,7 +16,7 @@ function isValidPresetData(json: string): boolean {
   }
 
   if (data.length === 0) {
-    return false;
+    return false
   }
 
   for (const item of data) {
@@ -41,6 +41,19 @@ function isValidPresetData(json: string): boolean {
   return true
 }
 
+function normalizePresets(presets: any[]): PresetEntity[] {
+  const nameToIdMap: Record<string, string> = {
+    [SPECIAL_PRESETS.DEFAULT]: DEFAULT_PRESET_IDS.DEFAULT,
+    [SPECIAL_PRESETS.RANDOM]: DEFAULT_PRESET_IDS.RANDOM,
+  }
+  
+  return presets.map(preset => ({
+    id: preset.id || nameToIdMap[preset.name] || crypto.randomUUID(),
+    name: preset.name,
+    camIds: preset.camIds
+  }))
+}
+
 export function useImportExport() {
   const { getRepo } = useRepository()
 
@@ -49,17 +62,18 @@ export function useImportExport() {
       throw new Error('Invalid preset data format')
     }
 
-    const presets = JSON.parse(data);
+    const rawPresets = JSON.parse(data)
+    const presets = normalizePresets(rawPresets)
 
-    await getRepo(RepositoryType.AUTO).savePresets(presets);
-    await getRepo(RepositoryType.AUTO).saveSettings({selectedPreset: presets[0].name, visited: true})
+    await getRepo(RepositoryType.AUTO).savePresets(presets)
+    await getRepo(RepositoryType.AUTO).saveSettings({ selectedPreset: presets[0].id, visited: true })
 
-    usePresetsStore().init();
+    usePresetsStore().init()
   }
 
   async function getPresetsForExport(): Promise<PresetEntity[]> {
-    return await getRepo(RepositoryType.AUTO).loadPresets() ?? [];
+    return await getRepo(RepositoryType.AUTO).loadPresets() ?? []
   }
 
-  return {importPresets, getPresetsForExport}
+  return { importPresets, getPresetsForExport }
 }
