@@ -20,7 +20,8 @@ import { Badge } from '@/components/ui/badge'
 import { useAuthStore } from '@/stores/auth'
 import { useRoute } from 'vue-router'
 import { useColorMode } from '@vueuse/core'
-import { useRepository } from '@/composables/useRepository'
+import { useImportExport } from '@/composables/useImportExport'
+import { usePresetsStore } from '@/stores/presets'
 const route = useRoute();
 const mode = useColorMode()
 const auth = useAuthStore()
@@ -28,22 +29,10 @@ const auth = useAuthStore()
 const infoOpen = ref(false);
 const loginOpen = ref(false);
 
-const { getPresetsForExport, importPresets } = useRepository();
-
-const props = defineProps<{
-  firstVisit: boolean
-}>()
-
-watch(
-  () => props.firstVisit,
-  (v) => {
-    infoOpen.value = v
-  },
-  { immediate: true }
-)
+const { getPresetsForExport, importPresets } = useImportExport();
+const { firstVisit } = usePresetsStore();
 
 const emit = defineEmits(['presets-imported'])
-
 
 const toggleTo = computed(() => (route.path === '/map' ? '/' : '/map'));
 

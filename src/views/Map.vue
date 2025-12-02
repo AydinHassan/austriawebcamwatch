@@ -1,6 +1,6 @@
 <script setup>
 import { VMap, VMapOsmTileLayer, VMapZoomControl } from 'vue-map-ui';
-import { inject, onMounted, provide, ref, watch } from 'vue'
+import { onMounted, provide, ref, watch } from 'vue'
 
 import 'leaflet/dist/leaflet.css';
 import 'vue-map-ui/dist/style.css';
@@ -20,12 +20,13 @@ import {
 } from '@/components/ui/dialog'
 
 import {Button} from "@/components/ui/button";
+import { usePresetsStore } from '@/stores/presets'
 
 const mapRef = ref(null);
+const presetsStore = usePresetsStore()
 
 import webcams from '@/assets/austria-cams.json';
 import Provider from '@/components/Provider.vue'
-const toggleWebcam = inject('toggleWebcam');
 
 const svgIcon = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-9">
@@ -97,7 +98,7 @@ const selectedWebcam = ref(null);
             <iframe  :src="selectedWebcam.url" class="h-full w-full"/>
           </div>
           <DialogFooter>
-            <Button variant="outline" @click="toggleWebcam(selectedWebcam); selectedWebcam = null">
+            <Button variant="outline" @click="presetsStore.toggleWebcam(selectedWebcam); selectedWebcam = null">
               Add to watches
             </Button>
             <Button variant="secondary" @click="selectedWebcam = null">

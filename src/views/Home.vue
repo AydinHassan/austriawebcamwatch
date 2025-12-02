@@ -1,11 +1,10 @@
 <script setup>
-
-import { inject } from 'vue'
 import WebcamGrid from '@/components/WebcamGrid.vue'
+import { usePresetsStore } from '@/stores/presets'
 
-const selectedPreset = inject('selectedPreset')
+const presetsStore = usePresetsStore()
 </script>
 
 <template>
-  <WebcamGrid :webcams="selectedPreset?.cams ?? []" show-placeholders allow-share allow-toggle></WebcamGrid>
+  <WebcamGrid :webcams="presetsStore.selectedPreset?.cams ?? []" show-placeholders allow-share allow-toggle></WebcamGrid>
 </template>

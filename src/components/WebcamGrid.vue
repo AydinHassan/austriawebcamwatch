@@ -5,10 +5,10 @@ import SelectedCamsSwitcher from '@/components/SelectedCamsSwitcher.vue'
 import EmptyCard from '@/components/ui/card/EmptyCard.vue'
 import Swiper from '@/components/Swiper.vue'
 import WebcamGridItem from '@/components/WebcamGridItem.vue'
-import { ref, inject, computed, watchEffect, watch } from 'vue'
+import { ref, computed, watchEffect, inject } from 'vue'
 import type {Webcam} from '@/services/webcam'
 
-const webcamSelectorRef = inject('webcamSelectorRef')
+const webcamSelectorRef = inject('webcamSelectorRef', ref(null))
 
 const {
   webcams = [],
