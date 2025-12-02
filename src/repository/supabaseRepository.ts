@@ -108,33 +108,14 @@ export const supabaseRepository: Repository = {
       throw userError
     }
 
-    const { data, error: selectError } = await supabase
-      .from('presets')
-      .select('cam_ids')
-      .eq('id', id)
-      .eq('user_id', user.id)
-      .single()
+    const { error } = await supabase.rpc('add_cam_to_preset', {
+      preset_id: id,
+      cam_id: camId,
+      p_user_id: user.id
+    })
 
-    if (selectError) {
-      throw selectError
-    }
-    if (!data) {
-      throw new Error('Preset not found')
-    }
-
-    const camIds = data.cam_ids || []
-    if (camIds.includes(camId)) {
-      return
-    }
-
-    const { error: updateError } = await supabase
-      .from('presets')
-      .update({ cam_ids: [...camIds, camId] })
-      .eq('id', id)
-      .eq('user_id', user.id)
-
-    if (updateError) {
-      throw updateError
+    if (error) {
+      throw error
     }
   },
 
@@ -145,28 +126,14 @@ export const supabaseRepository: Repository = {
       throw userError
     }
 
-    const { data, error: selectError } = await supabase
-      .from('presets')
-      .select('cam_ids')
-      .eq('id', id)
-      .eq('user_id', user.id)
-      .single()
+    const { error } = await supabase.rpc('remove_cam_from_preset', {
+      preset_id: id,
+      cam_id: camId,
+      p_user_id: user.id
+    })
 
-    if (selectError) {
-      throw selectError
-    }
-    if (!data) {
-      throw new Error('Preset not found')
-    }
-
-    const { error: updateError } = await supabase
-      .from('presets')
-      .update({ cam_ids: (data.cam_ids || []).filter((c: string) => c !== camId) })
-      .eq('id', id)
-      .eq('user_id', user.id)
-
-    if (updateError) {
-      throw updateError
+    if (error) {
+      throw error
     }
   },
 
