@@ -55,30 +55,33 @@ export const usePresetsStore = defineStore('presets', () => {
 
   async function toggleWebcam(webcam: Webcam) {
     const preset = selectedPreset.value
-    if (!preset) return
+    if (!preset) {
+      return
+    }
 
     const index = preset.cams.findIndex((selected) => selected === webcam)
-    const isRemoving = index !== -1
 
-    if (isRemoving) {
-      preset.cams.splice(index, 1)
+    if (index !== -1) {
+      await removeWebcamFromPreset(preset, index, webcam)
     } else {
-      if (preset.cams.length >= 9) {
-        preset.cams.shift()
-      }
-      preset.cams.push(webcam)
+      await addWebcamToPreset(preset, webcam)
+    }
+  }
+
+  async function removeWebcamFromPreset(preset: Preset, index: number, webcam: Webcam) {
+    preset.cams.splice(index, 1)
+    await getRepo().removeCamFromPreset(preset.id, webcam.name)
+  }
+
+  async function addWebcamToPreset(preset: Preset, webcam: Webcam) {
+    const needToRemove = preset.cams.length >= 9
+    if (needToRemove) {
+      const removedCam = preset.cams.shift()!
+      await getRepo().removeCamFromPreset(preset.id, removedCam.name)
     }
 
-    try {
-      if (isRemoving) {
-        await getRepo().removeCamFromPreset(preset.id, webcam.name)
-      } else {
-        await getRepo().addCamToPreset(preset.id, webcam.name)
-      }
-    } catch (error) {
-      console.error('Failed to toggle webcam:', error)
-      throw error
-    }
+    preset.cams.push(webcam)
+    await getRepo().addCamToPreset(preset.id, webcam.name)
   }
 
   async function switchPreset(id: string) {
@@ -207,7 +210,7 @@ export const usePresetsStore = defineStore('presets', () => {
 
     if (settingsFromDb.visited === false) {
       const remote = getRepo(RepositoryType.REMOTE)
-      
+
       for (const preset of presets.value) {
         await remote.addPreset(dtoToEntity(preset))
       }
@@ -252,14 +255,14 @@ export const usePresetsStore = defineStore('presets', () => {
   async function handleLogout() {
     presets.value = createDefaultPresets()
     settings.value.selectedPreset = DEFAULT_PRESET_IDS.DEFAULT
-    
+
     for (const preset of presets.value) {
       await getRepo(RepositoryType.LOCAL).addPreset(dtoToEntity(preset))
     }
-    
-    await getRepo(RepositoryType.LOCAL).saveSettings({ 
-      selectedPreset: DEFAULT_PRESET_IDS.DEFAULT, 
-      visited: true 
+
+    await getRepo(RepositoryType.LOCAL).saveSettings({
+      selectedPreset: DEFAULT_PRESET_IDS.DEFAULT,
+      visited: true
     })
   }
 
