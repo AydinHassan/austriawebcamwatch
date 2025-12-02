@@ -27,7 +27,7 @@ function onChange(name: string) {
     </SelectTrigger>
     <SelectContent>
       <SelectGroup>
-        <SelectItem v-for="cam in cams" :value="cam.name">
+        <SelectItem v-for="cam in cams" :key="cam.name" :value="cam.name">
           {{cam.name}}
         </SelectItem>
       </SelectGroup>

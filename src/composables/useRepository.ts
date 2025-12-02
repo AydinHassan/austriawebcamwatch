@@ -1,8 +1,8 @@
 import { supabaseRepository } from '@/repository/supabaseRepository'
 import { localRepository } from '@/repository/localStorageRepository'
 import { useAuthStore } from '@/stores/auth'
-import type { Repository, Preset, UserSettings } from '@/repository/webcamRepository'
-import { RepositoryType, SPECIAL_PRESETS, DEFAULT_PRESET_IDS } from '@/repository/webcamRepository'
+import type { Repository } from '@/repository/webcamRepository'
+import { RepositoryType } from '@/repository/webcamRepository'
 
 export function useRepository() {
   const auth = useAuthStore()
