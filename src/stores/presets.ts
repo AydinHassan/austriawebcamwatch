@@ -201,8 +201,14 @@ export const usePresetsStore = defineStore('presets', () => {
   }
 
   async function loadLocalData() {
-    presets.value = await loadPresets(RepositoryType.LOCAL)
-    settings.value = await getRepo(RepositoryType.LOCAL).loadSettings()
+    const localPresets = await getRepo(RepositoryType.LOCAL).loadPresets()
+    const localSettings = await getRepo(RepositoryType.LOCAL).loadSettings()
+
+    if (localPresets && localPresets.length > 0) {
+      presets.value = localPresets.map(p => entityToDto(p))
+    }
+
+    settings.value = localSettings
   }
 
   async function loadRemoteData() {
