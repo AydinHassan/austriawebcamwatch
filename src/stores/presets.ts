@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useRepository } from '@/composables/useRepository'
 import { useAuthStore } from '@/stores/auth'
 import { SPECIAL_PRESETS, DEFAULT_PRESET_IDS, RepositoryType } from '@/repository/webcamRepository'
@@ -51,6 +51,12 @@ export const usePresetsStore = defineStore('presets', () => {
       return presets.value[0] ?? null
     }
     return presets.value.find(p => p.id === presetId) ?? presets.value[0]
+  })
+
+  watch(() => auth.user, async (newUser, oldUser) => {
+    if (oldUser && !newUser) {
+      await handleLogout()
+    }
   })
 
   async function toggleWebcam(webcam: Webcam) {
@@ -281,7 +287,6 @@ export const usePresetsStore = defineStore('presets', () => {
     switchPreset,
     createPreset,
     removePreset,
-    handleLogout,
     init,
   }
 })
