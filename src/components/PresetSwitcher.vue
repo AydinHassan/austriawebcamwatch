@@ -12,22 +12,21 @@ import {
 import { cn } from '@/lib/utils'
 
 import { CaretSortIcon, CheckIcon, Cross2Icon } from '@radix-icons/vue'
-import { ref, inject } from 'vue'
+import { ref } from 'vue'
 import { Dialog, DialogFooter, DialogHeader, DialogDescription, DialogTitle, DialogTrigger, DialogContent } from '@/components/ui/dialog'
+import { usePresetsStore } from '@/stores/presets'
 
 const { presets, selectedPreset } = defineProps(['presets', 'selectedPreset'])
 
 const open = ref(false)
 const searchQuery = ref('')
+const presetsStore = usePresetsStore()
 
 defineExpose({
   open
 })
 
-const switchPreset = inject('switchPreset');
-const deletePreset = inject('deletePreset');
-
-const presetToDelete = ref(null);
+const presetToDelete = ref(null)
 const deleteOpen = ref(false)
 </script>
 
@@ -57,7 +56,7 @@ const deleteOpen = ref(false)
                 :key="preset.name"
                 :value="preset.name"
                 class="text-sm"
-                @select="switchPreset(preset.name)"
+                @select="presetsStore.switchPreset(preset.id)"
               >
                 <span class="whitespace-nowrap text-ellipsis overflow-hidden max-w-[160px]">{{ preset.name }}</span>
                 <Badge variant="outline" class="ml-3 text-[9px] border-green-400/20 text-green-500"> {{preset.cams.length }} webcams</Badge>
@@ -86,7 +85,7 @@ const deleteOpen = ref(false)
         </DialogDescription>
       </DialogHeader>
       <DialogFooter>
-        <Button type="submit" @click="deletePreset(presetToDelete); deleteOpen = false">Confirm</Button>
+        <Button type="submit" @click="presetsStore.deletePreset(presetToDelete); deleteOpen = false">Confirm</Button>
       </DialogFooter>
     </DialogContent>
   </Dialog>

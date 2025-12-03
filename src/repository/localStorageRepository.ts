@@ -1,8 +1,7 @@
-import type { Repository, Preset, UserSettings } from './webcamRepository'
+import type { Repository, PresetEntity, UserSettings } from './webcamRepository'
 
 export const localRepository: Repository = {
-  async loadPresets(): Promise<Preset[]|null> {
-
+  async loadPresets(): Promise<PresetEntity[]|null> {
     const presets = localStorage.getItem('presets')
     if (!presets) {
       return null
@@ -15,31 +14,65 @@ export const localRepository: Repository = {
       return null;
     }
 
-    // if new format → return directly
-    if (raw.length === 0 || raw[0].camIds) {
+    if (raw.length === 0 || (raw[0].camIds && raw[0].id)) {
       return raw
     }
 
-    // OLD FORMAT DETECTED → migrate
-    const migrated = raw.map((p: any) => ({
-      name: p.name,
-      camIds: Array.isArray(p.cams)
-        ? p.cams.map((c: any) => c.name)
-        : []
-    }))
+    localStorage.setItem('presets', [])
 
-    // save new format
-    localStorage.setItem('presets', JSON.stringify(migrated))
-
-    return migrated
+    return []
   },
 
-  async savePresets(presets: Preset[] | null): Promise<void> {
-    if (presets === null) {
-      localStorage.removeItem('presets');
+  async savePresets(presets: PresetEntity[]): Promise<void> {
+    localStorage.setItem('presets', JSON.stringify(presets))
+  },
+
+  async addPreset(preset: PresetEntity): Promise<void> {
+    const presets = await this.loadPresets() || []
+    presets.push(preset)
+    await this.savePresets(presets)
+  },
+
+  async deletePreset(id: string): Promise<void> {
+    const presets = await this.loadPresets()
+    if (!presets) {
+      return
     }
 
-    localStorage.setItem('presets', JSON.stringify(presets))
+    const filtered = presets.filter(p => p.id !== id)
+    await this.savePresets(filtered)
+  },
+
+  async addCamToPreset(id: string, camId: string): Promise<void> {
+    const presets = await this.loadPresets()
+    if (!presets) {
+      return
+    }
+
+    const preset = presets.find(p => p.id === id)
+    if (!preset) {
+      return
+    }
+
+    if (!preset.camIds.includes(camId)) {
+      preset.camIds.push(camId)
+      await this.savePresets(presets)
+    }
+  },
+
+  async removeCamFromPreset(id: string, camId: string): Promise<void> {
+    const presets = await this.loadPresets()
+    if (!presets) {
+      return
+    }
+
+    const preset = presets.find(p => p.id === id)
+    if (!preset) {
+      return
+    }
+
+    preset.camIds = preset.camIds.filter(c => c !== camId)
+    await this.savePresets(presets)
   },
 
   async loadSettings(): Promise<UserSettings> {
@@ -60,4 +93,8 @@ export const localRepository: Repository = {
       localStorage.setItem('visited', '1')
     }
   },
+
+  deletePresets(): void {
+    localStorage.removeItem('presets')
+  }
 }

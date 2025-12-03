@@ -11,8 +11,9 @@ import {
 
 import { cn } from '@/lib/utils'
 import { CaretSortIcon, CheckIcon} from '@radix-icons/vue'
-import { ref, computed, inject } from 'vue'
+import { ref, computed } from 'vue'
 import { getAllWebcams, searchWebcams, getWebcamByName } from '@/services/webcams'
+import { usePresetsStore } from '@/stores/presets'
 
 const emit = defineEmits(['update:selectedWebcams']);
 
@@ -20,8 +21,7 @@ const { selectedWebcams } = defineProps(['selectedWebcams'])
 
 const open = ref(false)
 const searchQuery = ref('')
-
-const toggleWebcam = inject('toggleWebcam');
+const presetsStore = usePresetsStore()
 
 const allWebcams = getAllWebcams()
 
@@ -40,7 +40,7 @@ const filteredCams = computed(() => {
 const selectCam = (camName: string) => {
   const webcam = getWebcamByName(camName)
   if (webcam) {
-    toggleWebcam(webcam)
+    presetsStore.toggleWebcam(webcam)
   }
 }
 
@@ -79,7 +79,7 @@ defineExpose({
                 :key="webcam.url"
                 :value="webcam.name"
                 class="text-sm"
-                @select="toggleWebcam(webcam)"
+                @select="presetsStore.toggleWebcam(webcam)"
               >
                 <span class="whitespace-nowrap text-ellipsis overflow-hidden max-w-[160px]">{{ webcam.name }}</span>
                 <Badge v-if="webcam.provider === 'panomax'" variant="outline" class="ml-3 text-[9px] border-green-400/20 text-green-500">Panomax</Badge>

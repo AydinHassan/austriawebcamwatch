@@ -18,11 +18,11 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import Iframe from '@/components/Iframe.vue'
-import { inject, ref } from 'vue'
+import { ref } from 'vue'
 import { createShareLink } from '@/utils/share'
 import Provider from '@/components/Provider.vue'
 import type {Webcam} from '@/services/webcam'
-
+import { usePresetsStore } from '@/stores/presets'
 
 const {
   webcam,
@@ -34,9 +34,8 @@ const {
   allowShare?: boolean
 }>()
 
-const iframes = ref({});
-
-const toggleWebcam = inject('toggleWebcam')
+const iframes = ref({})
+const presetsStore = usePresetsStore()
 
 const refreshCam = (cam) => {
   iframes.value[cam.url].reinitIframe();
@@ -62,7 +61,7 @@ const openCam = (cam) => {
       <div class="flex gap-x-2">
         <span v-if="webcam.provider === 'bergfex'" class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="refreshCam(webcam)"><ReloadIcon></ReloadIcon></span>
         <span class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="openCam(webcam)"><SizeIcon></SizeIcon></span>
-        <span v-if="allowToggle" class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="toggleWebcam(webcam)"><Cross2Icon></Cross2Icon></span>
+        <span v-if="allowToggle" class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="presetsStore.toggleWebcam(webcam)"><Cross2Icon></Cross2Icon></span>
         <a :href="webcam.url" class="bg-secondary hover:bg-secondary/90 rounded p-0.5" target="_blank"><ExternalLinkIcon></ExternalLinkIcon></a>
         <Popover v-if="allowShare" @update:open="val => val && createShareLink([webcam])">
           <PopoverTrigger as-child>
