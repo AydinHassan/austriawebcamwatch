@@ -108,6 +108,13 @@ const handleImport = (event) => {
       <DropdownMenuContent align="end">
         <DropdownMenuItem @click="exportProfiles"> Export profiles</DropdownMenuItem>
         <DropdownMenuItem @click="importProfiles"> Import profiles</DropdownMenuItem>
+        <input
+          ref="importInput"
+          type="file"
+          accept="application/json"
+          class="hidden"
+          @change="handleImport"
+        >
       </DropdownMenuContent>
     </DropdownMenu>
 
@@ -245,12 +252,4 @@ const handleImport = (event) => {
       </DialogFooter>
     </DialogScrollContent>
   </Dialog>
-
-  <input
-    ref="importInput"
-    type="file"
-    accept="application/json"
-    class="hidden"
-    @change="handleImport"
-  >
 </template>
