@@ -110,7 +110,7 @@ const footerNavigation = [
           </Popover>
         </div>
         <RouterLink to="/" class="order-1 xl:order-3 col-span-3 text-sm font-medium transition-colors hover:text-primary">
-          Austria Webcam Watch {{presetsStore.firstVisit}}
+          Austria Webcam Watch
         </RouterLink>
         <div class="lg:ml-auto flex justify-end space-x-2 lg:space-x-4 order-2 xl:order-4 col-span-3">
 
