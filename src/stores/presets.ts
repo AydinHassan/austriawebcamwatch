@@ -41,8 +41,8 @@ export const usePresetsStore = defineStore('presets', () => {
   const auth = useAuthStore()
   const { getRepo } = useRepository()
 
-  const presets = ref<Preset[]>(createDefaultPresets())
-  const settings = ref<UserSettings>({ visited: false, selectedPreset: DEFAULT_PRESET_IDS.DEFAULT })
+  const presets = ref<Preset[]>([{ id: 'loading', name: 'Loading...', cams: [] }])
+  const settings = ref<UserSettings>({ visited: false, selectedPreset: 'loading' })
   const firstVisit = ref<boolean>(false)
 
   const selectedPreset = computed(() => {
@@ -91,6 +91,10 @@ export const usePresetsStore = defineStore('presets', () => {
   }
 
   async function switchPreset(id: string) {
+    if (selectedPreset.value.id === DEFAULT_PRESET_IDS.RANDOM) {
+      selectedPreset.value.cams = [];
+    }
+
     if (id === settings.value.selectedPreset) {
       return
     }
@@ -210,23 +214,25 @@ export const usePresetsStore = defineStore('presets', () => {
     const localPresets = await getRepo(RepositoryType.LOCAL).loadPresets()
     const localSettings = await getRepo(RepositoryType.LOCAL).loadSettings()
 
-    if (localPresets && localPresets.length > 0) {
-      presets.value = localPresets.map(p => entityToDto(p))
+    return {
+      presets: localPresets && localPresets.length > 0 ? localPresets.map(p => entityToDto(p)) : null,
+      settings: localSettings
     }
-
-    settings.value = localSettings
   }
 
-  async function loadRemoteData() {
+  async function loadRemoteData(localData: {presets: Preset[]|null, settings: UserSettings}) {
     const settingsFromDb = await getRepo(RepositoryType.REMOTE).loadSettings()
 
     if (settingsFromDb.visited === false) {
       const remote = getRepo(RepositoryType.REMOTE)
 
-      for (const preset of presets.value) {
+      for (const preset of localData.presets) {
         await remote.addPreset(dtoToEntity(preset))
       }
-      await remote.saveSettings(settings.value)
+
+      await remote.saveSettings(localData.settings)
+      presets.value = localData.presets
+      settings.value = localData.settings
 
       await removeLocalData()
     } else {
@@ -237,14 +243,22 @@ export const usePresetsStore = defineStore('presets', () => {
   }
 
   async function init() {
-    await loadLocalData()
+    const localData = await loadLocalData()
 
     if (auth.user) {
-      await loadRemoteData()
-    }
+      await loadRemoteData(localData)
+    } else {
+      if (localData.presets) {
+        presets.value = localData.presets
+      } else {
+        presets.value = createDefaultPresets()
+      }
 
-    if (settings.value.visited === false) {
-      await initializeFirstVisit()
+      settings.value = localData.settings
+
+      if (settings.value.visited === false) {
+        await initializeFirstVisit()
+      }
     }
 
     if (!settings.value.selectedPreset || !presets.value.find(p => p.id === settings.value.selectedPreset)) {
