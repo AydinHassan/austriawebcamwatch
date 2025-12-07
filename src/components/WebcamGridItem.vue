@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import Iframe from '@/components/Iframe.vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { createShareLink } from '@/utils/share'
 import Provider from '@/components/Provider.vue'
 import type {Webcam} from '@/services/webcam'
@@ -34,20 +34,35 @@ const {
   allowShare?: boolean
 }>()
 
-const iframes = ref({})
+const iframeEl = ref(null)
 const presetsStore = usePresetsStore()
 
-const refreshCam = (cam) => {
-  iframes.value[cam.url].reinitIframe();
+const refreshCam = () => {
+  iframeEl.value.reinitIframe();
 }
 
 const open = ref(false);
-const selectedWebcam = ref(null);
 
 const openCam = (cam) => {
-  selectedWebcam.value = cam;
   open.value = true;
 }
+
+const url = computed(() => {
+  if (webcam.provider === 'panomax') {
+    const url = new URL(webcam.url)
+    url.searchParams.set('hidetopbar', '1')
+    url.searchParams.set('zoomwheel', 'false')
+    url.searchParams.set('compass', 'false')
+    url.searchParams.set('zoomslider', 'false')
+    url.searchParams.set('weather', 'false')
+    url.searchParams.set('theme', 'noGui')
+
+    return url.toString()
+  }
+
+  return webcam.url;
+})
+
 </script>
 
 <template>
@@ -59,7 +74,7 @@ const openCam = (cam) => {
         <Badge v-if="webcam.provider === 'bergfex'" variant="outline" class="ml-3 text-[9px] border-sky-400/20 text-sky-500">Bergfex</Badge>
       </div>
       <div class="flex gap-x-2">
-        <span v-if="webcam.provider === 'bergfex'" class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="refreshCam(webcam)"><ReloadIcon></ReloadIcon></span>
+        <span v-if="webcam.provider === 'bergfex'" class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="refreshCam()"><ReloadIcon></ReloadIcon></span>
         <span class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="openCam(webcam)"><SizeIcon></SizeIcon></span>
         <span v-if="allowToggle" class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer" @click="presetsStore.toggleWebcam(webcam)"><Cross2Icon></Cross2Icon></span>
         <a :href="webcam.url" class="bg-secondary hover:bg-secondary/90 rounded p-0.5" target="_blank"><ExternalLinkIcon></ExternalLinkIcon></a>
@@ -78,20 +93,20 @@ const openCam = (cam) => {
       </div>
     </CardHeader>
     <CardContent class="flex flex-1 group-hover:opacity-50">
-      <Iframe :src="webcam.url" class="w-full" :ref="(el) => { iframes[webcam.url] = el }"></Iframe>
+      <Iframe :src="url" class="w-full" ref="iframeEl"></Iframe>
     </CardContent>
   </Card>
   <Dialog v-model:open="open">
-    <DialogContent v-if="selectedWebcam" class="flex flex-col max-w-5xl h-[800px]">
+    <DialogContent class="flex flex-col max-w-5xl h-[800px]">
       <DialogHeader>
-        <DialogTitle class="flex items-center">{{ selectedWebcam.name }} <Provider :cam="selectedWebcam"></Provider></DialogTitle>
+        <DialogTitle class="flex items-center">{{ webcam.name }} <Provider :cam="webcam"></Provider></DialogTitle>
         <DialogDescription />
       </DialogHeader>
       <div class="flex-1">
-        <Iframe  :src="selectedWebcam.url" class="h-full w-full"/>
+        <Iframe  :src="url" class="h-full w-full"/>
       </div>
       <DialogFooter>
-        <Button variant="secondary" @click="selectedWebcam = null">
+        <Button variant="secondary" @click="open = false">
           Close
         </Button>
       </DialogFooter>
