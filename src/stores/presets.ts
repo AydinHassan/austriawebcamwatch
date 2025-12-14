@@ -65,7 +65,7 @@ export const usePresetsStore = defineStore('presets', () => {
       return
     }
 
-    const index = preset.cams.findIndex((selected) => selected === webcam)
+    const index = preset.cams.findIndex((selected) => selected.name === webcam.name)
 
     if (index !== -1) {
       await removeWebcamFromPreset(preset, index, webcam)
