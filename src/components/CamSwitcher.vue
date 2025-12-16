@@ -51,7 +51,7 @@ defineExpose({
 </script>
 
 <template>
-    <Popover v-model:open="open">
+    <Popover v-model:open="open" @update:open="searchQuery = ''">
       <PopoverTrigger as-child>
         <Button
           variant="outline"
@@ -69,7 +69,7 @@ defineExpose({
         </Button>
       </PopoverTrigger>
       <PopoverContent class="w-[300px] p-0 mx-4">
-        <Command @update:searchTerm="searchQuery = $event">
+        <Command v-model:searchTerm="searchQuery">
           <CommandList>
             <CommandInput placeholder="Search webcam..." />
             <CommandEmpty>No webcam found.</CommandEmpty>
@@ -79,7 +79,7 @@ defineExpose({
                 :key="webcam.url"
                 :value="webcam.name"
                 class="text-sm"
-                @select="presetsStore.toggleWebcam(webcam)"
+                @select.prevent="presetsStore.toggleWebcam(webcam)"
               >
                 <span class="whitespace-nowrap text-ellipsis overflow-hidden max-w-[160px]">{{ webcam.name }}</span>
                 <Badge v-if="webcam.provider === 'panomax'" variant="outline" class="ml-3 text-[9px] border-green-400/20 text-green-500">Panomax</Badge>

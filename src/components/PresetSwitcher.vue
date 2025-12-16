@@ -56,7 +56,7 @@ const deleteOpen = ref(false)
                 :key="preset.name"
                 :value="preset.name"
                 class="text-sm"
-                @select="presetsStore.switchPreset(preset.id)"
+                @select="presetsStore.switchPreset(preset.id); open = false;"
               >
                 <span class="whitespace-nowrap text-ellipsis overflow-hidden max-w-[160px]">{{ preset.name }}</span>
                 <Badge variant="outline" class="ml-3 text-[9px] border-green-400/20 text-green-500"> {{preset.cams.length }} webcams</Badge>
