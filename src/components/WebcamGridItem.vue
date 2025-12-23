@@ -12,6 +12,7 @@ import { createShareLink } from '@/utils/share'
 import Provider from '@/components/Provider.vue'
 import type { Webcam } from '@/services/webcam'
 import { usePresetsStore } from '@/stores/presets'
+import WebcamIframe from '@/components/WebcamIframe.vue'
 
 const {
   webcam,
@@ -27,7 +28,7 @@ const iframeEl = ref(null)
 const presetsStore = usePresetsStore()
 
 const refreshCam = () => {
-  iframeEl.value.reinitIframe()
+  iframeEl.value.refreshCam()
 }
 
 const emit = defineEmits(['open-cam'])
@@ -35,22 +36,6 @@ const emit = defineEmits(['open-cam'])
 const openCam = (cam) => {
   emit('open-cam', cam)
 }
-
-const url = computed(() => {
-  if (webcam.provider === 'panomax') {
-    const url = new URL(webcam.url)
-    url.searchParams.set('hidetopbar', '1')
-    url.searchParams.set('zoomwheel', 'false')
-    url.searchParams.set('compass', 'false')
-    url.searchParams.set('zoomslider', 'false')
-    url.searchParams.set('weather', 'false')
-    url.searchParams.set('theme', 'noGui')
-
-    return url.toString()
-  }
-
-  return webcam.url
-})
 </script>
 
 <template>
@@ -115,7 +100,7 @@ const url = computed(() => {
       </div>
     </CardHeader>
     <CardContent class="flex flex-1 group-hover:opacity-50">
-      <Iframe :src="url" class="w-full" ref="iframeEl"></Iframe>
+      <WebcamIframe :webcam="webcam" ref="iframeEl" />
     </CardContent>
   </Card>
 </template>

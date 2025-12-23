@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Iframe from '@/components/Iframe.vue'
 import SelectedCamsSwitcher from '@/components/SelectedCamsSwitcher.vue'
 import EmptyCard from '@/components/ui/card/EmptyCard.vue'
 import Swiper from '@/components/Swiper.vue'
@@ -17,6 +16,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
 import Provider from '@/components/Provider.vue'
+import WebcamIframe from '@/components/WebcamIframe.vue'
 
 const webcamSelectorRef = inject('webcamSelectorRef', ref(null))
 
@@ -98,23 +98,6 @@ const hasNext = computed(() => {
   return i < webcams.length - 1
 })
 
-const modalUrl = computed(() => {
-  if (!modalWebcam.value) return ''
-
-  if (modalWebcam.value.provider === 'panomax') {
-    const url = new URL(modalWebcam.value.url)
-    url.searchParams.set('hidetopbar', '1')
-    url.searchParams.set('zoomwheel', 'false')
-    url.searchParams.set('compass', 'false')
-    url.searchParams.set('zoomslider', 'false')
-    url.searchParams.set('weather', 'false')
-    url.searchParams.set('theme', 'noGui')
-    return url.toString()
-  }
-
-  return modalWebcam.value.url
-})
-
 const handleKeydown = (e: KeyboardEvent) => {
   if (!modalOpen.value || isMobile.value) return
 
@@ -148,7 +131,7 @@ onUnmounted(() => {
         class="flex h-full flex-1 flex-grow overflow-scroll overflow-hidden p-4"
         v-if="selectedWebcam"
       >
-        <Iframe :src="selectedWebcam.url" class="h-full w-full" />
+        <WebcamIframe :webcam="selectedWebcam" />
       </div>
     </Swiper>
     <EmptyCard v-else class="flex lg:hidden m-4" @click="openSelector" />
@@ -202,7 +185,7 @@ onUnmounted(() => {
           <DialogDescription />
         </DialogHeader>
         <div class="flex-1">
-          <Iframe v-if="modalWebcam" :src="modalUrl" class="h-full w-full" />
+          <WebcamIframe v-if="modalWebcam" :webcam="modalWebcam" />
         </div>
         <DialogFooter class="flex justify-between items-center">
           <div class="flex items-center gap-1">
