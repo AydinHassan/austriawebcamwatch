@@ -95,10 +95,13 @@ function listenForEvents() {
     if (event.data === iframeLoadedMessage) {
       emit('iframe-load', event.data)
       iframeEl.value?.setAttribute('style', 'visibility: visible; border: none;')
-      isLoading.value = false
     }
     if (event.data === iframeOnReadyStateChangeMessage) {
       emit('load', iframeEl.value)
+    }
+    // Check for bergfex iframe load completion
+    if (event.origin === 'https://content.bergfex.at' && typeof event.data === 'number') {
+      isLoading.value = false
     }
   }
 
