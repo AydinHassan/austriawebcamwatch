@@ -1,7 +1,7 @@
 <template>
-  <div ref="container" class="vue-iframe">
-    <div v-if="isLoading" class="loading-spinner-overlay">
-      <Loader2 class="spinner" />
+  <div ref="container" class="h-full w-full relative">
+    <div v-if="isLoading" class="absolute inset-0 flex items-center justify-center bg-black/80 z-10">
+      <Loader2 class="h-12 w-12 text-white animate-spin" />
     </div>
   </div>
 </template>
@@ -126,43 +126,9 @@ watch(() => props.src, () => {
 </script>
 
 <style>
-.vue-iframe {
+.h-full iframe,
+.w-full iframe {
   height: 100%;
   width: 100%;
-  position: relative;
-
-  iframe {
-    height: 100%;
-    width: 100%;
-  }
-}
-
-.loading-spinner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 10;
-}
-
-.spinner {
-  width: 48px;
-  height: 48px;
-  color: white;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 </style>
