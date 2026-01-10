@@ -29,14 +29,12 @@ const props = defineProps({
 
 const emit = defineEmits(['iframe-load', 'load'])
 
-// Refs and unique message IDs
 const container = ref(null)
 const iframeEl = ref(null)
 const isLoading = ref(true)
 const iframeLoadedMessage = `IFRAME_LOADED_${uuidv4()}`
 const iframeOnReadyStateChangeMessage = `IFRAME_ON_READ_STATE_CHANGE_${uuidv4()}`
 
-// Methods
 function removeIframe() {
   while (container.value?.firstChild) {
     container.value.removeChild(container.value.firstChild)
@@ -65,7 +63,6 @@ function setIframeUrl() {
 }
 
 const reinitIframe = debounce(() => {
-  console.log('[Iframe Debug] Reinitializing iframe for provider:', props.provider)
   isLoading.value = true
   removeIframe()
   initIframe()
@@ -94,35 +91,19 @@ defineExpose({ reinitIframe })
 
 function listenForEvents() {
   const handler = (event) => {
-    // Debug logging for mobile
-    console.log('[Iframe Debug] Received message:', {
-      provider: props.provider,
-      eventOrigin: event.origin,
-      eventData: event.data,
-      eventDataType: typeof event.data,
-      iframeLoadedMessage,
-      isCurrentlyLoading: isLoading.value
-    })
-
     if (event.data === iframeLoadedMessage) {
-      console.log('[Iframe Debug] Matched iframeLoadedMessage for provider:', props.provider)
       emit('iframe-load', event.data)
       iframeEl.value?.setAttribute('style', 'visibility: visible; border: none;')
       // For non-bergfex webcams, stop loading spinner on generic iframe load
       if (props.provider !== 'bergfex') {
-        console.log('[Iframe Debug] Stopping spinner for non-bergfex provider:', props.provider)
         isLoading.value = false
-      } else {
-        console.log('[Iframe Debug] Not stopping spinner - bergfex provider waits for numeric message')
       }
     }
     if (event.data === iframeOnReadyStateChangeMessage) {
-      console.log('[Iframe Debug] Ready state change message received')
       emit('load', iframeEl.value)
     }
     // Check for bergfex iframe load completion
     if (props.provider === 'bergfex' && event.origin === 'https://content.bergfex.at' && typeof event.data === 'number') {
-      console.log('[Iframe Debug] Bergfex ready signal received, stopping spinner')
       isLoading.value = false
     }
   }
@@ -130,14 +111,11 @@ function listenForEvents() {
   window.addEventListener('message', handler, false)
 }
 
-// Lifecycle
 onMounted(() => {
-  console.log('[Iframe Debug] Component mounted with provider:', props.provider, 'src:', props.src)
   listenForEvents()
   initIframe()
 })
 
-// Watchers
 watch(() => props.src, () => {
   reinitIframe()
 })
