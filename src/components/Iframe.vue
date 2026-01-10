@@ -73,7 +73,7 @@ const reinitIframe = debounce(() => {
 
 function initIframe() {
   iframeEl.value = document.createElement('iframe')
-  iframeEl.value.setAttribute('style', 'visibility: hidden; position: absolute; top: -99999px; border: none;')
+  iframeEl.value.setAttribute('style', 'visibility: hidden; position: absolute; top: -99999px; border: none; height: 100%; width: 100%;')
   iframeEl.value.setAttribute('frameborder', '0')
   iframeEl.value.setAttribute('id', props.frameId)
   if (props.src) iframeEl.value.setAttribute('iframe-src', props.src)
@@ -143,7 +143,7 @@ watch(() => props.src, () => {
 })
 </script>
 
-<style scoped>
+<style>
 iframe {
   height: 100%;
   width: 100%;
