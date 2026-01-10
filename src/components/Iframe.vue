@@ -125,9 +125,8 @@ watch(() => props.src, () => {
 })
 </script>
 
-<style>
-.h-full iframe,
-.w-full iframe {
+<style scoped>
+iframe {
   height: 100%;
   width: 100%;
 }
