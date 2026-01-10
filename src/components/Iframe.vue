@@ -1,11 +1,16 @@
 <template>
-  <div ref="container" class="vue-iframe" />
+  <div ref="container" class="h-full w-full relative">
+    <div v-if="isLoading" class="absolute inset-0 flex items-center justify-center bg-black/80 z-10">
+      <Loader2 class="h-12 w-12 text-white animate-spin" />
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import {debounce} from '@/lib/utils.js'
+import { Loader2 } from 'lucide-vue-next'
 
 // Props
 const props = defineProps({
@@ -19,17 +24,17 @@ const props = defineProps({
   scrolling: String,
   width: [String, Number],
   height: [String, Number],
+  provider: { type: String, default: null },
 })
 
 const emit = defineEmits(['iframe-load', 'load'])
 
-// Refs and unique message IDs
 const container = ref(null)
 const iframeEl = ref(null)
+const isLoading = ref(true)
 const iframeLoadedMessage = `IFRAME_LOADED_${uuidv4()}`
 const iframeOnReadyStateChangeMessage = `IFRAME_ON_READ_STATE_CHANGE_${uuidv4()}`
 
-// Methods
 function removeIframe() {
   while (container.value?.firstChild) {
     container.value.removeChild(container.value.firstChild)
@@ -58,13 +63,14 @@ function setIframeUrl() {
 }
 
 const reinitIframe = debounce(() => {
+  isLoading.value = true
   removeIframe()
   initIframe()
 }, 200)
 
 function initIframe() {
   iframeEl.value = document.createElement('iframe')
-  iframeEl.value.setAttribute('style', 'visibility: hidden; position: absolute; top: -99999px; border: none;')
+  iframeEl.value.setAttribute('style', 'visibility: hidden; position: absolute; top: -99999px; border: none; height: 100%; width: 100%;')
   iframeEl.value.setAttribute('frameborder', '0')
   iframeEl.value.setAttribute('id', props.frameId)
   if (props.src) iframeEl.value.setAttribute('iframe-src', props.src)
@@ -88,35 +94,36 @@ function listenForEvents() {
     if (event.data === iframeLoadedMessage) {
       emit('iframe-load', event.data)
       iframeEl.value?.setAttribute('style', 'visibility: visible; border: none;')
+      // For non-bergfex webcams, stop loading spinner on generic iframe load
+      if (props.provider !== 'bergfex') {
+        isLoading.value = false
+      }
     }
     if (event.data === iframeOnReadyStateChangeMessage) {
       emit('load', iframeEl.value)
+    }
+    // Check for bergfex iframe load completion
+    if (props.provider === 'bergfex' && event.origin === 'https://content.bergfex.at' && typeof event.data === 'number') {
+      isLoading.value = false
     }
   }
 
   window.addEventListener('message', handler, false)
 }
 
-// Lifecycle
 onMounted(() => {
   listenForEvents()
   initIframe()
 })
 
-// Watchers
 watch(() => props.src, () => {
   reinitIframe()
 })
 </script>
 
 <style>
-.vue-iframe {
+iframe {
   height: 100%;
   width: 100%;
-
-  iframe {
-    height: 100%;
-    width: 100%;
-  }
 }
 </style>

@@ -31,6 +31,6 @@ defineExpose({refreshCam})
 </script>
 
 <template>
-  <Iframe :src="url" class="h-full w-full" ref="iframeEl" />
+  <Iframe :src="url" :provider="webcam.provider" class="h-full w-full" ref="iframeEl" />
 </template>
 
