@@ -1,11 +1,16 @@
 <template>
-  <div ref="container" class="vue-iframe" />
+  <div ref="container" class="vue-iframe">
+    <div v-if="isLoading" class="loading-spinner-overlay">
+      <Loader2 class="spinner" />
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import {debounce} from '@/lib/utils.js'
+import { Loader2 } from 'lucide-vue-next'
 
 // Props
 const props = defineProps({
@@ -26,6 +31,7 @@ const emit = defineEmits(['iframe-load', 'load'])
 // Refs and unique message IDs
 const container = ref(null)
 const iframeEl = ref(null)
+const isLoading = ref(true)
 const iframeLoadedMessage = `IFRAME_LOADED_${uuidv4()}`
 const iframeOnReadyStateChangeMessage = `IFRAME_ON_READ_STATE_CHANGE_${uuidv4()}`
 
@@ -58,6 +64,7 @@ function setIframeUrl() {
 }
 
 const reinitIframe = debounce(() => {
+  isLoading.value = true
   removeIframe()
   initIframe()
 }, 200)
@@ -88,6 +95,7 @@ function listenForEvents() {
     if (event.data === iframeLoadedMessage) {
       emit('iframe-load', event.data)
       iframeEl.value?.setAttribute('style', 'visibility: visible; border: none;')
+      isLoading.value = false
     }
     if (event.data === iframeOnReadyStateChangeMessage) {
       emit('load', iframeEl.value)
@@ -113,10 +121,40 @@ watch(() => props.src, () => {
 .vue-iframe {
   height: 100%;
   width: 100%;
+  position: relative;
 
   iframe {
     height: 100%;
     width: 100%;
+  }
+}
+
+.loading-spinner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 </style>
