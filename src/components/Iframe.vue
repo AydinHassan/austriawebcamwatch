@@ -24,6 +24,7 @@ const props = defineProps({
   scrolling: String,
   width: [String, Number],
   height: [String, Number],
+  provider: { type: String, default: null },
 })
 
 const emit = defineEmits(['iframe-load', 'load'])
@@ -95,12 +96,16 @@ function listenForEvents() {
     if (event.data === iframeLoadedMessage) {
       emit('iframe-load', event.data)
       iframeEl.value?.setAttribute('style', 'visibility: visible; border: none;')
+      // For non-bergfex webcams, stop loading spinner on generic iframe load
+      if (props.provider !== 'bergfex') {
+        isLoading.value = false
+      }
     }
     if (event.data === iframeOnReadyStateChangeMessage) {
       emit('load', iframeEl.value)
     }
     // Check for bergfex iframe load completion
-    if (event.origin === 'https://content.bergfex.at' && typeof event.data === 'number') {
+    if (props.provider === 'bergfex' && event.origin === 'https://content.bergfex.at' && typeof event.data === 'number') {
       isLoading.value = false
     }
   }
