@@ -38,10 +38,6 @@ export function searchWebcams(q: string): Webcam[] {
 }
 
 export function getRandomWebcams(num: number): Webcam[] {
-  const randomCams = [];
-  for (let i = 0; i <= num; i++) {
-    const index = Math.floor(Math.random() * webcamsWithIds.length)
-    randomCams.push(webcamsWithIds[index])
-  }
-  return randomCams;
+  const shuffled = [...webcamsWithIds].sort(() => Math.random() - 0.5)
+  return shuffled.slice(0, num)
 }

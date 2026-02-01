@@ -161,13 +161,13 @@ onUnmounted(() => {
         <template v-if="showPlaceholders">
           <EmptyCard
             class="hidden lg:flex xl:hidden"
-            v-for="i in 10 - webcams.length"
+            v-for="i in Math.max(0, 10 - webcams.length)"
             :key="i"
             @click="openSelector"
           />
           <EmptyCard
             class="hidden xl:flex"
-            v-for="i in 9 - webcams.length"
+            v-for="i in Math.max(0, 9 - webcams.length)"
             :key="i"
             @click="openSelector"
           />

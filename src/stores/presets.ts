@@ -91,12 +91,13 @@ export const usePresetsStore = defineStore('presets', () => {
   }
 
   async function switchPreset(id: string) {
-    if (selectedPreset.value.id === DEFAULT_PRESET_IDS.RANDOM) {
-      selectedPreset.value.cams = [];
-    }
-
     if (id === settings.value.selectedPreset) {
       return
+    }
+
+    // Clear random cams when switching away from random preset
+    if (selectedPreset.value.id === DEFAULT_PRESET_IDS.RANDOM) {
+      selectedPreset.value.cams = [];
     }
 
     const preset = presets.value.find(p => p.id === id)
@@ -118,7 +119,10 @@ export const usePresetsStore = defineStore('presets', () => {
   }
 
   function randomiseCams() {
-    getRandomWebcams(9).forEach((webcam) => toggleWebcam(webcam))
+    const preset = selectedPreset.value
+    if (preset) {
+      preset.cams = getRandomWebcams(9)
+    }
   }
 
   async function createPreset(name: string) {
