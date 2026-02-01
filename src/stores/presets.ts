@@ -118,7 +118,10 @@ export const usePresetsStore = defineStore('presets', () => {
   }
 
   function randomiseCams() {
-    getRandomWebcams(9).forEach((webcam) => toggleWebcam(webcam))
+    const preset = selectedPreset.value
+    if (preset) {
+      preset.cams = getRandomWebcams(9)
+    }
   }
 
   async function createPreset(name: string) {
