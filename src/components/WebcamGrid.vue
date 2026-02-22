@@ -182,15 +182,16 @@ onUnmounted(() => {
           <DialogTitle class="flex items-center">
             {{ modalWebcam?.name }}
             <Provider v-if="modalWebcam" :cam="modalWebcam"></Provider>
+            <div class="flex-1" />
             <Button
               v-if="modalWebcam?.provider === 'panomax'"
               variant="ghost"
               size="icon"
-              class="h-8 w-8 ml-2"
-              :class="modalShowGui ? 'bg-green-500/20 text-green-500' : ''"
+              class="h-5 w-5 mr-6"
+              :class="modalShowGui ? 'text-green-500' : 'text-muted-foreground'"
               @click="modalShowGui = !modalShowGui"
             >
-              <MixerHorizontalIcon class="h-4 w-4" />
+              <MixerHorizontalIcon class="h-3.5 w-3.5" />
             </Button>
           </DialogTitle>
           <DialogDescription />

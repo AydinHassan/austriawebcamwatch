@@ -59,7 +59,7 @@ const openCam = (cam) => {
           >Bergfex</Badge
         >
       </div>
-      <div class="flex gap-x-2">
+      <div class="flex gap-x-1">
         <span
           v-if="webcam.provider === 'bergfex'"
           class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer"
