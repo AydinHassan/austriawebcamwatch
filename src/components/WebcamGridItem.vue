@@ -2,7 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 import { Badge } from '@/components/ui/badge'
-import { Cross2Icon, ExternalLinkIcon, ReloadIcon, Share1Icon, SizeIcon } from '@radix-icons/vue'
+import { Cross2Icon, ExternalLinkIcon, MixerHorizontalIcon, ReloadIcon, Share1Icon, SizeIcon } from '@radix-icons/vue'
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 
 import { Button } from '@/components/ui/button'
@@ -25,6 +25,7 @@ const {
 }>()
 
 const iframeEl = ref(null)
+const showGui = ref(false)
 const presetsStore = usePresetsStore()
 
 const refreshCam = () => {
@@ -58,12 +59,19 @@ const openCam = (cam) => {
           >Bergfex</Badge
         >
       </div>
-      <div class="flex gap-x-2">
+      <div class="flex gap-x-1">
         <span
           v-if="webcam.provider === 'bergfex'"
           class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer"
           @click="refreshCam()"
           ><ReloadIcon></ReloadIcon
+        ></span>
+        <span
+          v-if="webcam.provider === 'panomax'"
+          class="rounded p-0.5 cursor-pointer"
+          :class="showGui ? 'bg-green-500/20 text-green-500' : 'bg-secondary hover:bg-secondary/90'"
+          @click="showGui = !showGui"
+          ><MixerHorizontalIcon></MixerHorizontalIcon
         ></span>
         <span
           class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer"
@@ -100,7 +108,7 @@ const openCam = (cam) => {
       </div>
     </CardHeader>
     <CardContent class="flex flex-1 group-hover:opacity-50">
-      <WebcamIframe :webcam="webcam" ref="iframeEl" />
+      <WebcamIframe :webcam="webcam" :show-gui="showGui" ref="iframeEl" />
     </CardContent>
   </Card>
 </template>
