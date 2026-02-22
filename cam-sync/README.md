@@ -1,42 +1,25 @@
-## Panomax
+# Webcam Sync
+
+Fetches webcams from Panomax and Bergfex, merges and deduplicates them, and writes the result to `src/assets/austria-cams.json`.
+
+## Usage
 
 ```shell
-cd panomax
-node fetch-cams.js
-cp cams.json ../../src/assets/austria-cams.json
+npm run sync
 ```
 
-## Bergfex
-
-First fetch all group page links
+Or directly:
 
 ```shell
-cd bergfex
-node fetch-cam-link.js
+node cam-sync/sync-all.js
 ```
 
-Then fetch all cam data. It will run in batches of 50 and record last position so it can be run multiple times until it finishes.
+Set `MAX_BERGFEX_CAMS` to limit the number of Bergfex cams fetched (useful for testing):
 
 ```shell
-cd bergfex
-node fetch-cams.js
+MAX_BERGFEX_CAMS=10 npm run sync
 ```
 
-Then merge it with the panomax ones
+## Automation
 
-```shell
-node merge.js ../src/assets/austria-cams.json bergfex/webcams.json
-```
-
-Then remove duplicate links
-
-```shell
-node dedupe-links.js ../src/assets/austria-cams.json
-```
-
-Then deduplicate the names, a bunch of cams have the same name, so we append 1,2, etc
-
-```shell
-node dedupe-names.js ../src/assets/austria-cams.json
-```
-
+A GitHub Actions workflow runs this on the 1st of each month and opens a PR with any changes. It can also be triggered manually from the Actions tab.

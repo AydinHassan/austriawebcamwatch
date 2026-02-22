@@ -13,7 +13,8 @@
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "sync": "node cam-sync/sync-all.js"
   },
   "dependencies": {
     "@radix-icons/vue": "^1.0.0",
