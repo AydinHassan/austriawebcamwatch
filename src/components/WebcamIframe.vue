@@ -9,12 +9,13 @@ const url = computed(() => {
   if (props.webcam.provider === 'panomax') {
     const url = new URL(props.webcam.url)
     if (!props.showGui) {
+      url.searchParams.set('theme', 'noGui')
+    } else {
       url.searchParams.set('hidetopbar', '1')
       url.searchParams.set('zoomwheel', 'false')
       url.searchParams.set('compass', 'false')
       url.searchParams.set('zoomslider', 'false')
       url.searchParams.set('weather', 'false')
-      url.searchParams.set('theme', 'noGui')
     }
     return url.toString()
   }
