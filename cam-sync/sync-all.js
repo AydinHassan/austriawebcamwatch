@@ -46,15 +46,25 @@ async function fetchBergfexCamLinks() {
 
   console.log(`[bergfex] Found ${areas.length} areas`);
 
+  const areasToProcess = maxBergfexCams === Infinity ? areas : areas.slice(0, maxBergfexCams);
   const allLinks = [];
-  for (const { link, title } of areas) {
+  for (const { link, title } of areasToProcess) {
     console.log(`[bergfex] Processing area: ${title}`);
-    const areaPage = await fetchWithRetries('https://www.bergfex.at/' + link);
-    const $area = cheerio.load(areaPage);
+    const areaUrl = 'https://www.bergfex.at/' + link.replace(/^\//, '');
+    try {
+      const areaPage = await fetchWithRetries(areaUrl);
+      const $area = cheerio.load(areaPage);
 
-    $area('a[data-tracking-event="webcam-overview-click"]').each((_, elem) => {
-      allLinks.push($area(elem).attr('href'));
-    });
+      $area('a[data-tracking-event="webcam-overview_entry_click"]').each((_, elem) => {
+        allLinks.push($area(elem).attr('href'));
+      });
+    } catch (error) {
+      if (error.status === 404) {
+        console.log(`[bergfex] 404 for area ${title}, skipping`);
+        continue;
+      }
+      throw error;
+    }
   }
 
   console.log(`[bergfex] Found ${allLinks.length} camera links`);
