@@ -14,7 +14,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
-import { ChevronLeftIcon, ChevronRightIcon } from '@radix-icons/vue'
+import { ChevronLeftIcon, ChevronRightIcon, MixerHorizontalIcon } from '@radix-icons/vue'
 import Provider from '@/components/Provider.vue'
 import WebcamIframe from '@/components/WebcamIframe.vue'
 
@@ -39,6 +39,7 @@ const openSelector = async () => {
 
 const modalOpen = ref(false)
 const modalWebcam = ref(null)
+const modalShowGui = ref(false)
 const selectedWebcam = ref(null)
 
 const isMobile = computed(() => window.innerWidth < 768)
@@ -181,11 +182,21 @@ onUnmounted(() => {
           <DialogTitle class="flex items-center">
             {{ modalWebcam?.name }}
             <Provider v-if="modalWebcam" :cam="modalWebcam"></Provider>
+            <Button
+              v-if="modalWebcam?.provider === 'panomax'"
+              variant="ghost"
+              size="icon"
+              class="h-8 w-8 ml-2"
+              :class="modalShowGui ? 'bg-green-500/20 text-green-500' : ''"
+              @click="modalShowGui = !modalShowGui"
+            >
+              <MixerHorizontalIcon class="h-4 w-4" />
+            </Button>
           </DialogTitle>
           <DialogDescription />
         </DialogHeader>
         <div class="flex-1">
-          <WebcamIframe v-if="modalWebcam" :webcam="modalWebcam" />
+          <WebcamIframe v-if="modalWebcam" :webcam="modalWebcam" :show-gui="modalShowGui" />
         </div>
         <DialogFooter class="flex justify-between items-center">
           <div class="flex items-center gap-1">
