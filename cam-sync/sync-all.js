@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
-import { fetchWithRetries } from './utils.js';
+import { fetchWithRetries, Throttle } from './utils.js';
+
+const bergfexThrottle = new Throttle(3000);
 
 const __dirname = import.meta.dirname;
 const outputPath = path.resolve(__dirname, '..', 'src', 'assets', 'austria-cams.json');
@@ -50,7 +52,6 @@ async function fetchBergfexCamLinks() {
   const allLinks = [];
   let notFoundCount = 0;
   let failedCount = 0;
-  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   const maxFailureRate = 0.05;
 
   for (let i = 0; i < areasToProcess.length; i++) {
@@ -58,7 +59,7 @@ async function fetchBergfexCamLinks() {
     console.log(`[bergfex] Processing area ${i + 1}/${areasToProcess.length}: ${title}`);
     const areaUrl = 'https://www.bergfex.at/' + link.replace(/^\//, '');
     try {
-      const areaPage = await fetchWithRetries(areaUrl);
+      const areaPage = await fetchWithRetries(areaUrl, { throttle: bergfexThrottle });
       const $area = cheerio.load(areaPage);
 
       $area('a[data-tracking-event="webcam-overview_entry_click"]').each((_, elem) => {
@@ -79,8 +80,7 @@ async function fetchBergfexCamLinks() {
       continue;
     }
 
-    // Random delay between area requests to avoid rate limiting
-    await delay(Math.random() * 2000 + 1500);
+    await bergfexThrottle.wait();
   }
 
   console.log(`[bergfex] Found ${allLinks.length} camera links (${notFoundCount} 404s, ${failedCount} failures)`);
@@ -91,7 +91,6 @@ async function fetchBergfexCams(camLinks) {
   const limit = Math.min(camLinks.length, maxBergfexCams);
   console.log(`[bergfex] Fetching details for ${limit} cameras...`);
 
-  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   const cams = [];
   let notFoundCount = 0;
   let failedCount = 0;
@@ -101,7 +100,7 @@ async function fetchBergfexCams(camLinks) {
     console.log(`[bergfex] Processing camera ${i + 1}/${limit}`);
     const url = camLinks[i];
     try {
-      const html = await fetchWithRetries('https://www.bergfex.at' + url);
+      const html = await fetchWithRetries('https://www.bergfex.at' + url, { throttle: bergfexThrottle });
       const $ = cheerio.load(html);
 
       const metaTag = $('meta[name="geoposition"]');
@@ -140,8 +139,7 @@ async function fetchBergfexCams(camLinks) {
       continue;
     }
 
-    const randomDelay = Math.random() * 2000 + 1000;
-    await delay(randomDelay);
+    await bergfexThrottle.wait();
   }
 
   console.log(`[bergfex] Fetched ${cams.length} cameras (${notFoundCount} 404s, ${failedCount} failures)`);
