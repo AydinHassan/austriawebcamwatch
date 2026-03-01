@@ -48,8 +48,14 @@ async function fetchBergfexCamLinks() {
 
   const areasToProcess = maxBergfexCams === Infinity ? areas : areas.slice(0, maxBergfexCams);
   const allLinks = [];
-  for (const { link, title } of areasToProcess) {
-    console.log(`[bergfex] Processing area: ${title}`);
+  let notFoundCount = 0;
+  let failedCount = 0;
+  const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  const maxFailureRate = 0.05;
+
+  for (let i = 0; i < areasToProcess.length; i++) {
+    const { link, title } = areasToProcess[i];
+    console.log(`[bergfex] Processing area ${i + 1}/${areasToProcess.length}: ${title}`);
     const areaUrl = 'https://www.bergfex.at/' + link.replace(/^\//, '');
     try {
       const areaPage = await fetchWithRetries(areaUrl);
@@ -61,13 +67,23 @@ async function fetchBergfexCamLinks() {
     } catch (error) {
       if (error.status === 404) {
         console.log(`[bergfex] 404 for area ${title}, skipping`);
+        notFoundCount++;
         continue;
       }
-      throw error;
+      failedCount++;
+      const failureRate = failedCount / areasToProcess.length;
+      console.log(`[bergfex] Error for area ${title}: ${error.message} (failures: ${failedCount})`);
+      if (failureRate > maxFailureRate) {
+        throw new Error(`Aborting: failure rate ${(failureRate * 100).toFixed(1)}% exceeds ${maxFailureRate * 100}% threshold (${failedCount} failures out of ${areasToProcess.length} areas)`);
+      }
+      continue;
     }
+
+    // Random delay between area requests to avoid rate limiting
+    await delay(Math.random() * 2000 + 1500);
   }
 
-  console.log(`[bergfex] Found ${allLinks.length} camera links`);
+  console.log(`[bergfex] Found ${allLinks.length} camera links (${notFoundCount} 404s, ${failedCount} failures)`);
   return allLinks;
 }
 
@@ -77,9 +93,12 @@ async function fetchBergfexCams(camLinks) {
 
   const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   const cams = [];
+  let notFoundCount = 0;
+  let failedCount = 0;
+  const maxFailureRate = 0.05;
 
   for (let i = 0; i < limit; i++) {
-    console.log(`[bergfex] Processing camera ${i + 1} of ${limit}`);
+    console.log(`[bergfex] Processing camera ${i + 1}/${limit}`);
     const url = camLinks[i];
     try {
       const html = await fetchWithRetries('https://www.bergfex.at' + url);
@@ -109,16 +128,23 @@ async function fetchBergfexCams(camLinks) {
     } catch (error) {
       if (error.status === 404) {
         console.log(`[bergfex] 404 for ${url}, skipping`);
+        notFoundCount++;
         continue;
       }
-      throw error;
+      failedCount++;
+      const failureRate = failedCount / limit;
+      console.log(`[bergfex] Error for ${url}: ${error.message} (failures: ${failedCount})`);
+      if (failureRate > maxFailureRate) {
+        throw new Error(`Aborting: failure rate ${(failureRate * 100).toFixed(1)}% exceeds ${maxFailureRate * 100}% threshold (${failedCount} failures out of ${limit} cameras)`);
+      }
+      continue;
     }
 
     const randomDelay = Math.random() * 2000 + 1000;
     await delay(randomDelay);
   }
 
-  console.log(`[bergfex] Fetched ${cams.length} cameras`);
+  console.log(`[bergfex] Fetched ${cams.length} cameras (${notFoundCount} 404s, ${failedCount} failures)`);
   return cams;
 }
 
