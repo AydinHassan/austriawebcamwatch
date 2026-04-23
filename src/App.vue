@@ -73,7 +73,7 @@ const footerNavigation = [
   { name: 'GitHub', href: 'https://www.github.com/AydinHassan', icon: GithubLogoIcon},
   { name: 'Website', href: 'https://www.aydinhassan.co.uk', icon: GlobeIcon},
   { name: 'Photography', href: 'https://www.aydinhassanphotography.com', icon: CameraIcon},
-  { name: 'X', href: 'https://x.com/aydinh', icon: TwitterLogoIcon},
+  { name: 'X', href: 'https://x.com/aydin_h', icon: TwitterLogoIcon},
 ]
 
 </script>
