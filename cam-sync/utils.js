@@ -16,7 +16,7 @@ export function dedupeNamesAndSort(cams, existingNameByUrl = {}) {
   const sorted = [...cams].sort((a, b) => a.url.localeCompare(b.url));
 
   const taken = new Set();
-  const out = new Array(sorted.length);
+  const out = Array.from({ length: sorted.length });
   const unassigned = [];
 
   sorted.forEach((cam, i) => {
