@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
-import { fetchWithRetries, Throttle } from './utils.js';
+import { fetchWithRetries, Throttle, dedupeUrls, dedupeNamesAndSort } from './utils.js';
 
 const bergfexThrottle = new Throttle(3000);
 
@@ -146,35 +146,17 @@ async function fetchBergfexCams(camLinks) {
   return cams;
 }
 
-// --- Merge & Dedupe ---
-
-function dedupeUrls(cams) {
-  const seen = new Set();
-  return cams.filter(cam => {
-    if (seen.has(cam.url)) return false;
-    seen.add(cam.url);
-    return true;
-  });
-}
-
-function dedupeNamesAndSort(cams) {
-  const counts = {};
-  cams.forEach(cam => {
-    const name = cam.name;
-    if (counts[name]) {
-      counts[name]++;
-      cam.name = `${name} ${counts[name]}`;
-    } else {
-      counts[name] = 1;
-    }
-  });
-
-  return cams.sort((a, b) => a.name.localeCompare(b.name));
-}
-
 // --- Main ---
 
+function loadExistingNameMap() {
+  if (!fs.existsSync(outputPath)) return {};
+  const existing = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
+  return Object.fromEntries(existing.map(c => [c.url, c.name]));
+}
+
 async function main() {
+  const existingNameByUrl = loadExistingNameMap();
+
   const panomaxCams = await fetchPanomaxCams();
   const bergfexLinks = await fetchBergfexCamLinks();
   const bergfexCams = await fetchBergfexCams(bergfexLinks);
@@ -185,7 +167,7 @@ async function main() {
   allCams = dedupeUrls(allCams);
   console.log(`[merge] After URL dedupe: ${allCams.length}`);
 
-  allCams = dedupeNamesAndSort(allCams);
+  allCams = dedupeNamesAndSort(allCams, existingNameByUrl);
   console.log(`[merge] After name dedupe & sort: ${allCams.length}`);
 
   fs.writeFileSync(outputPath, JSON.stringify(allCams, null, 2));

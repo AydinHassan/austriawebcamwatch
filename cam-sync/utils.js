@@ -1,3 +1,50 @@
+// Dedupe URLs (first occurrence wins) and assign stable name suffixes for
+// duplicate names. Pass `existingNameByUrl` to preserve names from a prior
+// run so unchanged cams never get renumbered just because scrape order shifted.
+// For new cams (URL not in the map), suffixes are assigned in URL-sorted order
+// so a fresh run is also deterministic.
+export function dedupeUrls(cams) {
+  const seen = new Set();
+  return cams.filter(cam => {
+    if (seen.has(cam.url)) return false;
+    seen.add(cam.url);
+    return true;
+  });
+}
+
+export function dedupeNamesAndSort(cams, existingNameByUrl = {}) {
+  const sorted = [...cams].sort((a, b) => a.url.localeCompare(b.url));
+
+  const taken = new Set();
+  const out = new Array(sorted.length);
+  const unassigned = [];
+
+  sorted.forEach((cam, i) => {
+    const existing = existingNameByUrl[cam.url];
+    if (existing && !taken.has(existing)) {
+      out[i] = { ...cam, name: existing };
+      taken.add(existing);
+    } else {
+      unassigned.push(i);
+    }
+  });
+
+  for (const i of unassigned) {
+    const cam = sorted[i];
+    const base = cam.name;
+    let chosen = base;
+    if (taken.has(chosen)) {
+      let n = 2;
+      while (taken.has(`${base} ${n}`)) n++;
+      chosen = `${base} ${n}`;
+    }
+    out[i] = { ...cam, name: chosen };
+    taken.add(chosen);
+  }
+
+  return out.sort((a, b) => a.name.localeCompare(b.name));
+}
+
 export class Throttle {
   constructor(baseDelay = 3000) {
     this.baseDelay = baseDelay;
