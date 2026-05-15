@@ -50,6 +50,7 @@ async function fetchBergfexCamLinks() {
 
   const areasToProcess = maxBergfexCams === Infinity ? areas : areas.slice(0, maxBergfexCams);
   const allLinks = [];
+  let scrapedAreas = 0;
   let notFoundCount = 0;
   let failedCount = 0;
   const maxFailureRate = 0.05;
@@ -65,6 +66,7 @@ async function fetchBergfexCamLinks() {
       $area('a[data-tracking-event="webcam-overview_entry_click"]').each((_, elem) => {
         allLinks.push($area(elem).attr('href'));
       });
+      scrapedAreas++;
     } catch (error) {
       if (error.status === 404) {
         console.log(`[bergfex] 404 for area ${title}, skipping`);
@@ -83,8 +85,18 @@ async function fetchBergfexCamLinks() {
     await bergfexThrottle.wait();
   }
 
-  console.log(`[bergfex] Found ${allLinks.length} camera links (${notFoundCount} 404s, ${failedCount} failures)`);
-  return allLinks;
+  console.log(`[bergfex] Found ${allLinks.length} camera links from ${scrapedAreas}/${areasToProcess.length} areas (${notFoundCount} 404s, ${failedCount} failures)`);
+  // If any area failed transiently, the script can't know what cams live there,
+  // so the caller must treat absences as "unknown" rather than "removed".
+  return { links: allLinks, allAreasScraped: failedCount === 0 };
+}
+
+function bergfexIdFromPath(path) {
+  return path.match(/\/c(\d+)\//)?.[1] ?? null;
+}
+
+function bergfexIdFromIframeUrl(url) {
+  return url.match(/[?&]id=(\d+)/)?.[1] ?? null;
 }
 
 async function fetchBergfexCams(camLinks) {
@@ -92,6 +104,7 @@ async function fetchBergfexCams(camLinks) {
   console.log(`[bergfex] Fetching details for ${limit} cameras...`);
 
   const cams = [];
+  const notFoundIds = new Set();
   let notFoundCount = 0;
   let failedCount = 0;
   const maxFailureRate = 0.05;
@@ -128,6 +141,8 @@ async function fetchBergfexCams(camLinks) {
       if (error.status === 404) {
         console.log(`[bergfex] 404 for ${url}, skipping`);
         notFoundCount++;
+        const id = bergfexIdFromPath(url);
+        if (id) notFoundIds.add(id);
         continue;
       }
       failedCount++;
@@ -143,25 +158,38 @@ async function fetchBergfexCams(camLinks) {
   }
 
   console.log(`[bergfex] Fetched ${cams.length} cameras (${notFoundCount} 404s, ${failedCount} failures)`);
-  return cams;
+  return { cams, notFoundIds };
 }
 
 // --- Main ---
 
-function loadExistingNameMap() {
-  if (!fs.existsSync(outputPath)) return {};
-  const existing = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
-  return Object.fromEntries(existing.map(c => [c.url, c.name]));
+function loadExisting() {
+  if (!fs.existsSync(outputPath)) return [];
+  return JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
 }
 
 async function main() {
-  const existingNameByUrl = loadExistingNameMap();
+  const existing = loadExisting();
+  const existingNameByUrl = Object.fromEntries(existing.map(c => [c.url, c.name]));
 
   const panomaxCams = await fetchPanomaxCams();
-  const bergfexLinks = await fetchBergfexCamLinks();
-  const bergfexCams = await fetchBergfexCams(bergfexLinks);
+  const { links: bergfexLinks } = await fetchBergfexCamLinks();
+  const { cams: bergfexCams, notFoundIds } = await fetchBergfexCams(bergfexLinks);
 
-  let allCams = [...panomaxCams, ...bergfexCams];
+  // Preserve existing bergfex cams that weren't covered by this scrape
+  // (area failed, cam page errored transiently, etc). Only drop a cam when
+  // its page returned a confirmed 404.
+  const scrapedUrls = new Set(bergfexCams.map(c => c.url));
+  const existingBergfex = existing.filter(c => c.provider === 'bergfex');
+  const preservedBergfex = existingBergfex.filter(c => {
+    if (scrapedUrls.has(c.url)) return false;
+    const id = bergfexIdFromIframeUrl(c.url);
+    if (id && notFoundIds.has(id)) return false;
+    return true;
+  });
+  console.log(`[merge] Preserved ${preservedBergfex.length} bergfex cams not in this scrape (not confirmed-removed)`);
+
+  let allCams = [...panomaxCams, ...bergfexCams, ...preservedBergfex];
   console.log(`[merge] Total before dedupe: ${allCams.length}`);
 
   allCams = dedupeUrls(allCams);
