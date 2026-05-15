@@ -567,13 +567,6 @@
     "longitude": 11.94671
   },
   {
-    "name": "Alpbach Dorf",
-    "url": "https://content.bergfex.at/webcam/?id=2976&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.394974,
-    "longitude": 11.946913
-  },
-  {
     "name": "Alpbach Dorf 2",
     "url": "https://alpbachtal.panomax.com/alpbachdorf",
     "provider": "panomax",
@@ -721,13 +714,6 @@
     "longitude": 13.684039
   },
   {
-    "name": "Altenmarkt - Schartner",
-    "url": "https://content.bergfex.at/webcam/?id=1572&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.380263,
-    "longitude": 13.419647
-  },
-  {
     "name": "Altenmarkt - Sinnhubbauer",
     "url": "https://content.bergfex.at/webcam/?id=1460&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -803,13 +789,6 @@
     "provider": "bergfex",
     "latitude": 46.683148,
     "longitude": 15.982408
-  },
-  {
-    "name": "Am Garnmarkt, Götzis",
-    "url": "https://content.bergfex.at/webcam/?id=15639&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.335987,
-    "longitude": 9.646366
   },
   {
     "name": "Amberger Hütte",
@@ -1057,13 +1036,6 @@
     "longitude": 14.033075
   },
   {
-    "name": "Asitz Bergstation",
-    "url": "https://content.bergfex.at/webcam/?id=8359&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.410402,
-    "longitude": 12.714117
-  },
-  {
     "name": "Asitz Gipfel",
     "url": "https://content.bergfex.at/webcam/?id=59&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -1083,13 +1055,6 @@
     "provider": "bergfex",
     "latitude": 47.437445,
     "longitude": 12.719159
-  },
-  {
-    "name": "Assling",
-    "url": "https://content.bergfex.at/webcam/?id=5968&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.766562,
-    "longitude": 12.640607
   },
   {
     "name": "Atoll Achensee",
@@ -1330,13 +1295,6 @@
     "longitude": 13.619704
   },
   {
-    "name": "Bad Goisern am Hallstättersee",
-    "url": "https://content.bergfex.at/webcam/?id=14510&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.63967,
-    "longitude": 13.619704
-  },
-  {
     "name": "Bad Hofgastein",
     "url": "https://hofgastein.panomax.com",
     "provider": "panomax",
@@ -1449,13 +1407,6 @@
     "longitude": 13.928474
   },
   {
-    "name": "Bad Mitterndorf - Hotel Grimmingblick",
-    "url": "https://content.bergfex.at/webcam/?id=8832&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.55483,
-    "longitude": 13.939183
-  },
-  {
     "name": "Bad Tatzmannsdorf",
     "url": "https://content.bergfex.at/webcam/?id=21613&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -1493,20 +1444,6 @@
   {
     "name": "Baggersee Roßau",
     "url": "https://content.bergfex.at/webcam/?id=20522&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.267,
-    "longitude": 11.44817
-  },
-  {
-    "name": "Baggersee Roßau 2",
-    "url": "https://content.bergfex.at/webcam/?id=20524&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.267,
-    "longitude": 11.44817
-  },
-  {
-    "name": "Baggersee Roßau 3",
-    "url": "https://content.bergfex.at/webcam/?id=20523&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.267,
     "longitude": 11.44817
@@ -1631,13 +1568,6 @@
     "longitude": 13.451264
   },
   {
-    "name": "Bärnkopf",
-    "url": "https://content.bergfex.at/webcam/?id=7295&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.389683,
-    "longitude": 15.003778
-  },
-  {
     "name": "Bartholomäberg",
     "url": "https://content.bergfex.at/webcam/?id=12417&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -1741,13 +1671,6 @@
     "provider": "bergfex",
     "latitude": 47.195545,
     "longitude": 9.620655
-  },
-  {
-    "name": "BBG Einhornbahn II Talstation Kinderland",
-    "url": "https://content.bergfex.at/webcam/?id=19551&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.145777,
-    "longitude": 9.760918
   },
   {
     "name": "BBG Schedlerhof Bergstation",
@@ -1958,13 +1881,6 @@
     "provider": "bergfex",
     "latitude": 46.638786,
     "longitude": 13.273467
-  },
-  {
-    "name": "Berghotel Schmittenhöhe - Schnapshansalm",
-    "url": "https://content.bergfex.at/webcam/?id=10200&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.329181,
-    "longitude": 12.737939
   },
   {
     "name": "Berghotel Seidl-Alm",
@@ -2310,55 +2226,6 @@
     "longitude": 9.982801
   },
   {
-    "name": "Bergstation Hoher Turm",
-    "url": "https://content.bergfex.at/webcam/?id=21058&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.060499,
-    "longitude": 11.443228
-  },
-  {
-    "name": "Bergstation Hoher Turm 2",
-    "url": "https://content.bergfex.at/webcam/?id=21059&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.060499,
-    "longitude": 11.443228
-  },
-  {
-    "name": "Bergstation Hoher Turm 3",
-    "url": "https://content.bergfex.at/webcam/?id=21060&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.060499,
-    "longitude": 11.443228
-  },
-  {
-    "name": "Bergstation Hoher Turm 4",
-    "url": "https://content.bergfex.at/webcam/?id=21061&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.060499,
-    "longitude": 11.443228
-  },
-  {
-    "name": "Bergstation Hoher Turm 5",
-    "url": "https://content.bergfex.at/webcam/?id=21062&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.060499,
-    "longitude": 11.443228
-  },
-  {
-    "name": "Bergstation Hoher Turm 6",
-    "url": "https://content.bergfex.at/webcam/?id=21063&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.060499,
-    "longitude": 11.443228
-  },
-  {
-    "name": "Bergstation Hoher Turm 7",
-    "url": "https://content.bergfex.at/webcam/?id=21064&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.060499,
-    "longitude": 11.443228
-  },
-  {
     "name": "Bergstation Hornbahn",
     "url": "https://content.bergfex.at/webcam/?id=22632&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -2424,13 +2291,6 @@
   {
     "name": "Bergstation Hössbahn 2",
     "url": "https://content.bergfex.at/webcam/?id=8737&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.67894,
-    "longitude": 14.16714
-  },
-  {
-    "name": "Bergstation Hössbahn 3",
-    "url": "https://content.bergfex.at/webcam/?id=8735&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.67894,
     "longitude": 14.16714
@@ -2567,13 +2427,6 @@
     "provider": "bergfex",
     "latitude": 47.257973,
     "longitude": 12.7159
-  },
-  {
-    "name": "Bergstation Neunerköpfle",
-    "url": "https://content.bergfex.at/webcam/?id=17724&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.483554,
-    "longitude": 10.542319
   },
   {
     "name": "Bergstation Panoramabahn Elfer",
@@ -2891,13 +2744,6 @@
     "longitude": 15.833636
   },
   {
-    "name": "Bergstation Zau[:ber:]g Semmering 2",
-    "url": "https://content.bergfex.at/webcam/?id=24635&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.622245,
-    "longitude": 15.833636
-  },
-  {
     "name": "Bergstation-Promibahn",
     "url": "https://content.bergfex.at/webcam/?id=3497&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -2919,13 +2765,6 @@
     "longitude": 9.936915
   },
   {
-    "name": "Bezau Bergbahnen 2",
-    "url": "https://content.bergfex.at/webcam/?id=2833&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
-  },
-  {
     "name": "Biathlon- und LL-Zentrum in Obertilliach",
     "url": "https://content.bergfex.at/webcam/?id=11670&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -2942,27 +2781,6 @@
   {
     "name": "Bichlalm 2",
     "url": "https://content.bergfex.at/webcam/?id=9675&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.440566,
-    "longitude": 12.451283
-  },
-  {
-    "name": "Bichlalm 3",
-    "url": "https://content.bergfex.at/webcam/?id=10098&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.440566,
-    "longitude": 12.451283
-  },
-  {
-    "name": "Bichlalm 4",
-    "url": "https://content.bergfex.at/webcam/?id=20146&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.440566,
-    "longitude": 12.451283
-  },
-  {
-    "name": "Bichlalm 5",
-    "url": "https://content.bergfex.at/webcam/?id=20147&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.440566,
     "longitude": 12.451283
@@ -2987,13 +2805,6 @@
     "provider": "bergfex",
     "latitude": 47.440566,
     "longitude": 12.451283
-  },
-  {
-    "name": "Bike Park - Bürserberg",
-    "url": "https://brand.panomax.com/bike-park",
-    "provider": "panomax",
-    "latitude": 47.139817,
-    "longitude": 9.750365
   },
   {
     "name": "Binderberg in Oberhenndorf",
@@ -3148,13 +2959,6 @@
     "provider": "bergfex",
     "latitude": 46.78337,
     "longitude": 13.826816
-  },
-  {
-    "name": "BKK - Rollbob",
-    "url": "https://content.bergfex.at/webcam/?id=18140&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.812242,
-    "longitude": 13.798735
   },
   {
     "name": "BKK - Spitzeck Berg",
@@ -3584,13 +3388,6 @@
     "longitude": 14.735798
   },
   {
-    "name": "Burgruine Finkenstein",
-    "url": "https://content.bergfex.at/webcam/?id=3105&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.546459,
-    "longitude": 13.903086
-  },
-  {
     "name": "Burgruine Finkenstein 2",
     "url": "https://content.bergfex.at/webcam/?id=15069&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -3829,13 +3626,6 @@
     "longitude": 13.446908
   },
   {
-    "name": "Dachstein West - Hornspitz Mitte",
-    "url": "https://content.bergfex.at/webcam/?id=15314&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.56654,
-    "longitude": 13.497175
-  },
-  {
     "name": "Damboeckhaus",
     "url": "https://content.bergfex.at/webcam/?id=959&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -3932,13 +3722,6 @@
     "provider": "bergfex",
     "latitude": 46.813654,
     "longitude": 15.288807
-  },
-  {
-    "name": "Deutschlandsberg - Rathaus",
-    "url": "https://content.bergfex.at/webcam/?id=9064&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.814136,
-    "longitude": 15.212342
   },
   {
     "name": "Diasbahn Bergstation",
@@ -4088,13 +3871,6 @@
     "longitude": 15.494885
   },
   {
-    "name": "Dorfbahn Rosnerköpfel - Steinberg",
-    "url": "https://content.bergfex.at/webcam/?id=10332&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.454201,
-    "longitude": 13.259393
-  },
-  {
     "name": "Dorfgastein - Bergl",
     "url": "https://content.bergfex.at/webcam/?id=20770&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -4146,13 +3922,6 @@
   {
     "name": "Dornbirn Marktplatz",
     "url": "https://content.bergfex.at/webcam/?id=18636&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.413641,
-    "longitude": 9.742609
-  },
-  {
-    "name": "Dornbirn Marktplatz 2",
-    "url": "https://content.bergfex.at/webcam/?id=24408&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.413641,
     "longitude": 9.742609
@@ -4233,13 +4002,6 @@
     "provider": "bergfex",
     "latitude": 47.353141,
     "longitude": 10.893862
-  },
-  {
-    "name": "Dünser Älpele",
-    "url": "https://content.bergfex.at/webcam/?id=20219&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.236559,
-    "longitude": 9.732299
   },
   {
     "name": "Dünser Älpele 2",
@@ -4361,13 +4123,6 @@
     "longitude": 10.746197
   },
   {
-    "name": "Egghof Sunjet 4",
-    "url": "https://content.bergfex.at/webcam/?id=8413&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.411723,
-    "longitude": 10.746197
-  },
-  {
     "name": "Egghof Sunjet 5",
     "url": "https://content.bergfex.at/webcam/?id=8412&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -4415,13 +4170,6 @@
     "provider": "bergfex",
     "latitude": 47.40276,
     "longitude": 10.9033
-  },
-  {
-    "name": "Ehrwald, Zugspitzbahn Talstation",
-    "url": "https://content.bergfex.at/webcam/?id=18139&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.426061,
-    "longitude": 10.941625
   },
   {
     "name": "Ehrwalder Alm",
@@ -4732,20 +4480,6 @@
     "longitude": 14.735798
   },
   {
-    "name": "Erlaufsee",
-    "url": "https://content.bergfex.at/webcam/?id=6277&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.790276,
-    "longitude": 15.280362
-  },
-  {
-    "name": "Erlebnisarena St. Corona",
-    "url": "https://content.bergfex.at/webcam/?id=11037&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.576915,
-    "longitude": 16.020384
-  },
-  {
     "name": "Erlebnisarena St. Corona - Bergstation",
     "url": "https://content.bergfex.at/webcam/?id=18082&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -4765,13 +4499,6 @@
     "provider": "bergfex",
     "latitude": 47.291092,
     "longitude": 12.683587
-  },
-  {
-    "name": "Erlebnishof Tschabitscher",
-    "url": "https://content.bergfex.at/webcam/?id=10031&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.733051,
-    "longitude": 13.248295
   },
   {
     "name": "Erlebnispark Vider Truja",
@@ -4872,13 +4599,6 @@
     "longitude": 13.233101
   },
   {
-    "name": "Faistenau 3",
-    "url": "https://content.bergfex.at/webcam/?id=3085&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.772213,
-    "longitude": 13.235813
-  },
-  {
     "name": "Falkensteiner Schlosshotel Velden",
     "url": "https://content.bergfex.at/webcam/?id=18857&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -4961,13 +4681,6 @@
     "provider": "bergfex",
     "latitude": 47.063836,
     "longitude": 10.495848
-  },
-  {
-    "name": "Familyjet Tal",
-    "url": "https://content.bergfex.at/webcam/?id=15595&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.399598,
-    "longitude": 10.883877
   },
   {
     "name": "Fanningberg",
@@ -5278,13 +4991,6 @@
     "longitude": 11.126739
   },
   {
-    "name": "Fernau Bergstation 2",
-    "url": "https://content.bergfex.at/webcam/?id=22392&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.971947,
-    "longitude": 11.126739
-  },
-  {
     "name": "Fernau Mittelstation",
     "url": "https://content.bergfex.at/webcam/?id=20649&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -5579,25 +5285,11 @@
     "longitude": 10.58629
   },
   {
-    "name": "Fiss - Hotel  Röck",
-    "url": "https://content.bergfex.at/webcam/?id=13691&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.055986,
-    "longitude": 10.613536
-  },
-  {
     "name": "Fiss - Kinderland",
     "url": "https://content.bergfex.at/webcam/?id=943&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.06099,
     "longitude": 10.62059
-  },
-  {
-    "name": "Fiss - Zirbenhütte",
-    "url": "https://content.bergfex.at/webcam/?id=9013&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.087377,
-    "longitude": 10.58859
   },
   {
     "name": "Flachau /Hotel Starjet",
@@ -5761,13 +5453,6 @@
     "longitude": 14.964666
   },
   {
-    "name": "Flugplatz Timmersdorf Leoben 2",
-    "url": "https://content.bergfex.at/webcam/?id=10083&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.379551,
-    "longitude": 14.964666
-  },
-  {
     "name": "Flugplatz Trieben",
     "url": "https://content.bergfex.at/webcam/?id=24543&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -5794,13 +5479,6 @@
     "provider": "bergfex",
     "latitude": 47.325538,
     "longitude": 13.347254
-  },
-  {
-    "name": "Formarinsee & Rote Wand",
-    "url": "https://content.bergfex.at/webcam/?id=17723&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.16268,
-    "longitude": 9.990633
   },
   {
     "name": "Forsteralm",
@@ -5880,13 +5558,6 @@
     "longitude": 11.168709
   },
   {
-    "name": "Franz-Senn-Hütte 6",
-    "url": "https://content.bergfex.at/webcam/?id=13887&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.085205,
-    "longitude": 11.168709
-  },
-  {
     "name": "Frastanz",
     "url": "https://content.bergfex.at/webcam/?id=15942&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -5934,13 +5605,6 @@
     "provider": "bergfex",
     "latitude": 47.078201,
     "longitude": 12.756396
-  },
-  {
-    "name": "Freizeitzentrum Stadtbad Mödling",
-    "url": "https://content.bergfex.at/webcam/?id=7561&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.081729,
-    "longitude": 16.287993
   },
   {
     "name": "Freudenhaus Obertauern",
@@ -5992,48 +5656,6 @@
     "longitude": 13.14813
   },
   {
-    "name": "Fulseck 3",
-    "url": "https://content.bergfex.at/webcam/?id=23243&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.23414,
-    "longitude": 13.14813
-  },
-  {
-    "name": "Fulseck 4",
-    "url": "https://content.bergfex.at/webcam/?id=23244&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.23414,
-    "longitude": 13.14813
-  },
-  {
-    "name": "Fulseck 5",
-    "url": "https://content.bergfex.at/webcam/?id=23245&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.23414,
-    "longitude": 13.14813
-  },
-  {
-    "name": "Fulseck 6",
-    "url": "https://content.bergfex.at/webcam/?id=23246&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.23414,
-    "longitude": 13.14813
-  },
-  {
-    "name": "Fulseck 7",
-    "url": "https://content.bergfex.at/webcam/?id=23247&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.23414,
-    "longitude": 13.14813
-  },
-  {
-    "name": "Fulseck 8",
-    "url": "https://content.bergfex.at/webcam/?id=23248&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.23414,
-    "longitude": 13.14813
-  },
-  {
     "name": "Funpark Hanglalm",
     "url": "https://content.bergfex.at/webcam/?id=5445&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -6071,13 +5693,6 @@
   {
     "name": "Funpark Hanglalm 6",
     "url": "https://content.bergfex.at/webcam/?id=7178&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.31715,
-    "longitude": 12.37276
-  },
-  {
-    "name": "Funpark Hanglalm 7",
-    "url": "https://content.bergfex.at/webcam/?id=7179&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.31715,
     "longitude": 12.37276
@@ -6272,13 +5887,6 @@
     "longitude": 10.597174
   },
   {
-    "name": "Fußgängerzone Mödling",
-    "url": "https://content.bergfex.at/webcam/?id=7560&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.085852,
-    "longitude": 16.283479
-  },
-  {
     "name": "Gaal",
     "url": "https://murtal.panomax.com/bergstation-gaaler-lifte",
     "provider": "panomax",
@@ -6291,13 +5899,6 @@
     "provider": "bergfex",
     "latitude": 47.265955,
     "longitude": 14.689005
-  },
-  {
-    "name": "Gaberl",
-    "url": "https://content.bergfex.at/webcam/?id=19777&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
   },
   {
     "name": "Gaberl Ost Köflach",
@@ -6559,13 +6160,6 @@
     "longitude": 12.940556
   },
   {
-    "name": "Gamsleiten",
-    "url": "https://content.bergfex.at/webcam/?id=5160&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.24116,
-    "longitude": 13.56294
-  },
-  {
     "name": "Ganzebenabfahrt",
     "url": "https://content.bergfex.at/webcam/?id=4908&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -6585,13 +6179,6 @@
     "provider": "panomax",
     "latitude": 46.961359,
     "longitude": 9.891442
-  },
-  {
-    "name": "Gargellen - Alpenhaus Montafon",
-    "url": "https://content.bergfex.at/webcam/?id=10153&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.972573,
-    "longitude": 9.920032
   },
   {
     "name": "Gargellen - Alpenhaus Montafon 2",
@@ -6951,13 +6538,6 @@
     "longitude": 12.02883
   },
   {
-    "name": "Gerlos Platte Berg",
-    "url": "https://panocam.zillertalarena.com/gerlosplatte-berg",
-    "provider": "panomax",
-    "latitude": 47.224688,
-    "longitude": 12.13415
-  },
-  {
     "name": "Gerlospass Talstation",
     "url": "https://panocam.zillertalarena.com/gerlospass-tal",
     "provider": "panomax",
@@ -7105,13 +6685,6 @@
     "longitude": 15.248423
   },
   {
-    "name": "Glasenberg",
-    "url": "https://content.bergfex.at/webcam/?id=24414&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.945183,
-    "longitude": 14.57345
-  },
-  {
     "name": "Glattjoch",
     "url": "https://glattjoch.panomax.com",
     "provider": "panomax",
@@ -7152,20 +6725,6 @@
     "provider": "bergfex",
     "latitude": 46.999863,
     "longitude": 13.022956
-  },
-  {
-    "name": "Gletscherexpress Bergstation",
-    "url": "https://content.bergfex.at/webcam/?id=17708&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
-  },
-  {
-    "name": "Gletscherexpress Bergstation 2",
-    "url": "https://content.bergfex.at/webcam/?id=17709&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
   },
   {
     "name": "Glockenhütte Nockalm",
@@ -7212,27 +6771,6 @@
   {
     "name": "Glungezerbahn Bergstation",
     "url": "https://content.bergfex.at/webcam/?id=18099&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.210926,
-    "longitude": 11.52681
-  },
-  {
-    "name": "Glungezerbahn Bergstation 2",
-    "url": "https://content.bergfex.at/webcam/?id=18100&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.210926,
-    "longitude": 11.52681
-  },
-  {
-    "name": "Glungezerbahn Bergstation 3",
-    "url": "https://content.bergfex.at/webcam/?id=18101&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.210926,
-    "longitude": 11.52681
-  },
-  {
-    "name": "Glungezerbahn Bergstation 4",
-    "url": "https://content.bergfex.at/webcam/?id=18102&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.210926,
     "longitude": 11.52681
@@ -7343,13 +6881,6 @@
     "longitude": 12.323621
   },
   {
-    "name": "Going am Wilden Kaiser",
-    "url": "https://content.bergfex.at/webcam/?id=6508&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.511458,
-    "longitude": 12.323621
-  },
-  {
     "name": "Going am Wilden Kaiser - Astberg Bergstation",
     "url": "https://content.bergfex.at/webcam/?id=14505&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -7434,13 +6965,6 @@
     "longitude": 13.434957
   },
   {
-    "name": "Golf- und Landclub Ennstal",
-    "url": "https://content.bergfex.at/webcam/?id=15176&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.557823,
-    "longitude": 14.201594
-  },
-  {
     "name": "Golfclub Achensee",
     "url": "https://content.bergfex.at/webcam/?id=2484&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -7478,13 +7002,6 @@
   {
     "name": "Golfclub Murstätten",
     "url": "https://content.bergfex.at/webcam/?id=5438&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.854942,
-    "longitude": 15.553348
-  },
-  {
-    "name": "Golfclub Murstätten 2",
-    "url": "https://content.bergfex.at/webcam/?id=9156&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 46.854942,
     "longitude": 15.553348
@@ -8183,13 +7700,6 @@
     "longitude": 11.333299
   },
   {
-    "name": "Gschwandtkopf Talstation",
-    "url": "https://content.bergfex.at/webcam/?id=8554&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.324668,
-    "longitude": 11.17949
-  },
-  {
     "name": "Guggenbach",
     "url": "https://content.bergfex.at/webcam/?id=22325&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -8216,34 +7726,6 @@
     "provider": "panomax",
     "latitude": 47.110308,
     "longitude": 9.718315
-  },
-  {
-    "name": "Gumpoldskirchen",
-    "url": "https://content.bergfex.at/webcam/?id=7849&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.036001,
-    "longitude": 16.293899
-  },
-  {
-    "name": "Gumpoldskirchen 2",
-    "url": "https://content.bergfex.at/webcam/?id=7853&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.036001,
-    "longitude": 16.293899
-  },
-  {
-    "name": "Gumpoldskirchen 3",
-    "url": "https://content.bergfex.at/webcam/?id=7854&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.036001,
-    "longitude": 16.293899
-  },
-  {
-    "name": "Gumpoldskirchen 4",
-    "url": "https://content.bergfex.at/webcam/?id=7855&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.036001,
-    "longitude": 16.293899
   },
   {
     "name": "Gundhütte - Tannheimertal",
@@ -8491,13 +7973,6 @@
     "longitude": 13.070555
   },
   {
-    "name": "Haldensee - Neunerköpfle",
-    "url": "https://content.bergfex.at/webcam/?id=23742&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.492603,
-    "longitude": 10.588806
-  },
-  {
     "name": "Haldensee - Neunerköpfle 2",
     "url": "https://content.bergfex.at/webcam/?id=2852&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -8524,13 +7999,6 @@
     "provider": "bergfex",
     "latitude": 47.2861,
     "longitude": 11.496901
-  },
-  {
-    "name": "Hall in Tirol - Oberer Stadtplatz",
-    "url": "https://content.bergfex.at/webcam/?id=11078&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
   },
   {
     "name": "Haller",
@@ -8594,13 +8062,6 @@
     "provider": "bergfex",
     "latitude": 48.477491,
     "longitude": 14.150644
-  },
-  {
-    "name": "Härmelekopf",
-    "url": "https://seefeld.panomax.com/haermelekopf",
-    "provider": "panomax",
-    "latitude": 47.329049,
-    "longitude": 11.227391
   },
   {
     "name": "Harschbichl - Bergstation  St. Johann in Tirol",
@@ -8706,13 +8167,6 @@
     "provider": "bergfex",
     "latitude": 47.410784,
     "longitude": 13.768266
-  },
-  {
-    "name": "Hauser Kaibling",
-    "url": "https://content.bergfex.at/webcam/?id=24734&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.373825,
-    "longitude": 13.777522
   },
   {
     "name": "Hauser Kaibling - Alm 6er Bergstation",
@@ -8839,13 +8293,6 @@
     "provider": "bergfex",
     "latitude": 46.861309,
     "longitude": 13.829691
-  },
-  {
-    "name": "Heidialm",
-    "url": "https://content.bergfex.at/webcam/?id=5246&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
   },
   {
     "name": "Heilbronner Hütte",
@@ -9093,48 +8540,6 @@
     "longitude": 12.197579
   },
   {
-    "name": "Hexenwasser, Söll am Wilder Kaiser - Skiwelt 4",
-    "url": "https://content.bergfex.at/webcam/?id=23823&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.480698,
-    "longitude": 12.197579
-  },
-  {
-    "name": "Hexenwasser, Söll am Wilder Kaiser - Skiwelt 5",
-    "url": "https://content.bergfex.at/webcam/?id=23824&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.480698,
-    "longitude": 12.197579
-  },
-  {
-    "name": "Hexenwasser, Söll am Wilder Kaiser - Skiwelt 6",
-    "url": "https://content.bergfex.at/webcam/?id=23825&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.480698,
-    "longitude": 12.197579
-  },
-  {
-    "name": "Hexenwasser, Söll am Wilder Kaiser - Skiwelt 7",
-    "url": "https://content.bergfex.at/webcam/?id=23826&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.480698,
-    "longitude": 12.197579
-  },
-  {
-    "name": "Hexenwasser, Söll am Wilder Kaiser - Skiwelt 8",
-    "url": "https://content.bergfex.at/webcam/?id=23827&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.480698,
-    "longitude": 12.197579
-  },
-  {
-    "name": "Highline Burgenwelten Reutte",
-    "url": "https://content.bergfex.at/webcam/?id=16002&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.464291,
-    "longitude": 10.718667
-  },
-  {
     "name": "Himbeergolllift Obertilliach",
     "url": "https://content.bergfex.at/webcam/?id=24888&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -9249,13 +8654,6 @@
   {
     "name": "Hinterthal - Urslauerhof",
     "url": "https://content.bergfex.at/webcam/?id=9097&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.406352,
-    "longitude": 12.973448
-  },
-  {
-    "name": "Hinterthal - Urslauerhof 2",
-    "url": "https://content.bergfex.at/webcam/?id=9098&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.406352,
     "longitude": 12.973448
@@ -9455,20 +8853,6 @@
     "provider": "bergfex",
     "latitude": 48.741078,
     "longitude": 13.897791
-  },
-  {
-    "name": "Hochficht Arena 5",
-    "url": "https://content.bergfex.at/webcam/?id=6954&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
-  },
-  {
-    "name": "Hochficht Arena 6",
-    "url": "https://content.bergfex.at/webcam/?id=7185&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
   },
   {
     "name": "Hochfilzen - Ferienwohnungen Schreder",
@@ -9735,13 +9119,6 @@
     "provider": "bergfex",
     "latitude": 47.235996,
     "longitude": 12.124301
-  },
-  {
-    "name": "Hochkrimml / Plattenkogel-X-Press II",
-    "url": "https://content.bergfex.at/webcam/?id=5422&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.224688,
-    "longitude": 12.13415
   },
   {
     "name": "Hochleckenhaus",
@@ -10015,13 +9392,6 @@
     "provider": "bergfex",
     "latitude": 47.405171,
     "longitude": 12.865878
-  },
-  {
-    "name": "Hoferlift",
-    "url": "https://content.bergfex.at/webcam/?id=15306&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.29076,
-    "longitude": 11.64642
   },
   {
     "name": "Hohe Salve",
@@ -10458,13 +9828,6 @@
     "longitude": 13.97056
   },
   {
-    "name": "Hotel Talblick - Hinterglemm",
-    "url": "https://content.bergfex.at/webcam/?id=4247&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.377542,
-    "longitude": 12.599276
-  },
-  {
     "name": "Hotel Talblick Hinterglemm",
     "url": "https://talblick.panomax.com",
     "provider": "panomax",
@@ -10619,13 +9982,6 @@
     "longitude": 13.864338
   },
   {
-    "name": "Hüttendorf Pruggern 2",
-    "url": "https://content.bergfex.at/webcam/?id=24678&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.401801,
-    "longitude": 13.864338
-  },
-  {
     "name": "Hüttendorf Pruggern 3",
     "url": "https://content.bergfex.at/webcam/?id=922&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -10710,13 +10066,6 @@
     "longitude": 13.227706
   },
   {
-    "name": "Hüttschlag - Naturhotel Hüttenwirt",
-    "url": "https://content.bergfex.at/webcam/?id=9389&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.175756,
-    "longitude": 13.230951
-  },
-  {
     "name": "Idalp",
     "url": "https://ischgl.panomax.com/idalp",
     "provider": "panomax",
@@ -10734,13 +10083,6 @@
     "name": "Inneralpbach - Hotel Galtenberg",
     "url": "https://content.bergfex.at/webcam/?id=18107&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
-    "latitude": 47.374767,
-    "longitude": 11.960705
-  },
-  {
-    "name": "Inneralpbach Hotel Galtenberg",
-    "url": "https://alpbach.panomax.com/galtenberg",
-    "provider": "panomax",
     "latitude": 47.374767,
     "longitude": 11.960705
   },
@@ -10787,13 +10129,6 @@
     "longitude": 11.401354
   },
   {
-    "name": "Innsbruck - Altstadt",
-    "url": "https://content.bergfex.at/webcam/?id=6223&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.26837,
-    "longitude": 11.393099
-  },
-  {
     "name": "Innsbruck - Austria Trend Hotel Congress Innsbruck",
     "url": "https://austria-trend.panomax.com/hotel-congress-innsbruck",
     "provider": "panomax",
@@ -10827,13 +10162,6 @@
     "provider": "panomax",
     "latitude": 47.265987,
     "longitude": 11.401354
-  },
-  {
-    "name": "Innsbruck Sparkassenplatz",
-    "url": "https://content.bergfex.at/webcam/?id=18592&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.266418,
-    "longitude": 11.395203
   },
   {
     "name": "Inntal",
@@ -11079,13 +10407,6 @@
     "provider": "bergfex",
     "latitude": 47.165738,
     "longitude": 10.784394
-  },
-  {
-    "name": "Jettsdorf",
-    "url": "https://content.bergfex.at/webcam/?id=8899&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.404335,
-    "longitude": 15.760596
   },
   {
     "name": "Jilly Beach",
@@ -11571,13 +10892,6 @@
     "longitude": 13.594766
   },
   {
-    "name": "Katrin Bergstation",
-    "url": "https://content.bergfex.at/webcam/?id=840&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.686344,
-    "longitude": 13.582857
-  },
-  {
     "name": "Katrin Bergstation 2",
     "url": "https://content.bergfex.at/webcam/?id=26145&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -11608,20 +10922,6 @@
   {
     "name": "Katschberghöhe Aineck 2",
     "url": "https://content.bergfex.at/webcam/?id=7079&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.056177,
-    "longitude": 13.637209
-  },
-  {
-    "name": "Katschberghöhe Aineck 3",
-    "url": "https://content.bergfex.at/webcam/?id=16460&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.056177,
-    "longitude": 13.637209
-  },
-  {
-    "name": "Katschberghöhe Aineck 4",
-    "url": "https://content.bergfex.at/webcam/?id=8120&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.056177,
     "longitude": 13.637209
@@ -11690,13 +10990,6 @@
     "longitude": 10.714489
   },
   {
-    "name": "Kaunertaler Gletscher 6",
-    "url": "https://content.bergfex.at/webcam/?id=18298&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.864362,
-    "longitude": 10.714489
-  },
-  {
     "name": "Kellerjoch Speichersee",
     "url": "https://content.bergfex.at/webcam/?id=20358&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -11730,13 +11023,6 @@
     "provider": "bergfex",
     "latitude": 47.323305,
     "longitude": 11.729928
-  },
-  {
-    "name": "Kellerjochbahn",
-    "url": "https://content.bergfex.at/webcam/?id=15307&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.32089,
-    "longitude": 11.719575
   },
   {
     "name": "Kemahdhöhe",
@@ -12075,27 +11361,6 @@
     "longitude": 13.89604
   },
   {
-    "name": "Klaffer am Hochficht 10",
-    "url": "https://content.bergfex.at/webcam/?id=6973&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.7357,
-    "longitude": 13.92206
-  },
-  {
-    "name": "Klaffer am Hochficht 11",
-    "url": "https://content.bergfex.at/webcam/?id=6974&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.7357,
-    "longitude": 13.92206
-  },
-  {
-    "name": "Klaffer am Hochficht 12",
-    "url": "https://content.bergfex.at/webcam/?id=11029&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.7357,
-    "longitude": 13.92206
-  },
-  {
     "name": "Klaffer am Hochficht 2",
     "url": "https://content.bergfex.at/webcam/?id=11034&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -12124,13 +11389,6 @@
     "longitude": 13.89604
   },
   {
-    "name": "Klaffer am Hochficht 6",
-    "url": "https://content.bergfex.at/webcam/?id=18094&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.74271,
-    "longitude": 13.89604
-  },
-  {
     "name": "Klaffer am Hochficht 7",
     "url": "https://content.bergfex.at/webcam/?id=1060&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -12140,13 +11398,6 @@
   {
     "name": "Klaffer am Hochficht 8",
     "url": "https://content.bergfex.at/webcam/?id=6975&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.7357,
-    "longitude": 13.92206
-  },
-  {
-    "name": "Klaffer am Hochficht 9",
-    "url": "https://content.bergfex.at/webcam/?id=6972&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 48.7357,
     "longitude": 13.92206
@@ -12297,13 +11548,6 @@
     "provider": "bergfex",
     "latitude": 46.95373,
     "longitude": 14.68411
-  },
-  {
-    "name": "Klippitztörl - Chalet Klippitzstern",
-    "url": "https://content.bergfex.at/webcam/?id=12017&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.944051,
-    "longitude": 14.704943
   },
   {
     "name": "Klippitztörl 2",
@@ -12516,13 +11760,6 @@
     "longitude": 12.984603
   },
   {
-    "name": "Kolsassberg",
-    "url": "https://content.bergfex.at/webcam/?id=7538&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.282377,
-    "longitude": 11.652546
-  },
-  {
     "name": "Kolsassberg 2",
     "url": "https://content.bergfex.at/webcam/?id=26041&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -12535,13 +11772,6 @@
     "provider": "panomax",
     "latitude": 47.290726,
     "longitude": 11.646495
-  },
-  {
-    "name": "Komperdellbahn Alpkofbahn Talstation",
-    "url": "https://content.bergfex.at/webcam/?id=8509&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.040728,
-    "longitude": 10.595825
   },
   {
     "name": "Königsberglift",
@@ -12999,13 +12229,6 @@
     "longitude": 16.192818
   },
   {
-    "name": "Kuchl Delino GmbH",
-    "url": "https://content.bergfex.at/webcam/?id=19012&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.626167,
-    "longitude": 13.175111
-  },
-  {
     "name": "Kuchl Delino GmbH 2",
     "url": "https://content.bergfex.at/webcam/?id=25257&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -13214,13 +12437,6 @@
     "provider": "bergfex",
     "latitude": 47.138359,
     "longitude": 10.565929
-  },
-  {
-    "name": "Landesklinik St. Veit im Pongau",
-    "url": "https://content.bergfex.at/webcam/?id=6229&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.331188,
-    "longitude": 13.162522
   },
   {
     "name": "Landscha bei Weiz",
@@ -13447,13 +12663,6 @@
     "longitude": 9.759392
   },
   {
-    "name": "Laterns 7",
-    "url": "https://content.bergfex.at/webcam/?id=11872&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.274212,
-    "longitude": 9.759392
-  },
-  {
     "name": "Laterns 8",
     "url": "https://content.bergfex.at/webcam/?id=11873&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -13671,13 +12880,6 @@
     "longitude": 11.161391
   },
   {
-    "name": "Leutasch 2",
-    "url": "https://content.bergfex.at/webcam/?id=21891&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.385653,
-    "longitude": 11.180463
-  },
-  {
     "name": "Leutasch in Tirol - Seefeld",
     "url": "https://content.bergfex.at/webcam/?id=8977&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -13690,13 +12892,6 @@
     "provider": "panomax",
     "latitude": 47.346575,
     "longitude": 11.128474
-  },
-  {
-    "name": "Leutasch Rotmoos",
-    "url": "https://leutasch.panomax.com/rotmoos",
-    "provider": "panomax",
-    "latitude": 47.383124,
-    "longitude": 11.077203
   },
   {
     "name": "Leutschach an der Weinstraße - Eorykogel",
@@ -13718,13 +12913,6 @@
     "provider": "bergfex",
     "latitude": 47.635905,
     "longitude": 13.752071
-  },
-  {
-    "name": "Lienz - Zettersfeld",
-    "url": "https://content.bergfex.at/webcam/?id=24146&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.862316,
-    "longitude": 12.804823
   },
   {
     "name": "Lienz Faschingalm",
@@ -13886,13 +13074,6 @@
     "provider": "bergfex",
     "latitude": 47.922962,
     "longitude": 14.433133
-  },
-  {
-    "name": "Losenstein Dürnberg",
-    "url": "https://content.bergfex.at/webcam/?id=15906&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.909864,
-    "longitude": 14.451607
   },
   {
     "name": "Loser Alm",
@@ -14196,13 +13377,6 @@
     "longitude": 13.508688
   },
   {
-    "name": "Maria Alm - \"die Hochkönigin\"",
-    "url": "https://content.bergfex.at/webcam/?id=7958&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.404509,
-    "longitude": 12.902225
-  },
-  {
     "name": "Maria Alm - \"die Hochkönigin\" 2",
     "url": "https://content.bergfex.at/webcam/?id=25670&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -14448,13 +13622,6 @@
     "longitude": 12.563834
   },
   {
-    "name": "Masenberg",
-    "url": "https://content.bergfex.at/webcam/?id=18175&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.339283,
-    "longitude": 15.889164
-  },
-  {
     "name": "Masenberg 2",
     "url": "https://content.bergfex.at/webcam/?id=25502&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -14509,13 +13676,6 @@
     "provider": "bergfex",
     "latitude": 46.99609,
     "longitude": 12.5436
-  },
-  {
-    "name": "Matreier Tauerntal - Eispark Osttirol",
-    "url": "https://content.bergfex.at/webcam/?id=13627&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.126126,
-    "longitude": 12.479778
   },
   {
     "name": "Matschwitz Mittelstation",
@@ -14609,13 +13769,6 @@
     "longitude": 11.860466
   },
   {
-    "name": "Mayrhofen coolnest Ramsau",
-    "url": "https://mayrhofen.panomax.com",
-    "provider": "panomax",
-    "latitude": 47.205211,
-    "longitude": 11.876828
-  },
-  {
     "name": "Mayrhofen coolnest Ramsau 2",
     "url": "https://pano.mayrhofen.at/coolnest",
     "provider": "panomax",
@@ -14623,25 +13776,11 @@
     "longitude": 11.876828
   },
   {
-    "name": "Mayrhofen Kumbichl",
-    "url": "https://mayrhofen.panomax.com/talblick",
-    "provider": "panomax",
-    "latitude": 47.15606,
-    "longitude": 11.862222
-  },
-  {
     "name": "Mayrhofen Kumbichl 2",
     "url": "https://pano.mayrhofen.at/talblick",
     "provider": "panomax",
     "latitude": 47.15606,
     "longitude": 11.862222
-  },
-  {
-    "name": "Mayrhofen Zillertal - Gasthof Zimmereben",
-    "url": "https://mayrhofen.panomax.com/zimmereben",
-    "provider": "panomax",
-    "latitude": 47.173527,
-    "longitude": 11.85915
   },
   {
     "name": "Mayrhofen Zillertal - Gasthof Zimmereben 2",
@@ -14777,20 +13916,6 @@
     "longitude": 14.168997
   },
   {
-    "name": "Mieming - Golf Hole",
-    "url": "https://content.bergfex.at/webcam/?id=22791&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.308291,
-    "longitude": 10.993151
-  },
-  {
-    "name": "Mieming - Golfacademy",
-    "url": "https://content.bergfex.at/webcam/?id=22792&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.308736,
-    "longitude": 10.989251
-  },
-  {
     "name": "Mieminger Plateau - Alpenresort Schwarz",
     "url": "https://content.bergfex.at/webcam/?id=15491&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -14840,13 +13965,6 @@
     "longitude": 10.169554
   },
   {
-    "name": "Mittelberg - Bergpension Starzelhaus",
-    "url": "https://content.bergfex.at/webcam/?id=14484&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.312206,
-    "longitude": 10.116735
-  },
-  {
     "name": "Mittelberg - Bergpension Starzelhaus 2",
     "url": "https://content.bergfex.at/webcam/?id=14483&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -14889,13 +14007,6 @@
     "longitude": 10.624799
   },
   {
-    "name": "Mittelstation",
-    "url": "https://content.bergfex.at/webcam/?id=13095&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.072957,
-    "longitude": 10.47673
-  },
-  {
     "name": "Mittelstation 2",
     "url": "https://content.bergfex.at/webcam/?id=16057&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -14929,13 +14040,6 @@
     "provider": "bergfex",
     "latitude": 47.809538,
     "longitude": 15.260782
-  },
-  {
-    "name": "Mittelstation Halsmarter",
-    "url": "https://content.bergfex.at/webcam/?id=7614&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.242138,
-    "longitude": 11.543584
   },
   {
     "name": "Mittelstation See",
@@ -15414,55 +14518,6 @@
     "longitude": 13.275556
   },
   {
-    "name": "Nationalpark Thayatal",
-    "url": "https://content.bergfex.at/webcam/?id=17107&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.855397,
-    "longitude": 15.85336
-  },
-  {
-    "name": "Nationalpark Thayatal 2",
-    "url": "https://content.bergfex.at/webcam/?id=17110&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.855397,
-    "longitude": 15.85336
-  },
-  {
-    "name": "Nationalpark Thayatal 3",
-    "url": "https://content.bergfex.at/webcam/?id=17111&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.855397,
-    "longitude": 15.85336
-  },
-  {
-    "name": "Nationalpark Thayatal 4",
-    "url": "https://content.bergfex.at/webcam/?id=17112&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.855397,
-    "longitude": 15.85336
-  },
-  {
-    "name": "Nationalpark Thayatal 5",
-    "url": "https://content.bergfex.at/webcam/?id=17113&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.855397,
-    "longitude": 15.85336
-  },
-  {
-    "name": "Nationalpark Thayatal 6",
-    "url": "https://content.bergfex.at/webcam/?id=17114&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.855397,
-    "longitude": 15.85336
-  },
-  {
-    "name": "Nationalpark Thayatal 7",
-    "url": "https://content.bergfex.at/webcam/?id=17115&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.855397,
-    "longitude": 15.85336
-  },
-  {
     "name": "Natrun Bergstation",
     "url": "https://content.bergfex.at/webcam/?id=15014&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -15615,13 +14670,6 @@
     "provider": "bergfex",
     "latitude": 47.928587,
     "longitude": 13.216068
-  },
-  {
-    "name": "Neumarkt am Wallersee",
-    "url": "https://content.bergfex.at/webcam/?id=20546&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.930161,
-    "longitude": 13.200304
   },
   {
     "name": "Neumarkt/Kronast",
@@ -16142,13 +15190,6 @@
     "longitude": 11.405726
   },
   {
-    "name": "Obernberger See 2",
-    "url": "https://content.bergfex.at/webcam/?id=12170&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.99605,
-    "longitude": 11.405726
-  },
-  {
     "name": "Obernberger See 3",
     "url": "https://content.bergfex.at/webcam/?id=12166&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -16210,13 +15251,6 @@
     "provider": "bergfex",
     "latitude": 47.156519,
     "longitude": 12.260725
-  },
-  {
-    "name": "Obertauern - Almschlössl & Schrotteralm",
-    "url": "https://content.bergfex.at/webcam/?id=8855&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.251941,
-    "longitude": 13.528746
   },
   {
     "name": "Obertauern - Aparthotel Weninger Alm",
@@ -16436,13 +15470,6 @@
     "longitude": 12.342754
   },
   {
-    "name": "Ochsalm 3",
-    "url": "https://content.bergfex.at/webcam/?id=9815&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.419334,
-    "longitude": 12.342754
-  },
-  {
     "name": "Ochsalm 4",
     "url": "https://content.bergfex.at/webcam/?id=9814&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -16473,13 +15500,6 @@
   {
     "name": "OEAV Schutzhaus Patscherkofel",
     "url": "https://content.bergfex.at/webcam/?id=2067&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
-  },
-  {
-    "name": "Olympiazentrum Seefeld",
-    "url": "https://content.bergfex.at/webcam/?id=1970&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": null,
     "longitude": null
@@ -16982,13 +16002,6 @@
     "longitude": 14.774812
   },
   {
-    "name": "Parsenn Abfahrt",
-    "url": "https://content.bergfex.at/webcam/?id=2152&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.353998,
-    "longitude": 10.17349
-  },
-  {
     "name": "PassThurn - Gasthof Hohe Brücke",
     "url": "https://content.bergfex.at/webcam/?id=4879&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -17353,13 +16366,6 @@
     "longitude": 11.718639
   },
   {
-    "name": "Pillberg - Silberregion Karwendel 5",
-    "url": "https://content.bergfex.at/webcam/?id=11469&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.320056,
-    "longitude": 11.718639
-  },
-  {
     "name": "Pillersee - Jakobskreuz",
     "url": "https://content.bergfex.at/webcam/?id=21677&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -17393,27 +16399,6 @@
     "provider": "bergfex",
     "latitude": 47.379811,
     "longitude": 14.095443
-  },
-  {
-    "name": "Pitztaler Gletscher - Das Café 3.",
-    "url": "https://content.bergfex.at/webcam/?id=17706&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.912703,
-    "longitude": 10.862221
-  },
-  {
-    "name": "Pitztaler Gletscher - Das Café 3.440",
-    "url": "https://content.bergfex.at/webcam/?id=17704&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.912703,
-    "longitude": 10.862221
-  },
-  {
-    "name": "Pitztaler Gletscher - Das Café 3.440 2",
-    "url": "https://content.bergfex.at/webcam/?id=17705&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.912703,
-    "longitude": 10.862221
   },
   {
     "name": "Pizzeria Barga",
@@ -17682,27 +16667,6 @@
     "longitude": 13.429177
   },
   {
-    "name": "Popolo 2 Bergstation 3",
-    "url": "https://content.bergfex.at/webcam/?id=19904&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.407337,
-    "longitude": 13.429177
-  },
-  {
-    "name": "Popolo 2 Bergstation 4",
-    "url": "https://content.bergfex.at/webcam/?id=19905&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.407337,
-    "longitude": 13.429177
-  },
-  {
-    "name": "Popolo 2 Bergstation 5",
-    "url": "https://content.bergfex.at/webcam/?id=19906&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.407337,
-    "longitude": 13.429177
-  },
-  {
     "name": "Pörtschach Süd",
     "url": "https://content.bergfex.at/webcam/?id=18097&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -17795,13 +16759,6 @@
   },
   {
     "name": "Prägraten 3",
-    "url": "https://content.bergfex.at/webcam/?id=1414&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
-  },
-  {
-    "name": "Prägraten 4",
     "url": "https://content.bergfex.at/webcam/?id=1415&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.018653,
@@ -18333,13 +17290,6 @@
     "longitude": 12.55267
   },
   {
-    "name": "Reckmoos 2",
-    "url": "https://content.bergfex.at/webcam/?id=24588&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.42811,
-    "longitude": 12.55267
-  },
-  {
     "name": "Red Bull Ring",
     "url": "https://content.bergfex.at/webcam/?id=18006&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -18352,13 +17302,6 @@
     "provider": "bergfex",
     "latitude": 47.227721,
     "longitude": 14.759116
-  },
-  {
-    "name": "Red Bull Ring 2",
-    "url": "https://content.bergfex.at/webcam/?id=18010&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.219562,
-    "longitude": 14.75927
   },
   {
     "name": "Red Bull Ring 3",
@@ -18620,27 +17563,6 @@
     "longitude": 10.19116
   },
   {
-    "name": "Rifflsee",
-    "url": "https://content.bergfex.at/webcam/?id=17710&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.965376,
-    "longitude": 10.855103
-  },
-  {
-    "name": "Rifflsee 2",
-    "url": "https://content.bergfex.at/webcam/?id=17711&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.965376,
-    "longitude": 10.855103
-  },
-  {
-    "name": "Ring/Hartberg",
-    "url": "https://content.bergfex.at/webcam/?id=10221&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.287979,
-    "longitude": 15.970452
-  },
-  {
     "name": "Ring/Hartberg 2",
     "url": "https://content.bergfex.at/webcam/?id=25501&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -18704,13 +17626,6 @@
     "longitude": 13.652934
   },
   {
-    "name": "Rohrspitz Hafen",
-    "url": "https://content.bergfex.at/webcam/?id=18633&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.497609,
-    "longitude": 9.630863
-  },
-  {
     "name": "Rosalia",
     "url": "https://content.bergfex.at/webcam/?id=23186&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -18744,20 +17659,6 @@
     "provider": "bergfex",
     "latitude": 47.698258,
     "longitude": 16.306895
-  },
-  {
-    "name": "Rosenalm",
-    "url": "https://panocam.zillertalarena.com/rosenalm",
-    "provider": "panomax",
-    "latitude": 47.247948,
-    "longitude": 11.941665
-  },
-  {
-    "name": "Rosenalm 2",
-    "url": "https://content.bergfex.at/webcam/?id=2412&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.247948,
-    "longitude": 11.941665
   },
   {
     "name": "Rosenalm 3",
@@ -18872,48 +17773,6 @@
     "longitude": 13.260328
   },
   {
-    "name": "Rosnerköpfl 4",
-    "url": "https://content.bergfex.at/webcam/?id=24342&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.453541,
-    "longitude": 13.260328
-  },
-  {
-    "name": "Rosnerköpfl 5",
-    "url": "https://content.bergfex.at/webcam/?id=24341&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.453541,
-    "longitude": 13.260328
-  },
-  {
-    "name": "Rosnerköpfl 6",
-    "url": "https://content.bergfex.at/webcam/?id=24340&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.453541,
-    "longitude": 13.260328
-  },
-  {
-    "name": "Rosnerköpfl 7",
-    "url": "https://content.bergfex.at/webcam/?id=24339&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.453541,
-    "longitude": 13.260328
-  },
-  {
-    "name": "Rosnerköpfl 8",
-    "url": "https://content.bergfex.at/webcam/?id=24338&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.453541,
-    "longitude": 13.260328
-  },
-  {
-    "name": "Rosnerköpfl 9",
-    "url": "https://content.bergfex.at/webcam/?id=24337&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.453541,
-    "longitude": 13.260328
-  },
-  {
     "name": "Rossbach Mittelstation",
     "url": "https://content.bergfex.at/webcam/?id=5015&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -18984,13 +17843,6 @@
     "longitude": 9.618187
   },
   {
-    "name": "Rud-Alpe",
-    "url": "https://content.bergfex.at/webcam/?id=3486&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.21094,
-    "longitude": 10.134802
-  },
-  {
     "name": "Rudnigsattel",
     "url": "https://content.bergfex.at/webcam/?id=13874&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -19024,34 +17876,6 @@
     "provider": "panomax",
     "latitude": 47.544556,
     "longitude": 9.746667
-  },
-  {
-    "name": "Rust",
-    "url": "https://content.bergfex.at/webcam/?id=23680&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.80216,
-    "longitude": 16.694932
-  },
-  {
-    "name": "Rust Katholische Kirche",
-    "url": "https://content.bergfex.at/webcam/?id=18593&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.800787,
-    "longitude": 16.676145
-  },
-  {
-    "name": "Rust Katholische Kirche 2",
-    "url": "https://content.bergfex.at/webcam/?id=18595&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.800787,
-    "longitude": 16.676145
-  },
-  {
-    "name": "Rust Katholische Kirche 3",
-    "url": "https://content.bergfex.at/webcam/?id=18594&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.800787,
-    "longitude": 16.676145
   },
   {
     "name": "Saalbach",
@@ -19397,13 +18221,6 @@
     "longitude": 13.431767
   },
   {
-    "name": "Schafkopf",
-    "url": "https://pano.mayrhofner-bergbahnen.com/schafkopf-sommer",
-    "provider": "panomax",
-    "latitude": 47.19137,
-    "longitude": 11.790784
-  },
-  {
     "name": "Schafkopf - Unterberg",
     "url": "https://pano.mayrhofen.at/unterberg",
     "provider": "panomax",
@@ -19416,13 +18233,6 @@
     "provider": "bergfex",
     "latitude": 47.242078,
     "longitude": 13.569111
-  },
-  {
-    "name": "Schanze",
-    "url": "https://seefeld.panomax.com/schanze",
-    "provider": "panomax",
-    "latitude": 47.322685,
-    "longitude": 11.175439
   },
   {
     "name": "Schärding",
@@ -19642,13 +18452,6 @@
     "longitude": 13.496994
   },
   {
-    "name": "Schilifte Gröllerkopf",
-    "url": "https://content.bergfex.at/webcam/?id=20012&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.258073,
-    "longitude": 9.682646
-  },
-  {
     "name": "Schirla Stubm",
     "url": "https://content.bergfex.at/webcam/?id=16743&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -19747,13 +18550,6 @@
     "longitude": 15.977097
   },
   {
-    "name": "Schloss Landeck",
-    "url": "https://content.bergfex.at/webcam/?id=21876&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.135546,
-    "longitude": 10.568515
-  },
-  {
     "name": "Schloss Loretto",
     "url": "https://content.bergfex.at/webcam/?id=8877&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -19763,55 +18559,6 @@
   {
     "name": "Schloss Mirabell",
     "url": "https://content.bergfex.at/webcam/?id=5185&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.805169,
-    "longitude": 13.041814
-  },
-  {
-    "name": "Schloss Mirabell 2",
-    "url": "https://content.bergfex.at/webcam/?id=7087&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.805169,
-    "longitude": 13.041814
-  },
-  {
-    "name": "Schloss Mirabell 3",
-    "url": "https://content.bergfex.at/webcam/?id=7084&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.805169,
-    "longitude": 13.041814
-  },
-  {
-    "name": "Schloss Mirabell 4",
-    "url": "https://content.bergfex.at/webcam/?id=7085&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.805169,
-    "longitude": 13.041814
-  },
-  {
-    "name": "Schloss Mirabell 5",
-    "url": "https://content.bergfex.at/webcam/?id=7086&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.805169,
-    "longitude": 13.041814
-  },
-  {
-    "name": "Schloss Mirabell 6",
-    "url": "https://content.bergfex.at/webcam/?id=10965&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.805169,
-    "longitude": 13.041814
-  },
-  {
-    "name": "Schloss Mirabell 7",
-    "url": "https://content.bergfex.at/webcam/?id=10966&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.805169,
-    "longitude": 13.041814
-  },
-  {
-    "name": "Schloss Mirabell 8",
-    "url": "https://content.bergfex.at/webcam/?id=10967&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.805169,
     "longitude": 13.041814
@@ -19871,13 +18618,6 @@
     "provider": "bergfex",
     "latitude": 47.328803,
     "longitude": 12.738256
-  },
-  {
-    "name": "Schmittenhöhe - Glocknerwiese",
-    "url": "https://content.bergfex.at/webcam/?id=5011&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.34516,
-    "longitude": 12.767082
   },
   {
     "name": "Schmittenhöhe 2",
@@ -20032,34 +18772,6 @@
     "provider": "bergfex",
     "latitude": 48.741078,
     "longitude": 13.897791
-  },
-  {
-    "name": "Schöneben - Nordisches Zentrum Böhmerwald 3",
-    "url": "https://content.bergfex.at/webcam/?id=9926&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
-  },
-  {
-    "name": "Schöneben - Nordisches Zentrum Böhmerwald 4",
-    "url": "https://content.bergfex.at/webcam/?id=9927&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
-  },
-  {
-    "name": "Schöneben - Nordisches Zentrum Böhmerwald 5",
-    "url": "https://content.bergfex.at/webcam/?id=9928&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
-  },
-  {
-    "name": "Schöneben - Nordisches Zentrum Böhmerwald 6",
-    "url": "https://content.bergfex.at/webcam/?id=20908&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
   },
   {
     "name": "Schönfeld",
@@ -20251,13 +18963,6 @@
     "longitude": 11.699673
   },
   {
-    "name": "Schwaz Zentrum Bahnhof",
-    "url": "https://silberregion-karwendel.panomax.com",
-    "provider": "panomax",
-    "latitude": 47.347431,
-    "longitude": 11.699673
-  },
-  {
     "name": "Schwaz Zentrum Bahnhof 2",
     "url": "https://schwaz.panomax.com",
     "provider": "panomax",
@@ -20270,13 +18975,6 @@
     "provider": "bergfex",
     "latitude": 47.320527,
     "longitude": 11.720095
-  },
-  {
-    "name": "Schwechat - Flughafen Baustelle Hotel",
-    "url": "https://content.bergfex.at/webcam/?id=15715&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.122052,
-    "longitude": 16.560079
   },
   {
     "name": "Schwechat - Flughafen Wien",
@@ -20524,13 +19222,6 @@
     "longitude": 13.59273
   },
   {
-    "name": "Seewalchen am Attersee 2",
-    "url": "https://content.bergfex.at/webcam/?id=12657&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.951833,
-    "longitude": 13.59273
-  },
-  {
     "name": "Seewiesen Alpengasthof Schuster",
     "url": "https://content.bergfex.at/webcam/?id=19418&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -20601,48 +19292,6 @@
     "longitude": 13.11201
   },
   {
-    "name": "Senderexpress Sesselbahn",
-    "url": "https://content.bergfex.at/webcam/?id=15884&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.597279,
-    "longitude": 12.645285
-  },
-  {
-    "name": "Serfaus - Alpkopf",
-    "url": "https://content.bergfex.at/webcam/?id=8459&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.036142,
-    "longitude": 10.57023
-  },
-  {
-    "name": "Serfaus - Alpkopf 2",
-    "url": "https://content.bergfex.at/webcam/?id=8460&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.036142,
-    "longitude": 10.57023
-  },
-  {
-    "name": "Serfaus - Alpkopf 3",
-    "url": "https://content.bergfex.at/webcam/?id=8461&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.036142,
-    "longitude": 10.57023
-  },
-  {
-    "name": "Serfaus - Alpkopf 4",
-    "url": "https://content.bergfex.at/webcam/?id=8462&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.036142,
-    "longitude": 10.57023
-  },
-  {
-    "name": "Serfaus - Alpkopf 5",
-    "url": "https://content.bergfex.at/webcam/?id=781&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.036142,
-    "longitude": 10.57023
-  },
-  {
     "name": "Serfaus - Kinderschneealm",
     "url": "https://content.bergfex.at/webcam/?id=3096&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -20700,13 +19349,6 @@
   },
   {
     "name": "Serleslifte Mieders Bergstation Koppeneck II 5",
-    "url": "https://content.bergfex.at/webcam/?id=22379&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.149766,
-    "longitude": 11.39457
-  },
-  {
-    "name": "Serleslifte Mieders Bergstation Koppeneck II 6",
     "url": "https://content.bergfex.at/webcam/?id=13299&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.149766,
@@ -20902,13 +19544,6 @@
     "longitude": 13.602597
   },
   {
-    "name": "Skilift Eberschwang Tal",
-    "url": "https://content.bergfex.at/webcam/?id=13201&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.143953,
-    "longitude": 13.600324
-  },
-  {
     "name": "Skilift Eberschwang Tal 2",
     "url": "https://content.bergfex.at/webcam/?id=26040&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -21065,27 +19700,6 @@
   {
     "name": "Snowpark Dachstein West",
     "url": "https://content.bergfex.at/webcam/?id=5537&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.559234,
-    "longitude": 13.481501
-  },
-  {
-    "name": "Snowpark Dachstein West 2",
-    "url": "https://content.bergfex.at/webcam/?id=17850&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.559234,
-    "longitude": 13.481501
-  },
-  {
-    "name": "Snowpark Dachstein West 3",
-    "url": "https://content.bergfex.at/webcam/?id=17851&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.559234,
-    "longitude": 13.481501
-  },
-  {
-    "name": "Snowpark Dachstein West 4",
-    "url": "https://content.bergfex.at/webcam/?id=17852&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.559234,
     "longitude": 13.481501
@@ -21917,20 +20531,6 @@
     "longitude": 14.629793
   },
   {
-    "name": "St. Oswald bei Freistadt",
-    "url": "https://content.bergfex.at/webcam/?id=20033&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.505281,
-    "longitude": 14.595659
-  },
-  {
-    "name": "St. Oswald bei Freistadt - Braunberghütte",
-    "url": "https://content.bergfex.at/webcam/?id=24577&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
-  },
-  {
     "name": "St. Peter am Wimberg",
     "url": "https://content.bergfex.at/webcam/?id=10552&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -22090,13 +20690,6 @@
     "provider": "bergfex",
     "latitude": 47.820494,
     "longitude": 15.29786
-  },
-  {
-    "name": "Station Stanger-Maisilift",
-    "url": "https://content.bergfex.at/webcam/?id=15309&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.267045,
-    "longitude": 12.728188
   },
   {
     "name": "Stegersbach",
@@ -22342,13 +20935,6 @@
     "provider": "bergfex",
     "latitude": 47.80026,
     "longitude": 16.674247
-  },
-  {
-    "name": "Storchenkamera Kilb",
-    "url": "https://content.bergfex.at/webcam/?id=23105&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 48.100551,
-    "longitude": 15.407816
   },
   {
     "name": "Storchenstation Tillmitsch",
@@ -22696,27 +21282,6 @@
   {
     "name": "Swarovski Kristallwelten",
     "url": "https://content.bergfex.at/webcam/?id=17584&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.293601,
-    "longitude": 11.601932
-  },
-  {
-    "name": "Swarovski Kristallwelten 2",
-    "url": "https://content.bergfex.at/webcam/?id=17585&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.293601,
-    "longitude": 11.601932
-  },
-  {
-    "name": "Swarovski Kristallwelten 3",
-    "url": "https://content.bergfex.at/webcam/?id=17586&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.293601,
-    "longitude": 11.601932
-  },
-  {
-    "name": "Swarovski Kristallwelten 4",
-    "url": "https://content.bergfex.at/webcam/?id=17587&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.293601,
     "longitude": 11.601932
@@ -23107,13 +21672,6 @@
     "longitude": 12.435193
   },
   {
-    "name": "Tegetthoffbrücke und Belgiergasse - Baustelle",
-    "url": "https://content.bergfex.at/webcam/?id=23495&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.069665,
-    "longitude": 15.435984
-  },
-  {
     "name": "Teichalm",
     "url": "https://content.bergfex.at/webcam/?id=14270&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -23210,20 +21768,6 @@
     "provider": "bergfex",
     "latitude": 47.868229,
     "longitude": 13.259296
-  },
-  {
-    "name": "Thanellerbahn",
-    "url": "https://content.bergfex.at/webcam/?id=20866&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.41523,
-    "longitude": 10.7401
-  },
-  {
-    "name": "Thanellerbahn 2",
-    "url": "https://content.bergfex.at/webcam/?id=20862&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.41523,
-    "longitude": 10.7401
   },
   {
     "name": "Thanellerbahn 3",
@@ -23345,32 +21889,11 @@
     "longitude": 10.964886
   },
   {
-    "name": "Therme Längenfeld 3",
-    "url": "https://content.bergfex.at/webcam/?id=9730&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.069452,
-    "longitude": 10.964886
-  },
-  {
     "name": "Therme Längenfeld 4",
     "url": "https://content.bergfex.at/webcam/?id=9731&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 47.069452,
     "longitude": 10.964886
-  },
-  {
-    "name": "Therme Längenfeld 5",
-    "url": "https://content.bergfex.at/webcam/?id=9732&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.069452,
-    "longitude": 10.964886
-  },
-  {
-    "name": "Thermenresort Loipersdorf",
-    "url": "https://content.bergfex.at/webcam/?id=20242&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.984566,
-    "longitude": 16.112202
   },
   {
     "name": "Thiersee - Mitterland - Schneeberglifte",
@@ -23476,13 +21999,6 @@
     "provider": "bergfex",
     "latitude": 47.055095,
     "longitude": 10.660231
-  },
-  {
-    "name": "Tiroler Zugspitzbahn Bergstation",
-    "url": "https://content.bergfex.at/webcam/?id=200&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.421121,
-    "longitude": 10.983938
   },
   {
     "name": "Tiroler Zugspitzbahn Talstation",
@@ -23674,13 +22190,6 @@
     "longitude": 15.130771
   },
   {
-    "name": "Trahütten - Paraplui",
-    "url": "https://content.bergfex.at/webcam/?id=16711&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.82608,
-    "longitude": 15.149566
-  },
-  {
     "name": "Traidersberg",
     "url": "https://content.bergfex.at/webcam/?id=23155&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -23784,13 +22293,6 @@
     "provider": "panomax",
     "latitude": 47.626401,
     "longitude": 13.789108
-  },
-  {
-    "name": "Triassic Park",
-    "url": "https://content.bergfex.at/webcam/?id=20373&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.609081,
-    "longitude": 12.57204
   },
   {
     "name": "Trins",
@@ -24367,25 +22869,11 @@
     "longitude": 13.40332
   },
   {
-    "name": "Valisera Berg",
-    "url": "https://content.bergfex.at/webcam/?id=2232&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.987318,
-    "longitude": 9.965758
-  },
-  {
     "name": "Valisera Berg 2",
     "url": "https://content.bergfex.at/webcam/?id=24637&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 46.98719,
     "longitude": 9.965761
-  },
-  {
-    "name": "Valisera Hüsli",
-    "url": "https://content.bergfex.at/webcam/?id=40&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.985576,
-    "longitude": 9.965072
   },
   {
     "name": "Valisera-Berg",
@@ -24493,13 +22981,6 @@
     "longitude": null
   },
   {
-    "name": "Viktorsberg - Hotel Viktor",
-    "url": "https://content.bergfex.at/webcam/?id=18062&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.302839,
-    "longitude": 9.678519
-  },
-  {
     "name": "Villach",
     "url": "https://content.bergfex.at/webcam/?id=10909&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -24540,13 +23021,6 @@
     "provider": "bergfex",
     "latitude": 46.596685,
     "longitude": 13.714175
-  },
-  {
-    "name": "Vinothek St. Anna am Aigen",
-    "url": "https://content.bergfex.at/webcam/?id=10584&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": null,
-    "longitude": null
   },
   {
     "name": "Virgen Sonnberg",
@@ -24820,13 +23294,6 @@
     "provider": "bergfex",
     "latitude": 47.696949,
     "longitude": 13.134445
-  },
-  {
-    "name": "Wängle - Panoramahotel Talhof",
-    "url": "https://content.bergfex.at/webcam/?id=2901&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.482132,
-    "longitude": 10.677302
   },
   {
     "name": "Wanglspitz - Tuxertal",
@@ -25270,13 +23737,6 @@
     "longitude": null
   },
   {
-    "name": "Weyer Marktplatz",
-    "url": "https://content.bergfex.at/webcam/?id=9966&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.857403,
-    "longitude": 14.664278
-  },
-  {
     "name": "Weyregg am Attersee",
     "url": "https://content.bergfex.at/webcam/?id=25453&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -25543,60 +24003,11 @@
     "longitude": 12.280884
   },
   {
-    "name": "Wildkopflift",
-    "url": "https://content.bergfex.at/webcam/?id=370&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.922941,
-    "longitude": 13.872396
-  },
-  {
     "name": "Wildmoosalm",
     "url": "https://seefeld.panomax.com/wildmoosalm",
     "provider": "panomax",
     "latitude": 47.335061,
     "longitude": 11.157881
-  },
-  {
-    "name": "Wimbach Express",
-    "url": "https://content.bergfex.at/webcam/?id=15315&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.25821,
-    "longitude": 11.84207
-  },
-  {
-    "name": "Wimbach Express 2",
-    "url": "https://content.bergfex.at/webcam/?id=15319&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.25821,
-    "longitude": 11.84207
-  },
-  {
-    "name": "Wimbach Express 3",
-    "url": "https://content.bergfex.at/webcam/?id=15316&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.25821,
-    "longitude": 11.84207
-  },
-  {
-    "name": "Wimbach Express 4",
-    "url": "https://content.bergfex.at/webcam/?id=15317&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.25821,
-    "longitude": 11.84207
-  },
-  {
-    "name": "Wimbach Express 5",
-    "url": "https://content.bergfex.at/webcam/?id=15318&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.25821,
-    "longitude": 11.84207
-  },
-  {
-    "name": "Wimbach Express 6",
-    "url": "https://content.bergfex.at/webcam/?id=15401&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.25821,
-    "longitude": 11.84207
   },
   {
     "name": "Wimbach Express Berg",
@@ -25720,13 +24131,6 @@
   {
     "name": "Wörthersee / Saag",
     "url": "https://content.bergfex.at/webcam/?id=3329&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 46.62257,
-    "longitude": 14.072872
-  },
-  {
-    "name": "Wörthersee / Saag 2",
-    "url": "https://content.bergfex.at/webcam/?id=3334&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
     "latitude": 46.62257,
     "longitude": 14.072872
@@ -26082,13 +24486,6 @@
     "longitude": 13.611833
   },
   {
-    "name": "Zeppezauerhaus",
-    "url": "https://content.bergfex.at/webcam/?id=16300&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.72282,
-    "longitude": 13.007796
-  },
-  {
     "name": "Zettersfeld - Bergstation Faschingalm",
     "url": "https://content.bergfex.at/webcam/?id=24566&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -26199,13 +24596,6 @@
     "provider": "bergfex",
     "latitude": 47.421501,
     "longitude": 10.985628
-  },
-  {
-    "name": "Zugspitzgipfel",
-    "url": "https://content.bergfex.at/webcam/?id=1464&initTagManager=1&showCopyright=0",
-    "provider": "bergfex",
-    "latitude": 47.421279,
-    "longitude": 10.986156
   },
   {
     "name": "Zürs - Seekopf",
