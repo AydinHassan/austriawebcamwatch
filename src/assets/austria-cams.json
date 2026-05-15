@@ -1291,8 +1291,8 @@
     "name": "Bad Goisern",
     "url": "https://goisern.panomax.com",
     "provider": "panomax",
-    "latitude": 47.63967,
-    "longitude": 13.619704
+    "latitude": 47.640908,
+    "longitude": 13.616507
   },
   {
     "name": "Bad Hofgastein",
@@ -4429,6 +4429,13 @@
     "provider": "bergfex",
     "latitude": 48.505747,
     "longitude": 13.742525
+  },
+  {
+    "name": "Engelhartszell - Penzenstein 2",
+    "url": "https://engelhartszell.panomax.com",
+    "provider": "panomax",
+    "latitude": 48.506817,
+    "longitude": 13.742512
   },
   {
     "name": "Ennser Hütte",
@@ -11522,6 +11529,13 @@
     "longitude": 10.205723
   },
   {
+    "name": "Kleinwalsertal - Parsennbahn Bergstation",
+    "url": "https://ok-bergbahnen.panomax.com/parsenn",
+    "provider": "panomax",
+    "latitude": 47.348655,
+    "longitude": 10.162991
+  },
+  {
     "name": "Kleinwalsertal / Haus Keti",
     "url": "https://content.bergfex.at/webcam/?id=18230&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -16126,13 +16140,6 @@
     "provider": "bergfex",
     "latitude": 47.225672,
     "longitude": 12.995917
-  },
-  {
-    "name": "Penzenstein",
-    "url": "https://engelhartszell.panomax.com/penzenstein",
-    "provider": "panomax",
-    "latitude": 48.505747,
-    "longitude": 13.742525
   },
   {
     "name": "Penzinghang Oberndorf",
