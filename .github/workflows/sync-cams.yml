@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Run webcam sync
-        run: node cam-sync/sync-all.js
+        run: node cam-sync/sync-panomax.js
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
