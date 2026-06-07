@@ -2548,6 +2548,13 @@
     "longitude": 10.436145
   },
   {
+    "name": "Bergstation Rofanseilbahn",
+    "url": "https://rofan.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.441422,
+    "longitude": 11.763471
+  },
+  {
     "name": "Bergstation Salzstiegl",
     "url": "https://content.bergfex.at/webcam/?id=24522&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -7929,13 +7936,6 @@
     "provider": "bergfex",
     "latitude": 47.35643,
     "longitude": 10.105834
-  },
-  {
-    "name": "Haibach - Eferdinger Land",
-    "url": "https://haibach.panomax.com",
-    "provider": "panomax",
-    "latitude": 48.400779,
-    "longitude": 13.921753
   },
   {
     "name": "Haibach - Eferdinger Land 2",
