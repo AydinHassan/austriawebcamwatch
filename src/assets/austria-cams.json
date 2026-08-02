@@ -2758,6 +2758,13 @@
     "longitude": 15.769976
   },
   {
+    "name": "Bergsteigerdorf Ginzling",
+    "url": "https://pano.mayrhofen.at/ginzling",
+    "provider": "panomax",
+    "latitude": 47.099964,
+    "longitude": 11.809879
+  },
+  {
     "name": "Bergwelt Hahnenkamm",
     "url": "https://content.bergfex.at/webcam/?id=24407&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -6188,13 +6195,6 @@
     "longitude": 12.286716
   },
   {
-    "name": "Gargellen",
-    "url": "https://gargellen.panomax.com",
-    "provider": "panomax",
-    "latitude": 46.961359,
-    "longitude": 9.891442
-  },
-  {
     "name": "Gargellen - Alpenhaus Montafon 2",
     "url": "https://content.bergfex.at/webcam/?id=26232&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -8249,8 +8249,8 @@
     "name": "Hauser Kaibling - Talstation",
     "url": "https://hauserkaibling.panomax.com/talstation",
     "provider": "panomax",
-    "latitude": 47.409642,
-    "longitude": 13.777844
+    "latitude": 47.411049,
+    "longitude": 13.777881
   },
   {
     "name": "Hauser Kaibling - Übungslift",
@@ -16527,6 +16527,13 @@
     "longitude": 13.56628
   },
   {
+    "name": "Plattenkogel Steinplatte Waidring",
+    "url": "https://steinplatte-waidring.panomax.com",
+    "provider": "panomax",
+    "latitude": 47.607127,
+    "longitude": 12.580107
+  },
+  {
     "name": "Plattenkogelexpress II - Bergstation",
     "url": "https://content.bergfex.at/webcam/?id=25652&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -21084,8 +21091,8 @@
     "longitude": 13.963869
   },
   {
-    "name": "Strolz Lech",
-    "url": "https://strolz.panomax.com",
+    "name": "Strolz Bründl Lech",
+    "url": "https://bruendl.panomax.com",
     "provider": "panomax",
     "latitude": 47.208459,
     "longitude": 10.142066
