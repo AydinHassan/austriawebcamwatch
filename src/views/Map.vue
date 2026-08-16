@@ -64,13 +64,28 @@ const addMarkers = (map) => {
     markerCluster.addLayer(marker);
   });
 
+  // Some webcams share (near) identical coordinates, so their cluster can never
+  // be split by zooming. leaflet.markercluster only spiderfies automatically when
+  // the whole cluster survives down to its deepest zoom level; a cluster mixing a
+  // co-located pair with a slightly offset marker fails that check and silently
+  // does nothing once the map is at max zoom. Spiderfy those by hand.
+  markerCluster.on('clusterclick', (e) => {
+    if (map.getZoom() >= map.getMaxZoom()) {
+      e.layer.spiderfy();
+    }
+  });
+
   map.addLayer(markerCluster);
 }
 
 watch(
   () => mapRef.value?.map, (map) => {
     if (map) {
-      map._layersMaxZoom = 19;
+      // Must be set before the cluster group is added: it snapshots the map's max
+      // zoom to decide at which level a cluster is allowed to spiderfy. The tile
+      // layer mounts after this watcher, so without an explicit value the map
+      // still reports Infinity here.
+      map.setMaxZoom(19);
       addMarkers(map);
     }
   }
@@ -85,7 +100,7 @@ const selectedWebcam = ref(null);
   <div class="flex flex-1 flex-grow overflow-scroll space-y-4 p-4">
     <div class="flex w-full">
       <VMap ref="mapRef" class="h-full z-1" :center="[47.7000, 13.7000]" zoom="8" min-zoom="8" :theme="'dark'">
-        <VMapOsmTileLayer  />
+        <VMapOsmTileLayer :max-zoom="19" />
         <VMapZoomControl />
       </VMap>
       <Dialog v-model:open="open">
