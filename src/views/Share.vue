@@ -4,6 +4,12 @@ import WebcamGrid from '@/components/WebcamGrid.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { getWebcamById } from '@/services/webcams'
+import { useHead } from '@unhead/vue'
+
+useHead({
+  title: 'Shared Webcams – Austria Webcam Watch',
+  meta: [{ name: 'robots', content: 'noindex' }],
+})
 
 const route = useRoute()
 import { useRouter } from 'vue-router'
