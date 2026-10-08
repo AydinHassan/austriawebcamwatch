@@ -1,6 +1,7 @@
 <script setup>
 import { VMap, VMapOsmTileLayer, VMapZoomControl } from 'vue-map-ui';
 import { onMounted, provide, ref, watch } from 'vue'
+import { useHead } from '@unhead/vue'
 
 import 'leaflet/dist/leaflet.css';
 import 'vue-map-ui/dist/style.css';
@@ -21,6 +22,11 @@ import {
 
 import {Button} from "@/components/ui/button";
 import { usePresetsStore } from '@/stores/presets'
+
+useHead({
+  title: 'Austria Webcam Map – Austria Webcam Watch',
+  link: [{ rel: 'canonical', href: 'https://www.austriawebcamwatch.at/map' }],
+})
 
 const mapRef = ref(null);
 const presetsStore = usePresetsStore()

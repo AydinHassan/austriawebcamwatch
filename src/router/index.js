@@ -10,6 +10,7 @@ const router = createRouter({
     { path: '/', component: HomeView },
     { path: '/map', component: MapView },
     { path: '/share', component: ShareView },
+    { path: '/:pathMatch(.*)*', redirect: '/' },
   ]
 })
 
