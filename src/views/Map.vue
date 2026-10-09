@@ -1,6 +1,6 @@
 <script setup>
 import { VMap, VMapOsmTileLayer, VMapZoomControl } from 'vue-map-ui';
-import { onMounted, provide, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, provide, reactive, ref, watch } from 'vue'
 import { useHead } from '@unhead/vue'
 
 import 'leaflet/dist/leaflet.css';
@@ -21,6 +21,8 @@ import {
 } from '@/components/ui/dialog'
 
 import {Button} from "@/components/ui/button";
+import { Badge } from '@/components/ui/badge'
+import { CaretSortIcon, CheckIcon } from '@radix-icons/vue'
 import { usePresetsStore } from '@/stores/presets'
 
 useHead({
@@ -40,8 +42,18 @@ const svgIcon = `
 </svg>
     `;
 
+const providers = [
+  { value: 'all', label: 'All providers', badge: '' },
+  { value: 'panomax', label: 'Panomax', badge: 'border-green-400/20 text-green-500' },
+  { value: 'bergfex', label: 'Bergfex', badge: 'border-sky-400/20 text-sky-500' },
+]
+const providerFilter = ref('all')
+const currentProvider = computed(() => providers.find((p) => p.value === providerFilter.value))
+
+let markerCluster = null
+
 const addMarkers = (map) => {
-  const markerCluster = L.markerClusterGroup({
+  markerCluster = L.markerClusterGroup({
     showCoverageOnHover: false,
     removeOutsideVisibleBounds: true,
     chunkedLoading: true,
@@ -56,6 +68,9 @@ const addMarkers = (map) => {
 
   webcams.forEach((webcam) => {
     if (webcam.latitude === null || webcam.longitude === null) {
+      return;
+    }
+    if (providerFilter.value !== 'all' && webcam.provider !== providerFilter.value) {
       return;
     }
 
@@ -84,6 +99,20 @@ const addMarkers = (map) => {
   map.addLayer(markerCluster);
 }
 
+const menu = reactive({ open: false, x: 0, y: 0, fromChip: false })
+const toggleChipMenu = () => {
+  menu.fromChip = true
+  menu.open = !menu.open
+}
+const closeMenu = () => { menu.open = false }
+
+watch(providerFilter, () => {
+  const map = mapRef.value?.map
+  if (!map) return
+  if (markerCluster) map.removeLayer(markerCluster)
+  addMarkers(map)
+})
+
 watch(
   () => mapRef.value?.map, (map) => {
     if (map) {
@@ -93,9 +122,20 @@ watch(
       // still reports Infinity here.
       map.setMaxZoom(19);
       addMarkers(map);
+      map.on('contextmenu', (e) => {
+        menu.x = e.containerPoint.x;
+        menu.y = e.containerPoint.y;
+        menu.fromChip = false;
+        menu.open = true;
+      });
+      map.on('movestart click', closeMenu);
     }
   }
 );
+
+onMounted(() => document.addEventListener('keydown', onKey))
+onBeforeUnmount(() => document.removeEventListener('keydown', onKey))
+function onKey(e) { if (e.key === 'Escape') closeMenu() }
 
 const open = ref(false);
 
@@ -104,11 +144,45 @@ const selectedWebcam = ref(null);
 </script>
 <template>
   <div class="flex flex-1 flex-grow overflow-scroll space-y-4 p-4">
-    <div class="flex w-full">
-      <VMap ref="mapRef" class="h-full z-1" :center="[47.7000, 13.7000]" zoom="8" min-zoom="8" :theme="'dark'">
-        <VMapOsmTileLayer :max-zoom="19" />
-        <VMapZoomControl />
-      </VMap>
+    <div class="flex w-full flex-col gap-3">
+      <div class="relative flex flex-1">
+        <VMap ref="mapRef" class="flex-1 z-1" :center="[47.7000, 13.7000]" zoom="8" min-zoom="8" :theme="'dark'">
+          <VMapOsmTileLayer :max-zoom="19" />
+          <VMapZoomControl />
+        </VMap>
+        <button
+          type="button"
+          class="absolute bottom-6 left-3 z-[1000] flex items-center gap-1.5 rounded-full border bg-popover px-2.5 py-1 text-xs shadow-md hover:bg-accent"
+          aria-label="Filter by provider"
+          aria-haspopup="menu"
+          :aria-expanded="menu.open"
+          @click.stop="toggleChipMenu"
+        >
+          <Badge v-if="currentProvider.badge" variant="outline" :class="['text-[9px]', currentProvider.badge]">{{ currentProvider.label }}</Badge>
+          <span v-else>{{ currentProvider.label }}</span>
+          <CaretSortIcon class="h-3.5 w-3.5 text-muted-foreground" />
+        </button>
+        <div
+          v-if="menu.open"
+          class="absolute z-[1000] min-w-[160px] rounded-md border bg-popover p-1 text-popover-foreground shadow-md"
+          :style="menu.fromChip ? { left: '12px', bottom: '56px' } : { left: menu.x + 'px', top: menu.y + 'px' }"
+          @click.stop
+          @contextmenu.prevent
+        >
+          <div class="px-2 py-1.5 text-xs font-semibold text-muted-foreground">Show providers</div>
+          <button
+            v-for="p in providers"
+            :key="p.value"
+            type="button"
+            class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none hover:bg-accent hover:text-accent-foreground"
+            @click="providerFilter = p.value; menu.open = false"
+          >
+            <CheckIcon v-if="providerFilter === p.value" class="absolute left-2 h-4 w-4" />
+            <Badge v-if="p.badge" variant="outline" :class="['text-[9px]', p.badge]">{{ p.label }}</Badge>
+            <template v-else>{{ p.label }}</template>
+          </button>
+        </div>
+      </div>
       <Dialog v-model:open="open">
         <DialogContent v-if="selectedWebcam" class="flex flex-col max-w-5xl h-[800px]">
           <DialogHeader>
