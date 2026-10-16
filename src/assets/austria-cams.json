@@ -1624,13 +1624,6 @@
     "longitude": 15.318334
   },
   {
-    "name": "Baudoku Basilika Mondsee",
-    "url": "https://basilikamondsee.panomax.com",
-    "provider": "panomax",
-    "latitude": 47.855857,
-    "longitude": 13.351999
-  },
-  {
     "name": "Baumgartenberg Kloster",
     "url": "https://content.bergfex.at/webcam/?id=19155&initTagManager=1&showCopyright=0",
     "provider": "bergfex",
@@ -17125,8 +17118,8 @@
     "name": "Ramsau Stadion",
     "url": "https://ramsaudachstein.panomax.com",
     "provider": "panomax",
-    "latitude": 47.419022,
-    "longitude": 13.653625
+    "latitude": 47.416231,
+    "longitude": 13.655481
   },
   {
     "name": "Rangersdorf / Ederplan",
@@ -17246,6 +17239,13 @@
     "provider": "bergfex",
     "latitude": 47.21983,
     "longitude": 12.95985
+  },
+  {
+    "name": "Rauthhütte",
+    "url": "https://seefeld.panomax.com/rauthhuette",
+    "provider": "panomax",
+    "latitude": 47.345664,
+    "longitude": 11.105071
   },
   {
     "name": "Ravensburger Hütte",
@@ -21092,7 +21092,7 @@
   },
   {
     "name": "Strolz Bründl Lech",
-    "url": "https://bruendl.panomax.com",
+    "url": "https://strolz.panomax.com",
     "provider": "panomax",
     "latitude": 47.208459,
     "longitude": 10.142066
