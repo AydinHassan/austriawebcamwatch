@@ -1,10 +1,8 @@
 <script setup>
-import { VMap, VMapOsmTileLayer, VMapZoomControl } from 'vue-map-ui';
-import { computed, onBeforeUnmount, onMounted, provide, reactive, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useHead } from '@unhead/vue'
 
 import 'leaflet/dist/leaflet.css';
-import 'vue-map-ui/dist/style.css';
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import * as L from "leaflet";
@@ -30,7 +28,8 @@ useHead({
   link: [{ rel: 'canonical', href: 'https://www.austriawebcamwatch.at/map' }],
 })
 
-const mapRef = ref(null);
+const mapEl = ref(null);
+let map = null;
 const presetsStore = usePresetsStore()
 
 import webcams from '@/assets/austria-cams.json';
@@ -107,31 +106,34 @@ const toggleChipMenu = () => {
 const closeMenu = () => { menu.open = false }
 
 watch(providerFilter, () => {
-  const map = mapRef.value?.map
   if (!map) return
   if (markerCluster) map.removeLayer(markerCluster)
   addMarkers(map)
 })
 
-watch(
-  () => mapRef.value?.map, (map) => {
-    if (map) {
-      // Must be set before the cluster group is added: it snapshots the map's max
-      // zoom to decide at which level a cluster is allowed to spiderfy. The tile
-      // layer mounts after this watcher, so without an explicit value the map
-      // still reports Infinity here.
-      map.setMaxZoom(19);
-      addMarkers(map);
-      map.on('contextmenu', (e) => {
-        menu.x = e.containerPoint.x;
-        menu.y = e.containerPoint.y;
-        menu.fromChip = false;
-        menu.open = true;
-      });
-      map.on('movestart click', closeMenu);
-    }
-  }
-);
+onMounted(() => {
+  map = L.map(mapEl.value, {
+    center: [47.7, 13.7],
+    zoom: 8,
+    minZoom: 8,
+    maxZoom: 19,
+    attributionControl: false,
+  });
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+  addMarkers(map);
+  map.on('contextmenu', (e) => {
+    menu.x = e.containerPoint.x;
+    menu.y = e.containerPoint.y;
+    menu.fromChip = false;
+    menu.open = true;
+  });
+  map.on('movestart click', closeMenu);
+});
+
+onBeforeUnmount(() => {
+  map?.remove();
+  map = null;
+});
 
 onMounted(() => document.addEventListener('keydown', onKey))
 onBeforeUnmount(() => document.removeEventListener('keydown', onKey))
@@ -146,10 +148,7 @@ const selectedWebcam = ref(null);
   <div class="flex flex-1 flex-grow overflow-scroll space-y-4 p-4">
     <div class="flex w-full flex-col gap-3">
       <div class="relative flex flex-1">
-        <VMap ref="mapRef" class="flex-1 z-1" :center="[47.7000, 13.7000]" zoom="8" min-zoom="8" :theme="'dark'">
-          <VMapOsmTileLayer :max-zoom="19" />
-          <VMapZoomControl />
-        </VMap>
+        <div ref="mapEl" class="flex-1 z-1" />
         <button
           type="button"
           class="absolute bottom-6 left-3 z-[1000] flex items-center gap-1.5 rounded-full border bg-popover px-2.5 py-1 text-xs shadow-md hover:bg-accent"
