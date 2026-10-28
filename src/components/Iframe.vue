@@ -8,7 +8,6 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import { v4 as uuidv4 } from 'uuid'
 import {debounce} from '@/lib/utils.js'
 import { Loader2 } from 'lucide-vue-next'
 
@@ -32,8 +31,8 @@ const emit = defineEmits(['iframe-load', 'load'])
 const container = ref(null)
 const iframeEl = ref(null)
 const isLoading = ref(true)
-const iframeLoadedMessage = `IFRAME_LOADED_${uuidv4()}`
-const iframeOnReadyStateChangeMessage = `IFRAME_ON_READ_STATE_CHANGE_${uuidv4()}`
+const iframeLoadedMessage = `IFRAME_LOADED_${crypto.randomUUID()}`
+const iframeOnReadyStateChangeMessage = `IFRAME_ON_READ_STATE_CHANGE_${crypto.randomUUID()}`
 
 function removeIframe() {
   while (container.value?.firstChild) {
