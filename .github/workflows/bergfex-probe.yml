@@ -1,0 +1,38 @@
+name: Bergfex probe (temporary)
+
+on:
+  push:
+    branches: [bergfex-probe]
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Probe one bergfex embed
+        run: |
+          cat > probe.mjs <<'JS'
+          const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36' };
+          const pageUrl = 'https://content.bergfex.at/webcam/?id=24427&initTagManager=1&showCopyright=0';
+          const res = await fetch(pageUrl, { headers });
+          console.log('PAGE', res.status, [...res.headers].filter(([k]) => /access-control|content-type/.test(k)));
+          const html = await res.text();
+          console.log('===== PAGE HTML (first 15000 chars) =====');
+          console.log(html.slice(0, 15000));
+          const urls = [...new Set(html.match(/https?:\/\/[^"'\s<>)]+|\/[a-z0-9_\-\/]+\.(?:js|json|jpe?g)[^"'\s<>]*/gi) || [])];
+          console.log('===== URLS IN PAGE =====');
+          urls.forEach(u => console.log(u));
+          const scripts = [...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(m => new URL(m[1], pageUrl).href)
+            .filter(u => /bergfex/.test(u)).slice(0, 2);
+          for (const s of scripts) {
+            await new Promise(r => setTimeout(r, 2000));
+            const js = await (await fetch(s, { headers })).text();
+            console.log('===== SCRIPT', s, js.length, 'bytes =====');
+            const hits = js.match(/.{0,120}(\.jpe?g|archive|archiv|timestamp|history|webcam\/|\/api\/|images?\/).{0,120}/gi) || [];
+            [...new Set(hits)].slice(0, 80).forEach(h => console.log(h));
+          }
+          JS
+          node probe.mjs
