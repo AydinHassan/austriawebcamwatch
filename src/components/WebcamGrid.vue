@@ -45,11 +45,9 @@ const isMobile = computed(() => window.innerWidth < 768)
 
 watchEffect(() => {
   if (isMobile.value) {
-    if (webcams.length > 0) {
-      selectedWebcam.value = webcams[0]
-    } else {
-      selectedWebcam.value = null
-    }
+    // Keep the current cam when the list is only reordered
+    const current = webcams.find((c) => c.name === selectedWebcam.value?.name)
+    selectedWebcam.value = current ?? webcams[0] ?? null
   }
 })
 

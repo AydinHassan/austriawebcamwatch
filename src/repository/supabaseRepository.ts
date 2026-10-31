@@ -137,6 +137,24 @@ export const supabaseRepository: Repository = {
     }
   },
 
+  async setPresetCams(id: string, camIds: string[]): Promise<void> {
+    const { data: { user }, error: userError } = await supabase.auth.getUser()
+
+    if (userError) {
+      throw userError
+    }
+
+    const { error } = await supabase
+      .from('presets')
+      .update({ cam_ids: camIds })
+      .eq('id', id)
+      .eq('user_id', user.id)
+
+    if (error) {
+      throw error
+    }
+  },
+
   async loadSettings(): Promise<UserSettings> {
     const { data: { user }, error: userError } = await supabase.auth.getUser()
 

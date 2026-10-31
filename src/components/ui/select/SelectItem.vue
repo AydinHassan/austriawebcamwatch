@@ -46,5 +46,7 @@ const forwardedProps = useForwardProps(delegatedProps);
     <SelectItemText>
       <slot />
     </SelectItemText>
+    <!-- Extra content that should not be copied into the trigger's value -->
+    <slot name="end" />
   </SelectItem>
 </template>

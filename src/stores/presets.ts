@@ -90,6 +90,17 @@ export const usePresetsStore = defineStore('presets', () => {
     await getRepo().addCamToPreset(preset.id, webcam.name)
   }
 
+  async function moveWebcam(from: number, to: number) {
+    const preset = selectedPreset.value
+    if (!preset || from === to) {
+      return
+    }
+
+    const [cam] = preset.cams.splice(from, 1)
+    preset.cams.splice(to, 0, cam)
+    await getRepo().setPresetCams(preset.id, preset.cams.map(c => c.name))
+  }
+
   async function switchPreset(id: string) {
     if (id === settings.value.selectedPreset) {
       return
@@ -302,6 +313,7 @@ export const usePresetsStore = defineStore('presets', () => {
     firstVisit,
     selectedPreset,
     toggleWebcam,
+    moveWebcam,
     switchPreset,
     createPreset,
     removePreset,
