@@ -4,6 +4,7 @@ import { useDocumentVisibility, useElementSize, useElementVisibility, usePreferr
 import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon, TrackNextIcon } from '@radix-icons/vue'
 import { Loader2 } from 'lucide-vue-next'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { PopoverAnchor } from 'radix-vue'
 import type { Webcam } from '@/services/webcams'
 import {
   fetchDay,
@@ -137,7 +138,7 @@ async function onPickDate() {
   const d = await fetchDay(camId.value, pickerDate.value).catch(() => null)
   pickerDay.value = d
   if (!d) {
-    pickerMessage.value = 'No images on this day'
+    pickerMessage.value = 'No images'
     return
   }
   pickerMessage.value = null
@@ -357,111 +358,114 @@ watch(
       {{ error }}
     </div>
 
-    <div
-      class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-0.5 rounded-md bg-black/35 p-1 text-xs font-medium text-white shadow-lg ring-1 ring-white/15 backdrop-blur-md"
-    >
-      <button
-        class="flex h-7 w-7 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/20 disabled:opacity-30"
-        :disabled="!day || stepping"
-        aria-label="Previous image"
-        @click="step(-1)"
-      >
-        <ChevronLeftIcon class="h-4 w-4" />
-      </button>
-      <Popover v-model:open="pickerOpen">
-        <PopoverTrigger as-child>
-          <button
-            class="flex h-7 items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 tabular-nums transition-colors hover:bg-white/20"
-            aria-label="Choose date and time"
-          >
-            <span v-if="live" class="h-1.5 w-1.5 rounded-full bg-green-500" />
-            <Loader2 v-if="loading && shown" class="h-3 w-3 animate-spin" />
-            {{ label }}
-          </button>
-        </PopoverTrigger>
-        <PopoverContent
-          class="w-64 space-y-3 border-white/10 bg-black/75 text-white backdrop-blur-md"
-          side="top"
+    <!-- The whole bar is the popover anchor, so the picker lines up with it -->
+    <Popover v-model:open="pickerOpen">
+      <PopoverAnchor as-child>
+        <div
+          class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-0.5 rounded-md bg-black/35 p-1 text-xs font-medium text-white shadow-lg ring-1 ring-white/15 backdrop-blur-md"
         >
-          <div class="space-y-1 text-xs text-white/60">
-            <span>Date</span>
-            <div class="flex items-center gap-1">
-              <button
-                class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md hover:bg-white/15 disabled:opacity-30"
-                :disabled="!!webcam.firstPano && pickerDate <= webcam.firstPano"
-                aria-label="Previous day"
-                @click="shiftPickerDate(-1)"
-              >
-                <ChevronLeftIcon class="h-4 w-4 text-white" />
-              </button>
-              <!-- The native date input sits invisibly on top, so tapping the
-                   label opens the device's own calendar without its styling -->
-              <div class="relative flex-1">
-                <div
-                  class="flex h-8 items-center justify-center gap-2 rounded-md bg-white/10 text-sm text-white"
-                >
-                  <CalendarIcon class="h-3.5 w-3.5 text-white/60" />
-                  {{ pickerDateLabel }}
-                </div>
-                <input
-                  v-model="pickerDate"
-                  type="date"
-                  :min="webcam.firstPano ?? undefined"
-                  :max="today"
-                  aria-label="Date"
-                  class="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                  @click="openNativePicker"
-                  @change="onPickDate"
-                />
+          <button
+            class="flex h-7 w-7 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/20 disabled:opacity-30"
+            :disabled="!day || stepping"
+            aria-label="Previous image"
+            @click="step(-1)"
+          >
+            <ChevronLeftIcon class="h-4 w-4" />
+          </button>
+          <PopoverTrigger as-child>
+            <button
+              class="flex h-7 items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 tabular-nums transition-colors hover:bg-white/20"
+              aria-label="Choose date and time"
+            >
+              <Loader2 v-if="loading && shown" class="h-3 w-3 animate-spin" />
+              {{ label }}
+            </button>
+          </PopoverTrigger>
+          <button
+            class="flex h-7 w-7 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/20 disabled:opacity-30"
+            :disabled="!day || stepping || live"
+            aria-label="Next image"
+            @click="step(1)"
+          >
+            <ChevronRightIcon class="h-4 w-4" />
+          </button>
+          <button
+            v-if="!live"
+            class="flex h-7 w-7 items-center justify-center rounded-md bg-white/15 transition-colors hover:bg-white/25"
+            aria-label="Back to latest image"
+            title="Latest"
+            @click="goLive"
+          >
+            <TrackNextIcon class="h-3.5 w-3.5" />
+          </button>
+        </div>
+      </PopoverAnchor>
+      <PopoverContent
+        class="w-72 space-y-3 border-white/10 bg-black/75 text-white backdrop-blur-md"
+        side="top"
+        :side-offset="6"
+      >
+        <div class="space-y-1.5 text-xs text-white/60">
+          <span>Date</span>
+          <div class="flex items-center gap-1">
+            <!-- The native date input sits invisibly on top, so tapping the
+                 label opens the device's own calendar without its styling -->
+            <div class="relative flex-1">
+              <div class="flex h-8 items-center gap-2 whitespace-nowrap rounded-md bg-white/10 px-2.5 text-sm text-white">
+                <CalendarIcon class="h-3.5 w-3.5 text-white/60" />
+                {{ pickerDateLabel }}
               </div>
-              <button
-                class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md hover:bg-white/15 disabled:opacity-30"
-                :disabled="pickerDate >= today"
-                aria-label="Next day"
-                @click="shiftPickerDate(1)"
-              >
-                <ChevronRightIcon class="h-4 w-4 text-white" />
-              </button>
+              <input
+                v-model="pickerDate"
+                type="date"
+                :min="webcam.firstPano ?? undefined"
+                :max="today"
+                aria-label="Date"
+                class="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                @click="openNativePicker"
+                @change="onPickDate"
+              />
             </div>
+            <button
+              class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md hover:bg-white/15 disabled:opacity-30"
+              :disabled="!!webcam.firstPano && pickerDate <= webcam.firstPano"
+              aria-label="Previous day"
+              @click="shiftPickerDate(-1)"
+            >
+              <ChevronLeftIcon class="h-4 w-4 text-white" />
+            </button>
+            <button
+              class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md hover:bg-white/15 disabled:opacity-30"
+              :disabled="pickerDate >= today"
+              aria-label="Next day"
+              @click="shiftPickerDate(1)"
+            >
+              <ChevronRightIcon class="h-4 w-4 text-white" />
+            </button>
           </div>
-          <label v-if="pickerDay" class="block space-y-1.5 text-xs text-white/60">
-            <span class="flex justify-between">
-              <span>Time</span>
-              <span class="tabular-nums text-white">{{ pickerTimeLabel }}</span>
+        </div>
+        <label class="block space-y-1.5 text-xs text-white/60">
+          <span class="flex justify-between">
+            <span>Time</span>
+            <span class="tabular-nums" :class="pickerDay ? 'text-white' : ''">
+              {{ pickerMessage ?? pickerTimeLabel }}
             </span>
-            <input
-              v-model.number="pickerIndex"
-              type="range"
-              min="0"
-              :max="pickerDay.times.length - 1"
-              class="w-full accent-white"
-              @change="showPicked"
-            />
-            <span class="flex justify-between tabular-nums text-white/40">
-              <span>{{ pickerDay.times[0].slice(0, 5) }}</span>
-              <span>{{ pickerDay.times[pickerDay.times.length - 1].slice(0, 5) }}</span>
-            </span>
-          </label>
-          <p v-if="pickerMessage" class="text-xs text-white/60">{{ pickerMessage }}</p>
-        </PopoverContent>
-      </Popover>
-      <button
-        class="flex h-7 w-7 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/20 disabled:opacity-30"
-        :disabled="!day || stepping || live"
-        aria-label="Next image"
-        @click="step(1)"
-      >
-        <ChevronRightIcon class="h-4 w-4" />
-      </button>
-      <button
-        v-if="!live"
-        class="flex h-7 items-center gap-1 rounded-md bg-white/15 px-3 transition-colors hover:bg-white/25"
-        aria-label="Back to latest image"
-        @click="goLive"
-      >
-        <TrackNextIcon class="h-3.5 w-3.5" />
-        Latest
-      </button>
-    </div>
+          </span>
+          <input
+            v-model.number="pickerIndex"
+            type="range"
+            min="0"
+            :max="pickerDay ? pickerDay.times.length - 1 : 0"
+            :disabled="!pickerDay"
+            class="w-full accent-white disabled:opacity-30"
+            @change="showPicked"
+          />
+          <span class="flex justify-between tabular-nums text-white/40">
+            <span>{{ pickerDay?.times[0].slice(0, 5) ?? '--:--' }}</span>
+            <span>{{ pickerDay?.times[pickerDay.times.length - 1].slice(0, 5) ?? '--:--' }}</span>
+          </span>
+        </label>
+      </PopoverContent>
+    </Popover>
   </div>
 </template>
