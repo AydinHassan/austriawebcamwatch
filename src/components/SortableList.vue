@@ -10,6 +10,10 @@ const el = ref<HTMLElement | null>(null)
 useSortable(el, [], {
   handle,
   animation: 150,
+  // Same drag behaviour on mouse and touch, styled below
+  forceFallback: true,
+  ghostClass: 'sortable-placeholder',
+  fallbackClass: 'sortable-dragging',
   onStart: () => emit('start'),
   onEnd: () => emit('end'),
   onUpdate(e) {
@@ -26,3 +30,23 @@ useSortable(el, [], {
     <slot />
   </div>
 </template>
+
+<style>
+/* The gap left where the item will drop: an empty highlighted slot */
+.sortable-placeholder {
+  outline: 1px dashed hsl(var(--muted-foreground) / 0.5);
+  outline-offset: -1px;
+  border-radius: calc(var(--radius) - 2px);
+}
+.sortable-placeholder > * {
+  visibility: hidden;
+}
+
+/* The copy that follows the finger */
+.sortable-dragging {
+  opacity: 1 !important;
+  background: hsl(var(--accent));
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.5);
+}
+</style>
