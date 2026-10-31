@@ -5,6 +5,7 @@ import { computed, ref, watch } from 'vue'
 import { useClipboard, useLocalStorage } from '@vueuse/core'
 import { Button } from '@/components/ui/button'
 import pairs from '@/assets/duplicate-review.json'
+import PanomaxViewer from '@/components/PanomaxViewer.vue'
 
 type Verdict = 'same' | 'different'
 
@@ -48,8 +49,15 @@ watch(index, () => frameKey.value++)
         {{ pair.direct.name }}
         <a :href="pair.direct.link" target="_blank" class="ml-1 underline text-muted-foreground">open</a>
       </p>
-      <div class="aspect-video w-full overflow-x-auto rounded-md border bg-black">
-        <img :src="pair.direct.image" class="h-full max-w-none" />
+      <template v-if="pair.direct.provider === 'panomax'">
+        <!-- The whole 360° view at a glance, then a swipeable viewer -->
+        <img :src="pair.direct.image" class="w-full rounded-md border" />
+        <div class="aspect-video w-full overflow-hidden rounded-md border">
+          <PanomaxViewer :key="pair.direct.camId" :webcam="{ ...pair.direct, camId: pair.direct.camId }" />
+        </div>
+      </template>
+      <div v-else class="aspect-video w-full overflow-hidden rounded-md border bg-black">
+        <img :src="pair.direct.image" class="h-full w-full object-contain" />
       </div>
     </div>
 
