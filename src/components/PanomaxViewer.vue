@@ -4,6 +4,7 @@ import { useDocumentVisibility, useElementSize, useElementVisibility, usePreferr
 import { ChevronLeftIcon, ChevronRightIcon, TrackNextIcon } from '@radix-icons/vue'
 import { Loader2 } from 'lucide-vue-next'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Input } from '@/components/ui/input'
 import type { Webcam } from '@/services/webcams'
 import {
   fetchDay,
@@ -331,21 +332,21 @@ watch(
     </div>
 
     <div
-      class="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-0.5 rounded-md bg-black/60 p-0.5 text-xs text-white backdrop-blur-sm"
+      class="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-md border bg-background p-1 text-xs text-foreground shadow"
     >
       <button
-        class="flex h-7 w-7 items-center justify-center rounded hover:bg-white/15 disabled:opacity-40"
+        class="rounded bg-secondary p-0.5 hover:bg-secondary/90 disabled:opacity-50"
         :disabled="!day || stepping"
         aria-label="Previous image"
         @click="step(-1)"
       >
-        <ChevronLeftIcon class="h-4 w-4" />
+        <ChevronLeftIcon />
       </button>
 
       <Popover v-model:open="pickerOpen">
         <PopoverTrigger as-child>
           <button
-            class="flex h-7 min-w-[4.5rem] items-center justify-center gap-1.5 whitespace-nowrap rounded px-2 tabular-nums hover:bg-white/15"
+            class="flex h-5 min-w-[4.5rem] items-center justify-center gap-1.5 whitespace-nowrap rounded bg-secondary px-2 tabular-nums hover:bg-secondary/90"
             aria-label="Choose date and time"
           >
             <span v-if="live" class="h-1.5 w-1.5 rounded-full bg-green-500" />
@@ -356,12 +357,12 @@ watch(
         <PopoverContent class="w-64 space-y-3" side="top">
           <label class="block space-y-1 text-xs text-muted-foreground">
             <span>Date</span>
-            <input
+            <Input
               v-model="pickerDate"
               type="date"
               :min="webcam.firstPano ?? undefined"
               :max="today"
-              class="block w-full rounded-md border border-input bg-background px-2 py-1 text-sm text-foreground [color-scheme:dark]"
+              class="h-9 text-foreground dark:[color-scheme:dark]"
               @change="onPickDate"
             />
           </label>
@@ -375,7 +376,7 @@ watch(
               type="range"
               min="0"
               :max="pickerDay.times.length - 1"
-              class="w-full accent-green-500"
+              class="w-full accent-primary"
               @change="showPicked"
             />
           </label>
@@ -384,20 +385,20 @@ watch(
       </Popover>
 
       <button
-        class="flex h-7 w-7 items-center justify-center rounded hover:bg-white/15 disabled:opacity-40"
+        class="rounded bg-secondary p-0.5 hover:bg-secondary/90 disabled:opacity-50"
         :disabled="!day || stepping || live"
         aria-label="Next image"
         @click="step(1)"
       >
-        <ChevronRightIcon class="h-4 w-4" />
+        <ChevronRightIcon />
       </button>
       <button
         v-if="!live"
-        class="flex h-7 items-center gap-1 rounded px-2 hover:bg-white/15"
+        class="flex h-5 items-center gap-1 rounded bg-secondary px-2 hover:bg-secondary/90"
         aria-label="Back to latest image"
         @click="goLive"
       >
-        <TrackNextIcon class="h-3.5 w-3.5" />
+        <TrackNextIcon class="h-3 w-3" />
         Latest
       </button>
     </div>
