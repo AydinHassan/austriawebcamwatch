@@ -2,7 +2,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 import { Badge } from '@/components/ui/badge'
-import { Cross2Icon, ExternalLinkIcon, MixerHorizontalIcon, ReloadIcon, Share1Icon, SizeIcon } from '@radix-icons/vue'
+import { Cross2Icon, ExternalLinkIcon, ReloadIcon, Share1Icon, SizeIcon } from '@radix-icons/vue'
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 
 import { Button } from '@/components/ui/button'
@@ -10,7 +10,7 @@ import Iframe from '@/components/Iframe.vue'
 import { computed, ref } from 'vue'
 import { createShareLink } from '@/utils/share'
 import Provider from '@/components/Provider.vue'
-import type { Webcam } from '@/services/webcam'
+import { hasPanoViewer, type Webcam } from '@/services/webcams'
 import { usePresetsStore } from '@/stores/presets'
 import WebcamIframe from '@/components/WebcamIframe.vue'
 
@@ -25,7 +25,6 @@ const {
 }>()
 
 const iframeEl = ref(null)
-const showGui = ref(false)
 const presetsStore = usePresetsStore()
 
 const refreshCam = () => {
@@ -61,17 +60,9 @@ const openCam = (cam) => {
       </div>
       <div class="flex gap-x-1">
         <span
-          v-if="webcam.provider === 'bergfex'"
           class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer"
           @click="refreshCam()"
           ><ReloadIcon></ReloadIcon
-        ></span>
-        <span
-          v-if="webcam.provider === 'panomax'"
-          class="rounded p-0.5 cursor-pointer"
-          :class="showGui ? 'bg-green-500/20 text-green-500' : 'bg-secondary hover:bg-secondary/90'"
-          @click="showGui = !showGui"
-          ><MixerHorizontalIcon></MixerHorizontalIcon
         ></span>
         <span
           class="bg-secondary hover:bg-secondary/90 rounded p-0.5 cursor-pointer"
@@ -107,8 +98,8 @@ const openCam = (cam) => {
         </Popover>
       </div>
     </CardHeader>
-    <CardContent class="flex flex-1 group-hover:opacity-50">
-      <WebcamIframe :webcam="webcam" :show-gui="showGui" ref="iframeEl" />
+    <CardContent class="flex flex-1" :class="{ 'group-hover:opacity-50': !hasPanoViewer(webcam) }">
+      <WebcamIframe :webcam="webcam" ref="iframeEl" />
     </CardContent>
   </Card>
 </template>

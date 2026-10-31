@@ -25,6 +25,9 @@ async function fetchPanomaxCams() {
       provider: 'panomax',
       latitude: cam.cam.latitude,
       longitude: cam.cam.longitude,
+      // Used by the in-app panorama viewer to load images directly
+      camId: cam.cam.id,
+      firstPano: cam.cam.firstPano?.slice(0, 10) ?? null,
     }));
 
   console.log(`[panomax] Found ${cams.length} Austrian cameras`);
