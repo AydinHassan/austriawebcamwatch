@@ -187,7 +187,7 @@ const handleImport = (event) => {
         <p v-show="firstVisit" class="text-sm text-gray-300 mb-6">Welcome to Austria Webcam Watcher - we've added a few default webcams for you to monitor. Read on below to understand why and how to use.</p>
         <div class="grid grid-cols-8 mb-8">
           <CameraIcon class="h-8 w-6 col-span-1 text-primary"/>
-          <p class="text-sm text-gray-300 col-span-7">This website allows you to monitor multiple webcams in Austria from <a class="underline text-primary" href="https://www.bergfex.at" target="_blank" rel="noopener">Bergfex</a> and <a class="underline text-primary" href="https://www.panomax.com/" target="_blank" rel="noopener">Panomax</a>. You can search and select up to 9 webcams per preset.</p>
+          <p class="text-sm text-gray-300 col-span-7">This website allows you to monitor multiple webcams in Austria from <a class="underline text-primary" href="https://www.bergfex.at" target="_blank" rel="noopener">Bergfex</a>, <a class="underline text-primary" href="https://www.panomax.com/" target="_blank" rel="noopener">Panomax</a> and <a class="underline text-primary" href="https://www.foto-webcam.eu/" target="_blank" rel="noopener">foto-webcam.eu</a>. You can search and select up to 9 webcams per preset.</p>
         </div>
 
         <div class="grid grid-cols-8 mb-8">

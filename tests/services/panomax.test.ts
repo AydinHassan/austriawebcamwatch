@@ -67,9 +67,9 @@ describe('panomax service', () => {
     const day: PanomaxDay = { date: '2026-03-03', storage: 42, times: ['00:00:00', '00:10:00'] }
     const bounds = { min: '2020-01-01', max: '2026-03-03' }
 
-    expect(await neighbourShot(2, day, '00:00:00', 1, bounds)).toMatchObject({ time: '00:10:00' })
+    expect(await neighbourShot((d) => fetchDay(2, d), day, '00:00:00', 1, bounds)).toMatchObject({ time: '00:10:00' })
 
-    const back = await neighbourShot(2, day, '00:00:00', -1, bounds)
+    const back = await neighbourShot((d) => fetchDay(2, d), day, '00:00:00', -1, bounds)
     expect(back?.day.date).toBe('2026-03-01')
     expect(back?.time).toBe('23:50:00')
   })
@@ -77,8 +77,8 @@ describe('panomax service', () => {
   it('stops at the bounds', async () => {
     const fetchMock = mockFetch({})
     const day: PanomaxDay = { date: '2026-03-03', storage: 42, times: ['00:00:00'] }
-    expect(await neighbourShot(3, day, '00:00:00', 1, { max: '2026-03-03' })).toBeNull()
-    expect(await neighbourShot(3, day, '00:00:00', -1, { min: '2026-03-03', max: '2026-03-03' })).toBeNull()
+    expect(await neighbourShot((d) => fetchDay(3, d), day, '00:00:00', 1, { max: '2026-03-03' })).toBeNull()
+    expect(await neighbourShot((d) => fetchDay(3, d), day, '00:00:00', -1, { min: '2026-03-03', max: '2026-03-03' })).toBeNull()
     expect(fetchMock).not.toHaveBeenCalled()
   })
 })

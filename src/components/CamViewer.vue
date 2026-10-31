@@ -14,26 +14,18 @@ import { Button } from '@/components/ui/button'
 import { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Slider } from '@/components/ui/slider'
 import type { Webcam } from '@/services/webcams'
-import {
-  fetchDay,
-  fetchLatestDay,
-  imageUrl,
-  neighbourShot,
-  resolutionFor,
-  shiftDate,
-  todayInAustria,
-  type PanomaxDay,
-} from '@/services/panomax'
+import { neighbourShot, shiftDate, todayInAustria, type CamDay } from '@/services/panomax'
+import { camSource } from '@/services/camSources'
 
 const props = defineProps<{ webcam: Webcam }>()
-const camId = computed(() => props.webcam.camId!)
+const source = computed(() => camSource(props.webcam))
 const today = computed(() => todayInAustria())
 
 // --- Which shot is shown ---------------------------------------------------
 // `selected` is null while following the latest shot.
 
-const latest = ref<PanomaxDay | null>(null)
-const selected = ref<{ day: PanomaxDay; time: string } | null>(null)
+const latest = ref<CamDay | null>(null)
+const selected = ref<{ day: CamDay; time: string } | null>(null)
 const error = ref<string | null>(null)
 const busy = ref(false)
 
@@ -41,12 +33,14 @@ const live = computed(() => selected.value === null)
 const day = computed(() => selected.value?.day ?? latest.value)
 const time = computed(() => selected.value?.time ?? latest.value?.times.at(-1) ?? null)
 
-function show(d: PanomaxDay, t: string) {
+function show(d: CamDay, t: string, stepDirection: 1 | -1 | null = null) {
+  skip = stepDirection ? { direction: stepDirection, left: skip?.direction === stepDirection ? skip.left : 6 } : null
   const isLatest = latest.value?.date === d.date && latest.value.times.at(-1) === t
   selected.value = isLatest ? null : { day: d, time: t }
 }
 
 function goLive() {
+  skip = null
   selected.value = null
   refreshLatest()
 }
@@ -62,7 +56,7 @@ const pageVisibility = useDocumentVisibility()
 
 async function refreshLatest() {
   try {
-    latest.value = await fetchLatestDay(camId.value)
+    latest.value = await source.value.latestDay()
   } catch {
     if (!latest.value) error.value = 'Could not load this cam'
   }
@@ -81,11 +75,11 @@ async function step(direction: 1 | -1) {
   if (!day.value || !time.value || busy.value) return
   busy.value = true
   try {
-    const target = await neighbourShot(camId.value, day.value, time.value, direction, {
-      min: props.webcam.firstPano,
+    const target = await neighbourShot(source.value.day, day.value, time.value, direction, {
+      min: source.value.firstDate,
       max: today.value,
     })
-    if (target) show(target.day, target.time)
+    if (target) show(target.day, target.time, direction)
     else if (direction === 1) goLive()
   } finally {
     busy.value = false
@@ -94,7 +88,7 @@ async function step(direction: 1 | -1) {
 
 const pickerOpen = ref(false)
 const pickerDate = ref('')
-const pickerDay = ref<PanomaxDay | null>(null)
+const pickerDay = ref<CamDay | null>(null)
 const pickerIndex = ref([0])
 const pickerMessage = ref<string | null>(null)
 
@@ -110,7 +104,7 @@ async function pickDate(date: string) {
   if (!date) return
   pickerDate.value = date
   pickerMessage.value = 'Loading…'
-  const d = await fetchDay(camId.value, date).catch(() => null)
+  const d = await source.value.day(date).catch(() => null)
   pickerDay.value = d
   pickerMessage.value = d ? null : 'No images'
   if (!d) return
@@ -168,15 +162,14 @@ const pickerTime = (i: number) => pickerDay.value?.times[i]?.slice(0, 5) ?? '--:
 const { height: rootHeight, width: rootWidth } = useElementSize(root)
 const src = computed(() => {
   if (!day.value || !time.value) return null
-  return imageUrl(
-    camId.value,
-    day.value,
-    time.value,
-    resolutionFor(rootHeight.value * (window.devicePixelRatio || 1)),
-  )
+  return source.value.imageUrl(day.value, time.value, rootHeight.value * (window.devicePixelRatio || 1))
 })
 const shown = ref<{ src: string; ratio: number } | null>(null)
 const loading = ref(false)
+
+// Some shots are missing (foto-webcam has gaps); when stepping onto one,
+// keep going in the same direction a few times before giving up
+let skip: { direction: 1 | -1; left: number } | null = null
 
 watch(src, (url) => {
   if (!url) return
@@ -185,11 +178,18 @@ watch(src, (url) => {
   img.onload = () => {
     if (src.value !== url) return
     shown.value = { src: url, ratio: img.naturalWidth / img.naturalHeight }
+    skip = null
     loading.value = false
     error.value = null
   }
   img.onerror = () => {
     if (src.value !== url) return
+    if (skip && skip.left > 0) {
+      skip.left--
+      busy.value = false
+      step(skip.direction)
+      return
+    }
     loading.value = false
     error.value = 'Image not available'
   }
@@ -197,10 +197,14 @@ watch(src, (url) => {
 })
 
 // --- Panning ---------------------------------------------------------------
-// The image fills the height; pan is a 0..1 fraction of the horizontal overflow.
+// The image covers the viewer (panoramas overflow sideways, photos may be
+// cropped slightly top and bottom); pan is a 0..1 fraction of the horizontal overflow.
 
 const pan = ref(0.5)
-const imgWidth = computed(() => (shown.value ? rootHeight.value * shown.value.ratio : 0))
+const imgWidth = computed(() =>
+  shown.value ? Math.max(rootHeight.value * shown.value.ratio, rootWidth.value) : 0,
+)
+const imgHeight = computed(() => (shown.value ? imgWidth.value / shown.value.ratio : 0))
 const overflow = computed(() => Math.max(0, imgWidth.value - rootWidth.value))
 const clamp = (v: number) => Math.min(1, Math.max(0, v))
 
@@ -238,7 +242,7 @@ useRafFn(({ delta }) => {
 onMounted(goLive)
 onBeforeUnmount(() => poll.pause())
 
-watch(camId, () => {
+watch(source, () => {
   latest.value = null
   shown.value = null
   pan.value = 0.5
@@ -263,10 +267,11 @@ watch(camId, () => {
         :src="shown.src"
         :alt="webcam.name"
         draggable="false"
-        class="absolute top-0 h-full max-w-none will-change-transform"
+        class="absolute left-0 max-w-none will-change-transform"
         :style="{
           width: `${imgWidth}px`,
-          left: overflow ? '0' : `${(rootWidth - imgWidth) / 2}px`,
+          height: `${imgHeight}px`,
+          top: `${(rootHeight - imgHeight) / 2}px`,
           transform: `translateX(${-pan * overflow}px)`,
         }"
       />
@@ -348,7 +353,7 @@ watch(camId, () => {
             <input
               :value="pickerDate"
               type="date"
-              :min="webcam.firstPano ?? undefined"
+              :min="source.firstDate ?? undefined"
               :max="today"
               aria-label="Date"
               class="absolute inset-0 h-full w-full cursor-pointer opacity-0"
@@ -360,7 +365,7 @@ watch(camId, () => {
             variant="ghost"
             size="icon"
             class="h-8 w-8 text-white hover:bg-white/15 hover:text-white"
-            :disabled="!!webcam.firstPano && pickerDate <= webcam.firstPano"
+            :disabled="!!source.firstDate && pickerDate <= source.firstDate"
             aria-label="Previous day"
             @click="pickDate(shiftDate(pickerDate, -1))"
           >

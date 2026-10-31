@@ -10,7 +10,7 @@ import Iframe from '@/components/Iframe.vue'
 import { computed, ref } from 'vue'
 import { createShareLink } from '@/utils/share'
 import Provider from '@/components/Provider.vue'
-import { hasPanoViewer, type Webcam } from '@/services/webcams'
+import { hasOwnViewer, type Webcam } from '@/services/webcams'
 import { usePresetsStore } from '@/stores/presets'
 import WebcamIframe from '@/components/WebcamIframe.vue'
 
@@ -57,6 +57,12 @@ const openCam = (cam) => {
           class="ml-3 text-[9px] border-sky-400/20 text-sky-500"
           >Bergfex</Badge
         >
+        <Badge
+          v-if="webcam.provider === 'foto-webcam'"
+          variant="outline"
+          class="ml-3 text-[9px] border-amber-400/20 text-amber-500"
+          >Foto W</Badge
+        >
       </div>
       <div class="flex gap-x-1">
         <span
@@ -98,7 +104,7 @@ const openCam = (cam) => {
         </Popover>
       </div>
     </CardHeader>
-    <CardContent class="flex flex-1" :class="{ 'group-hover:opacity-50': !hasPanoViewer(webcam) }">
+    <CardContent class="flex flex-1" :class="{ 'group-hover:opacity-50': !hasOwnViewer(webcam) }">
       <WebcamIframe :webcam="webcam" ref="iframeEl" />
     </CardContent>
   </Card>

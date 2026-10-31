@@ -1,6 +1,6 @@
 # Webcam Sync
 
-Fetches webcams from Panomax and Bergfex, merges and deduplicates them, and writes the result to `src/assets/austria-cams.json`.
+Fetches webcams from Panomax, foto-webcam.eu and Bergfex, merges and deduplicates them (dropping Bergfex copies of Panomax and foto-webcam cams), and writes the result to `src/assets/austria-cams.json`.
 
 ## Usage
 

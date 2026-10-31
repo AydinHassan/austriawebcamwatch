@@ -10,11 +10,16 @@ export type Webcam = {
   // Panomax only
   camId?: number
   firstPano?: string | null
+  // foto-webcam only
+  fotoWebcamId?: string
+  captureInterval?: number
+  // Former names (e.g. the Bergfex copy this cam replaced), so presets keep working
+  aliases?: string[]
 }
 
-// Panomax cams with a known camera id are shown in our own panorama viewer
-export function hasPanoViewer(webcam: Webcam): boolean {
-  return webcam.provider === 'panomax' && !!webcam.camId
+// Cams we can load images for directly are shown in our own viewer
+export function hasOwnViewer(webcam: Webcam): boolean {
+  return (webcam.provider === 'panomax' && !!webcam.camId) || (webcam.provider === 'foto-webcam' && !!webcam.fotoWebcamId)
 }
 
 const webcamsWithIds: Webcam[] = webcams.map((cam, index) => ({
@@ -27,7 +32,9 @@ export function getAllWebcams(): Webcam[] {
 }
 
 export function getWebcamByName(name: string): Webcam | null {
-  return webcamsWithIds.find(w => w.name === name) || null;
+  return webcamsWithIds.find(w => w.name === name)
+    ?? webcamsWithIds.find(w => w.aliases?.includes(name))
+    ?? null;
 }
 
 export function getWebcamById(id: number): Webcam | null {
