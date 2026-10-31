@@ -18,7 +18,9 @@
     "url": "https://aberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.356764,
-    "longitude": 12.919756
+    "longitude": 12.919756,
+    "camId": 19,
+    "firstPano": "2011-10-03"
   },
   {
     "name": "Abergalmbahn",
@@ -319,14 +321,18 @@
     "url": "https://innsbruck-airport.panomax.com",
     "provider": "panomax",
     "latitude": 47.25769,
-    "longitude": 11.349632
+    "longitude": 11.349632,
+    "camId": 1221,
+    "firstPano": "2016-08-02"
   },
   {
     "name": "Airport Wien - neue Position",
     "url": "https://viennaairport.panomax.com",
     "provider": "panomax",
     "latitude": 48.122314,
-    "longitude": 16.559998
+    "longitude": 16.559998,
+    "camId": 1745,
+    "firstPano": "2017-12-14"
   },
   {
     "name": "Alberschwende Talstation",
@@ -417,7 +423,9 @@
     "url": "https://murtal.panomax.com/reiteramberg",
     "provider": "panomax",
     "latitude": 47.211747,
-    "longitude": 14.636164
+    "longitude": 14.636164,
+    "camId": 10125,
+    "firstPano": "2025-02-19"
   },
   {
     "name": "Allerheiligen im Mühlkreis",
@@ -571,7 +579,9 @@
     "url": "https://alpbachtal.panomax.com/alpbachdorf",
     "provider": "panomax",
     "latitude": 47.394894,
-    "longitude": 11.94671
+    "longitude": 11.94671,
+    "camId": 11435,
+    "firstPano": "2025-10-07"
   },
   {
     "name": "Alpbachtal - Reitherkogelbahn",
@@ -1033,7 +1043,9 @@
     "url": "https://aschach.panomax.com",
     "provider": "panomax",
     "latitude": 48.369128,
-    "longitude": 14.033075
+    "longitude": 14.033075,
+    "camId": 2472,
+    "firstPano": "2020-11-17"
   },
   {
     "name": "Asitz Gipfel",
@@ -1131,7 +1143,9 @@
     "url": "https://burghausen.panomax.com",
     "provider": "panomax",
     "latitude": 48.1576,
-    "longitude": 12.836618
+    "longitude": 12.836618,
+    "camId": 6603,
+    "firstPano": "2023-04-05"
   },
   {
     "name": "Aussichtspunkt Weitblick Hoad",
@@ -1194,14 +1208,18 @@
     "url": "https://axamer-lizum.panomax.com/birgitzkoepfl",
     "provider": "panomax",
     "latitude": 47.194709,
-    "longitude": 11.316421
+    "longitude": 11.316421,
+    "camId": 3901,
+    "firstPano": "2021-10-28"
   },
   {
     "name": "Axamer Lizum Hoadl",
     "url": "https://axamer-lizum.panomax.com/hoadl",
     "provider": "panomax",
     "latitude": 47.183165,
-    "longitude": 11.282421
+    "longitude": 11.282421,
+    "camId": 3904,
+    "firstPano": "2021-10-28"
   },
   {
     "name": "B120 Ranklleiten",
@@ -1250,7 +1268,9 @@
     "url": "https://badgastein.panomax.com",
     "provider": "panomax",
     "latitude": 47.116104,
-    "longitude": 13.138822
+    "longitude": 13.138822,
+    "camId": 23,
+    "firstPano": "2011-10-27"
   },
   {
     "name": "Bad Gastein -  Golfplatz",
@@ -1292,14 +1312,18 @@
     "url": "https://goisern.panomax.com",
     "provider": "panomax",
     "latitude": 47.640908,
-    "longitude": 13.616507
+    "longitude": 13.616507,
+    "camId": 1644,
+    "firstPano": "2017-12-08"
   },
   {
     "name": "Bad Hofgastein",
     "url": "https://hofgastein.panomax.com",
     "provider": "panomax",
     "latitude": 47.16902,
-    "longitude": 13.108792
+    "longitude": 13.108792,
+    "camId": 22,
+    "firstPano": "2011-10-27"
   },
   {
     "name": "Bad Hofgastein - Schloßalm",
@@ -1425,7 +1449,9 @@
     "url": "https://tatzmannsdorf.panomax.com",
     "provider": "panomax",
     "latitude": 47.342124,
-    "longitude": 16.23923
+    "longitude": 16.23923,
+    "camId": 1947,
+    "firstPano": "2019-01-16"
   },
   {
     "name": "Bad Zell Hotel Lebensquell",
@@ -1453,7 +1479,9 @@
     "url": "https://bahnhofattersee.panomax.com",
     "provider": "panomax",
     "latitude": 47.914646,
-    "longitude": 13.533039
+    "longitude": 13.533039,
+    "camId": 3360,
+    "firstPano": "2021-05-12"
   },
   {
     "name": "Bahnhof Attersee am Attersee",
@@ -1467,7 +1495,9 @@
     "url": "https://bahnhofeferding.panomax.com",
     "provider": "panomax",
     "latitude": 48.303028,
-    "longitude": 14.016332
+    "longitude": 14.016332,
+    "camId": 9985,
+    "firstPano": "2025-06-05"
   },
   {
     "name": "Bahnhof Eferding 2",
@@ -1481,7 +1511,9 @@
     "url": "https://bahnhofpeuerbach.panomax.com",
     "provider": "panomax",
     "latitude": 48.336702,
-    "longitude": 13.771645
+    "longitude": 13.771645,
+    "camId": 10334,
+    "firstPano": "2025-09-10"
   },
   {
     "name": "Bahnhof Peuerbach 2",
@@ -1866,7 +1898,9 @@
     "url": "https://laemmerhof.panomax.com",
     "provider": "panomax",
     "latitude": 47.497267,
-    "longitude": 13.374015
+    "longitude": 13.374015,
+    "camId": 1510,
+    "firstPano": "2019-11-27"
   },
   {
     "name": "Berghotel Presslauer",
@@ -2545,7 +2579,9 @@
     "url": "https://rofan.panomax.com",
     "provider": "panomax",
     "latitude": 47.441422,
-    "longitude": 11.763471
+    "longitude": 11.763471,
+    "camId": 12441,
+    "firstPano": "2026-05-18"
   },
   {
     "name": "Bergstation Salzstiegl",
@@ -2755,7 +2791,9 @@
     "url": "https://pano.mayrhofen.at/ginzling",
     "provider": "panomax",
     "latitude": 47.099964,
-    "longitude": 11.809879
+    "longitude": 11.809879,
+    "camId": 13279,
+    "firstPano": "2026-06-23"
   },
   {
     "name": "Bergwelt Hahnenkamm",
@@ -3168,7 +3206,9 @@
     "url": "https://brand.panomax.com/loischkopfbahn",
     "provider": "panomax",
     "latitude": 47.145942,
-    "longitude": 9.759651
+    "longitude": 9.759651,
+    "camId": 2493,
+    "firstPano": "2020-06-19"
   },
   {
     "name": "Brandnertal - Palüd",
@@ -3182,7 +3222,9 @@
     "url": "https://panoramabahn-brand.panomax.com",
     "provider": "panomax",
     "latitude": 47.128304,
-    "longitude": 9.742342
+    "longitude": 9.742342,
+    "camId": 793,
+    "firstPano": "2014-12-17"
   },
   {
     "name": "Brantlalmsee",
@@ -3322,7 +3364,9 @@
     "url": "https://golling.panomax.com",
     "provider": "panomax",
     "latitude": 47.597263,
-    "longitude": 13.167216
+    "longitude": 13.167216,
+    "camId": 10000,
+    "firstPano": "2025-06-12"
   },
   {
     "name": "Burg Heinfels",
@@ -3392,7 +3436,9 @@
     "url": "https://murtal.panomax.com/burgruine-eppenstein",
     "provider": "panomax",
     "latitude": 47.130906,
-    "longitude": 14.735798
+    "longitude": 14.735798,
+    "camId": 5912,
+    "firstPano": "2024-06-12"
   },
   {
     "name": "Burgruine Finkenstein 2",
@@ -3406,7 +3452,9 @@
     "url": "https://griffen.panomax.com/burgruine",
     "provider": "panomax",
     "latitude": 46.704805,
-    "longitude": 14.727598
+    "longitude": 14.727598,
+    "camId": 5163,
+    "firstPano": "2023-01-12"
   },
   {
     "name": "Burgstalleralm / Astental",
@@ -3602,14 +3650,18 @@
     "url": "https://copadata.panomax.com",
     "provider": "panomax",
     "latitude": 47.794233,
-    "longitude": 13.010391
+    "longitude": 13.010391,
+    "camId": 5825,
+    "firstPano": "2023-05-16"
   },
   {
     "name": "Dachstein",
     "url": "https://dachstein.panomax.com",
     "provider": "panomax",
     "latitude": 47.467794,
-    "longitude": 13.626355
+    "longitude": 13.626355,
+    "camId": 505,
+    "firstPano": "2014-09-09"
   },
   {
     "name": "Dachstein 2",
@@ -3847,7 +3899,9 @@
     "url": "https://donauschlinge.panomax.com",
     "provider": "panomax",
     "latitude": 48.422693,
-    "longitude": 13.876926
+    "longitude": 13.876926,
+    "camId": 2202,
+    "firstPano": "2020-11-04"
   },
   {
     "name": "Donnersbach - Planneralm",
@@ -3861,7 +3915,9 @@
     "url": "https://donnersbachwald.panomax.com",
     "provider": "panomax",
     "latitude": 47.383601,
-    "longitude": 14.121647
+    "longitude": 14.121647,
+    "camId": 2491,
+    "firstPano": "2020-06-03"
   },
   {
     "name": "Donnersbachwald - Ort",
@@ -4001,7 +4057,9 @@
     "url": "https://werfenweng.panomax.com",
     "provider": "panomax",
     "latitude": 47.461222,
-    "longitude": 13.256596
+    "longitude": 13.256596,
+    "camId": 10713,
+    "firstPano": "2026-01-26"
   },
   {
     "name": "DSB Berg Biberwier",
@@ -4078,7 +4136,9 @@
     "url": "https://edelweissspitze.panomax.com",
     "provider": "panomax",
     "latitude": 47.123542,
-    "longitude": 12.830682
+    "longitude": 12.830682,
+    "camId": 17,
+    "firstPano": "2012-05-30"
   },
   {
     "name": "Ederplan",
@@ -4190,7 +4250,9 @@
     "url": "https://ehrwald.panomax.com/almbahn",
     "provider": "panomax",
     "latitude": 47.384036,
-    "longitude": 10.968708
+    "longitude": 10.968708,
+    "camId": 967,
+    "firstPano": "2015-09-01"
   },
   {
     "name": "Ehrwalder Almbahn 2",
@@ -4316,7 +4378,9 @@
     "url": "https://ellmau.panomax.com",
     "provider": "panomax",
     "latitude": 47.51107,
-    "longitude": 12.304299
+    "longitude": 12.304299,
+    "camId": 43,
+    "firstPano": "2011-11-24"
   },
   {
     "name": "Ellmau am Wilden Kaiser",
@@ -4442,7 +4506,9 @@
     "url": "https://engelhartszell.panomax.com",
     "provider": "panomax",
     "latitude": 48.506817,
-    "longitude": 13.742512
+    "longitude": 13.742512,
+    "camId": 1438,
+    "firstPano": "2017-09-07"
   },
   {
     "name": "Ennser Hütte",
@@ -4519,7 +4585,9 @@
     "url": "https://ischgl.panomax.com/vider-truja",
     "provider": "panomax",
     "latitude": 46.983845,
-    "longitude": 10.316308
+    "longitude": 10.316308,
+    "camId": 8093,
+    "firstPano": "2024-03-18"
   },
   {
     "name": "Ertl",
@@ -4603,7 +4671,9 @@
     "url": "https://fuschlseeregion.panomax.com/faistenau",
     "provider": "panomax",
     "latitude": 47.777996,
-    "longitude": 13.233101
+    "longitude": 13.233101,
+    "camId": 1657,
+    "firstPano": "2018-02-21"
   },
   {
     "name": "Faistenau 2",
@@ -4848,7 +4918,9 @@
     "url": "https://feldkirchen.panomax.com",
     "provider": "panomax",
     "latitude": 48.326059,
-    "longitude": 14.070394
+    "longitude": 14.070394,
+    "camId": 2398,
+    "firstPano": "2020-11-18"
   },
   {
     "name": "Feldkopf",
@@ -5086,7 +5158,9 @@
     "url": "https://festungsbahn.panomax.com",
     "provider": "panomax",
     "latitude": 47.795686,
-    "longitude": 13.046239
+    "longitude": 13.046239,
+    "camId": 913,
+    "firstPano": "2015-12-10"
   },
   {
     "name": "Festungsbahn Salzburg",
@@ -5184,7 +5258,9 @@
     "url": "https://panocam.zillertalarena.com/fichtensee",
     "provider": "panomax",
     "latitude": 47.252853,
-    "longitude": 11.944035
+    "longitude": 11.944035,
+    "camId": 2590,
+    "firstPano": "2020-06-25"
   },
   {
     "name": "Fieberbrunn - Buchensteinwand in Tirol",
@@ -5198,7 +5274,9 @@
     "url": "https://saalbach.panomax.com/laerchfilzkogel",
     "provider": "panomax",
     "latitude": 47.443985,
-    "longitude": 12.548503
+    "longitude": 12.548503,
+    "camId": 1302,
+    "firstPano": "2016-12-22"
   },
   {
     "name": "Fieberbrunn - Streuböden Bergstation",
@@ -5212,21 +5290,27 @@
     "url": "https://fieberbrunn.panomax.com/reckmoos",
     "provider": "panomax",
     "latitude": 47.427631,
-    "longitude": 12.552135
+    "longitude": 12.552135,
+    "camId": 5843,
+    "firstPano": "2022-12-05"
   },
   {
     "name": "Fieberbrunn Streuböden Mittelstation",
     "url": "https://fieberbrunn.panomax.com/mittelstation",
     "provider": "panomax",
     "latitude": 47.456649,
-    "longitude": 12.540953
+    "longitude": 12.540953,
+    "camId": 5650,
+    "firstPano": "2023-01-06"
   },
   {
     "name": "Fieberbrunn Streuböden Talstation",
     "url": "https://fieberbrunn.panomax.com/streuboeden-talstation",
     "provider": "panomax",
     "latitude": 47.467133,
-    "longitude": 12.551055
+    "longitude": 12.551055,
+    "camId": 3976,
+    "firstPano": "2021-01-01"
   },
   {
     "name": "Fieberbrunn Talstation Streuböden",
@@ -5247,7 +5331,9 @@
     "url": "https://panocam.zillertalarena.com/filzstein",
     "provider": "panomax",
     "latitude": 47.232351,
-    "longitude": 12.15722
+    "longitude": 12.15722,
+    "camId": 596,
+    "firstPano": "2014-10-10"
   },
   {
     "name": "Filzsteinalm",
@@ -5478,7 +5564,9 @@
     "url": "https://aviationacademy.panomax.com",
     "provider": "panomax",
     "latitude": 47.842314,
-    "longitude": 16.257328
+    "longitude": 16.257328,
+    "camId": 1518,
+    "firstPano": "2017-06-09"
   },
   {
     "name": "Flühenlift",
@@ -5513,7 +5601,9 @@
     "url": "https://frankenburg.panomax.com",
     "provider": "panomax",
     "latitude": 48.093171,
-    "longitude": 13.526425
+    "longitude": 13.526425,
+    "camId": 675,
+    "firstPano": "2016-07-06"
   },
   {
     "name": "Frankenfels",
@@ -5765,7 +5855,9 @@
     "url": "https://fuschertoerl.panomax.com",
     "provider": "panomax",
     "latitude": 47.116588,
-    "longitude": 12.824511
+    "longitude": 12.824511,
+    "camId": 16,
+    "firstPano": "2013-09-23"
   },
   {
     "name": "Fuschertörl /Großglockner Hochalpenstraße",
@@ -5786,7 +5878,9 @@
     "url": "https://fuschlseeregion.panomax.com/fuschl",
     "provider": "panomax",
     "latitude": 47.794522,
-    "longitude": 13.290866
+    "longitude": 13.290866,
+    "camId": 1812,
+    "firstPano": "2018-12-19"
   },
   {
     "name": "Fuschlseeregion - Fuschl",
@@ -5905,7 +5999,9 @@
     "url": "https://murtal.panomax.com/bergstation-gaaler-lifte",
     "provider": "panomax",
     "latitude": 47.262183,
-    "longitude": 14.687533
+    "longitude": 14.687533,
+    "camId": 5668,
+    "firstPano": "2025-01-03"
   },
   {
     "name": "Gaaler Lifte",
@@ -5919,14 +6015,18 @@
     "url": "https://gaberlhaus.panomax.com/ostblick",
     "provider": "panomax",
     "latitude": 47.107719,
-    "longitude": 14.916623
+    "longitude": 14.916623,
+    "camId": 2702,
+    "firstPano": "2020-08-19"
   },
   {
     "name": "Gaberl West Zeltweg 35mm",
     "url": "https://gaberlhaus.panomax.com/westblick",
     "provider": "panomax",
     "latitude": 47.107714,
-    "longitude": 14.916627
+    "longitude": 14.916627,
+    "camId": 2340,
+    "firstPano": "2020-08-05"
   },
   {
     "name": "Gaberlhaus",
@@ -5982,7 +6082,9 @@
     "url": "https://galsterberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.384512,
-    "longitude": 13.866551
+    "longitude": 13.866551,
+    "camId": 760,
+    "firstPano": "2019-11-11"
   },
   {
     "name": "Galsterberg - Gallisches Skidorf",
@@ -5996,7 +6098,9 @@
     "url": "https://galsterberg.panomax.com/vorderkar",
     "provider": "panomax",
     "latitude": 47.376307,
-    "longitude": 13.865693
+    "longitude": 13.865693,
+    "camId": 2555,
+    "firstPano": "2020-11-11"
   },
   {
     "name": "Galsterbergalmhütte",
@@ -6080,7 +6184,9 @@
     "url": "https://gamlitz.panomax.com",
     "provider": "panomax",
     "latitude": 46.724334,
-    "longitude": 15.569641
+    "longitude": 15.569641,
+    "camId": 2959,
+    "firstPano": "2021-10-04"
   },
   {
     "name": "Gammering - Hahnlgraben",
@@ -6542,14 +6648,18 @@
     "url": "https://panocam.zillertalarena.com/gerlos",
     "provider": "panomax",
     "latitude": 47.24414,
-    "longitude": 12.02883
+    "longitude": 12.02883,
+    "camId": 162,
+    "firstPano": "2012-10-25"
   },
   {
     "name": "Gerlospass Talstation",
     "url": "https://panocam.zillertalarena.com/gerlospass-tal",
     "provider": "panomax",
     "latitude": 47.241366,
-    "longitude": 12.11453
+    "longitude": 12.11453,
+    "camId": 161,
+    "firstPano": "2012-09-28"
   },
   {
     "name": "Gernkogel - Alpendorf St. Johann",
@@ -6696,7 +6806,9 @@
     "url": "https://glattjoch.panomax.com",
     "provider": "panomax",
     "latitude": 47.1087,
-    "longitude": 9.7022
+    "longitude": 9.7022,
+    "camId": 47,
+    "firstPano": "2011-12-05"
   },
   {
     "name": "Glattjoch Brandnertal",
@@ -6738,7 +6850,9 @@
     "url": "https://glockenhuette.panomax.com",
     "provider": "panomax",
     "latitude": 46.890164,
-    "longitude": 13.794146
+    "longitude": 13.794146,
+    "camId": 2693,
+    "firstPano": "2020-08-11"
   },
   {
     "name": "Glocknerwinkel",
@@ -6829,7 +6943,9 @@
     "url": "https://stadtgmuend.panomax.com",
     "provider": "panomax",
     "latitude": 46.911505,
-    "longitude": 13.535469
+    "longitude": 13.535469,
+    "camId": 7170,
+    "firstPano": "2024-03-07"
   },
   {
     "name": "Gmunden - Trachten Reingruber",
@@ -6843,7 +6959,9 @@
     "url": "https://traunsee.panomax.com/gmundnerberg",
     "provider": "panomax",
     "latitude": 47.910475,
-    "longitude": 13.748333
+    "longitude": 13.748333,
+    "camId": 1214,
+    "firstPano": "2016-07-04"
   },
   {
     "name": "Gmundner Hütte am Traunstein",
@@ -6885,7 +7003,9 @@
     "url": "https://going.panomax.com",
     "provider": "panomax",
     "latitude": 47.511458,
-    "longitude": 12.323621
+    "longitude": 12.323621,
+    "camId": 179,
+    "firstPano": "2012-09-07"
   },
   {
     "name": "Going am Wilden Kaiser - Astberg Bergstation",
@@ -6899,14 +7019,18 @@
     "url": "https://going.panomax.com/astberg",
     "provider": "panomax",
     "latitude": 47.5009,
-    "longitude": 12.322364
+    "longitude": 12.322364,
+    "camId": 1571,
+    "firstPano": "2018-01-09"
   },
   {
     "name": "Goldbergen",
     "url": "https://goldbergen.panomax.com",
     "provider": "panomax",
     "latitude": 47.7359,
-    "longitude": 16.2616
+    "longitude": 16.2616,
+    "camId": 841,
+    "firstPano": "2015-04-26"
   },
   {
     "name": "Goldbergkees",
@@ -6955,14 +7079,18 @@
     "url": "https://goldeck.panomax.com/talbahn",
     "provider": "panomax",
     "latitude": 46.770072,
-    "longitude": 13.454606
+    "longitude": 13.454606,
+    "camId": 9205,
+    "firstPano": "2024-11-15"
   },
   {
     "name": "Goldeck Sendemast Telekom",
     "url": "https://goldeck.panomax.com",
     "provider": "panomax",
     "latitude": 46.758636,
-    "longitude": 13.45789
+    "longitude": 13.45789,
+    "camId": 9235,
+    "firstPano": "2024-11-14"
   },
   {
     "name": "Goldeck Talstation Bärenbiss",
@@ -7067,7 +7195,9 @@
     "url": "https://golfplatz-ehrwald.panomax.com",
     "provider": "panomax",
     "latitude": 47.40276,
-    "longitude": 10.9033
+    "longitude": 10.9033,
+    "camId": 956,
+    "firstPano": "2020-12-15"
   },
   {
     "name": "Golfplatz Goldegg",
@@ -7214,7 +7344,9 @@
     "url": "https://gosau.panomax.com",
     "provider": "panomax",
     "latitude": 47.581194,
-    "longitude": 13.534284
+    "longitude": 13.534284,
+    "camId": 2200,
+    "firstPano": "2019-08-22"
   },
   {
     "name": "Göstling Hotel Waldesruh",
@@ -7382,7 +7514,9 @@
     "url": "https://www.innsbruck.info/gries/webcam/",
     "provider": "panomax",
     "latitude": 47.197245,
-    "longitude": 11.159947
+    "longitude": 11.159947,
+    "camId": 7299,
+    "firstPano": "2024-12-17"
   },
   {
     "name": "Griffen",
@@ -7403,7 +7537,9 @@
     "url": "https://grimming-therme.panomax.com",
     "provider": "panomax",
     "latitude": 47.54522,
-    "longitude": 13.928474
+    "longitude": 13.928474,
+    "camId": 965,
+    "firstPano": "2016-09-28"
   },
   {
     "name": "Gröbming",
@@ -7417,7 +7553,9 @@
     "url": "https://murtal.panomax.com/groendhalhaus",
     "provider": "panomax",
     "latitude": 47.225431,
-    "longitude": 14.936958
+    "longitude": 14.936958,
+    "camId": 5665,
+    "firstPano": "2025-04-25"
   },
   {
     "name": "Groß-Siegharts",
@@ -7473,7 +7611,9 @@
     "url": "https://grossarl.panomax.com/kieserlbahn",
     "provider": "panomax",
     "latitude": 47.242873,
-    "longitude": 13.153378
+    "longitude": 13.153378,
+    "camId": 7550,
+    "firstPano": "2023-12-12"
   },
   {
     "name": "Großarl - Loosbühelalm",
@@ -7494,14 +7634,18 @@
     "url": "https://grossarl.panomax.com",
     "provider": "panomax",
     "latitude": 47.242853,
-    "longitude": 13.201781
+    "longitude": 13.201781,
+    "camId": 534,
+    "firstPano": "2014-12-04"
   },
   {
     "name": "Grosseck",
     "url": "https://grosseck-speiereck.panomax.com",
     "provider": "panomax",
     "latitude": 47.129035,
-    "longitude": 13.64628
+    "longitude": 13.64628,
+    "camId": 7138,
+    "firstPano": "2023-12-03"
   },
   {
     "name": "Großeck Sender Bergstation",
@@ -7732,7 +7876,9 @@
     "url": "https://brand.panomax.com/gulmabahn",
     "provider": "panomax",
     "latitude": 47.110308,
-    "longitude": 9.718315
+    "longitude": 9.718315,
+    "camId": 2901,
+    "firstPano": "2020-11-09"
   },
   {
     "name": "Gundhütte - Tannheimertal",
@@ -7816,7 +7962,9 @@
     "url": "https://altenmarkt-zauchensee.panomax.com/habersatt",
     "provider": "panomax",
     "latitude": 47.391351,
-    "longitude": 13.429981
+    "longitude": 13.429981,
+    "camId": 1063,
+    "firstPano": "2017-04-06"
   },
   {
     "name": "Hackelhütte",
@@ -7893,7 +8041,9 @@
     "url": "https://haganlodge.panomax.com/altaussee",
     "provider": "panomax",
     "latitude": 47.661194,
-    "longitude": 13.745145
+    "longitude": 13.745145,
+    "camId": 3210,
+    "firstPano": "2021-06-14"
   },
   {
     "name": "Hahnenkamm Berg",
@@ -7991,7 +8141,9 @@
     "url": "https://hall-in-tirol.panomax.com",
     "provider": "panomax",
     "latitude": 47.282168,
-    "longitude": 11.512759
+    "longitude": 11.512759,
+    "camId": 8428,
+    "firstPano": "2024-06-03"
   },
   {
     "name": "Hall in Tirol - Heiligkreuz",
@@ -8047,7 +8199,9 @@
     "url": "https://flyingbulls.panomax.com",
     "provider": "panomax",
     "latitude": 47.794604,
-    "longitude": 13.007313
+    "longitude": 13.007313,
+    "camId": 7731,
+    "firstPano": "2023-11-27"
   },
   {
     "name": "Hansberg Kinderland",
@@ -8068,7 +8222,9 @@
     "url": "https://stjohannintirol.panomax.com",
     "provider": "panomax",
     "latitude": 47.484861,
-    "longitude": 12.428111
+    "longitude": 12.428111,
+    "camId": 10040,
+    "firstPano": "2025-07-30"
   },
   {
     "name": "Harschbichl Bergstation",
@@ -8110,7 +8266,9 @@
     "url": "https://hauereck.panomax.com",
     "provider": "panomax",
     "latitude": 47.517379,
-    "longitude": 15.691162
+    "longitude": 15.691162,
+    "camId": 3330,
+    "firstPano": "2021-11-10"
   },
   {
     "name": "Hauersdorf",
@@ -8145,7 +8303,9 @@
     "url": "https://hausalpin.panomax.com",
     "provider": "panomax",
     "latitude": 47.596089,
-    "longitude": 13.981351
+    "longitude": 13.981351,
+    "camId": 3952,
+    "firstPano": "2021-08-12"
   },
   {
     "name": "Haus Berg & Tal / Hirschegg",
@@ -8173,14 +8333,18 @@
     "url": "https://hauserkaibling.panomax.com/alm6erberg",
     "provider": "panomax",
     "latitude": 47.359323,
-    "longitude": 13.780861
+    "longitude": 13.780861,
+    "camId": 8388,
+    "firstPano": "2024-10-23"
   },
   {
     "name": "Hauser Kaibling - Bergstation",
     "url": "https://hauserkaibling.panomax.com",
     "provider": "panomax",
     "latitude": 47.377525,
-    "longitude": 13.77061
+    "longitude": 13.77061,
+    "camId": 191,
+    "firstPano": "2012-11-19"
   },
   {
     "name": "Hauser Kaibling - Gipfelbahn",
@@ -8194,7 +8358,9 @@
     "url": "https://hauserkaibling.panomax.com/gipfelbahn",
     "provider": "panomax",
     "latitude": 47.375641,
-    "longitude": 13.773829
+    "longitude": 13.773829,
+    "camId": 8373,
+    "firstPano": "2024-10-22"
   },
   {
     "name": "Hauser Kaibling - Höfi 1 Talstation",
@@ -8208,14 +8374,18 @@
     "url": "https://hauserkaibling.panomax.com/hoefiexpress1berg",
     "provider": "panomax",
     "latitude": 47.38893,
-    "longitude": 13.787206
+    "longitude": 13.787206,
+    "camId": 8403,
+    "firstPano": "2024-10-01"
   },
   {
     "name": "Hauser Kaibling - Höfi 2 Bergstation",
     "url": "https://hauserkaibling.panomax.com/hoefiexpress2berg",
     "provider": "panomax",
     "latitude": 47.378395,
-    "longitude": 13.782737
+    "longitude": 13.782737,
+    "camId": 8408,
+    "firstPano": "2024-10-08"
   },
   {
     "name": "Hauser Kaibling - Höfi 2 Bergstation 2",
@@ -8229,7 +8399,9 @@
     "url": "https://hauserkaibling.panomax.com/test-kaibling6er",
     "provider": "panomax",
     "latitude": 47.395988,
-    "longitude": 13.775155
+    "longitude": 13.775155,
+    "camId": 8418,
+    "firstPano": "2024-04-05"
   },
   {
     "name": "Hauser Kaibling - Kaibling6er Talstation 2",
@@ -8243,14 +8415,18 @@
     "url": "https://hauserkaibling.panomax.com/talstation",
     "provider": "panomax",
     "latitude": 47.411049,
-    "longitude": 13.777881
+    "longitude": 13.777881,
+    "camId": 4474,
+    "firstPano": "2021-12-22"
   },
   {
     "name": "Hauser Kaibling - Übungslift",
     "url": "https://hauserkaibling.panomax.com/uebungslift",
     "provider": "panomax",
     "latitude": 47.391689,
-    "longitude": 13.773093
+    "longitude": 13.773093,
+    "camId": 9400,
+    "firstPano": "2024-08-27"
   },
   {
     "name": "Hauser Kaibling - Übungslift 2",
@@ -8411,7 +8587,9 @@
     "url": "https://gut-aiderbichl.panomax.com/henndorf",
     "provider": "panomax",
     "latitude": 47.893318,
-    "longitude": 13.220009
+    "longitude": 13.220009,
+    "camId": 807,
+    "firstPano": "2019-12-20"
   },
   {
     "name": "Henndorf - Gut Aiderbichl",
@@ -8607,7 +8785,9 @@
     "url": "https://saalbach.panomax.com/reiterkogel",
     "provider": "panomax",
     "latitude": 47.388941,
-    "longitude": 12.590837
+    "longitude": 12.590837,
+    "camId": 8965,
+    "firstPano": "2024-11-15"
   },
   {
     "name": "Hinterglemm Tal",
@@ -8649,7 +8829,9 @@
     "url": "https://fuschlseeregion.panomax.com/hintersee",
     "provider": "panomax",
     "latitude": 47.719629,
-    "longitude": 13.291075
+    "longitude": 13.291075,
+    "camId": 1813,
+    "firstPano": "2018-11-12"
   },
   {
     "name": "Hinterthal - Urslauerhof",
@@ -8663,7 +8845,9 @@
     "url": "https://hintertux.panomax.com/gefrorenewand",
     "provider": "panomax",
     "latitude": 47.063668,
-    "longitude": 11.679405
+    "longitude": 11.679405,
+    "camId": 1039,
+    "firstPano": "2020-11-30"
   },
   {
     "name": "Hintertuxer Gletscher - Gefrorene Wand",
@@ -8810,7 +8994,9 @@
     "url": "https://loser.panomax.com",
     "provider": "panomax",
     "latitude": 47.66417,
-    "longitude": 13.781492
+    "longitude": 13.781492,
+    "camId": 1774,
+    "firstPano": "2018-10-18"
   },
   {
     "name": "Hochfeldlift Tal",
@@ -8880,7 +9066,9 @@
     "url": "https://hochfuegen.panomax.com",
     "provider": "panomax",
     "latitude": 47.247553,
-    "longitude": 11.757596
+    "longitude": 11.757596,
+    "camId": 4137,
+    "firstPano": "2021-10-19"
   },
   {
     "name": "Hochgallmigg Landeck",
@@ -9216,7 +9404,9 @@
     "url": "https://soelden.panomax.com/hochsoelden",
     "provider": "panomax",
     "latitude": 46.975907,
-    "longitude": 10.983221
+    "longitude": 10.983221,
+    "camId": 501,
+    "firstPano": "2013-11-29"
   },
   {
     "name": "Hochsölden 2",
@@ -9279,7 +9469,9 @@
     "url": "https://hochwurzen.panomax.com",
     "provider": "panomax",
     "latitude": 47.360176,
-    "longitude": 13.639609
+    "longitude": 13.639609,
+    "camId": 851,
+    "firstPano": "2015-12-05"
   },
   {
     "name": "Hochwurzen Bergstation",
@@ -9447,7 +9639,9 @@
     "url": "https://murtal.panomax.com/hohentauern",
     "provider": "panomax",
     "latitude": 47.433376,
-    "longitude": 14.483433
+    "longitude": 14.483433,
+    "camId": 7242,
+    "firstPano": "2023-11-01"
   },
   {
     "name": "Hoher Burgstall",
@@ -9615,7 +9809,9 @@
     "url": "https://alpinresort.panomax.com",
     "provider": "panomax",
     "latitude": 47.390195,
-    "longitude": 12.63747
+    "longitude": 12.63747,
+    "camId": 1466,
+    "firstPano": "2017-07-21"
   },
   {
     "name": "Hotel Auerhahn - Obertauern",
@@ -9629,14 +9825,18 @@
     "url": "https://bergheimat.panomax.com",
     "provider": "panomax",
     "latitude": 47.39073,
-    "longitude": 13.11565
+    "longitude": 13.11565,
+    "camId": 471,
+    "firstPano": "2013-11-18"
   },
   {
     "name": "Hotel Binggl",
     "url": "https://binggl.panomax.com",
     "provider": "panomax",
     "latitude": 47.13339,
-    "longitude": 13.680311
+    "longitude": 13.680311,
+    "camId": 42,
+    "firstPano": "2011-11-15"
   },
   {
     "name": "Hotel Binggl, Mauterndorf",
@@ -9664,7 +9864,9 @@
     "url": "https://webcam.edelweiss-gurgl.com",
     "provider": "panomax",
     "latitude": 46.869357,
-    "longitude": 11.026899
+    "longitude": 11.026899,
+    "camId": 539,
+    "firstPano": "2015-10-22"
   },
   {
     "name": "Hotel Garni Gloria",
@@ -9678,14 +9880,18 @@
     "url": "https://grossarl.panomax.com/hotel-schuetzenhof",
     "provider": "panomax",
     "latitude": 47.238514,
-    "longitude": 13.19343
+    "longitude": 13.19343,
+    "camId": 7556,
+    "firstPano": "2023-12-29"
   },
   {
     "name": "Hotel Goldener Berg",
     "url": "https://goldenerberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.218512,
-    "longitude": 10.136408
+    "longitude": 10.136408,
+    "camId": 9,
+    "firstPano": "2011-04-01"
   },
   {
     "name": "Hotel Grizzly",
@@ -9727,7 +9933,9 @@
     "url": "https://herrschaftstaverne.panomax.com",
     "provider": "panomax",
     "latitude": 47.410784,
-    "longitude": 13.768266
+    "longitude": 13.768266,
+    "camId": 983,
+    "firstPano": "2015-10-26"
   },
   {
     "name": "Hotel Kesselspitze",
@@ -9748,7 +9956,9 @@
     "url": "https://webcam.kristall.eu/fischbacher",
     "provider": "panomax",
     "latitude": 47.250063,
-    "longitude": 13.198723
+    "longitude": 13.198723,
+    "camId": 7559,
+    "firstPano": "2023-12-29"
   },
   {
     "name": "Hotel Lammwirt im Großarltal/Ellmautal",
@@ -9762,7 +9972,9 @@
     "url": "https://groebming.panomax.com",
     "provider": "panomax",
     "latitude": 47.439683,
-    "longitude": 13.900732
+    "longitude": 13.900732,
+    "camId": 3321,
+    "firstPano": "2021-07-02"
   },
   {
     "name": "Hotel Lürzerhof",
@@ -9783,7 +9995,9 @@
     "url": "https://post-lermoos.panomax.com",
     "provider": "panomax",
     "latitude": 47.397991,
-    "longitude": 10.887996
+    "longitude": 10.887996,
+    "camId": 964,
+    "firstPano": "2015-10-07"
   },
   {
     "name": "Hotel Post Wrann",
@@ -9832,7 +10046,9 @@
     "url": "https://talblick.panomax.com",
     "provider": "panomax",
     "latitude": 47.377542,
-    "longitude": 12.599276
+    "longitude": 12.599276,
+    "camId": 24,
+    "firstPano": "2011-09-16"
   },
   {
     "name": "Hotel Tirolerherz",
@@ -9846,14 +10062,18 @@
     "url": "https://hotel-viktor.panomax.com",
     "provider": "panomax",
     "latitude": 47.302839,
-    "longitude": 9.678519
+    "longitude": 9.678519,
+    "camId": 2730,
+    "firstPano": "2020-09-28"
   },
   {
     "name": "Hotel Wiesenhof",
     "url": "https://wiesenhof.panomax.com",
     "provider": "panomax",
     "latitude": 47.438272,
-    "longitude": 11.700091
+    "longitude": 11.700091,
+    "camId": 1465,
+    "firstPano": "2017-07-10"
   },
   {
     "name": "Hotel Zimba in Brand",
@@ -9895,7 +10115,9 @@
     "url": "https://soelden.panomax.com/human-race",
     "provider": "panomax",
     "latitude": 46.940167,
-    "longitude": 10.934486
+    "longitude": 10.934486,
+    "camId": 11285,
+    "firstPano": "2025-08-11"
   },
   {
     "name": "Hundsfeldsee",
@@ -10042,14 +10264,18 @@
     "url": "https://golm.panomax.com/huettenkopf",
     "provider": "panomax",
     "latitude": 47.064789,
-    "longitude": 9.838508
+    "longitude": 9.838508,
+    "camId": 963,
+    "firstPano": "2016-11-16"
   },
   {
     "name": "Hüttschlag",
     "url": "https://huettschlag.panomax.com",
     "provider": "panomax",
     "latitude": 47.178315,
-    "longitude": 13.227706
+    "longitude": 13.227706,
+    "camId": 9675,
+    "firstPano": "2025-01-10"
   },
   {
     "name": "Hüttschlag - Almrösl",
@@ -10070,14 +10296,18 @@
     "url": "https://ischgl.panomax.com/idalp",
     "provider": "panomax",
     "latitude": 46.982482,
-    "longitude": 10.317581
+    "longitude": 10.317581,
+    "camId": 331,
+    "firstPano": "2023-03-22"
   },
   {
     "name": "Imst-Nassereith",
     "url": "https://imst-nassereith.panomax.com",
     "provider": "panomax",
     "latitude": 47.302732,
-    "longitude": 10.856975
+    "longitude": 10.856975,
+    "camId": 2226,
+    "firstPano": "2019-09-24"
   },
   {
     "name": "Inneralpbach - Hotel Galtenberg",
@@ -10091,7 +10321,9 @@
     "url": "https://alpbachtal.panomax.com/inneralpbach",
     "provider": "panomax",
     "latitude": 47.374767,
-    "longitude": 11.960705
+    "longitude": 11.960705,
+    "camId": 2782,
+    "firstPano": "2020-12-21"
   },
   {
     "name": "Innerberg",
@@ -10133,7 +10365,9 @@
     "url": "https://austria-trend.panomax.com/hotel-congress-innsbruck",
     "provider": "panomax",
     "latitude": 47.27456,
-    "longitude": 11.397662
+    "longitude": 11.397662,
+    "camId": 4863,
+    "firstPano": "2022-05-12"
   },
   {
     "name": "Innsbruck - Markthalle",
@@ -10161,7 +10395,9 @@
     "url": "https://www.innsbruck.info/webcam/",
     "provider": "panomax",
     "latitude": 47.265987,
-    "longitude": 11.401354
+    "longitude": 11.401354,
+    "camId": 335,
+    "firstPano": "2013-09-27"
   },
   {
     "name": "Inntal",
@@ -10441,7 +10677,9 @@
     "url": "https://murtal.panomax.com/judenburgnord",
     "provider": "panomax",
     "latitude": 47.168956,
-    "longitude": 14.663817
+    "longitude": 14.663817,
+    "camId": 10359,
+    "firstPano": "2025-03-19"
   },
   {
     "name": "Judenburg Süd",
@@ -10455,7 +10693,9 @@
     "url": "https://murtal.panomax.com/judenburg",
     "provider": "panomax",
     "latitude": 47.168956,
-    "longitude": 14.663817
+    "longitude": 14.663817,
+    "camId": 5948,
+    "firstPano": "2025-03-19"
   },
   {
     "name": "JUFA Sigmundsberg",
@@ -10497,7 +10737,9 @@
     "url": "https://grossglockner.panomax.com",
     "provider": "panomax",
     "latitude": 47.075826,
-    "longitude": 12.750602
+    "longitude": 12.750602,
+    "camId": 7,
+    "firstPano": "2010-08-10"
   },
   {
     "name": "Kaiser Franz-Josef-Haus",
@@ -10910,7 +11152,9 @@
     "url": "https://katrin.panomax.com",
     "provider": "panomax",
     "latitude": 47.689782,
-    "longitude": 13.580091
+    "longitude": 13.580091,
+    "camId": 1675,
+    "firstPano": "2018-10-19"
   },
   {
     "name": "Katschberghöhe Aineck",
@@ -11113,7 +11357,9 @@
     "url": "https://kfv.panomax.com",
     "provider": "panomax",
     "latitude": 48.16534,
-    "longitude": 16.377759
+    "longitude": 16.377759,
+    "camId": 2705,
+    "firstPano": "2021-02-18"
   },
   {
     "name": "Kids Park/Schwimmbad",
@@ -11232,7 +11478,9 @@
     "url": "https://seefeld-dorfplatz.panomax.com",
     "provider": "panomax",
     "latitude": 47.32882,
-    "longitude": 11.18675
+    "longitude": 11.18675,
+    "camId": 409,
+    "firstPano": "2013-08-27"
   },
   {
     "name": "Kirchschlag Bergstation",
@@ -11253,7 +11501,9 @@
     "url": "https://kitzski.panomax.com/hahnenkamm",
     "provider": "panomax",
     "latitude": 47.423733,
-    "longitude": 12.369347
+    "longitude": 12.369347,
+    "camId": 8676,
+    "firstPano": "2024-07-26"
   },
   {
     "name": "Kitzbühel - Hahnenkamm 2",
@@ -11281,7 +11531,9 @@
     "url": "https://kitzski.panomax.com/horn",
     "provider": "panomax",
     "latitude": 47.475219,
-    "longitude": 12.429293
+    "longitude": 12.429293,
+    "camId": 9670,
+    "firstPano": "2025-03-13"
   },
   {
     "name": "Kitzbüheler Hornköpfl",
@@ -11498,7 +11750,9 @@
     "url": "https://ok-bergbahnen.panomax.com/kanzelwand",
     "provider": "panomax",
     "latitude": 47.33608,
-    "longitude": 10.205723
+    "longitude": 10.205723,
+    "camId": 8888,
+    "firstPano": "2024-07-22"
   },
   {
     "name": "Kleinwalsertal",
@@ -11512,7 +11766,9 @@
     "url": "https://ok-bergbahnen.panomax.com/ifen",
     "provider": "panomax",
     "latitude": 47.348607,
-    "longitude": 10.127223
+    "longitude": 10.127223,
+    "camId": 8884,
+    "firstPano": "2024-07-23"
   },
   {
     "name": "Kleinwalsertal - Kanzelwandbahn",
@@ -11526,7 +11782,9 @@
     "url": "https://ok-bergbahnen.panomax.com/parsenn",
     "provider": "panomax",
     "latitude": 47.348655,
-    "longitude": 10.162991
+    "longitude": 10.162991,
+    "camId": 12825,
+    "firstPano": "2026-04-27"
   },
   {
     "name": "Kleinwalsertal / Haus Keti",
@@ -11687,7 +11945,9 @@
     "url": "https://koeflach.panomax.com",
     "provider": "panomax",
     "latitude": 47.069828,
-    "longitude": 15.089433
+    "longitude": 15.089433,
+    "camId": 2293,
+    "firstPano": "2021-07-22"
   },
   {
     "name": "Kogel-Mogel Kinderland 2100m",
@@ -11778,7 +12038,9 @@
     "url": "https://kolsassberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.290726,
-    "longitude": 11.646495
+    "longitude": 11.646495,
+    "camId": 11939,
+    "firstPano": "2026-01-16"
   },
   {
     "name": "Königsberglift",
@@ -12079,7 +12341,9 @@
     "url": "https://panocam.zillertalarena.com/kreuzwiese",
     "provider": "panomax",
     "latitude": 47.234663,
-    "longitude": 11.957321
+    "longitude": 11.957321,
+    "camId": 532,
+    "firstPano": "2014-10-20"
   },
   {
     "name": "Kreuzwiese 2",
@@ -12100,7 +12364,9 @@
     "url": "https://krimml.panomax.com",
     "provider": "panomax",
     "latitude": 47.214152,
-    "longitude": 12.168658
+    "longitude": 12.168658,
+    "camId": 467,
+    "firstPano": "2014-08-04"
   },
   {
     "name": "Krimml - WasserWelten",
@@ -12219,7 +12485,9 @@
     "url": "https://kronen-zeitung.panomax.com/wien",
     "provider": "panomax",
     "latitude": 48.245441,
-    "longitude": 16.367113
+    "longitude": 16.367113,
+    "camId": 4632,
+    "firstPano": "2022-04-03"
   },
   {
     "name": "Kronstorf",
@@ -12247,7 +12515,9 @@
     "url": "https://webcam.kaiserlift.at",
     "provider": "panomax",
     "latitude": 47.577759,
-    "longitude": 12.209578
+    "longitude": 12.209578,
+    "camId": 849,
+    "firstPano": "2015-05-04"
   },
   {
     "name": "Kühhagerbahn Bergstation",
@@ -12261,7 +12531,9 @@
     "url": "https://kuehtai.panomax.com/kaiserbahn-winter",
     "provider": "panomax",
     "latitude": 47.226181,
-    "longitude": 11.010953
+    "longitude": 11.010953,
+    "camId": 1766,
+    "firstPano": "2018-03-05"
   },
   {
     "name": "Kühtai - Kaiserbahn 2",
@@ -12282,14 +12554,18 @@
     "url": "https://kuehtai.panomax.com/ortsblick",
     "provider": "panomax",
     "latitude": 47.212286,
-    "longitude": 11.025404
+    "longitude": 11.025404,
+    "camId": 1770,
+    "firstPano": "2018-01-25"
   },
   {
     "name": "Kühtai - Wiesbergbahn",
     "url": "https://kuehtai.panomax.com/wiesbergbahn-winter",
     "provider": "panomax",
     "latitude": 47.209638,
-    "longitude": 11.029519
+    "longitude": 11.029519,
+    "camId": 1769,
+    "firstPano": "2018-02-22"
   },
   {
     "name": "Kühtai - Wiesbergbahn 2",
@@ -12478,7 +12754,9 @@
     "url": "https://laengenfeld.panomax.com",
     "provider": "panomax",
     "latitude": 47.068617,
-    "longitude": 10.960494
+    "longitude": 10.960494,
+    "camId": 1759,
+    "firstPano": "2018-05-03"
   },
   {
     "name": "Langlaufarena Pirkdorf - Petzen / Klopeiner See",
@@ -12583,7 +12861,9 @@
     "url": "https://planai.panomax.com/laerchkogel",
     "provider": "panomax",
     "latitude": 47.371546,
-    "longitude": 13.713298
+    "longitude": 13.713298,
+    "camId": 1113,
+    "firstPano": "2016-02-26"
   },
   {
     "name": "Lärchkogel Bergstation",
@@ -12695,7 +12975,9 @@
     "url": "https://lavamuend.panomax.com",
     "provider": "panomax",
     "latitude": 46.641211,
-    "longitude": 14.94224
+    "longitude": 14.94224,
+    "camId": 1806,
+    "firstPano": "2018-12-06"
   },
   {
     "name": "Lavant - Dolomitengolf",
@@ -12758,7 +13040,9 @@
     "url": "https://kriegerhorn.skiarlberg.at",
     "provider": "panomax",
     "latitude": 47.215274,
-    "longitude": 10.118829
+    "longitude": 10.118829,
+    "camId": 982,
+    "firstPano": "2015-09-28"
   },
   {
     "name": "Lech Rüfikopf",
@@ -12779,7 +13063,9 @@
     "url": "https://leibnitz.panomax.com/kreuzkogel",
     "provider": "panomax",
     "latitude": 46.789101,
-    "longitude": 15.513625
+    "longitude": 15.513625,
+    "camId": 9265,
+    "firstPano": "2023-03-15"
   },
   {
     "name": "Leibnitz Südsteiermark, Hauptplatz",
@@ -12828,7 +13114,9 @@
     "url": "https://saalbach.panomax.com/grosserasitz",
     "provider": "panomax",
     "latitude": 47.404447,
-    "longitude": 12.705692
+    "longitude": 12.705692,
+    "camId": 3884,
+    "firstPano": "2021-08-02"
   },
   {
     "name": "Leogang Schanteilift",
@@ -12877,7 +13165,9 @@
     "url": "https://seefeld.panomax.com/katzenkopf",
     "provider": "panomax",
     "latitude": 47.358147,
-    "longitude": 11.161391
+    "longitude": 11.161391,
+    "camId": 5852,
+    "firstPano": "2023-07-24"
   },
   {
     "name": "Leutasch - Katzenkopf Bergstation 2",
@@ -12898,21 +13188,27 @@
     "url": "https://leutasch.panomax.com/rotmoos-moos",
     "provider": "panomax",
     "latitude": 47.346575,
-    "longitude": 11.128474
+    "longitude": 11.128474,
+    "camId": 2412,
+    "firstPano": "2019-12-12"
   },
   {
     "name": "Leutschach an der Weinstraße - Eorykogel",
     "url": "https://weinstrasse.panomax.com",
     "provider": "panomax",
     "latitude": 46.65207,
-    "longitude": 15.511219
+    "longitude": 15.511219,
+    "camId": 627,
+    "firstPano": "2015-07-23"
   },
   {
     "name": "Lichtenberg",
     "url": "https://lichtenberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.932797,
-    "longitude": 13.425645
+    "longitude": 13.425645,
+    "camId": 683,
+    "firstPano": "2015-07-21"
   },
   {
     "name": "Lichtersberg/Rambichl",
@@ -12961,7 +13257,9 @@
     "url": "https://liezen.panomax.com/pyhrn",
     "provider": "panomax",
     "latitude": 47.601225,
-    "longitude": 14.284154
+    "longitude": 14.284154,
+    "camId": 3093,
+    "firstPano": "2021-04-29"
   },
   {
     "name": "Lift Trins / Liftstüberl",
@@ -13052,14 +13350,18 @@
     "url": "https://loischkopf-brand.panomax.com",
     "provider": "panomax",
     "latitude": 47.134742,
-    "longitude": 9.74243
+    "longitude": 9.74243,
+    "camId": 2326,
+    "firstPano": "2019-08-29"
   },
   {
     "name": "Loosbühelalm",
     "url": "https://grossarl.panomax.com/loosbuehelalm",
     "provider": "panomax",
     "latitude": 47.228904,
-    "longitude": 13.288661
+    "longitude": 13.288661,
+    "camId": 7601,
+    "firstPano": "2023-11-17"
   },
   {
     "name": "Lorenzalm (Kräuterwiesen)",
@@ -13087,7 +13389,9 @@
     "url": "https://loser.panomax.com/loser-alm",
     "provider": "panomax",
     "latitude": 47.660579,
-    "longitude": 13.786368
+    "longitude": 13.786368,
+    "camId": 1776,
+    "firstPano": "2018-10-25"
   },
   {
     "name": "Loser Alm 2",
@@ -13101,7 +13405,9 @@
     "url": "https://loser.panomax.com/sandling",
     "provider": "panomax",
     "latitude": 47.661017,
-    "longitude": 13.732698
+    "longitude": 13.732698,
+    "camId": 1829,
+    "firstPano": "2018-10-19"
   },
   {
     "name": "Loserfenster",
@@ -13192,7 +13498,9 @@
     "url": "https://luenersee.panomax.com",
     "provider": "panomax",
     "latitude": 47.059581,
-    "longitude": 9.754319
+    "longitude": 9.754319,
+    "camId": 1273,
+    "firstPano": "2016-11-15"
   },
   {
     "name": "Lungau Flugplatz Moosham",
@@ -13248,7 +13556,9 @@
     "url": "https://www.innsbruck.info/luesens/webcam/",
     "provider": "panomax",
     "latitude": 47.130881,
-    "longitude": 11.138032
+    "longitude": 11.138032,
+    "camId": 7302,
+    "firstPano": "2024-12-17"
   },
   {
     "name": "Magdalensberg",
@@ -13262,7 +13572,9 @@
     "url": "https://neumarkt.panomax.com/wallersee",
     "provider": "panomax",
     "latitude": 47.930161,
-    "longitude": 13.200304
+    "longitude": 13.200304,
+    "camId": 3828,
+    "firstPano": "2022-07-14"
   },
   {
     "name": "Maishofen - Schloss Kammer",
@@ -13570,7 +13882,9 @@
     "url": "https://www.innsbruck.info/markthalle/webcam/",
     "provider": "panomax",
     "latitude": 47.267462,
-    "longitude": 11.38993
+    "longitude": 11.38993,
+    "camId": 1953,
+    "firstPano": "2018-12-20"
   },
   {
     "name": "Marktplatz Abtenau",
@@ -13696,7 +14010,9 @@
     "url": "https://neumarkt.panomax.com/matzing",
     "provider": "panomax",
     "latitude": 47.928587,
-    "longitude": 13.216068
+    "longitude": 13.216068,
+    "camId": 6078,
+    "firstPano": "2022-11-23"
   },
   {
     "name": "Maurach",
@@ -13724,7 +14040,9 @@
     "url": "https://derwildeberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.382985,
-    "longitude": 14.814932
+    "longitude": 14.814932,
+    "camId": 9050,
+    "firstPano": "2024-06-27"
   },
   {
     "name": "Mauterndorf - Grosseck",
@@ -13780,21 +14098,27 @@
     "url": "https://pano.mayrhofen.at/coolnest",
     "provider": "panomax",
     "latitude": 47.205211,
-    "longitude": 11.876828
+    "longitude": 11.876828,
+    "camId": 321,
+    "firstPano": "2014-08-25"
   },
   {
     "name": "Mayrhofen Kumbichl 2",
     "url": "https://pano.mayrhofen.at/talblick",
     "provider": "panomax",
     "latitude": 47.15606,
-    "longitude": 11.862222
+    "longitude": 11.862222,
+    "camId": 1753,
+    "firstPano": "2018-04-17"
   },
   {
     "name": "Mayrhofen Zillertal - Gasthof Zimmereben 2",
     "url": "https://pano.mayrhofen.at/zimmereben",
     "provider": "panomax",
     "latitude": 47.173527,
-    "longitude": 11.85915
+    "longitude": 11.85915,
+    "camId": 1752,
+    "firstPano": "2018-05-09"
   },
   {
     "name": "Mayrhofen-Hippach - Wiesenhof",
@@ -13934,7 +14258,9 @@
     "url": "https://www.innsbruck.info/miemingerplateau/webcam/",
     "provider": "panomax",
     "latitude": 47.308272,
-    "longitude": 10.987212
+    "longitude": 10.987212,
+    "camId": 2022,
+    "firstPano": "2019-01-17"
   },
   {
     "name": "Miesenbach - Wiesenhofer Lift / Tal",
@@ -14032,7 +14358,9 @@
     "url": "https://snow-space.panomax.com/flyingmozartmitte",
     "provider": "panomax",
     "latitude": 47.329759,
-    "longitude": 13.320368
+    "longitude": 13.320368,
+    "camId": 9105,
+    "firstPano": "2024-07-29"
   },
   {
     "name": "Mittelstation Froneben",
@@ -14116,7 +14444,9 @@
     "url": "https://mitterberg-st-martin.panomax.com",
     "provider": "panomax",
     "latitude": 47.461418,
-    "longitude": 13.96131
+    "longitude": 13.96131,
+    "camId": 3327,
+    "firstPano": "2022-04-12"
   },
   {
     "name": "Mitterberg - St. Martin",
@@ -14200,7 +14530,9 @@
     "url": "https://mondseeblick.panomax.com",
     "provider": "panomax",
     "latitude": 47.855838,
-    "longitude": 13.363684
+    "longitude": 13.363684,
+    "camId": 5831,
+    "firstPano": "2022-09-16"
   },
   {
     "name": "Mondsee - Ferienhof Gassner 2",
@@ -14340,7 +14672,9 @@
     "url": "https://moesern.panomax.com",
     "provider": "panomax",
     "latitude": 47.311264,
-    "longitude": 11.144133
+    "longitude": 11.144133,
+    "camId": 816,
+    "firstPano": "2015-02-04"
   },
   {
     "name": "Mösern 2",
@@ -14844,7 +15178,9 @@
     "url": "https://nockalmstrasse.panomax.com",
     "provider": "panomax",
     "latitude": 46.929996,
-    "longitude": 13.757426
+    "longitude": 13.757426,
+    "camId": 970,
+    "firstPano": "2017-07-06"
   },
   {
     "name": "Nordic Sport Park Sulzberg",
@@ -14865,7 +15201,9 @@
     "url": "https://silvretta-montafon.panomax.com/nova-stoba",
     "provider": "panomax",
     "latitude": 46.980118,
-    "longitude": 9.992064
+    "longitude": 9.992064,
+    "camId": 961,
+    "firstPano": "2015-12-02"
   },
   {
     "name": "Nova Stoba 2",
@@ -15145,7 +15483,9 @@
     "url": "https://oberissalm.panomax.com",
     "provider": "panomax",
     "latitude": 47.095107,
-    "longitude": 11.194268
+    "longitude": 11.194268,
+    "camId": 1276,
+    "firstPano": "2020-09-22"
   },
   {
     "name": "Oberkrimml -  Panoramahotel Burgeck",
@@ -15271,7 +15611,9 @@
     "url": "https://obertauern.panomax.com/gamsleiten",
     "provider": "panomax",
     "latitude": 47.24228,
-    "longitude": 13.556766
+    "longitude": 13.556766,
+    "camId": 5789,
+    "firstPano": "2023-09-12"
   },
   {
     "name": "Obertauern - Gamsleiten 2",
@@ -15299,7 +15641,9 @@
     "url": "https://obertauern.panomax.com/hundskogel",
     "provider": "panomax",
     "latitude": 47.267414,
-    "longitude": 13.57657
+    "longitude": 13.57657,
+    "camId": 5798,
+    "firstPano": "2022-10-06"
   },
   {
     "name": "Obertauern - Hundskogel 2",
@@ -15628,7 +15972,9 @@
     "url": "https://ottensheim.panomax.com",
     "provider": "panomax",
     "latitude": 48.336369,
-    "longitude": 14.204948
+    "longitude": 14.204948,
+    "camId": 7416,
+    "firstPano": "2024-04-20"
   },
   {
     "name": "Ottensheim - Dürnberg 2",
@@ -15677,7 +16023,9 @@
     "url": "https://palinkopf.panomax.com",
     "provider": "panomax",
     "latitude": 46.950315,
-    "longitude": 10.3093
+    "longitude": 10.3093,
+    "camId": 101,
+    "firstPano": "2012-08-07"
   },
   {
     "name": "Palinkopf 2",
@@ -15705,7 +16053,9 @@
     "url": "https://palued.panomax.com",
     "provider": "panomax",
     "latitude": 47.10434,
-    "longitude": 9.717151
+    "longitude": 9.717151,
+    "camId": 2492,
+    "firstPano": "2018-09-03"
   },
   {
     "name": "Palüdbahn Talstation",
@@ -15740,7 +16090,9 @@
     "url": "https://panoramaalm.panomax.com",
     "provider": "panomax",
     "latitude": 47.317888,
-    "longitude": 12.359298
+    "longitude": 12.359298,
+    "camId": 9605,
+    "firstPano": "2024-10-22"
   },
   {
     "name": "Panorama Bahn - Berg",
@@ -15810,7 +16162,9 @@
     "url": "https://turracherhoehe.panomax.com/panoramabahn",
     "provider": "panomax",
     "latitude": 46.916831,
-    "longitude": 13.864841
+    "longitude": 13.864841,
+    "camId": 971,
+    "firstPano": "2016-08-03"
   },
   {
     "name": "Panoramacam Greben",
@@ -16020,14 +16374,18 @@
     "url": "https://www.innsbruck.info/patscherkofel/webcam/",
     "provider": "panomax",
     "latitude": 47.210057,
-    "longitude": 11.451477
+    "longitude": 11.451477,
+    "camId": 2021,
+    "firstPano": "2019-07-05"
   },
   {
     "name": "Patscherkofel BB Talstation",
     "url": "https://patscherkofel.panomax.com/talstation",
     "provider": "panomax",
     "latitude": 47.221991,
-    "longitude": 11.426629
+    "longitude": 11.426629,
+    "camId": 4587,
+    "firstPano": "2022-04-28"
   },
   {
     "name": "Patscherkofelbahn Talstation",
@@ -16440,14 +16798,18 @@
     "url": "https://planneralm.panomax.com",
     "provider": "panomax",
     "latitude": 47.404447,
-    "longitude": 14.214654
+    "longitude": 14.214654,
+    "camId": 2363,
+    "firstPano": "2019-12-11"
   },
   {
     "name": "Planneralm Seekaralm",
     "url": "https://planneralm.panomax.com/seekaralm",
     "provider": "panomax",
     "latitude": 47.406238,
-    "longitude": 14.201029
+    "longitude": 14.201029,
+    "camId": 2421,
+    "firstPano": "2020-02-20"
   },
   {
     "name": "Planneralm Seekaralm 2",
@@ -16524,7 +16886,9 @@
     "url": "https://steinplatte-waidring.panomax.com",
     "provider": "panomax",
     "latitude": 47.607127,
-    "longitude": 12.580107
+    "longitude": 12.580107,
+    "camId": 5924,
+    "firstPano": "2026-07-13"
   },
   {
     "name": "Plattenkogelexpress II - Bergstation",
@@ -16650,7 +17014,9 @@
     "url": "https://murtal.panomax.com/poels",
     "provider": "panomax",
     "latitude": 47.220745,
-    "longitude": 14.578379
+    "longitude": 14.578379,
+    "camId": 9735,
+    "firstPano": "2025-02-04"
   },
   {
     "name": "Polster Quattro",
@@ -16685,7 +17051,9 @@
     "url": "https://postalm.panomax.com",
     "provider": "panomax",
     "latitude": 47.661953,
-    "longitude": 13.433407
+    "longitude": 13.433407,
+    "camId": 1278,
+    "firstPano": "2017-06-08"
   },
   {
     "name": "Postalm 2",
@@ -16895,7 +17263,9 @@
     "url": "https://pyramidenkogel.panomax.com",
     "provider": "panomax",
     "latitude": 46.609016,
-    "longitude": 14.144984
+    "longitude": 14.144984,
+    "camId": 297,
+    "firstPano": "2022-02-25"
   },
   {
     "name": "Pyramidenkogel Aussichtsturm",
@@ -16944,7 +17314,9 @@
     "url": "https://leutasch.panomax.com",
     "provider": "panomax",
     "latitude": 47.370224,
-    "longitude": 11.158455
+    "longitude": 11.158455,
+    "camId": 654,
+    "firstPano": "2014-07-24"
   },
   {
     "name": "Rabenstein - Golfclub Murhof",
@@ -17028,7 +17400,9 @@
     "url": "https://radstadt.panomax.com/rossbrand",
     "provider": "panomax",
     "latitude": 47.415348,
-    "longitude": 13.479073
+    "longitude": 13.479073,
+    "camId": 1670,
+    "firstPano": "2019-10-21"
   },
   {
     "name": "Raggal",
@@ -17105,7 +17479,9 @@
     "url": "https://rittisberg.panomax.com/beach",
     "provider": "panomax",
     "latitude": 47.424092,
-    "longitude": 13.62356
+    "longitude": 13.62356,
+    "camId": 1900,
+    "firstPano": "2018-11-06"
   },
   {
     "name": "Ramsau Beach 2",
@@ -17119,7 +17495,9 @@
     "url": "https://ramsaudachstein.panomax.com",
     "provider": "panomax",
     "latitude": 47.416231,
-    "longitude": 13.655481
+    "longitude": 13.655481,
+    "camId": 748,
+    "firstPano": "2014-10-15"
   },
   {
     "name": "Rangersdorf / Ederplan",
@@ -17210,7 +17588,9 @@
     "url": "https://golm.panomax.com/raetikon",
     "provider": "panomax",
     "latitude": 47.060834,
-    "longitude": 9.834562
+    "longitude": 9.834562,
+    "camId": 1335,
+    "firstPano": "2016-11-16"
   },
   {
     "name": "Rauris",
@@ -17245,7 +17625,9 @@
     "url": "https://seefeld.panomax.com/rauthhuette",
     "provider": "panomax",
     "latitude": 47.345664,
-    "longitude": 11.105071
+    "longitude": 11.105071,
+    "camId": 13053,
+    "firstPano": "2026-08-06"
   },
   {
     "name": "Ravensburger Hütte",
@@ -17287,7 +17669,9 @@
     "url": "https://raxalpe.panomax.com/ottohaus",
     "provider": "panomax",
     "latitude": 47.71328,
-    "longitude": 15.762093
+    "longitude": 15.762093,
+    "camId": 3456,
+    "firstPano": "2021-11-04"
   },
   {
     "name": "Rechnitz",
@@ -17406,7 +17790,9 @@
     "url": "https://seefeld.panomax.com/reith",
     "provider": "panomax",
     "latitude": 47.299208,
-    "longitude": 11.203056
+    "longitude": 11.203056,
+    "camId": 1368,
+    "firstPano": "2016-12-01"
   },
   {
     "name": "Reith bei Seefeld 2",
@@ -17469,7 +17855,9 @@
     "url": "https://tiroler-oberland.panomax.com/ried",
     "provider": "panomax",
     "latitude": 47.055095,
-    "longitude": 10.660231
+    "longitude": 10.660231,
+    "camId": 2474,
+    "firstPano": "2020-03-05"
   },
   {
     "name": "Rieseralm",
@@ -17497,7 +17885,9 @@
     "url": "https://riesneralm.panomax.com",
     "provider": "panomax",
     "latitude": 47.366765,
-    "longitude": 14.090706
+    "longitude": 14.090706,
+    "camId": 2310,
+    "firstPano": "2019-11-21"
   },
   {
     "name": "Riesneralm Tal / Kinderskischaukel",
@@ -17595,7 +17985,9 @@
     "url": "https://rittisberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.419466,
-    "longitude": 13.613405
+    "longitude": 13.613405,
+    "camId": 26,
+    "firstPano": "2011-11-04"
   },
   {
     "name": "Rittisberg 2",
@@ -17616,7 +18008,9 @@
     "url": "https://alpbachtal.panomax.com/rofan",
     "provider": "panomax",
     "latitude": 47.466462,
-    "longitude": 11.826618
+    "longitude": 11.826618,
+    "camId": 5987,
+    "firstPano": "2024-06-25"
   },
   {
     "name": "Roggenboden",
@@ -17770,7 +18164,9 @@
     "url": "https://werfenweng.panomax.com/rosnerkoepfl",
     "provider": "panomax",
     "latitude": 47.453497,
-    "longitude": 13.259732
+    "longitude": 13.259732,
+    "camId": 1055,
+    "firstPano": "2015-12-18"
   },
   {
     "name": "Rosnerköpfl 2",
@@ -17840,7 +18236,9 @@
     "url": "https://zauchensee2.panomax.com",
     "provider": "panomax",
     "latitude": 47.294523,
-    "longitude": 13.453264
+    "longitude": 13.453264,
+    "camId": 1599,
+    "firstPano": "2017-11-27"
   },
   {
     "name": "Röthis Ost",
@@ -17889,7 +18287,9 @@
     "url": "https://rupp.panomax.com",
     "provider": "panomax",
     "latitude": 47.544556,
-    "longitude": 9.746667
+    "longitude": 9.746667,
+    "camId": 7221,
+    "firstPano": "2023-09-20"
   },
   {
     "name": "Saalbach",
@@ -17910,28 +18310,36 @@
     "url": "https://saalbach.panomax.com/kohlmais",
     "provider": "panomax",
     "latitude": 47.410013,
-    "longitude": 12.653306
+    "longitude": 12.653306,
+    "camId": 1970,
+    "firstPano": "2018-11-27"
   },
   {
     "name": "Saalbach - Schattberg X-Press",
     "url": "https://saalbach.panomax.com/schattberg",
     "provider": "panomax",
     "latitude": 47.367918,
-    "longitude": 12.638353
+    "longitude": 12.638353,
+    "camId": 1306,
+    "firstPano": "2016-12-03"
   },
   {
     "name": "Saalbach - Wildenkarkogel",
     "url": "https://saalbach.panomax.com/wildenkarkogel",
     "provider": "panomax",
     "latitude": 47.400836,
-    "longitude": 12.686169
+    "longitude": 12.686169,
+    "camId": 1305,
+    "firstPano": "2016-11-21"
   },
   {
     "name": "Saalbach - Zwölferkogel",
     "url": "https://saalbach.panomax.com/zwoelferkogel",
     "provider": "panomax",
     "latitude": 47.360578,
-    "longitude": 12.569346
+    "longitude": 12.569346,
+    "camId": 1304,
+    "firstPano": "2016-11-22"
   },
   {
     "name": "Saalbach 2",
@@ -17952,7 +18360,9 @@
     "url": "https://maisalm.panomax.com",
     "provider": "panomax",
     "latitude": 47.399174,
-    "longitude": 12.6381
+    "longitude": 12.6381,
+    "camId": 3366,
+    "firstPano": "2021-11-09"
   },
   {
     "name": "Saalbach-Hinterglemm - Kohlmais",
@@ -18022,7 +18432,9 @@
     "url": "https://westendorf.panomax.com",
     "provider": "panomax",
     "latitude": 47.441543,
-    "longitude": 12.209432
+    "longitude": 12.209432,
+    "camId": 1570,
+    "firstPano": "2017-09-05"
   },
   {
     "name": "Salzburg",
@@ -18057,21 +18469,27 @@
     "url": "https://livecam.salzburg-airport.com",
     "provider": "panomax",
     "latitude": 47.793803,
-    "longitude": 12.997799
+    "longitude": 12.997799,
+    "camId": 966,
+    "firstPano": "2015-12-16"
   },
   {
     "name": "Salzstiegl - Bergstation",
     "url": "https://salzstiegl.panomax.com/bergstation",
     "provider": "panomax",
     "latitude": 47.056364,
-    "longitude": 14.865679
+    "longitude": 14.865679,
+    "camId": 9255,
+    "firstPano": "2024-12-04"
   },
   {
     "name": "Salzstiegl - Moasterhaus",
     "url": "https://salzstiegl.panomax.com/moasterhaus",
     "provider": "panomax",
     "latitude": 47.063315,
-    "longitude": 14.878574
+    "longitude": 14.878574,
+    "camId": 9250,
+    "firstPano": "2024-12-05"
   },
   {
     "name": "Salzstiegl Moasterhaus",
@@ -18197,7 +18615,9 @@
     "url": "https://schafbergalm.panomax.com",
     "provider": "panomax",
     "latitude": 47.769879,
-    "longitude": 13.421995
+    "longitude": 13.421995,
+    "camId": 7224,
+    "firstPano": "2024-11-19"
   },
   {
     "name": "Schafbergalm 2",
@@ -18225,21 +18645,27 @@
     "url": "https://wolfgangseeschifffahrt.panomax.com",
     "provider": "panomax",
     "latitude": 47.738929,
-    "longitude": 13.440162
+    "longitude": 13.440162,
+    "camId": 1272,
+    "firstPano": "2017-03-24"
   },
   {
     "name": "Schafbergspitze",
     "url": "https://schafberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.777003,
-    "longitude": 13.431767
+    "longitude": 13.431767,
+    "camId": 180,
+    "firstPano": "2013-06-30"
   },
   {
     "name": "Schafkopf - Unterberg",
     "url": "https://pano.mayrhofen.at/unterberg",
     "provider": "panomax",
     "latitude": 47.19137,
-    "longitude": 11.790784
+    "longitude": 11.790784,
+    "camId": 1435,
+    "firstPano": "2017-08-10"
   },
   {
     "name": "Schaidberg",
@@ -18274,7 +18700,9 @@
     "url": "https://seefeld.panomax.com/scharnitz",
     "provider": "panomax",
     "latitude": 47.380388,
-    "longitude": 11.254804
+    "longitude": 11.254804,
+    "camId": 1220,
+    "firstPano": "2017-03-01"
   },
   {
     "name": "Scharnitz - Seefeld",
@@ -18554,7 +18982,9 @@
     "url": "https://schlosshof.panomax.com",
     "provider": "panomax",
     "latitude": 48.215384,
-    "longitude": 16.937915
+    "longitude": 16.937915,
+    "camId": 7823,
+    "firstPano": "2025-08-27"
   },
   {
     "name": "Schloss Kapfenstein, Blick auf Kapfenstein",
@@ -18603,7 +19033,9 @@
     "url": "https://schlossberghainburg.panomax.com",
     "provider": "panomax",
     "latitude": 48.142495,
-    "longitude": 16.947875
+    "longitude": 16.947875,
+    "camId": 10379,
+    "firstPano": "2025-06-16"
   },
   {
     "name": "Schlossberg Graz",
@@ -18673,7 +19105,9 @@
     "url": "https://schneeberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.759865,
-    "longitude": 15.834747
+    "longitude": 15.834747,
+    "camId": 7236,
+    "firstPano": "2024-05-23"
   },
   {
     "name": "Schneeberg - Forellenhof",
@@ -18694,7 +19128,9 @@
     "url": "https://murtal.panomax.com/schneebergerkapelle",
     "provider": "panomax",
     "latitude": 47.280055,
-    "longitude": 14.470777
+    "longitude": 14.470777,
+    "camId": 9935,
+    "firstPano": "2025-02-18"
   },
   {
     "name": "Schneiderkogel",
@@ -18750,7 +19186,9 @@
     "url": "https://schoeckl.panomax.com",
     "provider": "panomax",
     "latitude": 47.198811,
-    "longitude": 15.467753
+    "longitude": 15.467753,
+    "camId": 9260,
+    "firstPano": "2024-07-15"
   },
   {
     "name": "Schöckl Bergstation 2",
@@ -18813,7 +19251,9 @@
     "url": "https://webcam.aflenzer-buergeralm.at/winter",
     "provider": "panomax",
     "latitude": 47.58085,
-    "longitude": 15.225893
+    "longitude": 15.225893,
+    "camId": 1353,
+    "firstPano": "2019-07-18"
   },
   {
     "name": "Schoppernau - Appartement BergZeit",
@@ -18981,7 +19421,9 @@
     "url": "https://schwaz.panomax.com",
     "provider": "panomax",
     "latitude": 47.347431,
-    "longitude": 11.699673
+    "longitude": 11.699673,
+    "camId": 7499,
+    "firstPano": "2024-12-02"
   },
   {
     "name": "Schwaz/Kogelmoos",
@@ -19072,7 +19514,9 @@
     "url": "https://seefeld.panomax.com/arena365",
     "provider": "panomax",
     "latitude": 47.322685,
-    "longitude": 11.175439
+    "longitude": 11.175439,
+    "camId": 1292,
+    "firstPano": "2016-09-08"
   },
   {
     "name": "Seefeld - Seefelder Joch",
@@ -19086,7 +19530,9 @@
     "url": "https://seefeld.panomax.com/seekirchl",
     "provider": "panomax",
     "latitude": 47.327845,
-    "longitude": 11.179408
+    "longitude": 11.179408,
+    "camId": 431,
+    "firstPano": "2013-09-26"
   },
   {
     "name": "Seefeld - Toni-Seelos-Schanze",
@@ -19128,14 +19574,18 @@
     "url": "https://seefeld.panomax.com/rosshuette",
     "provider": "panomax",
     "latitude": 47.341306,
-    "longitude": 11.227728
+    "longitude": 11.227728,
+    "camId": 368,
+    "firstPano": "2013-07-21"
   },
   {
     "name": "Seefelder Joch",
     "url": "https://seefeld.panomax.com/joch",
     "provider": "panomax",
     "latitude": 47.340802,
-    "longitude": 11.239262
+    "longitude": 11.239262,
+    "camId": 346,
+    "firstPano": "2019-12-04"
   },
   {
     "name": "Seegrube",
@@ -19303,7 +19753,9 @@
     "url": "https://gaisberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.805187,
-    "longitude": 13.11201
+    "longitude": 13.11201,
+    "camId": 2227,
+    "firstPano": "2023-01-02"
   },
   {
     "name": "Serfaus - Kinderschneealm",
@@ -19464,14 +19916,18 @@
     "url": "https://silvretta.panomax.com",
     "provider": "panomax",
     "latitude": 46.917949,
-    "longitude": 10.09316
+    "longitude": 10.09316,
+    "camId": 1234,
+    "firstPano": "2017-07-17"
   },
   {
     "name": "Silvretta Montafon  - Panorama Bahn",
     "url": "https://silvretta-montafon.panomax.com/panoramabahn",
     "provider": "panomax",
     "latitude": 47.060572,
-    "longitude": 9.97622
+    "longitude": 9.97622,
+    "camId": 962,
+    "firstPano": "2015-12-04"
   },
   {
     "name": "Silvretta-Bielerhöhe",
@@ -19506,7 +19962,9 @@
     "url": "https://badischl.panomax.com/siriuskogl",
     "provider": "panomax",
     "latitude": 47.704918,
-    "longitude": 13.617591
+    "longitude": 13.617591,
+    "camId": 2053,
+    "firstPano": "2020-11-25"
   },
   {
     "name": "Sissipark Lachtal",
@@ -19590,7 +20048,9 @@
     "url": "https://oberaschau.panomax.com",
     "provider": "panomax",
     "latitude": 47.838473,
-    "longitude": 13.473715
+    "longitude": 13.473715,
+    "camId": 6177,
+    "firstPano": "2022-12-29"
   },
   {
     "name": "Skilift Raggal",
@@ -19646,14 +20106,18 @@
     "url": "https://warth-schroecken.panomax.com/berg",
     "provider": "panomax",
     "latitude": 47.255174,
-    "longitude": 10.133637
+    "longitude": 10.133637,
+    "camId": 786,
+    "firstPano": "2014-11-17"
   },
   {
     "name": "Skilifte Schröcken Talstation",
     "url": "https://warth-schroecken.panomax.com/tal",
     "provider": "panomax",
     "latitude": 47.265823,
-    "longitude": 10.128346
+    "longitude": 10.128346,
+    "camId": 751,
+    "firstPano": "2014-11-17"
   },
   {
     "name": "Skischule Warth",
@@ -19709,7 +20173,9 @@
     "url": "https://snow-space.panomax.com/snowpark",
     "provider": "panomax",
     "latitude": 47.302219,
-    "longitude": 13.244226
+    "longitude": 13.244226,
+    "camId": 9110,
+    "firstPano": "2024-11-29"
   },
   {
     "name": "Snowpark Dachstein West",
@@ -19772,7 +20238,9 @@
     "url": "https://soelden.panomax.com/gaislachkogl-mittelstation",
     "provider": "panomax",
     "latitude": 46.950143,
-    "longitude": 10.988551
+    "longitude": 10.988551,
+    "camId": 6657,
+    "firstPano": "2023-06-15"
   },
   {
     "name": "Sölden - Grünwald Resort",
@@ -19793,21 +20261,27 @@
     "url": "https://soelden.panomax.com/rettenbach",
     "provider": "panomax",
     "latitude": 46.941197,
-    "longitude": 10.9316
+    "longitude": 10.9316,
+    "camId": 196,
+    "firstPano": "2012-10-23"
   },
   {
     "name": "Sölden - Schwarze Schneid MST",
     "url": "https://soelden.panomax.com/schwarzeschneid",
     "provider": "panomax",
     "latitude": 46.934524,
-    "longitude": 10.924812
+    "longitude": 10.924812,
+    "camId": 216,
+    "firstPano": "2012-11-16"
   },
   {
     "name": "Sölden - Schwarzkogl Talstation",
     "url": "https://soelden.panomax.com/schwarzkogl-talstation",
     "provider": "panomax",
     "latitude": 46.957529,
-    "longitude": 10.950497
+    "longitude": 10.950497,
+    "camId": 6666,
+    "firstPano": "2023-07-12"
   },
   {
     "name": "Sölden - Schwarzkogl Talstation 2",
@@ -19821,7 +20295,9 @@
     "url": "https://soelden.panomax.com/tiefenbach",
     "provider": "panomax",
     "latitude": 46.923405,
-    "longitude": 10.945859
+    "longitude": 10.945859,
+    "camId": 195,
+    "firstPano": "2012-10-23"
   },
   {
     "name": "Sölden - Tiefenbachkogl",
@@ -19835,14 +20311,18 @@
     "url": "https://soelden.panomax.com/tiefenbachkogl-felssteg",
     "provider": "panomax",
     "latitude": 46.921282,
-    "longitude": 10.918521
+    "longitude": 10.918521,
+    "camId": 6660,
+    "firstPano": "2023-12-18"
   },
   {
     "name": "Sölden Ort",
     "url": "https://soelden.panomax.com/ort",
     "provider": "panomax",
     "latitude": 46.96867,
-    "longitude": 11.011749
+    "longitude": 11.011749,
+    "camId": 5572,
+    "firstPano": "2024-01-24"
   },
   {
     "name": "Sölkpass - Blick nach Norden",
@@ -19863,14 +20343,18 @@
     "url": "https://kaltenbachalm.panomax.com/nord",
     "provider": "panomax",
     "latitude": 47.273978,
-    "longitude": 14.078473
+    "longitude": 14.078473,
+    "camId": 2262,
+    "firstPano": "2020-09-02"
   },
   {
     "name": "Sölkpass Süd",
     "url": "https://kaltenbachalm.panomax.com/sued",
     "provider": "panomax",
     "latitude": 47.27393,
-    "longitude": 14.078757
+    "longitude": 14.078757,
+    "camId": 2742,
+    "firstPano": "2020-09-02"
   },
   {
     "name": "Söll - Ort",
@@ -19884,7 +20368,9 @@
     "url": "https://soell.panomax.com",
     "provider": "panomax",
     "latitude": 47.507328,
-    "longitude": 12.198067
+    "longitude": 12.198067,
+    "camId": 365,
+    "firstPano": "2014-01-08"
   },
   {
     "name": "Sommerberg",
@@ -20045,7 +20531,9 @@
     "url": "https://redbullring.panomax.com/spielberg",
     "provider": "panomax",
     "latitude": 47.227721,
-    "longitude": 14.759116
+    "longitude": 14.759116,
+    "camId": 3633,
+    "firstPano": "2021-07-14"
   },
   {
     "name": "Spielbergalm",
@@ -20115,7 +20603,9 @@
     "url": "https://sporthotel-fontana.panomax.com",
     "provider": "panomax",
     "latitude": 47.468361,
-    "longitude": 12.550259
+    "longitude": 12.550259,
+    "camId": 2249,
+    "firstPano": "2019-08-02"
   },
   {
     "name": "Sporthotel Snowwhite",
@@ -20164,7 +20654,9 @@
     "url": "https://st-agatha.panomax.com",
     "provider": "panomax",
     "latitude": 48.399489,
-    "longitude": 13.873058
+    "longitude": 13.873058,
+    "camId": 2473,
+    "firstPano": "2020-09-30"
   },
   {
     "name": "St. Anton - Wasserschloss KW Kartell",
@@ -20192,7 +20684,9 @@
     "url": "https://www.florianerpanorama.at",
     "provider": "panomax",
     "latitude": 48.195851,
-    "longitude": 14.387666
+    "longitude": 14.387666,
+    "camId": 3060,
+    "firstPano": "2021-02-24"
   },
   {
     "name": "St. Georgen am Längsee",
@@ -20234,7 +20728,9 @@
     "url": "https://st-gilgen.panomax.com",
     "provider": "panomax",
     "latitude": 47.774068,
-    "longitude": 13.352815
+    "longitude": 13.352815,
+    "camId": 1945,
+    "firstPano": "2020-05-28"
   },
   {
     "name": "St. Hemma - St. Hemmahof",
@@ -20416,7 +20912,9 @@
     "url": "https://murtal.panomax.com/fressenberg",
     "provider": "panomax",
     "latitude": 47.29225,
-    "longitude": 14.841231
+    "longitude": 14.841231,
+    "camId": 10270,
+    "firstPano": "2025-04-24"
   },
   {
     "name": "St. Markuskirche",
@@ -20920,7 +21418,9 @@
     "url": "https://stoderzinken.panomax.com",
     "provider": "panomax",
     "latitude": 47.45959,
-    "longitude": 13.814087
+    "longitude": 13.814087,
+    "camId": 3315,
+    "firstPano": "2023-06-29"
   },
   {
     "name": "Stoderzinken 2",
@@ -20969,7 +21469,9 @@
     "url": "https://straden.panomax.com/saziani",
     "provider": "panomax",
     "latitude": 46.811497,
-    "longitude": 15.867279
+    "longitude": 15.867279,
+    "camId": 4629,
+    "firstPano": "2022-05-10"
   },
   {
     "name": "Strallegg - Bergstation Kinderskiland",
@@ -21053,7 +21555,9 @@
     "url": "https://strobl.panomax.com",
     "provider": "panomax",
     "latitude": 47.718709,
-    "longitude": 13.481921
+    "longitude": 13.481921,
+    "camId": 1554,
+    "firstPano": "2017-09-20"
   },
   {
     "name": "Strobl am Wolfgangsee",
@@ -21095,7 +21599,9 @@
     "url": "https://strolz.panomax.com",
     "provider": "panomax",
     "latitude": 47.208459,
-    "longitude": 10.142066
+    "longitude": 10.142066,
+    "camId": 1102,
+    "firstPano": "2016-01-28"
   },
   {
     "name": "Stuanmandl Berg",
@@ -21130,14 +21636,18 @@
     "url": "https://stuben.panomax.com",
     "provider": "panomax",
     "latitude": 47.137738,
-    "longitude": 10.155081
+    "longitude": 10.155081,
+    "camId": 1586,
+    "firstPano": "2018-04-10"
   },
   {
     "name": "Stubenberg am See - Windhaber Gussmagg",
     "url": "https://stubenberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.230995,
-    "longitude": 15.789336
+    "longitude": 15.789336,
+    "camId": 1865,
+    "firstPano": "2018-11-21"
   },
   {
     "name": "Stubenberg am See, Gasthaus Windhaber Gussmagg",
@@ -21599,7 +22109,9 @@
     "url": "https://tannberg.panomax.com",
     "provider": "panomax",
     "latitude": 47.97366,
-    "longitude": 13.18791
+    "longitude": 13.18791,
+    "camId": 1876,
+    "firstPano": "2022-04-04"
   },
   {
     "name": "Tannheim",
@@ -21620,7 +22132,9 @@
     "url": "https://imst-tarrenz.panomax.com",
     "provider": "panomax",
     "latitude": 47.285998,
-    "longitude": 10.789816
+    "longitude": 10.789816,
+    "camId": 2354,
+    "firstPano": "2021-04-09"
   },
   {
     "name": "Tarrenz Kappakreuz",
@@ -21669,14 +22183,18 @@
     "url": "https://tauplitz.panomax.com/lawinenstein",
     "provider": "panomax",
     "latitude": 47.598493,
-    "longitude": 13.968869
+    "longitude": 13.968869,
+    "camId": 111,
+    "firstPano": "2014-11-20"
   },
   {
     "name": "Tauplitz Schneiderkogel",
     "url": "https://tauplitz.panomax.com/schneiderkogel",
     "provider": "panomax",
     "latitude": 47.599657,
-    "longitude": 13.988807
+    "longitude": 13.988807,
+    "camId": 1138,
+    "firstPano": "2016-10-27"
   },
   {
     "name": "Tauwiesenlift & OD Trails",
@@ -21697,7 +22215,9 @@
     "url": "https://www.innsbruck.info/sonnenplateau/webcam/",
     "provider": "panomax",
     "latitude": 47.304918,
-    "longitude": 11.070057
+    "longitude": 11.070057,
+    "camId": 512,
+    "firstPano": "2014-02-20"
   },
   {
     "name": "Telfs 2",
@@ -21963,7 +22483,9 @@
     "url": "https://grimming.panomax.com",
     "provider": "panomax",
     "latitude": 47.503019,
-    "longitude": 14.165471
+    "longitude": 14.165471,
+    "camId": 2420,
+    "firstPano": "2020-04-24"
   },
   {
     "name": "Thumersbach",
@@ -22019,7 +22541,9 @@
     "url": "https://zugspitz-resort.panomax.com",
     "provider": "panomax",
     "latitude": 47.426061,
-    "longitude": 10.941625
+    "longitude": 10.941625,
+    "camId": 2850,
+    "firstPano": "2020-10-19"
   },
   {
     "name": "Tiroler Zugspitze - Golf-Anlage",
@@ -22117,7 +22641,9 @@
     "url": "https://seefeld.panomax.com/toni-seelos-schanze",
     "provider": "panomax",
     "latitude": 47.320295,
-    "longitude": 11.177789
+    "longitude": 11.177789,
+    "camId": 11774,
+    "firstPano": "2025-11-18"
   },
   {
     "name": "Tonnerhütte",
@@ -22243,7 +22769,9 @@
     "url": "https://traunkirchen.panomax.com",
     "provider": "panomax",
     "latitude": 47.845034,
-    "longitude": 13.78957
+    "longitude": 13.78957,
+    "camId": 5204,
+    "firstPano": "2024-07-10"
   },
   {
     "name": "Traunkirchen 2",
@@ -22271,7 +22799,9 @@
     "url": "https://murtal.panomax.com/tremmelberg",
     "provider": "panomax",
     "latitude": 47.246335,
-    "longitude": 14.788083
+    "longitude": 14.788083,
+    "camId": 7260,
+    "firstPano": "2024-04-12"
   },
   {
     "name": "Tressdorfer Höhe",
@@ -22306,7 +22836,9 @@
     "url": "https://tressensteinwarte.panomax.com/ausseerland",
     "provider": "panomax",
     "latitude": 47.626401,
-    "longitude": 13.789108
+    "longitude": 13.789108,
+    "camId": 4176,
+    "firstPano": "2021-10-15"
   },
   {
     "name": "Trins",
@@ -22565,7 +23097,9 @@
     "url": "https://hintertux.panomax.com/eggalm",
     "provider": "panomax",
     "latitude": 47.164008,
-    "longitude": 11.702902
+    "longitude": 11.702902,
+    "camId": 4848,
+    "firstPano": "2022-04-15"
   },
   {
     "name": "Tux Pension Sonnleiten",
@@ -22586,7 +23120,9 @@
     "url": "https://hintertux.panomax.com/wanglspitze",
     "provider": "panomax",
     "latitude": 47.184076,
-    "longitude": 11.774536
+    "longitude": 11.774536,
+    "camId": 4477,
+    "firstPano": "2021-12-16"
   },
   {
     "name": "Tuxer Ferner Haus",
@@ -22747,7 +23283,9 @@
     "url": "https://umhausen.panomax.com",
     "provider": "panomax",
     "latitude": 47.144112,
-    "longitude": 10.929808
+    "longitude": 10.929808,
+    "camId": 2403,
+    "firstPano": "2019-12-03"
   },
   {
     "name": "UNI Innsbruck",
@@ -22824,7 +23362,9 @@
     "url": "https://untergriesbach.panomax.com",
     "provider": "panomax",
     "latitude": 48.529349,
-    "longitude": 13.648778
+    "longitude": 13.648778,
+    "camId": 1761,
+    "firstPano": "2019-08-29"
   },
   {
     "name": "Unterkunft 1014 Heuberg",
@@ -22894,7 +23434,9 @@
     "url": "https://silvretta-montafon.panomax.com/valisera",
     "provider": "panomax",
     "latitude": 46.98719,
-    "longitude": 9.965761
+    "longitude": 9.965761,
+    "camId": 7671,
+    "firstPano": "2025-01-15"
   },
   {
     "name": "Valluga",
@@ -23020,7 +23562,9 @@
     "url": "https://villacher-alpenstrasse.panomax.com",
     "provider": "panomax",
     "latitude": 46.59305,
-    "longitude": 13.712191
+    "longitude": 13.712191,
+    "camId": 3042,
+    "firstPano": "2021-08-21"
   },
   {
     "name": "Villacher Alpenstraße - Rosstratte 2",
@@ -23083,7 +23627,9 @@
     "url": "https://snow-space.panomax.com/flying-mozart",
     "provider": "panomax",
     "latitude": 47.3258,
-    "longitude": 13.346884
+    "longitude": 13.346884,
+    "camId": 4296,
+    "firstPano": "2021-12-15"
   },
   {
     "name": "Waidhofen an der Thaya",
@@ -23160,7 +23706,9 @@
     "url": "https://walchsee.panomax.com",
     "provider": "panomax",
     "latitude": 47.648544,
-    "longitude": 12.316914
+    "longitude": 12.316914,
+    "camId": 864,
+    "firstPano": "2015-05-12"
   },
   {
     "name": "Walchsee - Seespitz",
@@ -23440,7 +23988,9 @@
     "url": "https://radstadt.panomax.com",
     "provider": "panomax",
     "latitude": 47.389864,
-    "longitude": 13.462331
+    "longitude": 13.462331,
+    "camId": 1668,
+    "firstPano": "2017-12-13"
   },
   {
     "name": "Wattens - Swarovski Kristallwelten",
@@ -23524,7 +24074,9 @@
     "url": "https://weinstrasse.panomax.com/sulztal",
     "provider": "panomax",
     "latitude": 46.683262,
-    "longitude": 15.564696
+    "longitude": 15.564696,
+    "camId": 4483,
+    "firstPano": "2022-10-13"
   },
   {
     "name": "Weißbach bei Lofer",
@@ -23699,7 +24251,9 @@
     "url": "https://westendorf.panomax.com/fleiding",
     "provider": "panomax",
     "latitude": 47.40254,
-    "longitude": 12.250166
+    "longitude": 12.250166,
+    "camId": 2929,
+    "firstPano": "2020-11-14"
   },
   {
     "name": "Westufer Irrsee",
@@ -23762,7 +24316,9 @@
     "url": "https://weyregg.panomax.com",
     "provider": "panomax",
     "latitude": 47.894705,
-    "longitude": 13.580883
+    "longitude": 13.580883,
+    "camId": 10793,
+    "firstPano": "2025-07-17"
   },
   {
     "name": "Weyregg am Attersee - Schöberingerhof",
@@ -23797,7 +24353,9 @@
     "url": "https://warth-schroecken.panomax.com/widdersteinhuette",
     "provider": "panomax",
     "latitude": 47.27817,
-    "longitude": 10.137137
+    "longitude": 10.137137,
+    "camId": 1496,
+    "firstPano": "2018-07-16"
   },
   {
     "name": "Widiversum Hochoetz",
@@ -23832,7 +24390,9 @@
     "url": "https://a1-arsenal.panomax.com",
     "provider": "panomax",
     "latitude": 48.181959,
-    "longitude": 16.390816
+    "longitude": 16.390816,
+    "camId": 131,
+    "firstPano": "2013-03-21"
   },
   {
     "name": "Wien Rathausturm",
@@ -23986,21 +24546,27 @@
     "url": "https://wildkogel-arena.panomax.com/gensbichl-berg",
     "provider": "panomax",
     "latitude": 47.286272,
-    "longitude": 12.266029
+    "longitude": 12.266029,
+    "camId": 1734,
+    "firstPano": "2018-02-07"
   },
   {
     "name": "Wildkogel Arena - Skihütte Rettenstein",
     "url": "https://wildkogel-arena.panomax.com/rettenstein",
     "provider": "panomax",
     "latitude": 47.288943,
-    "longitude": 12.279792
+    "longitude": 12.279792,
+    "camId": 8188,
+    "firstPano": "2024-11-05"
   },
   {
     "name": "Wildkogel Arena - Wildkogel Bergstation",
     "url": "https://wildkogel-arena.panomax.com/wildkogelbahn-berg",
     "provider": "panomax",
     "latitude": 47.280534,
-    "longitude": 12.280884
+    "longitude": 12.280884,
+    "camId": 1641,
+    "firstPano": "2021-12-16"
   },
   {
     "name": "Wildkogelarena, Wildkogelbahn-Berg, 2091m",
@@ -24021,7 +24587,9 @@
     "url": "https://seefeld.panomax.com/wildmoosalm",
     "provider": "panomax",
     "latitude": 47.335061,
-    "longitude": 11.157881
+    "longitude": 11.157881,
+    "camId": 11734,
+    "firstPano": "2025-11-17"
   },
   {
     "name": "Wimbach Express Berg",
@@ -24077,14 +24645,18 @@
     "url": "https://murtal.panomax.com/winterleitenhuette",
     "provider": "panomax",
     "latitude": 47.094396,
-    "longitude": 14.570941
+    "longitude": 14.570941,
+    "camId": 7248,
+    "firstPano": "2023-10-25"
   },
   {
     "name": "Wintersportarena Liebenau",
     "url": "https://liebenau.panomax.com",
     "provider": "panomax",
     "latitude": 48.532416,
-    "longitude": 14.803395
+    "longitude": 14.803395,
+    "camId": 1569,
+    "firstPano": "2017-09-14"
   },
   {
     "name": "Wintersportarena Liebenau 2",
@@ -24098,7 +24670,9 @@
     "url": "https://bergeralm.panomax.com",
     "provider": "panomax",
     "latitude": 47.060494,
-    "longitude": 11.443213
+    "longitude": 11.443213,
+    "camId": 11719,
+    "firstPano": "2025-11-28"
   },
   {
     "name": "Wohlfühlhotel-Johanneshof",
@@ -24112,7 +24686,9 @@
     "url": "https://wolfsegg.panomax.com",
     "provider": "panomax",
     "latitude": 48.104316,
-    "longitude": 13.669876
+    "longitude": 13.669876,
+    "camId": 3333,
+    "firstPano": "2023-05-24"
   },
   {
     "name": "Wolfsegg am Hausruck",
@@ -24392,7 +24968,9 @@
     "url": "https://zauchensee.panomax.com",
     "provider": "panomax",
     "latitude": 47.293571,
-    "longitude": 13.457961
+    "longitude": 13.457961,
+    "camId": 761,
+    "firstPano": "2014-11-27"
   },
   {
     "name": "Zechneralm",
@@ -24651,7 +25229,9 @@
     "url": "https://zwoelferhorn.panomax.com",
     "provider": "panomax",
     "latitude": 47.742688,
-    "longitude": 13.35419
+    "longitude": 13.35419,
+    "camId": 533,
+    "firstPano": "2021-02-01"
   },
   {
     "name": "Zwölferkogel",

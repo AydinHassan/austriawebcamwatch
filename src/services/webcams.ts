@@ -7,6 +7,14 @@ export type Webcam = {
   provider: string
   latitude: number
   longitude: number
+  // Panomax only
+  camId?: number
+  firstPano?: string | null
+}
+
+// Panomax cams with a known camera id are shown in our own panorama viewer
+export function hasPanoViewer(webcam: Webcam): boolean {
+  return webcam.provider === 'panomax' && !!webcam.camId
 }
 
 const webcamsWithIds: Webcam[] = webcams.map((cam, index) => ({
