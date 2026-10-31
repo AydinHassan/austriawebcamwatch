@@ -20,7 +20,7 @@ import {
 
 import {Button} from "@/components/ui/button";
 import { Badge } from '@/components/ui/badge'
-import { CaretSortIcon, CheckIcon } from '@radix-icons/vue'
+import { CaretSortIcon, CheckIcon, TargetIcon } from '@radix-icons/vue'
 import { usePresetsStore } from '@/stores/presets'
 
 useHead({
@@ -113,6 +113,23 @@ watch(providerFilter, () => {
   addMarkers(map)
 })
 
+const locationError = ref(false)
+let userMarker = null
+
+const onLocationFound = (e) => {
+  locationError.value = false
+  userMarker?.remove()
+  userMarker = L.marker(e.latlng, {
+    icon: L.divIcon({
+      className: 'rounded-full border-2 border-white bg-blue-600 shadow-md',
+      iconSize: [16, 16],
+    }),
+    interactive: false,
+    keyboard: false,
+    zIndexOffset: 1000,
+  }).addTo(map)
+}
+
 onMounted(() => {
   map = L.map(mapEl.value, {
     center: [47.7, 13.7],
@@ -130,6 +147,9 @@ onMounted(() => {
     menu.open = true;
   });
   map.on('movestart click', closeMenu);
+  map.on('locationfound', onLocationFound);
+  map.on('locationerror', () => { locationError.value = true });
+  map.locate();
 });
 
 onBeforeUnmount(() => {
@@ -162,6 +182,15 @@ const selectedWebcam = ref(null);
           <Badge v-if="currentProvider.badge" variant="outline" :class="['text-[9px]', currentProvider.badge]">{{ currentProvider.label }}</Badge>
           <span v-else>{{ currentProvider.label }}</span>
           <CaretSortIcon class="h-3.5 w-3.5 text-muted-foreground" />
+        </button>
+        <button
+          type="button"
+          class="absolute bottom-6 right-3 z-[1000] flex items-center gap-1.5 rounded-full border bg-popover p-1.5 text-xs shadow-md hover:bg-accent"
+          aria-label="Show my location"
+          @click.stop="map.locate({ setView: true, maxZoom: 13 })"
+        >
+          <span v-if="locationError" class="pl-1 text-destructive">Location unavailable</span>
+          <TargetIcon class="h-4 w-4 text-muted-foreground" />
         </button>
         <div
           v-if="menu.open"
