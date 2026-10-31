@@ -17,11 +17,6 @@ export type Webcam = {
   aliases?: string[]
 }
 
-// Cams we can load images for directly are shown in our own viewer
-export function hasOwnViewer(webcam: Webcam): boolean {
-  return (webcam.provider === 'panomax' && !!webcam.camId) || (webcam.provider === 'foto-webcam' && !!webcam.fotoWebcamId)
-}
-
 const webcamsWithIds: Webcam[] = webcams.map((cam, index) => ({
   ...cam,
   id: index

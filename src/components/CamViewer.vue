@@ -14,11 +14,12 @@ import { Button } from '@/components/ui/button'
 import { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Slider } from '@/components/ui/slider'
 import type { Webcam } from '@/services/webcams'
-import { neighbourShot, shiftDate, todayInAustria, type CamDay } from '@/services/panomax'
+import { neighbourShot, shiftDate, todayInAustria, type CamDay } from '@/services/camSource'
 import { camSource } from '@/services/camSources'
 
 const props = defineProps<{ webcam: Webcam }>()
-const source = computed(() => camSource(props.webcam))
+// Only rendered for cams with a source (see hasOwnViewer)
+const source = computed(() => camSource(props.webcam)!)
 const today = computed(() => todayInAustria())
 
 // --- Which shot is shown ---------------------------------------------------
@@ -46,6 +47,8 @@ function goLive() {
 }
 
 defineExpose({ refresh: goLive })
+// Lets the parent fall back to the provider's own embed
+const emit = defineEmits<{ unavailable: [] }>()
 
 // --- Polling for new shots ---------------------------------------------------
 // Only while following the latest shot and the cam is on screen.
@@ -58,7 +61,10 @@ async function refreshLatest() {
   try {
     latest.value = await source.value.latestDay()
   } catch {
-    if (!latest.value) error.value = 'Could not load this cam'
+    if (!latest.value) {
+      error.value = 'Could not load this cam'
+      emit('unavailable')
+    }
   }
 }
 

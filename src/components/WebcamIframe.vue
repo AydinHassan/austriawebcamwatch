@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import Iframe from '@/components/Iframe.vue'
 import CamViewer from '@/components/CamViewer.vue'
-import { hasOwnViewer, type Webcam } from '@/services/webcams'
-import { computed, ref } from 'vue'
+import type { Webcam } from '@/services/webcams'
+import { hasOwnViewer } from '@/services/camSources'
+import { computed, ref, watch } from 'vue'
 
 const props = defineProps<{webcam: Webcam}>()
 
@@ -16,6 +17,10 @@ const url = computed(() => {
 
   return props.webcam.url
 })
+
+// Use the provider's embed when our viewer cannot load the cam
+const viewerFailed = ref(false)
+watch(() => props.webcam.name, () => (viewerFailed.value = false))
 
 const iframeEl = ref(null)
 const viewerEl = ref(null)
@@ -32,6 +37,12 @@ defineExpose({refreshCam})
 </script>
 
 <template>
-  <CamViewer v-if="hasOwnViewer(webcam)" :webcam="webcam" class="h-full w-full" ref="viewerEl" />
+  <CamViewer
+    v-if="hasOwnViewer(webcam) && !viewerFailed"
+    :webcam="webcam"
+    class="h-full w-full"
+    ref="viewerEl"
+    @unavailable="viewerFailed = true"
+  />
   <Iframe v-else :src="url" :provider="webcam.provider" class="h-full w-full" ref="iframeEl" />
 </template>

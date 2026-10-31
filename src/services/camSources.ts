@@ -1,34 +1,20 @@
-// One interface over the providers our viewer can show directly
+// Providers whose images our own viewer can show
 import type { Webcam } from '@/services/webcams'
+import type { CamSource } from '@/services/camSource'
 import * as panomax from '@/services/panomax'
 import * as fotoWebcam from '@/services/fotoWebcam'
-import type { CamDay, PanomaxDay } from '@/services/panomax'
+import * as bergfex from '@/services/bergfex'
 
-export type CamSource = {
-  // Earliest date with images, when known
-  firstDate: string | null
-  latestDay(): Promise<CamDay>
-  day(date: string): Promise<CamDay | null>
-  imageUrl(day: CamDay, time: string, pixelHeight: number): string
+const providers: Record<string, (webcam: Webcam) => CamSource | null> = {
+  panomax: panomax.source,
+  'foto-webcam': fotoWebcam.source,
+  bergfex: bergfex.source,
 }
 
-export function camSource(webcam: Webcam): CamSource {
-  if (webcam.provider === 'foto-webcam') {
-    const id = webcam.fotoWebcamId!
-    const interval = webcam.captureInterval ?? 600
-    return {
-      firstDate: null,
-      latestDay: () => fotoWebcam.fetchLatestDay(id, interval),
-      day: (date) => fotoWebcam.fetchDay(id, interval, date),
-      imageUrl: (day, time, h) => fotoWebcam.imageUrl(id, day.date, time, fotoWebcam.sizeFor(h)),
-    }
-  }
+export function camSource(webcam: Webcam): CamSource | null {
+  return providers[webcam.provider]?.(webcam) ?? null
+}
 
-  const camId = webcam.camId!
-  return {
-    firstDate: webcam.firstPano ?? null,
-    latestDay: () => panomax.fetchLatestDay(camId),
-    day: (date) => panomax.fetchDay(camId, date),
-    imageUrl: (day, time, h) => panomax.imageUrl(camId, day as PanomaxDay, time, panomax.resolutionFor(h)),
-  }
+export function hasOwnViewer(webcam: Webcam): boolean {
+  return camSource(webcam) !== null
 }
