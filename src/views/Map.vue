@@ -148,6 +148,7 @@ onMounted(() => {
   map.on('movestart click', closeMenu);
   map.on('locationfound', onLocationFound);
   map.on('locationerror', () => { locationError.value = true });
+  map.locate();
 });
 
 onBeforeUnmount(() => {
