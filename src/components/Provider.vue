@@ -9,4 +9,5 @@ const props = defineProps({
 <template>
   <Badge v-if="cam.provider === 'panomax'" variant="outline" class="ml-3 text-[9px] border-green-400/20 text-green-500">Panomax</Badge>
   <Badge v-if="cam.provider === 'bergfex'" variant="outline" class="ml-3 text-[9px] border-sky-400/20 text-sky-500">Bergfex</Badge>
+  <Badge v-if="cam.provider === 'foto-webcam'" variant="outline" class="ml-3 text-[9px] border-amber-400/20 text-amber-500">Foto W</Badge>
 </template>

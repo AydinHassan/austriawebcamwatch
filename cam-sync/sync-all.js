@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
-import { fetchWithRetries, Throttle, dedupeUrls, dedupeNamesAndSort } from './utils.js';
+import { fetchWithRetries, Throttle, dedupeUrls, dedupeNamesAndSort, removeBergfexCopies, carryOverAliases } from './utils.js';
+import { fetchFotoWebcamCams } from './foto-webcam.js';
 
 const bergfexThrottle = new Throttle(3000);
 
@@ -192,7 +193,10 @@ async function main() {
   });
   console.log(`[merge] Preserved ${preservedBergfex.length} bergfex cams not in this scrape (not confirmed-removed)`);
 
-  let allCams = [...panomaxCams, ...bergfexCams, ...preservedBergfex];
+  const fotoWebcamCams = await fetchFotoWebcamCams();
+  const { bergfex, direct } = removeBergfexCopies([...bergfexCams, ...preservedBergfex], [...panomaxCams, ...fotoWebcamCams]);
+
+  let allCams = [...carryOverAliases(direct, existing), ...bergfex];
   console.log(`[merge] Total before dedupe: ${allCams.length}`);
 
   allCams = dedupeUrls(allCams);

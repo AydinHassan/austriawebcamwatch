@@ -1,3 +1,4 @@
+import fs from 'fs';
 // Dedupe URLs (first occurrence wins) and assign stable name suffixes for
 // duplicate names. Pass `existingNameByUrl` to preserve names from a prior
 // run so unchanged cams never get renumbered just because scrape order shifted.
@@ -44,6 +45,10 @@ export function dedupeNamesAndSort(cams, existingNameByUrl = {}) {
 
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
+
+const overrides = JSON.parse(
+  fs.readFileSync(new URL('./bergfex-overrides.json', import.meta.url), 'utf-8'),
+);
 
 export class Throttle {
   constructor(baseDelay = 3000) {
@@ -116,4 +121,83 @@ export async function fetchWithRetries(url, { maxRetries = 5, throttle } = {}) {
       }
     }
   }
+}
+
+function distanceMetres(a, b) {
+  const rad = deg => (deg * Math.PI) / 180;
+  const dLat = rad(b.latitude - a.latitude);
+  const dLon = rad(b.longitude - a.longitude);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.latitude)) * Math.cos(rad(b.latitude)) * Math.sin(dLon / 2) ** 2;
+  return 2 * 6371000 * Math.asin(Math.sqrt(h));
+}
+
+function nameWords(name) {
+  return new Set(
+    name
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .split(/[^a-z0-9]+/)
+      .filter(w => w.length >= 3),
+  );
+}
+
+function nameSimilarity(a, b) {
+  const wa = nameWords(a);
+  const wb = nameWords(b);
+  const shared = [...wa].filter(w => wb.has(w)).length;
+  return shared / Math.max(1, Math.min(wa.size, wb.size));
+}
+
+// Bergfex re-publishes cams from other providers, copying their coordinates
+// exactly. Drop those copies in favour of the direct cams, and remember the
+// Bergfex name as an alias so presets that use it keep working.
+// Only cams on the identical point count (nearby ones are separate cams), and
+// matching is one-to-one by best name. Where that cannot tell, a person decided:
+// see bergfex-overrides.json.
+export function removeBergfexCopies(bergfexCams, directCams, maxDistance = 1, reviewDistance = 25) {
+  const pairs = [];
+  for (const b of bergfexCams) {
+    if (b.latitude == null || b.longitude == null) continue;
+    for (const d of directCams) {
+      const distance = distanceMetres(b, d);
+      if (distance <= reviewDistance) {
+        pairs.push({ b, d, distance, score: nameSimilarity(b.name, d.name) });
+      }
+    }
+  }
+  pairs.sort((x, y) => y.score - x.score || x.distance - y.distance);
+
+  const replaced = new Map();
+  const usedDirect = new Set();
+  // Copies on the identical point, one per direct cam, unless a person said otherwise
+  for (const { b, d, distance } of pairs) {
+    if (distance > maxDistance || replaced.has(b) || usedDirect.has(d)) continue;
+    if (overrides.different.includes(b.name)) continue;
+    replaced.set(b, d);
+    usedDirect.add(d);
+  }
+  // Copies a person confirmed, including extra ones and slightly moved ones
+  for (const { b, d } of [...pairs].sort((x, y) => x.distance - y.distance)) {
+    if (!replaced.has(b) && overrides.same.includes(b.name)) replaced.set(b, d);
+  }
+
+  const direct = directCams.map(cam => {
+    const copies = [...replaced].filter(([, d]) => d === cam).map(([b]) => b.name);
+    return copies.length ? { ...cam, aliases: [...new Set([...(cam.aliases ?? []), ...copies])] } : cam;
+  });
+
+  const unconfirmed = [...replaced.keys()].filter(b => !overrides.same.includes(b.name)).length;
+  console.log(`[merge] Dropped ${replaced.size} Bergfex copies of direct cams (${replaced.size - unconfirmed} confirmed by review)`);
+  return { bergfex: bergfexCams.filter(b => !replaced.has(b)), direct };
+}
+
+// Keep aliases from the previous sync, since the Bergfex copies they came
+// from are no longer around to be matched again
+export function carryOverAliases(cams, existing) {
+  const aliasesByUrl = Object.fromEntries(existing.filter(c => c.aliases).map(c => [c.url, c.aliases]));
+  return cams.map(cam => {
+    const previous = aliasesByUrl[cam.url];
+    return previous ? { ...cam, aliases: [...new Set([...previous, ...(cam.aliases ?? [])])] } : cam;
+  });
 }

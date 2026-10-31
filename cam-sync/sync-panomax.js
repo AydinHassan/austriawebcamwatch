@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { fetchWithRetries, dedupeUrls, dedupeNamesAndSort } from './utils.js';
+import { fetchWithRetries, dedupeUrls, dedupeNamesAndSort, removeBergfexCopies, carryOverAliases } from './utils.js';
+import { fetchFotoWebcamCams } from './foto-webcam.js';
 
 const __dirname = import.meta.dirname;
 const outputPath = path.resolve(__dirname, '..', 'src', 'assets', 'austria-cams.json');
@@ -34,8 +35,10 @@ async function main() {
   console.log(`[merge] Keeping ${existingBergfex.length} existing bergfex cameras`);
 
   const panomaxCams = await fetchPanomaxCams();
+  const fotoWebcamCams = await fetchFotoWebcamCams();
+  const { bergfex, direct } = removeBergfexCopies(existingBergfex, [...panomaxCams, ...fotoWebcamCams]);
 
-  let allCams = [...panomaxCams, ...existingBergfex];
+  let allCams = [...carryOverAliases(direct, existing), ...bergfex];
   console.log(`[merge] Total before dedupe: ${allCams.length}`);
 
   allCams = dedupeUrls(allCams);

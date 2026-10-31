@@ -6,10 +6,14 @@ const API = 'https://api.panomax.com/1.0'
 
 export type Resolution = 'optimized' | 'reduced' | 'default'
 
-export type PanomaxDay = {
+// A day of shots for any provider
+export type CamDay = {
   date: string // YYYY-MM-DD
-  storage: number
   times: string[] // HH:MM:SS, oldest first
+}
+
+export type PanomaxDay = CamDay & {
+  storage: number
 }
 
 const dayCache = new Map<string, Promise<PanomaxDay | null>>()
@@ -86,13 +90,13 @@ export function todayInAustria(now = new Date()): string {
 
 // Walk to the neighbouring shot, crossing into adjacent days when needed.
 // Gaps of missing days are skipped, up to a week.
-export async function neighbourShot(
-  camId: number,
-  day: PanomaxDay,
+export async function neighbourShot<D extends CamDay>(
+  getDay: (date: string) => Promise<D | null>,
+  day: D,
   time: string,
   direction: 1 | -1,
   bounds: { min?: string | null; max: string },
-): Promise<{ day: PanomaxDay; time: string } | null> {
+): Promise<{ day: D; time: string } | null> {
   const i = day.times.indexOf(time)
   const next = day.times[i + direction]
   if (i !== -1 && next) return { day, time: next }
@@ -101,7 +105,7 @@ export async function neighbourShot(
   for (let tries = 0; tries < 7; tries++) {
     date = shiftDate(date, direction)
     if (date > bounds.max || (bounds.min && date < bounds.min)) return null
-    const other = await fetchDay(camId, date)
+    const other = await getDay(date)
     if (other) {
       return { day: other, time: direction === 1 ? other.times[0] : other.times[other.times.length - 1] }
     }

@@ -45,6 +45,7 @@ const providers = [
   { value: 'all', label: 'All providers', badge: '' },
   { value: 'panomax', label: 'Panomax', badge: 'border-green-400/20 text-green-500' },
   { value: 'bergfex', label: 'Bergfex', badge: 'border-sky-400/20 text-sky-500' },
+  { value: 'foto-webcam', label: 'Foto W', badge: 'border-amber-400/20 text-amber-500' },
 ]
 const providerFilter = ref('all')
 const currentProvider = computed(() => providers.find((p) => p.value === providerFilter.value))

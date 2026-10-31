@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import Iframe from '@/components/Iframe.vue'
-import PanomaxViewer from '@/components/PanomaxViewer.vue'
-import { hasPanoViewer, type Webcam } from '@/services/webcams'
+import CamViewer from '@/components/CamViewer.vue'
+import { hasOwnViewer, type Webcam } from '@/services/webcams'
 import { computed, ref } from 'vue'
 
 const props = defineProps<{webcam: Webcam}>()
@@ -32,6 +32,6 @@ defineExpose({refreshCam})
 </script>
 
 <template>
-  <PanomaxViewer v-if="hasPanoViewer(webcam)" :webcam="webcam" class="h-full w-full" ref="viewerEl" />
+  <CamViewer v-if="hasOwnViewer(webcam)" :webcam="webcam" class="h-full w-full" ref="viewerEl" />
   <Iframe v-else :src="url" :provider="webcam.provider" class="h-full w-full" ref="iframeEl" />
 </template>

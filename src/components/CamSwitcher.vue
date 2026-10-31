@@ -84,6 +84,7 @@ defineExpose({
                 <span class="whitespace-nowrap text-ellipsis overflow-hidden max-w-[160px]">{{ webcam.name }}</span>
                 <Badge v-if="webcam.provider === 'panomax'" variant="outline" class="ml-3 text-[9px] border-green-400/20 text-green-500">Panomax</Badge>
                 <Badge v-if="webcam.provider === 'bergfex'" variant="outline" class="ml-3 text-[9px] border-sky-400/20 text-sky-500">Bergfex</Badge>
+                <Badge v-if="webcam.provider === 'foto-webcam'" variant="outline" class="ml-3 text-[9px] border-amber-400/20 text-amber-500">Foto W</Badge>
                 <CheckIcon
                   :class="cn('ml-auto h-4 w-4',
                              selectedWebcams.some(w => w.name === webcam.name)
