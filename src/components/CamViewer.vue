@@ -46,6 +46,8 @@ function goLive() {
 }
 
 defineExpose({ refresh: goLive })
+// Lets the parent fall back to the provider's own embed
+const emit = defineEmits<{ unavailable: [] }>()
 
 // --- Polling for new shots ---------------------------------------------------
 // Only while following the latest shot and the cam is on screen.
@@ -58,7 +60,10 @@ async function refreshLatest() {
   try {
     latest.value = await source.value.latestDay()
   } catch {
-    if (!latest.value) error.value = 'Could not load this cam'
+    if (!latest.value) {
+      error.value = 'Could not load this cam'
+      emit('unavailable')
+    }
   }
 }
 

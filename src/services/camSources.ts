@@ -2,6 +2,7 @@
 import type { Webcam } from '@/services/webcams'
 import * as panomax from '@/services/panomax'
 import * as fotoWebcam from '@/services/fotoWebcam'
+import * as bergfex from '@/services/bergfex'
 import type { CamDay, PanomaxDay } from '@/services/panomax'
 
 export type CamSource = {
@@ -13,6 +14,16 @@ export type CamSource = {
 }
 
 export function camSource(webcam: Webcam): CamSource {
+  if (webcam.provider === 'bergfex') {
+    const id = bergfex.bergfexId(webcam.url)!
+    return {
+      firstDate: null,
+      latestDay: () => bergfex.fetchLatestDay(id),
+      day: (date) => bergfex.fetchDay(id, date),
+      imageUrl: (day, time) => (day as bergfex.BergfexDay).srcs[time],
+    }
+  }
+
   if (webcam.provider === 'foto-webcam') {
     const id = webcam.fotoWebcamId!
     const interval = webcam.captureInterval ?? 600
