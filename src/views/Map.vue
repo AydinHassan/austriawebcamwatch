@@ -34,6 +34,7 @@ const presetsStore = usePresetsStore()
 
 import webcams from '@/assets/austria-cams.json';
 import Provider from '@/components/Provider.vue'
+import WebcamIframe from '@/components/WebcamIframe.vue'
 
 const svgIcon = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-9">
@@ -190,7 +191,7 @@ const selectedWebcam = ref(null);
             <DialogDescription />
           </DialogHeader>
           <div class="flex-1">
-            <iframe  :src="selectedWebcam.url" class="h-full w-full"/>
+            <WebcamIframe :webcam="selectedWebcam" />
           </div>
           <DialogFooter>
             <Button variant="outline" @click="presetsStore.toggleWebcam(selectedWebcam); selectedWebcam = null">
