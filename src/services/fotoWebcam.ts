@@ -1,7 +1,8 @@
 // Direct access to foto-webcam.eu images. Their JSON API cannot be called from
 // other sites, but images live at predictable URLs, one per capture interval.
 
-import { todayInAustria, type CamDay } from '@/services/panomax'
+import type { Webcam } from '@/services/webcams'
+import { todayInAustria, type CamDay, type CamSource } from '@/services/camSource'
 
 const BASE = 'https://www.foto-webcam.eu/webcam'
 
@@ -74,4 +75,16 @@ export function fetchLatestDay(id: string, intervalSeconds: number): Promise<Cam
 export async function fetchDay(id: string, intervalSeconds: number, date: string): Promise<CamDay | null> {
   if (date === todayInAustria()) return fetchLatestDay(id, intervalSeconds).catch(() => null)
   return { date, times: slots(intervalSeconds) }
+}
+
+export function source(webcam: Webcam): CamSource | null {
+  const id = webcam.fotoWebcamId
+  if (!id) return null
+  const interval = webcam.captureInterval ?? 600
+  return {
+    firstDate: null,
+    latestDay: () => fetchLatestDay(id, interval),
+    day: (date) => fetchDay(id, interval, date),
+    imageUrl: (day, time, h) => imageUrl(id, day.date, time, sizeFor(h)),
+  }
 }

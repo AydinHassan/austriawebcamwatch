@@ -1,4 +1,3 @@
-import { bergfexId } from '@/services/bergfex'
 import webcams from '@/assets/austria-cams.json'
 
 export type Webcam = {
@@ -16,15 +15,6 @@ export type Webcam = {
   captureInterval?: number
   // Former names (e.g. the Bergfex copy this cam replaced), so presets keep working
   aliases?: string[]
-}
-
-// Cams we can load images for directly are shown in our own viewer
-export function hasOwnViewer(webcam: Webcam): boolean {
-  return (
-    (webcam.provider === 'panomax' && !!webcam.camId) ||
-    (webcam.provider === 'foto-webcam' && !!webcam.fotoWebcamId) ||
-    (webcam.provider === 'bergfex' && !!bergfexId(webcam.url))
-  )
 }
 
 const webcamsWithIds: Webcam[] = webcams.map((cam, index) => ({

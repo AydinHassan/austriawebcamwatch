@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import Iframe from '@/components/Iframe.vue'
 import CamViewer from '@/components/CamViewer.vue'
-import { hasOwnViewer, type Webcam } from '@/services/webcams'
+import type { Webcam } from '@/services/webcams'
+import { hasOwnViewer } from '@/services/camSources'
 import { computed, ref, watch } from 'vue'
 
 const props = defineProps<{webcam: Webcam}>()

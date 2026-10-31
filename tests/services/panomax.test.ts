@@ -1,13 +1,5 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
-import {
-  fetchDay,
-  imageUrl,
-  neighbourShot,
-  resolutionFor,
-  shiftDate,
-  todayInAustria,
-  type PanomaxDay,
-} from '@/services/panomax'
+import { fetchDay, imageUrl, resolutionFor, type PanomaxDay } from '@/services/panomax'
+import { neighbourShot, shiftDate, todayInAustria } from '@/services/camSource'
 
 const dayResponse = (date: string, times: string[], storage = 42) => ({
   date,

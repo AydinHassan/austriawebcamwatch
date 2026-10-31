@@ -1,7 +1,8 @@
 // Direct access to Bergfex's webcam archive. Its day listing allows calls
 // from other sites and includes the full image URL for every shot.
 
-import { todayInAustria, shiftDate, type CamDay } from '@/services/panomax'
+import type { Webcam } from '@/services/webcams'
+import { todayInAustria, shiftDate, type CamDay, type CamSource } from '@/services/camSource'
 
 const API = 'https://images.bergfex.at/ajax/webcamsarchive/'
 // 1: ~216px, 2: ~322px, 3: ~720px tall. Each size has its own URLs, so we
@@ -58,4 +59,15 @@ export function fetchLatestDay(id: string): Promise<BergfexDay> {
   latestCache.set(id, { at: Date.now(), day })
   day.catch(() => latestCache.delete(id))
   return day
+}
+
+export function source(webcam: Webcam): CamSource | null {
+  const id = bergfexId(webcam.url)
+  if (!id) return null
+  return {
+    firstDate: null,
+    latestDay: () => fetchLatestDay(id),
+    day: (date) => fetchDay(id, date),
+    imageUrl: (day, time) => (day as BergfexDay).srcs[time],
+  }
 }
