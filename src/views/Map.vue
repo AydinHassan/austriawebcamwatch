@@ -20,7 +20,7 @@ import {
 
 import {Button} from "@/components/ui/button";
 import { Badge } from '@/components/ui/badge'
-import { CaretSortIcon, CheckIcon } from '@radix-icons/vue'
+import { CaretSortIcon, CheckIcon, TargetIcon } from '@radix-icons/vue'
 import { usePresetsStore } from '@/stores/presets'
 
 useHead({
@@ -112,6 +112,82 @@ watch(providerFilter, () => {
   addMarkers(map)
 })
 
+const locating = ref(false)
+const locationError = ref(false)
+let userPosition = null
+let userMarker = null
+let accuracyCircle = null
+let recentreOnFix = false
+
+const recentre = () => {
+  map.setView(userPosition, Math.max(map.getZoom(), 13))
+}
+
+const onLocationFound = (e) => {
+  locationError.value = false
+  userPosition = e.latlng
+
+  if (userMarker) {
+    userMarker.setLatLng(e.latlng)
+    accuracyCircle.setLatLng(e.latlng).setRadius(e.accuracy)
+  } else {
+    accuracyCircle = L.circle(e.latlng, {
+      radius: e.accuracy,
+      color: '#2563eb',
+      weight: 1,
+      fillOpacity: 0.1,
+      interactive: false,
+    }).addTo(map)
+    userMarker = L.marker(e.latlng, {
+      icon: L.divIcon({
+        className: 'rounded-full border-2 border-white bg-blue-600 shadow-md',
+        iconSize: [16, 16],
+      }),
+      interactive: false,
+      keyboard: false,
+      zIndexOffset: 1000,
+    }).addTo(map)
+  }
+
+  if (recentreOnFix) {
+    recentreOnFix = false
+    recentre()
+  }
+}
+
+const onLocationError = () => {
+  // A lost fix while watching is transient, so keep showing the last position.
+  if (userPosition) return
+  map.stopLocate()
+  locating.value = false
+  locationError.value = true
+}
+
+const startLocating = () => {
+  locating.value = true
+  locationError.value = false
+  map.locate({ watch: true, enableHighAccuracy: true })
+}
+
+const onLocateClick = () => {
+  if (userPosition) {
+    recentre()
+    return
+  }
+  recentreOnFix = true
+  if (!locating.value) startLocating()
+}
+
+// Only ask for location on click, but show it straight away if already allowed.
+const showLocationIfAllowed = async () => {
+  try {
+    const { state } = await navigator.permissions.query({ name: 'geolocation' })
+    if (state === 'granted' && map) startLocating()
+  } catch {
+    // Permissions API unavailable: the button still works.
+  }
+}
+
 onMounted(() => {
   map = L.map(mapEl.value, {
     center: [47.7, 13.7],
@@ -129,6 +205,9 @@ onMounted(() => {
     menu.open = true;
   });
   map.on('movestart click', closeMenu);
+  map.on('locationfound', onLocationFound);
+  map.on('locationerror', onLocationError);
+  showLocationIfAllowed();
 });
 
 onBeforeUnmount(() => {
@@ -161,6 +240,15 @@ const selectedWebcam = ref(null);
           <Badge v-if="currentProvider.badge" variant="outline" :class="['text-[9px]', currentProvider.badge]">{{ currentProvider.label }}</Badge>
           <span v-else>{{ currentProvider.label }}</span>
           <CaretSortIcon class="h-3.5 w-3.5 text-muted-foreground" />
+        </button>
+        <button
+          type="button"
+          class="absolute bottom-6 right-3 z-[1000] flex items-center gap-1.5 rounded-full border bg-popover p-1.5 text-xs shadow-md hover:bg-accent"
+          aria-label="Show my location"
+          @click.stop="onLocateClick"
+        >
+          <span v-if="locationError" class="pl-1 text-destructive">Location unavailable</span>
+          <TargetIcon :class="['h-4 w-4', locating ? 'text-blue-600' : 'text-muted-foreground']" />
         </button>
         <div
           v-if="menu.open"
