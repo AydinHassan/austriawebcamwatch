@@ -32,6 +32,7 @@ export interface Repository {
   deletePreset(id: string): Promise<void>
   addCamToPreset(id: string, camId: string): Promise<void>
   removeCamFromPreset(id: string, camId: string): Promise<void>
+  setPresetCams(id: string, camIds: string[]): Promise<void>
 
   loadSettings(): Promise<UserSettings>
   saveSettings(settings: UserSettings): Promise<void>

@@ -75,6 +75,17 @@ export const localRepository: Repository = {
     await this.savePresets(presets)
   },
 
+  async setPresetCams(id: string, camIds: string[]): Promise<void> {
+    const presets = await this.loadPresets()
+    const preset = presets?.find(p => p.id === id)
+    if (!presets || !preset) {
+      return
+    }
+
+    preset.camIds = camIds
+    await this.savePresets(presets)
+  },
+
   async loadSettings(): Promise<UserSettings> {
     return {
       selectedPreset: localStorage.getItem('selectedPreset') ?? null,

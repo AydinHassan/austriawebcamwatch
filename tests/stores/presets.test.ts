@@ -38,6 +38,7 @@ describe('usePresetsStore', () => {
       deletePreset: vi.fn().mockResolvedValue(undefined),
       addCamToPreset: vi.fn().mockResolvedValue(undefined),
       removeCamFromPreset: vi.fn().mockResolvedValue(undefined),
+      setPresetCams: vi.fn().mockResolvedValue(undefined),
       loadSettings: vi.fn().mockResolvedValue({ visited: false, selectedPreset: null }),
       saveSettings: vi.fn().mockResolvedValue(undefined)
     }
