@@ -11,7 +11,8 @@ import {
 
 import { cn } from '@/lib/utils'
 
-import { CaretSortIcon, CheckIcon, Cross2Icon } from '@radix-icons/vue'
+import { CaretSortIcon, CheckIcon, Cross2Icon, DragHandleDots2Icon } from '@radix-icons/vue'
+import SortableList from '@/components/SortableList.vue'
 import { ref } from 'vue'
 import { Dialog, DialogFooter, DialogHeader, DialogDescription, DialogTitle, DialogTrigger, DialogContent } from '@/components/ui/dialog'
 import { usePresetsStore } from '@/stores/presets'
@@ -28,6 +29,23 @@ defineExpose({
 
 const presetToDelete = ref(null)
 const deleteOpen = ref(false)
+
+// Dropping a dragged item also fires its select handler, so ignore
+// selection while a drag is in progress or has just ended
+let dragging = false
+let droppedAt = 0
+const isDragging = () => dragging || Date.now() - droppedAt < 400
+
+function onDragEnd() {
+  dragging = false
+  droppedAt = Date.now()
+}
+
+function selectPreset(id) {
+  if (isDragging()) return
+  presetsStore.switchPreset(id)
+  open.value = false
+}
 </script>
 
 <template>
@@ -51,17 +69,23 @@ const deleteOpen = ref(false)
             <CommandInput placeholder="Search presets..." />
             <CommandEmpty>No preset found.</CommandEmpty>
             <CommandGroup>
+              <SortableList
+                handle=".drag-handle"
+                @start="dragging = true"
+                @end="onDragEnd"
+                @move="presetsStore.movePreset"
+              >
               <CommandItem
                 v-for="preset in presets"
                 :key="preset.name"
                 :value="preset.name"
                 class="text-sm"
-                @select="presetsStore.switchPreset(preset.id); open = false;"
+                @select="selectPreset(preset.id)"
               >
                 <span class="whitespace-nowrap text-ellipsis overflow-hidden max-w-[160px]">{{ preset.name }}</span>
                 <Badge variant="outline" class="ml-3 text-[9px] border-green-400/20 text-green-500"> {{preset.cams.length }} webcams</Badge>
                 <DialogTrigger asChild>
-                  <Cross2Icon @click.stop="presetToDelete = preset.name" :class="cn('ml-2 h-4 w-4 cursor-pointer hover:text-red-400')" />
+                  <Cross2Icon @click.stop="presetToDelete = preset.id" :class="cn('ml-2 h-4 w-4 cursor-pointer hover:text-red-400')" />
                 </DialogTrigger>
                 <CheckIcon
                   :class="cn('ml-auto h-4 w-4',
@@ -70,7 +94,15 @@ const deleteOpen = ref(false)
                                : 'opacity-0',
                   )"
                 />
+                <span
+                  class="drag-handle -mr-1 flex h-7 w-7 shrink-0 cursor-grab touch-none items-center justify-center text-muted-foreground"
+                  aria-label="Drag to reorder"
+                  @click.stop
+                >
+                  <DragHandleDots2Icon class="h-4 w-4" />
+                </span>
               </CommandItem>
+              </SortableList>
             </CommandGroup>
           </CommandList>
         </Command>
@@ -85,7 +117,7 @@ const deleteOpen = ref(false)
         </DialogDescription>
       </DialogHeader>
       <DialogFooter>
-        <Button type="submit" @click="presetsStore.deletePreset(presetToDelete); deleteOpen = false">Confirm</Button>
+        <Button type="submit" @click="presetsStore.removePreset(presetToDelete); deleteOpen = false">Confirm</Button>
       </DialogFooter>
     </DialogContent>
   </Dialog>

@@ -2,6 +2,7 @@ export type PresetEntity = {
   id: string
   name: string
   camIds: string[]
+  position?: number
 }
 
 export type UserSettings = {
@@ -33,6 +34,7 @@ export interface Repository {
   addCamToPreset(id: string, camId: string): Promise<void>
   removeCamFromPreset(id: string, camId: string): Promise<void>
   setPresetCams(id: string, camIds: string[]): Promise<void>
+  setPresetOrder(ids: string[]): Promise<void>
 
   loadSettings(): Promise<UserSettings>
   saveSettings(settings: UserSettings): Promise<void>

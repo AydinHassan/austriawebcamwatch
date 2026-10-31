@@ -86,6 +86,16 @@ export const localRepository: Repository = {
     await this.savePresets(presets)
   },
 
+  async setPresetOrder(ids: string[]): Promise<void> {
+    const presets = await this.loadPresets()
+    if (!presets) {
+      return
+    }
+
+    presets.sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id))
+    await this.savePresets(presets)
+  },
+
   async loadSettings(): Promise<UserSettings> {
     return {
       selectedPreset: localStorage.getItem('selectedPreset') ?? null,

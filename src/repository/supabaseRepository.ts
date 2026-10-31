@@ -15,6 +15,7 @@ export const supabaseRepository: Repository = {
       .from('presets')
       .select('id, name, cam_ids')
       .eq('user_id', user.id)
+      .order('position')
 
     if (error) {
       throw error
@@ -51,11 +52,12 @@ export const supabaseRepository: Repository = {
     }
 
     const { error: insertError } = await supabase.from('presets').insert(
-      presets.map(p => ({
+      presets.map((p, position) => ({
         id: p.id,
         user_id: user.id,
         name: p.name,
-        cam_ids: p.camIds
+        cam_ids: p.camIds,
+        position
       }))
     )
 
@@ -75,7 +77,8 @@ export const supabaseRepository: Repository = {
       id: preset.id,
       user_id: user.id,
       name: preset.name,
-      cam_ids: preset.camIds
+      cam_ids: preset.camIds,
+      position: preset.position ?? 0
     })
 
     if (error) {
@@ -152,6 +155,27 @@ export const supabaseRepository: Repository = {
 
     if (error) {
       throw error
+    }
+  },
+
+  async setPresetOrder(ids: string[]): Promise<void> {
+    const { data: { user }, error: userError } = await supabase.auth.getUser()
+
+    if (userError) {
+      throw userError
+    }
+
+    const results = await Promise.all(ids.map((id, position) =>
+      supabase
+        .from('presets')
+        .update({ position })
+        .eq('id', id)
+        .eq('user_id', user.id)
+    ))
+
+    const failed = results.find(r => r.error)
+    if (failed) {
+      throw failed.error
     }
   },
 
