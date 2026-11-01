@@ -63,4 +63,27 @@ describe('bergfex service', () => {
     stubSizes({ 5: new Error('down'), 3: [{ hour: 7, min: 0, src: 'large-0700.jpg' }] })
     expect((await fetchLatestDay('4')).times).toEqual(['07:00:00'])
   })
+
+  it('does not check again until the next shot is due', async () => {
+    const now = Date.now()
+    const clock = vi.spyOn(Date, 'now')
+    const fetchMock = vi.fn(async () => ({
+      ok: true,
+      json: async () => [{ hour: 7, min: 0, filetime: now / 1000, src: 'a.jpg' }],
+    }))
+    vi.stubGlobal('fetch', fetchMock)
+
+    clock.mockReturnValue(now)
+    await fetchLatestDay('5')
+    const calls = fetchMock.mock.calls.length
+
+    clock.mockReturnValue(now + 14 * 60_000)
+    await fetchLatestDay('5')
+    expect(fetchMock.mock.calls.length).toBe(calls)
+
+    clock.mockReturnValue(now + 16 * 60_000)
+    await fetchLatestDay('5')
+    expect(fetchMock.mock.calls.length).toBe(calls * 2)
+    clock.mockRestore()
+  })
 })
