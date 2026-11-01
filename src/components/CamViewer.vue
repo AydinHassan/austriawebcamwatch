@@ -370,7 +370,7 @@ watch(source, () => {
           >
             <ChevronRightIcon />
           </Button>
-          <!-- Stays in place while live, so the buttons do not move under the cursor -->
+          <!-- Always shown, because appearing on the first step back would widen the bar and shift the arrows -->
           <Button
             variant="ghost"
             size="icon"
