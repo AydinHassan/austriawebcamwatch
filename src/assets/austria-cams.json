@@ -17484,7 +17484,7 @@
     "latitude": 46.924031,
     "longitude": 13.140279,
     "fotoWebcamId": "raggaschlucht2",
-    "captureInterval": 31536000
+    "captureInterval": 1800
   },
   {
     "name": "Ramsau",
@@ -23420,6 +23420,15 @@
     "provider": "bergfex",
     "latitude": 47.907505,
     "longitude": 13.528229
+  },
+  {
+    "name": "Unken-Heutal",
+    "url": "https://terra-hd.com/heutal/",
+    "provider": "foto-webcam",
+    "latitude": 47.66698,
+    "longitude": 12.61317,
+    "fotoWebcamId": "heutal",
+    "captureInterval": 600
   },
   {
     "name": "Unterach am Attersee",
