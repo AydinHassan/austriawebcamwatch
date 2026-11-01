@@ -38,21 +38,29 @@ describe('bergfex service', () => {
       return { ok: true, json: async () => size }
     }))
 
-  it('fills shots missing from the full size list with smaller ones', async () => {
+  it('takes the newest shots from any size, preferring the largest copy', async () => {
     stubSizes({
-      3: [{ hour: 7, min: 0, src: 'full-0700.jpg' }],
+      5: [{ hour: 7, min: 0, src: 'large-0700.jpg' }],
       2: [
-        { hour: 7, min: 0, src: 'small-0700.jpg' },
+        { hour: 7, min: 0, src: 'mid-0700.jpg' },
+        { hour: 7, min: 45, src: 'mid-0745.jpg' },
+      ],
+      1: [
         { hour: 7, min: 45, src: 'small-0745.jpg' },
+        { hour: 8, min: 0, src: 'small-0800.jpg' },
       ],
     })
     const day = await fetchLatestDay('3')
-    expect(day.times).toEqual(['07:00:00', '07:45:00'])
-    expect(day.srcs).toEqual({ '07:00:00': 'full-0700.jpg', '07:45:00': 'small-0745.jpg' })
+    expect(day.times).toEqual(['07:00:00', '07:45:00', '08:00:00'])
+    expect(day.srcs).toEqual({
+      '07:00:00': 'large-0700.jpg',
+      '07:45:00': 'mid-0745.jpg',
+      '08:00:00': 'small-0800.jpg',
+    })
   })
 
-  it('still shows the full size list when the smaller one fails', async () => {
-    stubSizes({ 3: [{ hour: 7, min: 0, src: 'full-0700.jpg' }], 2: new Error('down') })
+  it('still shows what it can when some sizes fail', async () => {
+    stubSizes({ 5: new Error('down'), 3: [{ hour: 7, min: 0, src: 'large-0700.jpg' }] })
     expect((await fetchLatestDay('4')).times).toEqual(['07:00:00'])
   })
 })

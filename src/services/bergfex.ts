@@ -5,11 +5,11 @@ import type { Webcam } from '@/services/webcams'
 import { todayInAustria, shiftDate, type CamDay, type CamSource } from '@/services/camSource'
 
 const API = 'https://images.bergfex.at/ajax/webcamsarchive/'
-// 1: ~216px, 2: ~322px, 3: ~720px tall. Each size has its own URLs. Size 3 is
-// large enough for full screen, ~130 KB per image, but can appear up to a couple
-// of hours after the smaller sizes.
-const SIZE = 3
-const SMALLER_SIZE = 2
+// Sizes by preference: 5 and 3 are ~720px tall, 2 ~514px, 4 ~360px, 1 ~345px.
+// Each size has its own URLs and its own list of today's shots, and those lists
+// can be over an hour apart, so no single size can be trusted to be the newest.
+const SIZES = [5, 3, 2, 4, 1]
+const SIZE = SIZES[0]
 
 export type BergfexDay = CamDay & {
   srcs: Record<string, string> // time -> image URL
@@ -37,25 +37,17 @@ async function load(id: string, date: string, size = SIZE): Promise<BergfexDay |
   return { date, times, srcs }
 }
 
-// Today's full-size shots, plus smaller ones for shots not yet available in full
-// size. Those are replaced on a later poll, once the full size exists.
+// Every shot any size has so far, each from the largest size that has it.
+// Smaller copies are replaced on a later poll, once a larger one exists.
 async function loadToday(id: string, date: string): Promise<BergfexDay | null> {
-  const [fullSize, smaller] = await Promise.all([
-    load(id, date),
-    load(id, date, SMALLER_SIZE).catch(() => null),
-  ])
+  const days = await Promise.all(SIZES.map((size) => load(id, date, size).catch(() => null)))
 
-  if (!smaller) {
-    return fullSize
+  const srcs: Record<string, string> = {}
+  for (const day of days.reverse()) {
+    Object.assign(srcs, day?.srcs)
   }
-  if (!fullSize) {
-    return smaller
-  }
-
-  // When a shot has both sizes, the full size wins
-  const srcs = { ...smaller.srcs, ...fullSize.srcs }
   const times = Object.keys(srcs).sort()
-  return { date, times, srcs }
+  return times.length ? { date, times, srcs } : null
 }
 
 const dayCache = new Map<string, Promise<BergfexDay | null>>()
