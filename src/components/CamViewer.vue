@@ -81,15 +81,20 @@ watch(
 // --- History navigation ----------------------------------------------------
 
 async function step(direction: 1 | -1) {
-  if (!day.value || !time.value || busy.value) return
+  if (!day.value || !time.value || busy.value) {
+    return
+  }
   busy.value = true
   try {
     const target = await neighbourShot(source.value.day, day.value, time.value, direction, {
       min: source.value.firstDate,
       max: today.value,
     })
-    if (target) show(target.day, target.time, direction)
-    else if (direction === 1) goLive()
+    if (target) {
+      show(target.day, target.time, direction)
+    } else if (direction === 1) {
+goLive()
+}
   } finally {
     busy.value = false
   }
@@ -102,7 +107,9 @@ const pickerIndex = ref([0])
 const pickerMessage = ref<string | null>(null)
 
 watch(pickerOpen, (open) => {
-  if (!open || !day.value) return
+  if (!open || !day.value) {
+    return
+  }
   pickerDate.value = day.value.date
   pickerDay.value = day.value
   pickerIndex.value = [Math.max(0, day.value.times.indexOf(time.value!))]
@@ -110,13 +117,17 @@ watch(pickerOpen, (open) => {
 })
 
 async function pickDate(date: string) {
-  if (!date) return
+  if (!date) {
+    return
+  }
   pickerDate.value = date
   pickerMessage.value = 'Loading…'
   const d = await source.value.day(date).catch(() => null)
   pickerDay.value = d
   pickerMessage.value = d ? null : 'No images'
-  if (!d) return
+  if (!d) {
+    return
+  }
   // Keep roughly the same time of day when switching dates
   pickerIndex.value = [
     Math.max(
@@ -128,7 +139,9 @@ async function pickDate(date: string) {
 }
 
 function showPicked() {
-  if (pickerDay.value) show(pickerDay.value, pickerDay.value.times[pickerIndex.value[0]])
+  if (pickerDay.value) {
+    show(pickerDay.value, pickerDay.value.times[pickerIndex.value[0]])
+  }
 }
 
 // Desktop Chrome only opens its calendar from the icon, so open it on click
@@ -146,9 +159,13 @@ const formatDate = (date: string, opts: Intl.DateTimeFormatOptions) =>
   new Date(`${date}T12:00:00Z`).toLocaleDateString(undefined, { ...opts, timeZone: 'UTC' })
 
 const label = computed(() => {
-  if (!day.value || !time.value) return '…'
+  if (!day.value || !time.value) {
+    return '…'
+  }
   const t = time.value.slice(0, 5)
-  if (day.value.date === today.value) return t
+  if (day.value.date === today.value) {
+    return t
+  }
   const sameYear = day.value.date.slice(0, 4) === today.value.slice(0, 4)
   return `${formatDate(day.value.date, { day: 'numeric', month: 'short', year: sameYear ? undefined : 'numeric' })} ${t}`
 })
@@ -170,7 +187,9 @@ const pickerTime = (i: number) => pickerDay.value?.times[i]?.slice(0, 5) ?? '--:
 
 const { height: rootHeight, width: rootWidth } = useElementSize(root)
 const src = computed(() => {
-  if (!day.value || !time.value) return null
+  if (!day.value || !time.value) {
+    return null
+  }
   return source.value.imageUrl(day.value, time.value, rootHeight.value * (window.devicePixelRatio || 1))
 })
 const shown = ref<{ src: string; ratio: number } | null>(null)
@@ -181,18 +200,24 @@ const loading = ref(false)
 let skip: { direction: 1 | -1; left: number } | null = null
 
 watch(src, (url) => {
-  if (!url) return
+  if (!url) {
+    return
+  }
   loading.value = true
   const img = new Image()
   img.onload = () => {
-    if (src.value !== url) return
+    if (src.value !== url) {
+      return
+    }
     shown.value = { src: url, ratio: img.naturalWidth / img.naturalHeight }
     skip = null
     loading.value = false
     error.value = null
   }
   img.onerror = () => {
-    if (src.value !== url) return
+    if (src.value !== url) {
+      return
+    }
     if (skip && skip.left > 0) {
       skip.left--
       busy.value = false
@@ -227,7 +252,9 @@ function onPointerDown(e: PointerEvent) {
 }
 
 function onPointerMove(e: PointerEvent) {
-  if (drag?.id !== e.pointerId || !overflow.value) return
+  if (drag?.id !== e.pointerId || !overflow.value) {
+    return
+  }
   pan.value = clamp(drag.pan - (e.clientX - drag.x) / overflow.value)
   lastInteraction = Date.now()
 }
@@ -241,10 +268,16 @@ function onPointerUp() {
 let autoDir = 1
 const reducedMotion = usePreferredReducedMotion()
 useRafFn(({ delta }) => {
-  if (reducedMotion.value === 'reduce' || drag || !overflow.value || !isVisible.value) return
-  if (Date.now() - lastInteraction < 8_000) return
+  if (reducedMotion.value === 'reduce' || drag || !overflow.value || !isVisible.value) {
+    return
+  }
+  if (Date.now() - lastInteraction < 8_000) {
+    return
+  }
   const next = pan.value + (autoDir * 12 * Math.min(delta, 100)) / 1000 / overflow.value
-  if (next <= 0 || next >= 1) autoDir = -autoDir
+  if (next <= 0 || next >= 1) {
+    autoDir = -autoDir
+  }
   pan.value = clamp(next)
 })
 

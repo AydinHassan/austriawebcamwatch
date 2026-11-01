@@ -48,6 +48,12 @@ export default [
     },
   },
   {
+    name: 'app/curly',
+    rules: {
+      curly: ['error', 'all'],
+    },
+  },
+  {
     name: 'app/tailwind',
     files: ['**/tailwind.config.js'],
     languageOptions: {
