@@ -42,7 +42,9 @@ function onDragEnd() {
 }
 
 function selectPreset(id) {
-  if (isDragging()) return
+  if (isDragging()) {
+    return
+  }
   presetsStore.switchPreset(id)
   open.value = false
 }
