@@ -36,12 +36,16 @@ export async function neighbourShot<D extends CamDay>(
 ): Promise<{ day: D; time: string } | null> {
   const i = day.times.indexOf(time)
   const next = day.times[i + direction]
-  if (i !== -1 && next) return { day, time: next }
+  if (i !== -1 && next) {
+    return { day, time: next }
+  }
 
   let date = day.date
   for (let tries = 0; tries < 7; tries++) {
     date = shiftDate(date, direction)
-    if (date > bounds.max || (bounds.min && date < bounds.min)) return null
+    if (date > bounds.max || (bounds.min && date < bounds.min)) {
+      return null
+    }
     const other = await getDay(date)
     if (other) {
       return { day: other, time: direction === 1 ? other.times[0] : other.times[other.times.length - 1] }
