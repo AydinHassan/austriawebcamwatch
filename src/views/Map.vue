@@ -219,7 +219,7 @@ const selectedWebcam = ref(null);
             class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none hover:bg-accent hover:text-accent-foreground"
             @click="providerFilter = p.value; menu.open = false"
           >
-            <CheckIcon v-if="providerFilter === p.value" class="absolute left-2 h-4 w-4" />
+            <CheckIcon v-if="providerFilter === p.value" class="absolute left-2 h-4 w-4 text-green-500" />
             <Badge v-if="p.badge" variant="outline" :class="['text-[9px]', p.badge]">{{ p.label }}</Badge>
             <template v-else>{{ p.label }}</template>
           </button>
