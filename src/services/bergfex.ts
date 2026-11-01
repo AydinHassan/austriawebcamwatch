@@ -36,8 +36,10 @@ async function load(id: string, date: string, size = SIZE): Promise<BergfexDay |
 // Today's full-size shots, plus smaller ones for shots not yet available in full
 // size. Those are replaced on a later poll, once the full size exists.
 async function loadToday(id: string, date: string): Promise<BergfexDay | null> {
-  const fullSize = await load(id, date)
-  const smaller = await load(id, date, SMALLER_SIZE).catch(() => null)
+  const [fullSize, smaller] = await Promise.all([
+    load(id, date),
+    load(id, date, SMALLER_SIZE).catch(() => null),
+  ])
 
   if (!smaller) return fullSize
   if (!fullSize) return smaller
