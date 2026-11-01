@@ -17,6 +17,7 @@
     "sync": "node cam-sync/sync-all.js"
   },
   "dependencies": {
+    "@internationalized/date": "^3.12.4",
     "@radix-icons/vue": "^1.0.0",
     "@supabase/supabase-js": "^2.81.1",
     "@tailwindcss/vite": "^4.0.4",
