@@ -9,7 +9,7 @@ const API = 'https://images.bergfex.at/ajax/webcamsarchive/'
 // large enough for full screen, ~130 KB per image, but can appear up to a couple
 // of hours after the smaller sizes.
 const SIZE = 3
-const FRESH_SIZE = 2
+const SMALLER_SIZE = 2
 
 export type BergfexDay = CamDay & {
   srcs: Record<string, string> // time -> image URL
@@ -36,13 +36,16 @@ async function load(id: string, date: string, size = SIZE): Promise<BergfexDay |
 // Today's full-size shots, plus smaller ones for shots not yet available in full
 // size. Those are replaced on a later poll, once the full size exists.
 async function loadToday(id: string, date: string): Promise<BergfexDay | null> {
-  const [full, fresh] = await Promise.all([
-    load(id, date),
-    load(id, date, FRESH_SIZE).catch(() => null),
-  ])
-  if (!full || !fresh) return full ?? fresh
-  const srcs = { ...fresh.srcs, ...full.srcs }
-  return { date, times: Object.keys(srcs).sort(), srcs }
+  const fullSize = await load(id, date)
+  const smaller = await load(id, date, SMALLER_SIZE).catch(() => null)
+
+  if (!smaller) return fullSize
+  if (!fullSize) return smaller
+
+  // When a shot has both sizes, the full size wins
+  const srcs = { ...smaller.srcs, ...fullSize.srcs }
+  const times = Object.keys(srcs).sort()
+  return { date, times, srcs }
 }
 
 const dayCache = new Map<string, Promise<BergfexDay | null>>()
