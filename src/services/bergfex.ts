@@ -41,8 +41,12 @@ async function loadToday(id: string, date: string): Promise<BergfexDay | null> {
     load(id, date, SMALLER_SIZE).catch(() => null),
   ])
 
-  if (!smaller) return fullSize
-  if (!fullSize) return smaller
+  if (!smaller) {
+    return fullSize
+  }
+  if (!fullSize) {
+    return smaller
+  }
 
   // When a shot has both sizes, the full size wins
   const srcs = { ...smaller.srcs, ...fullSize.srcs }
