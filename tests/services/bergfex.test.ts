@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { bergfexId, fetchDay } from '@/services/bergfex'
+import { bergfexId, fetchDay, fetchLatestDay } from '@/services/bergfex'
 
 describe('bergfex service', () => {
   beforeEach(() => {
@@ -27,5 +27,32 @@ describe('bergfex service', () => {
   it('treats an empty archive as no images', async () => {
     vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => null })))
     expect(await fetchDay('2', '2020-01-01')).toBeNull()
+  })
+
+  const stubSizes = (sizes: Record<string, unknown>) =>
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      const size = sizes[new URL(url).searchParams.get('size')!]
+      if (size instanceof Error) {
+        throw size
+      }
+      return { ok: true, json: async () => size }
+    }))
+
+  it('fills shots missing from the full size list with smaller ones', async () => {
+    stubSizes({
+      3: [{ hour: 7, min: 0, src: 'full-0700.jpg' }],
+      2: [
+        { hour: 7, min: 0, src: 'small-0700.jpg' },
+        { hour: 7, min: 45, src: 'small-0745.jpg' },
+      ],
+    })
+    const day = await fetchLatestDay('3')
+    expect(day.times).toEqual(['07:00:00', '07:45:00'])
+    expect(day.srcs).toEqual({ '07:00:00': 'full-0700.jpg', '07:45:00': 'small-0745.jpg' })
+  })
+
+  it('still shows the full size list when the smaller one fails', async () => {
+    stubSizes({ 3: [{ hour: 7, min: 0, src: 'full-0700.jpg' }], 2: new Error('down') })
+    expect((await fetchLatestDay('4')).times).toEqual(['07:00:00'])
   })
 })
