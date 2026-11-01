@@ -86,7 +86,7 @@ defineExpose({
                 <Badge v-if="webcam.provider === 'bergfex'" variant="outline" class="ml-3 text-[9px] border-sky-400/20 text-sky-500">Bergfex</Badge>
                 <Badge v-if="webcam.provider === 'foto-webcam'" variant="outline" class="ml-3 text-[9px] border-amber-400/20 text-amber-500">Foto W</Badge>
                 <CheckIcon
-                  :class="cn('ml-auto h-4 w-4',
+                  :class="cn('ml-auto h-4 w-4 text-green-500',
                              selectedWebcams.some(w => w.name === webcam.name)
                                ? 'opacity-100'
                                : 'opacity-0',

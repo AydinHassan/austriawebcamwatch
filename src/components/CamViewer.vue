@@ -337,7 +337,7 @@ watch(source, () => {
             variant="ghost"
             size="icon"
             class="h-7 w-7 hover:bg-white/20 hover:text-white"
-            :disabled="!day || busy"
+            :disabled="!day"
             aria-label="Previous image"
             @click="step(-1)"
           >
@@ -346,28 +346,37 @@ watch(source, () => {
           <PopoverTrigger as-child>
             <Button
               variant="ghost"
-              class="h-7 px-3 text-xs tabular-nums hover:bg-white/20 hover:text-white"
+              class="h-7 min-w-36 px-3 text-xs tabular-nums hover:bg-white/20 hover:text-white"
               aria-label="Choose date and time"
             >
-              <Loader2 v-if="loading && shown" class="animate-spin" />
-              {{ label }}
+              <!-- The pulse starts at full opacity, so quick steps barely show it -->
+              <span
+                :class="{
+                  'motion-safe:animate-pulse motion-safe:[animation-duration:1.2s] motion-reduce:opacity-50':
+                    loading && shown,
+                }"
+              >
+                {{ label }}
+              </span>
             </Button>
           </PopoverTrigger>
           <Button
             variant="ghost"
             size="icon"
             class="h-7 w-7 hover:bg-white/20 hover:text-white"
-            :disabled="!day || busy || live"
+            :disabled="!day || live"
             aria-label="Next image"
             @click="step(1)"
           >
             <ChevronRightIcon />
           </Button>
+          <!-- Stays in place while live, so the buttons do not move under the cursor -->
           <Button
-            v-if="!live"
             variant="ghost"
             size="icon"
-            class="h-7 w-7 bg-white/15 hover:bg-white/25 hover:text-white"
+            class="h-7 w-7 hover:bg-white/25 hover:text-white"
+            :class="{ 'bg-white/15': !live }"
+            :disabled="live"
             aria-label="Back to latest image"
             title="Latest"
             @click="goLive"

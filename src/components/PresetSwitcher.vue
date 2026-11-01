@@ -90,7 +90,7 @@ function selectPreset(id) {
                   <Cross2Icon @click.stop="presetToDelete = preset.id" :class="cn('ml-2 h-4 w-4 cursor-pointer hover:text-red-400')" />
                 </DialogTrigger>
                 <CheckIcon
-                  :class="cn('ml-auto h-4 w-4',
+                  :class="cn('ml-auto h-4 w-4 text-green-500',
                              preset.name === selectedPreset?.name ?? null
                                ? 'opacity-100'
                                : 'opacity-0',
