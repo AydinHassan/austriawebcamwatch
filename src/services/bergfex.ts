@@ -5,9 +5,11 @@ import type { Webcam } from '@/services/webcams'
 import { todayInAustria, shiftDate, type CamDay, type CamSource } from '@/services/camSource'
 
 const API = 'https://images.bergfex.at/ajax/webcamsarchive/'
-// 1: ~216px, 2: ~322px, 3: ~720px tall. Each size has its own URLs, so we
-// stick to one: large enough for full screen, ~130 KB per image.
+// 1: ~216px, 2: ~322px, 3: ~720px tall. Each size has its own URLs. Size 3 is
+// large enough for full screen, ~130 KB per image, but can appear up to a couple
+// of hours after the smaller sizes.
 const SIZE = 3
+const FRESH_SIZE = 2
 
 export type BergfexDay = CamDay & {
   srcs: Record<string, string> // time -> image URL
@@ -17,8 +19,8 @@ export function bergfexId(url: string): string | null {
   return url.match(/[?&]id=(\d+)/)?.[1] ?? null
 }
 
-async function load(id: string, date: string): Promise<BergfexDay | null> {
-  const res = await fetch(`${API}?id=${id}&date=${date}&size=${SIZE}`)
+async function load(id: string, date: string, size = SIZE): Promise<BergfexDay | null> {
+  const res = await fetch(`${API}?id=${id}&date=${date}&size=${size}`)
   if (!res.ok) throw new Error(`Bergfex ${res.status}`)
   const shots: { hour: number; min: number; src: string }[] | null = await res.json()
   if (!shots?.length) return null
@@ -29,6 +31,18 @@ async function load(id: string, date: string): Promise<BergfexDay | null> {
   }
   const times = Object.keys(srcs).sort()
   return { date, times, srcs }
+}
+
+// Today's full-size shots, plus smaller ones for shots not yet available in full
+// size. Those are replaced on a later poll, once the full size exists.
+async function loadToday(id: string, date: string): Promise<BergfexDay | null> {
+  const [full, fresh] = await Promise.all([
+    load(id, date),
+    load(id, date, FRESH_SIZE).catch(() => null),
+  ])
+  if (!full || !fresh) return full ?? fresh
+  const srcs = { ...fresh.srcs, ...full.srcs }
+  return { date, times: Object.keys(srcs).sort(), srcs }
 }
 
 const dayCache = new Map<string, Promise<BergfexDay | null>>()
@@ -52,7 +66,7 @@ export function fetchLatestDay(id: string): Promise<BergfexDay> {
 
   const day = (async () => {
     const today = todayInAustria()
-    const latest = (await load(id, today)) ?? (await fetchDay(id, shiftDate(today, -1)))
+    const latest = (await loadToday(id, today)) ?? (await fetchDay(id, shiftDate(today, -1)))
     if (!latest) throw new Error('No Bergfex images')
     return latest
   })()

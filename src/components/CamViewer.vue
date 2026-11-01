@@ -68,7 +68,10 @@ async function refreshLatest() {
   }
 }
 
-const poll = useIntervalFn(refreshLatest, 2 * 60_000, { immediate: false })
+const poll = useIntervalFn(refreshLatest, 2 * 60_000, {
+  immediate: false,
+  immediateCallback: true, // Catch up as soon as the cam is back on screen
+})
 watch(
   () => live.value && isVisible.value && pageVisibility.value === 'visible',
   (active) => (active ? poll.resume() : poll.pause()),
