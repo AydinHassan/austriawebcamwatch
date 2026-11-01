@@ -1,16 +1,13 @@
 import { fetchWithRetries } from './utils.js';
 
-// foto-webcam.eu has no public list API, but its homepage embeds the full
-// cam list (with coordinates) as JSON.
+// The JSON behind foto-webcam.eu's cam list. Undocumented, so it may change.
+const CAMS_URL = 'https://www.foto-webcam.eu/webcam/include/metadata.php';
+
 export async function fetchFotoWebcamCams() {
   console.log('[foto-webcam] Fetching camera list...');
-  const html = await fetchWithRetries('https://www.foto-webcam.eu/');
-  const start = html.indexOf('[{"id":');
-  if (start === -1) {
-    throw new Error('foto-webcam cam list not found on homepage');
-  }
+  const { cams: allCams } = JSON.parse(await fetchWithRetries(CAMS_URL));
 
-  const cams = parseJsonArray(html.slice(start))
+  const cams = allCams
     .filter(cam => cam.country === 'at' && !cam.hidden && cam.latitude && cam.longitude)
     .map(cam => ({
       name: cam.name,
@@ -25,30 +22,4 @@ export async function fetchFotoWebcamCams() {
 
   console.log(`[foto-webcam] Found ${cams.length} Austrian cameras`);
   return cams;
-}
-
-// Parse the JSON array at the start of `text`, ignoring whatever follows it
-function parseJsonArray(text) {
-  let depth = 0;
-  let inString = false;
-  for (let i = 0; i < text.length; i++) {
-    const ch = text[i];
-    if (inString) {
-      if (ch === '\\') {
-        i++;
-      } else if (ch === '"') {
-inString = false;
-}
-    } else if (ch === '"') {
-      inString = true;
-    } else if (ch === '[' || ch === '{') {
-depth++;
-} else if (ch === ']' || ch === '}') {
-      depth--;
-      if (depth === 0) {
-        return JSON.parse(text.slice(0, i + 1));
-      }
-    }
-  }
-  throw new Error('Unterminated JSON array');
 }
