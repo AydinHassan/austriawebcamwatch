@@ -105,17 +105,11 @@ const toggleChipMenu = () => {
   menu.fromChip = true
   menu.open = !menu.open
 }
-const closeMenu = () => {
-  menu.open = false
-}
+const closeMenu = () => { menu.open = false }
 
 watch(providerFilter, () => {
-  if (!map) {
-    return
-  }
-  if (markerCluster) {
-    map.removeLayer(markerCluster)
-  }
+  if (!map) return
+  if (markerCluster) map.removeLayer(markerCluster)
   addMarkers(map)
 })
 
@@ -154,9 +148,7 @@ onMounted(() => {
   });
   map.on('movestart click', closeMenu);
   map.on('locationfound', onLocationFound);
-  map.on('locationerror', () => {
-    locationError.value = true
-  });
+  map.on('locationerror', () => { locationError.value = true });
   map.locate();
 });
 
@@ -167,11 +159,7 @@ onBeforeUnmount(() => {
 
 onMounted(() => document.addEventListener('keydown', onKey))
 onBeforeUnmount(() => document.removeEventListener('keydown', onKey))
-function onKey(e) {
- if (e.key === 'Escape') {
-   closeMenu()
- }
-}
+function onKey(e) { if (e.key === 'Escape') closeMenu() }
 
 const open = ref(false);
 

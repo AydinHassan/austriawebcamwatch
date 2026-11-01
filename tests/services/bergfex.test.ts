@@ -32,9 +32,7 @@ describe('bergfex service', () => {
   const stubSizes = (sizes: Record<string, unknown>) =>
     vi.stubGlobal('fetch', vi.fn(async (url: string) => {
       const size = sizes[new URL(url).searchParams.get('size')!]
-      if (size instanceof Error) {
-        throw size
-      }
+      if (size instanceof Error) throw size
       return { ok: true, json: async () => size }
     }))
 

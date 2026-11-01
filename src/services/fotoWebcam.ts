@@ -10,12 +10,8 @@ export type FotoWebcamSize = 'la' | 'lm' | 'hd'
 
 // la: 816x459, lm: 1200x675, hd: 1920x1080
 export function sizeFor(pixelHeight: number): FotoWebcamSize {
-  if (pixelHeight <= 460) {
-    return 'la'
-  }
-  if (pixelHeight <= 675) {
-    return 'lm'
-  }
+  if (pixelHeight <= 460) return 'la'
+  if (pixelHeight <= 675) return 'lm'
   return 'hd'
 }
 
@@ -29,9 +25,7 @@ export function slots(intervalSeconds: number, until = '23:59:59'): string[] {
   const out: string[] = []
   for (let m = 0; m < 24 * 60; m += step) {
     const t = `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}:00`
-    if (t <= until) {
-      out.push(t)
-    }
+    if (t <= until) out.push(t)
   }
   return out
 }
@@ -61,9 +55,7 @@ const latestCache = new Map<string, { at: number; day: Promise<CamDay> }>()
 // using the tiny thumbnail, since the newest shot can take a while to appear.
 export function fetchLatestDay(id: string, intervalSeconds: number): Promise<CamDay> {
   const cached = latestCache.get(id)
-  if (cached && Date.now() - cached.at < 50_000) {
-    return cached.day
-  }
+  if (cached && Date.now() - cached.at < 50_000) return cached.day
 
   const day = (async () => {
     const date = todayInAustria()
@@ -81,17 +73,13 @@ export function fetchLatestDay(id: string, intervalSeconds: number): Promise<Cam
 }
 
 export async function fetchDay(id: string, intervalSeconds: number, date: string): Promise<CamDay | null> {
-  if (date === todayInAustria()) {
-    return fetchLatestDay(id, intervalSeconds).catch(() => null)
-  }
+  if (date === todayInAustria()) return fetchLatestDay(id, intervalSeconds).catch(() => null)
   return { date, times: slots(intervalSeconds) }
 }
 
 export function source(webcam: Webcam): CamSource | null {
   const id = webcam.fotoWebcamId
-  if (!id) {
-    return null
-  }
+  if (!id) return null
   const interval = webcam.captureInterval ?? 600
   return {
     firstDate: null,

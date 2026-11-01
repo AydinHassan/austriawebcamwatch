@@ -72,33 +72,15 @@ function initIframe() {
   iframeEl.value.setAttribute('style', 'visibility: hidden; position: absolute; top: -99999px; border: none; height: 100%; width: 100%;')
   iframeEl.value.setAttribute('frameborder', '0')
   iframeEl.value.setAttribute('id', props.frameId)
-  if (props.src) {
-    iframeEl.value.setAttribute('iframe-src', props.src)
-  }
-  if (props.className) {
-    iframeEl.value.setAttribute('class', props.className)
-  }
-  if (props.crossorigin) {
-    iframeEl.value.setAttribute('crossorigin', props.crossorigin)
-  }
-  if (props.target) {
-    iframeEl.value.setAttribute('target', props.target)
-  }
-  if (props.allow) {
-    iframeEl.value.setAttribute('allow', props.allow)
-  }
-  if (props.name) {
-    iframeEl.value.setAttribute('name', props.name)
-  }
-  if (props.scrolling) {
-    iframeEl.value.setAttribute('scrolling', props.scrolling)
-  }
-  if (props.width) {
-    iframeEl.value.setAttribute('width', props.width)
-  }
-  if (props.height) {
-    iframeEl.value.setAttribute('height', props.height)
-  }
+  if (props.src) iframeEl.value.setAttribute('iframe-src', props.src)
+  if (props.className) iframeEl.value.setAttribute('class', props.className)
+  if (props.crossorigin) iframeEl.value.setAttribute('crossorigin', props.crossorigin)
+  if (props.target) iframeEl.value.setAttribute('target', props.target)
+  if (props.allow) iframeEl.value.setAttribute('allow', props.allow)
+  if (props.name) iframeEl.value.setAttribute('name', props.name)
+  if (props.scrolling) iframeEl.value.setAttribute('scrolling', props.scrolling)
+  if (props.width) iframeEl.value.setAttribute('width', props.width)
+  if (props.height) iframeEl.value.setAttribute('height', props.height)
 
   container.value?.appendChild(iframeEl.value)
   setIframeUrl()

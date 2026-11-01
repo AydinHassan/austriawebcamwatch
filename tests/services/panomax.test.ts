@@ -12,9 +12,7 @@ const dayResponse = (date: string, times: string[], storage = 42) => ({
 function mockFetch(days: Record<string, string[]>) {
   const fn = vi.fn(async (url: string) => {
     const date = url.split('/').pop()!
-    if (!days[date]) {
-      return { ok: false, status: 422, json: async () => ({}) }
-    }
+    if (!days[date]) return { ok: false, status: 422, json: async () => ({}) }
     return { ok: true, status: 200, json: async () => dayResponse(date, days[date]) }
   })
   vi.stubGlobal('fetch', fn)

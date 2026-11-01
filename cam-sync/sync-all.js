@@ -146,9 +146,7 @@ async function fetchBergfexCams(camLinks) {
         console.log(`[bergfex] 404 for ${url}, skipping`);
         notFoundCount++;
         const id = bergfexIdFromPath(url);
-        if (id) {
-          notFoundIds.add(id);
-        }
+        if (id) notFoundIds.add(id);
         continue;
       }
       failedCount++;
@@ -170,9 +168,7 @@ async function fetchBergfexCams(camLinks) {
 // --- Main ---
 
 function loadExisting() {
-  if (!fs.existsSync(outputPath)) {
-    return [];
-  }
+  if (!fs.existsSync(outputPath)) return [];
   return JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
 }
 
@@ -190,13 +186,9 @@ async function main() {
   const scrapedUrls = new Set(bergfexCams.map(c => c.url));
   const existingBergfex = existing.filter(c => c.provider === 'bergfex');
   const preservedBergfex = existingBergfex.filter(c => {
-    if (scrapedUrls.has(c.url)) {
-      return false;
-    }
+    if (scrapedUrls.has(c.url)) return false;
     const id = bergfexIdFromIframeUrl(c.url);
-    if (id && notFoundIds.has(id)) {
-      return false;
-    }
+    if (id && notFoundIds.has(id)) return false;
     return true;
   });
   console.log(`[merge] Preserved ${preservedBergfex.length} bergfex cams not in this scrape (not confirmed-removed)`);

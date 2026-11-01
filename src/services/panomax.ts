@@ -26,12 +26,8 @@ export function imageUrl(camId: number, day: PanomaxDay, time: string, res: Reso
 
 // Pick the smallest image that still looks sharp at the rendered height.
 export function resolutionFor(pixelHeight: number): Resolution {
-  if (pixelHeight <= 300) {
-    return 'optimized'
-  }
-  if (pixelHeight <= 450) {
-    return 'reduced'
-  }
+  if (pixelHeight <= 300) return 'optimized'
+  if (pixelHeight <= 450) return 'reduced'
   return 'default'
 }
 
@@ -46,15 +42,11 @@ function parseDay(data: any): PanomaxDay {
 // The most recent day with images (usually today), used for polling.
 export function fetchLatestDay(camId: number): Promise<PanomaxDay> {
   const cached = latestCache.get(camId)
-  if (cached && Date.now() - cached.at < LATEST_TTL_MS) {
-    return cached.day
-  }
+  if (cached && Date.now() - cached.at < LATEST_TTL_MS) return cached.day
 
   const day = (async () => {
     const res = await fetch(`${API}/cams/${camId}/images/day`)
-    if (!res.ok) {
-      throw new Error(`Panomax ${res.status}`)
-    }
+    if (!res.ok) throw new Error(`Panomax ${res.status}`)
     const day = parseDay(await res.json())
     dayCache.set(`${camId}/${day.date}`, Promise.resolve(day))
     return day
@@ -68,18 +60,12 @@ export function fetchLatestDay(camId: number): Promise<PanomaxDay> {
 export function fetchDay(camId: number, date: string): Promise<PanomaxDay | null> {
   const key = `${camId}/${date}`
   const cached = dayCache.get(key)
-  if (cached) {
-    return cached
-  }
+  if (cached) return cached
 
   const day = (async () => {
     const res = await fetch(`${API}/cams/${camId}/images/day/${date}`)
-    if (res.status === 422 || res.status === 404) {
-      return null
-    }
-    if (!res.ok) {
-      throw new Error(`Panomax ${res.status}`)
-    }
+    if (res.status === 422 || res.status === 404) return null
+    if (!res.ok) throw new Error(`Panomax ${res.status}`)
     const day = parseDay(await res.json())
     return day.times.length ? day : null
   })()
@@ -90,9 +76,7 @@ export function fetchDay(camId: number, date: string): Promise<PanomaxDay | null
 
 export function source(webcam: Webcam): CamSource | null {
   const camId = webcam.camId
-  if (!camId) {
-    return null
-  }
+  if (!camId) return null
   return {
     firstDate: webcam.firstPano ?? null,
     latestDay: () => fetchLatestDay(camId),

@@ -7,9 +7,7 @@ import fs from 'fs';
 export function dedupeUrls(cams) {
   const seen = new Set();
   return cams.filter(cam => {
-    if (seen.has(cam.url)) {
-      return false;
-    }
+    if (seen.has(cam.url)) return false;
     seen.add(cam.url);
     return true;
   });
@@ -38,9 +36,7 @@ export function dedupeNamesAndSort(cams, existingNameByUrl = {}) {
     let chosen = base;
     if (taken.has(chosen)) {
       let n = 2;
-      while (taken.has(`${base} ${n}`)) {
-        n++;
-      }
+      while (taken.has(`${base} ${n}`)) n++;
       chosen = `${base} ${n}`;
     }
     out[i] = { ...cam, name: chosen };
@@ -94,9 +90,7 @@ export async function fetchWithRetries(url, { maxRetries = 5, throttle } = {}) {
       }
 
       if (response.status === 429) {
-        if (throttle) {
-          throttle.onRateLimit();
-        }
+        if (throttle) throttle.onRateLimit();
         const delay = Math.min(2000 * Math.pow(2, attempt), 60000);
         console.error(`Attempt ${attempt + 1} failed: 429 rate limited, waiting ${Math.round(delay / 1000)}s`);
         if (attempt < maxRetries - 1) {
@@ -108,12 +102,8 @@ export async function fetchWithRetries(url, { maxRetries = 5, throttle } = {}) {
         throw error;
       }
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      if (throttle) {
-        throttle.onSuccess();
-      }
+      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+      if (throttle) throttle.onSuccess();
       return await response.text();
     } catch (error) {
       if (error.status === 404 || error.status === 429) {
@@ -168,9 +158,7 @@ function nameSimilarity(a, b) {
 export function removeBergfexCopies(bergfexCams, directCams, maxDistance = 1, reviewDistance = 25) {
   const pairs = [];
   for (const b of bergfexCams) {
-    if (b.latitude == null || b.longitude == null) {
-      continue;
-    }
+    if (b.latitude == null || b.longitude == null) continue;
     for (const d of directCams) {
       const distance = distanceMetres(b, d);
       if (distance <= reviewDistance) {
@@ -184,20 +172,14 @@ export function removeBergfexCopies(bergfexCams, directCams, maxDistance = 1, re
   const usedDirect = new Set();
   // Copies on the identical point, one per direct cam, unless a person said otherwise
   for (const { b, d, distance } of pairs) {
-    if (distance > maxDistance || replaced.has(b) || usedDirect.has(d)) {
-      continue;
-    }
-    if (overrides.different.includes(b.name)) {
-      continue;
-    }
+    if (distance > maxDistance || replaced.has(b) || usedDirect.has(d)) continue;
+    if (overrides.different.includes(b.name)) continue;
     replaced.set(b, d);
     usedDirect.add(d);
   }
   // Copies a person confirmed, including extra ones and slightly moved ones
   for (const { b, d } of [...pairs].sort((x, y) => x.distance - y.distance)) {
-    if (!replaced.has(b) && overrides.same.includes(b.name)) {
-      replaced.set(b, d);
-    }
+    if (!replaced.has(b) && overrides.same.includes(b.name)) replaced.set(b, d);
   }
 
   const direct = directCams.map(cam => {

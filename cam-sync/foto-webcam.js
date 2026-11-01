@@ -6,9 +6,7 @@ export async function fetchFotoWebcamCams() {
   console.log('[foto-webcam] Fetching camera list...');
   const html = await fetchWithRetries('https://www.foto-webcam.eu/');
   const start = html.indexOf('[{"id":');
-  if (start === -1) {
-    throw new Error('foto-webcam cam list not found on homepage');
-  }
+  if (start === -1) throw new Error('foto-webcam cam list not found on homepage');
 
   const cams = parseJsonArray(html.slice(start))
     .filter(cam => cam.country === 'at' && !cam.hidden && cam.latitude && cam.longitude)
@@ -34,20 +32,13 @@ function parseJsonArray(text) {
   for (let i = 0; i < text.length; i++) {
     const ch = text[i];
     if (inString) {
-      if (ch === '\\') {
-        i++;
-      } else if (ch === '"') {
-inString = false;
-}
-    } else if (ch === '"') {
-      inString = true;
-    } else if (ch === '[' || ch === '{') {
-depth++;
-} else if (ch === ']' || ch === '}') {
+      if (ch === '\\') i++;
+      else if (ch === '"') inString = false;
+    } else if (ch === '"') inString = true;
+    else if (ch === '[' || ch === '{') depth++;
+    else if (ch === ']' || ch === '}') {
       depth--;
-      if (depth === 0) {
-        return JSON.parse(text.slice(0, i + 1));
-      }
+      if (depth === 0) return JSON.parse(text.slice(0, i + 1));
     }
   }
   throw new Error('Unterminated JSON array');

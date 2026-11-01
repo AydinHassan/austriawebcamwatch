@@ -31,16 +31,12 @@ const emit = defineEmits<{
 }>()
 
 function onChange(name: string) {
-  if (isDragging()) {
-    return
-  }
+  if (isDragging()) return
   emit('update:modelValue', cams.find(c => c.name === name))
 }
 
 function onOpenChange(value: boolean) {
-  if (!value && isDragging()) {
-    return
-  }
+  if (!value && isDragging()) return
   open.value = value
 }
 </script>
