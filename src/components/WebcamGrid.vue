@@ -85,19 +85,25 @@ const nextModalCam = () => {
 }
 
 const hasPrev = computed(() => {
-  if (!modalWebcam.value) return false
+  if (!modalWebcam.value) {
+    return false
+  }
   const i = webcams.findIndex((c) => c.name === modalWebcam.value.name)
   return i > 0
 })
 
 const hasNext = computed(() => {
-  if (!modalWebcam.value) return false
+  if (!modalWebcam.value) {
+    return false
+  }
   const i = webcams.findIndex((c) => c.name === modalWebcam.value.name)
   return i < webcams.length - 1
 })
 
 const handleKeydown = (e: KeyboardEvent) => {
-  if (!modalOpen.value || isMobile.value) return
+  if (!modalOpen.value || isMobile.value) {
+    return
+  }
 
   if (e.key === 'ArrowLeft') {
     e.preventDefault()
