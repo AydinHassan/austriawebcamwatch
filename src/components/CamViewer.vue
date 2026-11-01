@@ -10,7 +10,9 @@ import {
 } from '@vueuse/core'
 import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon, TrackNextIcon } from '@radix-icons/vue'
 import { Loader2 } from 'lucide-vue-next'
+import { parseDate, type DateValue } from '@internationalized/date'
 import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
 import { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Slider } from '@/components/ui/slider'
 import type { Webcam } from '@/services/webcams'
@@ -105,6 +107,8 @@ const pickerDate = ref('')
 const pickerDay = ref<CamDay | null>(null)
 const pickerIndex = ref([0])
 const pickerMessage = ref<string | null>(null)
+const calendarOpen = ref(false)
+const locale = navigator.language
 
 watch(pickerOpen, (open) => {
   if (!open || !day.value) {
@@ -114,6 +118,7 @@ watch(pickerOpen, (open) => {
   pickerDay.value = day.value
   pickerIndex.value = [Math.max(0, day.value.times.indexOf(time.value!))]
   pickerMessage.value = null
+  calendarOpen.value = false
 })
 
 async function pickDate(date: string) {
@@ -144,12 +149,10 @@ function showPicked() {
   }
 }
 
-// Desktop Chrome only opens its calendar from the icon, so open it on click
-function openNativePicker(e: MouseEvent) {
-  try {
-    ;(e.currentTarget as HTMLInputElement).showPicker?.()
-  } catch {
-    // Unsupported: the browser's default behaviour applies
+function pickCalendarDate(date: DateValue | undefined) {
+  calendarOpen.value = false
+  if (date) {
+    pickDate(date.toString())
   }
 }
 
@@ -168,6 +171,14 @@ const label = computed(() => {
   }
   const sameYear = day.value.date.slice(0, 4) === today.value.slice(0, 4)
   return `${formatDate(day.value.date, { day: 'numeric', month: 'short', year: sameYear ? undefined : 'numeric' })} ${t}`
+})
+
+// One width per label format, so stepping within a format never moves the arrows
+const labelWidth = computed(() => {
+  if (!day.value || day.value.date === today.value) {
+    return ''
+  }
+  return day.value.date.slice(0, 4) === today.value.slice(0, 4) ? 'min-w-28' : 'min-w-36'
 })
 
 const pickerDateLabel = computed(() =>
@@ -346,7 +357,8 @@ watch(source, () => {
           <PopoverTrigger as-child>
             <Button
               variant="ghost"
-              class="h-7 min-w-36 px-3 text-xs tabular-nums hover:bg-white/20 hover:text-white"
+              class="h-7 px-3 text-xs tabular-nums hover:bg-white/20 hover:text-white"
+              :class="labelWidth"
               aria-label="Choose date and time"
             >
               <!-- The pulse starts at full opacity, so quick steps barely show it -->
@@ -370,13 +382,12 @@ watch(source, () => {
           >
             <ChevronRightIcon />
           </Button>
-          <!-- Always shown, because appearing on the first step back would widen the bar and shift the arrows -->
+          <!-- Sits outside the bar, so appearing on the first step back does not shift the arrows -->
           <Button
+            v-if="!live"
             variant="ghost"
             size="icon"
-            class="h-7 w-7 hover:bg-white/25 hover:text-white"
-            :class="{ 'bg-white/15': !live }"
-            :disabled="live"
+            class="absolute left-full ml-1 h-9 w-9 bg-black/35 shadow-lg ring-1 ring-white/15 hover:bg-black/50 hover:text-white"
             aria-label="Back to latest image"
             title="Latest"
             @click="goLive"
@@ -385,7 +396,7 @@ watch(source, () => {
           </Button>
         </div>
       </PopoverAnchor>
-      <!-- No auto-focus: focusing the hidden date input would open the native picker on mobile -->
+      <!-- No auto-focus: the first button would show a focus ring every time this opens -->
       <PopoverContent
         class="w-72 space-y-3 border-white/10 bg-black/75 text-white backdrop-blur-md"
         side="top"
@@ -393,26 +404,18 @@ watch(source, () => {
         @open-auto-focus.prevent
       >
         <div class="flex items-center gap-1 text-xs">
-          <!-- The native date input sits invisibly on top: tapping the label opens the device calendar -->
-          <div class="relative flex-1">
-            <div
-              class="flex h-8 items-center gap-2 whitespace-nowrap rounded-md bg-white/10 px-2.5 text-sm text-white"
-            >
-              <CalendarIcon class="text-white/60" />
-              {{ pickerDateLabel }}
-            </div>
-            <input
-              :value="pickerDate"
-              type="date"
-              :min="source.firstDate ?? undefined"
-              :max="today"
-              aria-label="Date"
-              class="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-              @click="openNativePicker"
-              @change="pickDate(($event.target as HTMLInputElement).value)"
-            />
-          </div>
           <Button
+            variant="ghost"
+            class="h-8 flex-1 justify-start gap-2 bg-white/10 px-2.5 font-normal text-white hover:bg-white/15 hover:text-white"
+            aria-label="Choose date"
+            :aria-expanded="calendarOpen"
+            @click="calendarOpen = !calendarOpen"
+          >
+            <CalendarIcon class="text-white/60" />
+            {{ pickerDateLabel }}
+          </Button>
+          <Button
+            v-if="!calendarOpen"
             variant="ghost"
             size="icon"
             class="h-8 w-8 text-white hover:bg-white/15 hover:text-white"
@@ -423,6 +426,7 @@ watch(source, () => {
             <ChevronLeftIcon />
           </Button>
           <Button
+            v-if="!calendarOpen"
             variant="ghost"
             size="icon"
             class="h-8 w-8 text-white hover:bg-white/15 hover:text-white"
@@ -433,6 +437,19 @@ watch(source, () => {
             <ChevronRightIcon />
           </Button>
         </div>
+        <!-- The popover is dark in both themes, so the calendar always uses the dark tokens -->
+        <Calendar
+          v-if="calendarOpen"
+          class="dark"
+          :model-value="parseDate(pickerDate)"
+          :min-value="source.firstDate ? parseDate(source.firstDate) : undefined"
+          :max-value="parseDate(today)"
+          :locale="locale"
+          weekday-format="short"
+          fixed-weeks
+          prevent-deselect
+          @update:model-value="pickCalendarDate"
+        />
         <div class="space-y-2 text-xs text-white/60">
           <Slider
             v-model="pickerIndex"
