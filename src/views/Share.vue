@@ -1,7 +1,7 @@
 <script setup>
 import WebcamGrid from '@/components/WebcamGrid.vue'
 
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { getWebcamById } from '@/services/webcams'
 import { useHead } from '@unhead/vue'

@@ -39,7 +39,7 @@ export default [
       },
     },
   },
-  oxlint.configs['flat/recommended'],
+  ...oxlint.configs['flat/recommended'],
   skipFormatting,
   {
     name: 'app/disable-multi-word',
@@ -51,6 +51,13 @@ export default [
     name: 'app/curly',
     rules: {
       curly: ['error', 'all'],
+    },
+  },
+  {
+    name: 'app/unused-vars',
+    files: ['**/*.vue'],
+    rules: {
+      'no-unused-vars': ['error', { ignoreRestSiblings: true }],
     },
   },
   {

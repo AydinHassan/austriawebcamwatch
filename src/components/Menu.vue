@@ -2,17 +2,14 @@
 import {
   Dialog,
   DialogClose,
-  DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogScrollContent,
-  DialogTitle,
-  DialogTrigger
+  DialogTitle
 } from '@/components/ui/dialog/index.js'
 import { CameraIcon, GithubLogoIcon, GlobeIcon, HomeIcon, InfoCircledIcon, LayersIcon,
   PersonIcon, UpdateIcon } from '@radix-icons/vue'
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuSubTrigger, DropdownMenuPortal, DropdownMenuSubContent, DropdownMenuSub } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'

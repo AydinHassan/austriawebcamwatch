@@ -24,7 +24,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const props = defineProps(['itemKey'])
+defineProps(['itemKey'])
 
 let startX = 0
 

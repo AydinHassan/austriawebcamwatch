@@ -1,15 +1,12 @@
 <script setup lang="ts">
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 import { Badge } from '@/components/ui/badge'
 import { Cross2Icon, ExternalLinkIcon, ReloadIcon, Share1Icon, SizeIcon } from '@radix-icons/vue'
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 
-import { Button } from '@/components/ui/button'
-import Iframe from '@/components/Iframe.vue'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { createShareLink } from '@/utils/share'
-import Provider from '@/components/Provider.vue'
 import type { Webcam } from '@/services/webcams'
 import { hasOwnViewer } from '@/services/camSources'
 import { usePresetsStore } from '@/stores/presets'

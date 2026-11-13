@@ -1,7 +1,7 @@
 <script setup>
 import { Badge } from '@/components/ui/badge/index.js'
 
-const props = defineProps({
+defineProps({
   cam: Object
 })
 </script>
