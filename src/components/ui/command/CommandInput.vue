@@ -1,6 +1,6 @@
 <script setup>
 import { cn } from '@/lib/utils';
-import { Search } from 'lucide-vue-next';
+import { Search } from '@lucide/vue';
 import { ComboboxInput, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
