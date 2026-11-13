@@ -9,7 +9,7 @@ import {
   useRafFn,
 } from '@vueuse/core'
 import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon, TrackNextIcon } from '@radix-icons/vue'
-import { Loader2 } from 'lucide-vue-next'
+import { Loader2 } from '@lucide/vue'
 import { parseDate, type DateValue } from '@internationalized/date'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'

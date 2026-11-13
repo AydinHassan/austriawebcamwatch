@@ -81,7 +81,7 @@ async function fetchBergfexCamLinks() {
       const failureRate = failedCount / areasToProcess.length;
       console.log(`[bergfex] Error for area ${title}: ${error.message} (failures: ${failedCount})`);
       if (failureRate > maxFailureRate) {
-        throw new Error(`Aborting: failure rate ${(failureRate * 100).toFixed(1)}% exceeds ${maxFailureRate * 100}% threshold (${failedCount} failures out of ${areasToProcess.length} areas)`);
+        throw new Error(`Aborting: failure rate ${(failureRate * 100).toFixed(1)}% exceeds ${maxFailureRate * 100}% threshold (${failedCount} failures out of ${areasToProcess.length} areas)`, { cause: error });
       }
       continue;
     }
@@ -155,7 +155,7 @@ async function fetchBergfexCams(camLinks) {
       const failureRate = failedCount / limit;
       console.log(`[bergfex] Error for ${url}: ${error.message} (failures: ${failedCount})`);
       if (failureRate > maxFailureRate) {
-        throw new Error(`Aborting: failure rate ${(failureRate * 100).toFixed(1)}% exceeds ${maxFailureRate * 100}% threshold (${failedCount} failures out of ${limit} cameras)`);
+        throw new Error(`Aborting: failure rate ${(failureRate * 100).toFixed(1)}% exceeds ${maxFailureRate * 100}% threshold (${failedCount} failures out of ${limit} cameras)`, { cause: error });
       }
       continue;
     }

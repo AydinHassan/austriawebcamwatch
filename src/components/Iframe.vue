@@ -9,7 +9,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import {debounce} from '@/lib/utils.js'
-import { Loader2 } from 'lucide-vue-next'
+import { Loader2 } from '@lucide/vue'
 
 // Props
 const props = defineProps({

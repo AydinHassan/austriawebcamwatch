@@ -4,6 +4,7 @@ import oxlint from 'eslint-plugin-oxlint'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 import vueParser from 'vue-eslint-parser'
 import tsParser from '@typescript-eslint/parser'
+import globals from 'globals'
 
 export default [
   {
@@ -16,6 +17,12 @@ export default [
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
   },
 
+  {
+    name: 'app/browser-globals',
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
   js.configs.recommended,
   ...pluginVue.configs['flat/essential'],
   {
@@ -73,14 +80,9 @@ export default [
   },
   {
     name: 'app/node-files',
-    files: ['cam-sync/**/*.{js,ts}'],
+    files: ['cam-sync/**/*.{js,ts}', 'vitest.config.ts'],
     languageOptions: {
-      globals: {
-        process: 'readonly',
-        __dirname: 'readonly',
-        require: 'readonly',
-        module: 'readonly',
-      },
+      globals: globals.node,
     },
   },
 ]

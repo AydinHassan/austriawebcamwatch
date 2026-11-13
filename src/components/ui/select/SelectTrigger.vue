@@ -1,6 +1,6 @@
 <script setup>
 import { cn } from '@/lib/utils';
-import { ChevronDown } from 'lucide-vue-next';
+import { ChevronDown } from '@lucide/vue';
 import { SelectIcon, SelectTrigger, useForwardProps } from 'radix-vue';
 import { computed } from 'vue';
 
