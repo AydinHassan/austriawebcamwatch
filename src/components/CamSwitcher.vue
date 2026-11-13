@@ -15,7 +15,7 @@ import { ref, computed } from 'vue'
 import { getAllWebcams, searchWebcams, getWebcamByName } from '@/services/webcams'
 import { usePresetsStore } from '@/stores/presets'
 
-const emit = defineEmits(['update:selectedWebcams']);
+defineEmits(['update:selectedWebcams']);
 
 const { selectedWebcams } = defineProps(['selectedWebcams'])
 

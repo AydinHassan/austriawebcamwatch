@@ -12,7 +12,7 @@ import {
 } from '@radix-icons/vue'
 import { createShareLink } from '@/utils/share'
 
-import { computed, onMounted, provide, ref, watch } from 'vue'
+import { computed, onMounted, provide, ref } from 'vue'
 import { useColorMode } from '@vueuse/core'
 import {
   Dialog,
