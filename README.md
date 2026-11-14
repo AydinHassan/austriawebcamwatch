@@ -18,7 +18,7 @@ npm run dev
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint with [oxlint](https://oxc.rs/docs/guide/usage/linter)
 
 ```sh
 npm run lint
