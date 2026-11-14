@@ -1,0 +1,29 @@
+name: Dependabot auto-merge
+
+# Merges the weekly grouped Dependabot PRs once the tests pass. Groups only hold
+# minor/patch updates; majors come as their own PRs and are left for review.
+on:
+  workflow_run:
+    workflows: ["Run Tests"]
+    types: [completed]
+
+jobs:
+  automerge:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.actor.login == 'dependabot[bot]' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      # Grouped PR branches look like dependabot/npm_and_yarn/npm-b0b59e2086.
+      - run: |
+          [[ "$BRANCH" =~ ^dependabot/[a-z_]+/[a-z-]+-[0-9a-f]{10}$ ]] || exit 0
+          gh pr merge --squash -R "$GITHUB_REPOSITORY" "$BRANCH"
+        env:
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
